@@ -1,0 +1,17 @@
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Release\Capa Presentacion.csprojAssemblyReference.cache
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Release\Capa_Presentacion.Formularios.frmModClientes.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Release\WindowsFormsApp1.frmRegClientes.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Release\Capa_Presentacion.Formularios.frmModifEmpleados.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Release\Capa_Presentacion.Formularios.frmModifHorariosYPrecios.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Release\Capa_Presentacion.Formularios.frmRegEmpleados.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Release\Capa_Presentacion.Formularios.frmInfoReservas.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Release\Capa_Presentacion.Formularios.frmPreciosYHorarios.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Release\Capa_Presentacion.Formularios.frmModifReservas.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Release\Capa_Presentacion.Formularios.frmRegReservas.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Release\Capa_Presentacion.Formularios.Servicios.frmModifServicios.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Release\Capa_Presentacion.Formularios.Servicios.frmRegServicios.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Release\Capa_Presentacion.frmLogin.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Release\Capa_Presentacion.frmPrincipal.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Release\Capa_Presentacion.Properties.Resources.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Release\Capa Presentacion.csproj.GenerateResource.cache
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Release\Capa Presentacion.csproj.CoreCompileInputs.cache

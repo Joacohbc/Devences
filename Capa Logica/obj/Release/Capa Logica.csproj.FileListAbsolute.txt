@@ -1,0 +1,5 @@
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa Logica\bin\Release\Capa Logica.dll
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa Logica\bin\Release\Capa Logica.pdb
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa Logica\obj\Release\Capa Logica.csproj.CoreCompileInputs.cache
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa Logica\obj\Release\Capa Logica.dll
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa Logica\obj\Release\Capa Logica.pdb

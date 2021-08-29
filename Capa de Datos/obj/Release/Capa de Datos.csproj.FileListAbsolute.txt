@@ -1,0 +1,13 @@
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Datos\bin\Release\Capa de Datos.dll
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Datos\bin\Release\Capa de Datos.pdb
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Datos\bin\Release\Capa Logica.dll
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Datos\bin\Release\MySql.Data.dll
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Datos\bin\Release\Google.Protobuf.dll
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Datos\bin\Release\BouncyCastle.Crypto.dll
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Datos\bin\Release\Capa Logica.pdb
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Datos\bin\Release\MySql.Data.xml
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Datos\obj\Release\Capa de Datos.csprojAssemblyReference.cache
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Datos\obj\Release\Capa de Datos.csproj.CoreCompileInputs.cache
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Datos\obj\Release\Capa de Datos.csproj.CopyComplete
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Datos\obj\Release\Capa de Datos.dll
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Datos\obj\Release\Capa de Datos.pdb

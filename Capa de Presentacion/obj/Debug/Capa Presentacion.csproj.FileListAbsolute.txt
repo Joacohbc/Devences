@@ -1,0 +1,135 @@
+C:\Users\emili\source\repos\Projecto\Login\obj\Debug\Capa Presentacion.csprojAssemblyReference.cache
+C:\Users\emili\source\repos\Projecto\Login\obj\Debug\Login.Formularios.frmRegClientes.resources
+C:\Users\emili\source\repos\Projecto\Login\obj\Debug\Login.Formularios.frmModifEmpleados.resources
+C:\Users\emili\source\repos\Projecto\Login\obj\Debug\Login.Formularios.frmModifHorariosYPrecios.resources
+C:\Users\emili\source\repos\Projecto\Login\obj\Debug\Login.Formularios.frmRegEmpleados.resources
+C:\Users\emili\source\repos\Projecto\Login\obj\Debug\Login.Formularios.frmInfoReservas.resources
+C:\Users\emili\source\repos\Projecto\Login\obj\Debug\Login.frmPreciosYHorarios.resources
+C:\Users\emili\source\repos\Projecto\Login\obj\Debug\Login.Formularios.frmModifReservas.resources
+C:\Users\emili\source\repos\Projecto\Login\obj\Debug\Login.Formularios.frmRegReservas.resources
+C:\Users\emili\source\repos\Projecto\Login\obj\Debug\Login.frmLogin.resources
+C:\Users\emili\source\repos\Projecto\Login\obj\Debug\Login.frmPrincipal.resources
+C:\Users\emili\source\repos\Projecto\Login\obj\Debug\Login.Properties.Resources.resources
+C:\Users\emili\source\repos\Projecto\Login\obj\Debug\Capa Presentacion.csproj.GenerateResource.cache
+C:\Users\emili\source\repos\Projecto\Login\obj\Debug\Capa Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\emili\source\repos\Projecto\Login\obj\Debug\Login.exe
+C:\Users\emili\source\repos\Projecto\Login\obj\Debug\Login.pdb
+C:\Users\emili\source\repos\Projecto\Login\bin\Debug\Login.exe.config
+C:\Users\emili\source\repos\Projecto\Login\bin\Debug\Login.exe
+C:\Users\emili\source\repos\Projecto\Login\bin\Debug\Login.pdb
+C:\Users\emili\source\repos\Projecto\Login\bin\Debug\Capa Logica.dll
+C:\Users\emili\source\repos\Projecto\Login\bin\Debug\Capa Logica.pdb
+C:\Users\emili\source\repos\Projecto\Login\obj\Debug\Capa Presentacion.csproj.CopyComplete
+C:\Users\emili\source\repos\Projecto\Login\obj\Debug\Login.Formularios.Servicios.frmModifServicios.resources
+C:\Users\emili\source\repos\Projecto\Login\obj\Debug\Login.Formularios.Servicios.frmRegServicios.resources
+C:\Users\emili\source\repos\Projecto\Login\obj\Debug\Login.Formularios.frmModClientes.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.csprojAssemblyReference.cache
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModClientes.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegClientes.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifHorariosYPrecios.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegEmpleados.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmInfoReservas.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmPreciosYHorarios.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifReservas.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.Servicios.frmModifServicios.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.Servicios.frmRegServicios.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.frmLogin.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.frmPrincipal.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.GenerateResource.cache
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifEmpleados.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa de Datos.dll
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa Logica.dll
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa de Datos.pdb
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa Logica.pdb
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CopyComplete
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa Presentacion.exe.config
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa Presentacion.exe
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa Presentacion.pdb
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Properties.Resources.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.exe
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.pdb
+D:\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa Presentacion.exe.config
+D:\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa Presentacion.exe
+D:\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa Presentacion.pdb
+D:\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa de Datos.dll
+D:\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa Logica.dll
+D:\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa de Datos.pdb
+D:\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa Logica.pdb
+D:\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.csprojAssemblyReference.cache
+D:\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModClientes.resources
+D:\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegClientes.resources
+D:\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifEmpleados.resources
+D:\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifHorariosYPrecios.resources
+D:\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegEmpleados.resources
+D:\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmInfoReservas.resources
+D:\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmPreciosYHorarios.resources
+D:\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifReservas.resources
+D:\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegReservas.resources
+D:\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.Servicios.frmModifServicios.resources
+D:\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.Servicios.frmRegServicios.resources
+D:\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.frmLogin.resources
+D:\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.frmPrincipal.resources
+D:\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Properties.Resources.resources
+D:\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.GenerateResource.cache
+D:\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CoreCompileInputs.cache
+D:\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CopyComplete
+D:\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.exe
+D:\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.pdb
+C:\Users\Joaco\source\repos\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegReservas.resources
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.csprojAssemblyReference.cache
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.exe
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.pdb
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa Presentacion.exe.config
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa Presentacion.exe
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa Presentacion.pdb
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa de Datos.dll
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa Logica.dll
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa de Datos.pdb
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa Logica.pdb
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModClientes.resources
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegClientes.resources
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifEmpleados.resources
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifHorariosYPrecios.resources
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegEmpleados.resources
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmInfoReservas.resources
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmPreciosYHorarios.resources
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifReservas.resources
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegReservas.resources
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.Servicios.frmModifServicios.resources
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.Servicios.frmRegServicios.resources
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.frmLogin.resources
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.frmPrincipal.resources
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Properties.Resources.resources
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.GenerateResource.cache
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\emili\Desktop\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CopyComplete
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.csprojAssemblyReference.cache
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModClientes.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.frmRegClientes.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifEmpleados.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifHorariosYPrecios.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegEmpleados.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmInfoReservas.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmPreciosYHorarios.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.Servicios.frmModifServicios.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.Servicios.frmRegServicios.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.frmLogin.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.frmPrincipal.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa_Presentacion.Properties.Resources.resources
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.GenerateResource.cache
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa Presentacion.exe.config
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa Presentacion.exe
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa Presentacion.pdb
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa de Datos.dll
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa Logica.dll
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\bin\Debug\MySql.Data.dll
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\bin\Debug\Google.Protobuf.dll
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa de Datos.pdb
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\bin\Debug\Capa Logica.pdb
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\bin\Debug\MySql.Data.xml
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CopyComplete
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.exe
+C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.pdb
