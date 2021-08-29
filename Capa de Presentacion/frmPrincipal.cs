@@ -161,13 +161,13 @@ namespace Capa_Presentacion
 
         private void btnIngRes_Click(object sender, EventArgs e)
         {
-            AbrirFormularios<frmRegReservas>();
+            //AbrirFormularios<frmRegReservas>();
             btnIngRes.BackColor = Color.SkyBlue;
         }
 
         private void btnModifRes_Click(object sender, EventArgs e)
         {
-            AbrirFormularios<frmModifReservas>();
+            //AbrirFormularios<frmModifReservas>();
             btnModifRes.BackColor = Color.SkyBlue;
         }
 
