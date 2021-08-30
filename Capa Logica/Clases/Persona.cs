@@ -76,20 +76,19 @@ namespace Capa_Logica
         public static bool ValidarCedula(TextBox txtCi, ErrorProvider error)
         {
             Validaciones validar = new Validaciones();
-            int validacion = validar.validarDigitos(txtCi.Text, 13, false, "");
+            int validacion = validar.validarDigitos(txtCi.Text, -1, false, "");
 
             error.SetIconPadding(txtCi, 5);
             if (validacion == 0)
             {
-                //Si tiene min 8 caracteres 
-                if (txtCi.Text.Length >= 8)
+                if (txtCi.Text.Length == 8)
                 {
                     error.SetError(txtCi, "");
                     return true;
                 }
                 else
                 {
-                    error.SetError(txtCi, "El campo de la cedula debe tener minimo 8 caracteres");
+                    error.SetError(txtCi, "El campo de la cedula debe tener 8 caracteres");
                     txtCi.Focus();
                     return false;
                 }
@@ -101,14 +100,6 @@ namespace Capa_Logica
                 txtCi.Focus();
                 return false;
             }
-            //Si tiene menos de 14 caracteres
-            else if (validacion == -2)
-            {
-                error.SetError(txtCi, "El campo de la cedula no puede tener mas de 13 caracteres");
-                txtCi.Focus();
-                return false;
-            }
-            //
             else
             {
                 error.SetError(txtCi, "El campo de la cedula solo pueden tener numeros(sin espacios)");
