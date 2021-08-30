@@ -251,25 +251,47 @@ namespace Capa_Presentacion
             }
         }
 
+        private bool cerrar = false;
         private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (Mensaje.MostraPreguntaSiNo("¿Quiere salir de la aplicacion? Perdera lo que no haya completado", "Cerrar programa"))
+            if (e.CloseReason == CloseReason.ApplicationExitCall)
             {
-                Dispose(true);
                 Application.Exit();
             }
             else
             {
-                e.Cancel = true;
+                if (cerrar)
+                {
+                    if (Mensaje.MostraPreguntaSiNo("Quieres Cerrar Sesion? El trabajo no guardado se perdera", "Cerrar Sesion"))
+                    {
+                        this.Dispose(true);
+
+                    }
+                    else
+                    {
+                        cerrar = false;
+                        e.Cancel = true;
+                    }
+                }
+                else
+                {
+                    cerrar = false;
+                    if (Mensaje.MostraPreguntaSiNo("Quieres Cerrar El Programa? El trabajo no guardado se perdera", "Cerrar Programa"))
+                    {
+                        Application.Exit();
+                    }
+                    else
+                    {
+                        e.Cancel = true;
+                    }
+                }
             }
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            if (Mensaje.MostraPreguntaSiNo("¿Quiere cerrar sesion? Perdera lo que no haya completado?", "Cerrar sesion"))
-            {
-                Close();
-            }
+            cerrar = true;  //Para que cumpla la condicion 
+            Close();
         }
     }
 
