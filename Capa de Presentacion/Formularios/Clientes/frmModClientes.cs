@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Capa_de_Datos;
+using Capa_Entidades;
 using Capa_Logica;
 using Capa_Logica.Clases;
 
@@ -135,7 +136,7 @@ namespace Capa_Presentacion.Formularios
         #region Eventos de Botones de Telefono
         private void btnAgregarTelefono_Click(object sender, EventArgs e)
         {
-            if (Cliente.ValidarTelefono(txtTelefono, errorProvider))
+            if (ValidarPersona.ValidarTelefono(txtTelefono, errorProvider))
             {
                 ///Si el telefono no esta en la lista
                 if (!listTelefonos.Items.Contains(txtTelefono.Text))
@@ -205,112 +206,111 @@ namespace Capa_Presentacion.Formularios
         //Cargar clliente por cedula
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (Cliente.ValidarCedula(txtCedula, errorProvider))
+            if (ValidarPersona.ValidarCedula(txtCedula, errorProvider))
             {
-                #region CodigoVeijo
-                if (frmPrincipal.clientes.Count > 0)
-                {
-                    bool existe = false;
-                    foreach (Cliente c in frmPrincipal.clientes)
-                    {
-                        if (c.Ci == txtCedula.Text)
-                        {
-                            txtModificarPrimerNombre.Text = c.PrimerNombre;
-                            txtPrimerNombre.Text = c.PrimerNombre;
+                //if (frmPrincipal.clientes.Count > 0)
+                //{
+                //    bool existe = false;
+                //    foreach (MetodosCliente c in frmPrincipal.clientes)
+                //    {
+                //        if (c.Ci == txtCedula.Text)
+                //        {
+                //            txtModificarPrimerNombre.Text = c.PrimerNombre;
+                //            txtPrimerNombre.Text = c.PrimerNombre;
 
-                            txtModificarSegundoNombre.Text = !String.IsNullOrWhiteSpace(c.SegundoNombre) ? c.SegundoNombre : "";
-                            txtSegundoNombre.Text = !String.IsNullOrWhiteSpace(c.SegundoNombre) ? c.SegundoNombre : "";
+                //            txtModificarSegundoNombre.Text = !String.IsNullOrWhiteSpace(c.SegundoNombre) ? c.SegundoNombre : "";
+                //            txtSegundoNombre.Text = !String.IsNullOrWhiteSpace(c.SegundoNombre) ? c.SegundoNombre : "";
 
-                            txtModificarPrimerApellido.Text = c.PrimerApellido;
-                            txtPrimerApellido.Text = c.PrimerApellido;
+                //            txtModificarPrimerApellido.Text = c.PrimerApellido;
+                //            txtPrimerApellido.Text = c.PrimerApellido;
 
-                            txtModificarSegundoApellido.Text = c.SegundoApellido;
-                            txtSegundoApellido.Text = c.SegundoApellido;
+                //            txtModificarSegundoApellido.Text = c.SegundoApellido;
+                //            txtSegundoApellido.Text = c.SegundoApellido;
 
-                            txtModificarMail.Text = !String.IsNullOrWhiteSpace(c.Mail) ? c.Mail : "";
-                            txtMail.Text = !String.IsNullOrWhiteSpace(c.Mail) ? c.Mail : "";
+                //            txtModificarMail.Text = !String.IsNullOrWhiteSpace(c.Mail) ? c.Mail : "";
+                //            txtMail.Text = !String.IsNullOrWhiteSpace(c.Mail) ? c.Mail : "";
 
-                            txtModificarDireccion.Text = c.Direccion;
-                            txtDireccion.Text = c.Direccion;
+                //            txtModificarDireccion.Text = c.Direccion;
+                //            txtDireccion.Text = c.Direccion;
 
-                            dtpModificarNacimiento.Value = c.FechaNacimiento;
-                            dtpNacimiento.Value = c.FechaNacimiento;
+                //            dtpModificarNacimiento.Value = c.FechaNacimiento;
+                //            dtpNacimiento.Value = c.FechaNacimiento;
 
-                            if (c.Genero == "Masculino")
-                            {
-                                chkModificarHombre.Checked = true;
-                                rdbHombre.Checked = true;
-                            }
-                            else if (c.Genero == "Femenino")
-                            {
-                                chkModificarMujer.Checked = true;
-                                rdbMujer.Checked = true;
-                            }
-                            else
-                            {
-                                chkModificarNoBinario.Checked = true;
-                                rdbNoBinario.Checked = true;
-                            }
+                //            if (c.Genero == "Masculino")
+                //            {
+                //                chkModificarHombre.Checked = true;
+                //                rdbHombre.Checked = true;
+                //            }
+                //            else if (c.Genero == "Femenino")
+                //            {
+                //                chkModificarMujer.Checked = true;
+                //                rdbMujer.Checked = true;
+                //            }
+                //            else
+                //            {
+                //                chkModificarNoBinario.Checked = true;
+                //                rdbNoBinario.Checked = true;
+                //            }
 
-                            if (c.Telefonos.Count > 0)
-                            {
-                                //Los limpio para que no se repitan los telefonos
-                                listTelefonos.Items.Clear();
-                                listModificarTelefonos.Items.Clear();
+                //            if (c.Telefonos.Count > 0)
+                //            {
+                //                //Los limpio para que no se repitan los telefonos
+                //                listTelefonos.Items.Clear();
+                //                listModificarTelefonos.Items.Clear();
 
-                                foreach (String s in c.Telefonos)
-                                {
-                                    listModificarTelefonos.Items.Add(s);
-                                    listTelefonos.Items.Add(s);
-                                }
-                            }
-                            existe = true;
-                            break;
-                        }
-                    }
-                    if (existe)
-                    {
-                        MessageBox.Show("Cliente ya encontrado, puede empezar a modificarlo", "Modificar clientes", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("No hay clientes registrados con esa cedula", "Modificar clientes", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("No hay clientes registrados", "Modificar clientes", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                #endregion
+                //                foreach (String s in c.Telefonos)
+                //                {
+                //                    listModificarTelefonos.Items.Add(s);
+                //                    listTelefonos.Items.Add(s);
+                //                }
+                //            }
+                //            existe = true;
+                //            break;
+                //        }
+                //    }
+                //    if (existe)
+                //    {
+                //        MessageBox.Show("Cliente ya encontrado, puede empezar a modificarlo", "Modificar clientes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show("No hay clientes registrados con esa cedula", "Modificar clientes", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    }
+                //}
+                //else
+                //{
+                //    MessageBox.Show("No hay clientes registrados", "Modificar clientes", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
+
             }
         }
 
         //Modificar cliente
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (Cliente.ValidarPrimerNombre(txtPrimerNombre, errorProvider))
+            if (ValidarPersona.ValidarPrimerNombre(txtPrimerNombre, errorProvider))
             {
-                if (Cliente.ValidarSegundoNombre(txtSegundoApellido, errorProvider))
+                if (ValidarPersona.ValidarSegundoNombre(txtSegundoApellido, errorProvider))
                 {
-                    if (Cliente.ValidarMail(txtMail, errorProvider))
+                    if (ValidarPersona.ValidarMail(txtMail, errorProvider))
                     {
-                        if (Cliente.ValidarDireccion(txtDireccion, errorProvider))
+                        if (ValidarPersona.ValidarDireccion(txtDireccion, errorProvider))
                         {
                             Cliente cliente = CreacionObjeto.CrearCliente(txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail,
                                  txtDireccion, dtpNacimiento, rdbHombre, rdbMujer, listTelefonos);
 
-                            if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar al cliente: " + txtModificarPrimerNombre.Text + " " + txtModificarPrimerApellido.Text + "?", "Modificar cliente"))
-                            {
-                                for (int i = 0; i < frmPrincipal.clientes.Count; i++)
-                                {
-                                    if (frmPrincipal.clientes[i].Ci == txtCedula.Text)
-                                    {
-                                        frmPrincipal.clientes[i] = cliente;
-                                    }
-                                }
-                                Mensaje.MostrarInfo("Se modifico el cliente con exito", "Modificar cliente");
-                                btnCancelar.PerformClick();
-                            }
+                            //if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar al cliente: " + txtModificarPrimerNombre.Text + " " + txtModificarPrimerApellido.Text + "?", "Modificar cliente"))
+                            //{
+                            //    for (int i = 0; i < frmPrincipal.clientes.Count; i++)
+                            //    {
+                            //        if (frmPrincipal.clientes[i].Ci == txtCedula.Text)
+                            //        {
+                            //            frmPrincipal.clientes[i] = cliente;
+                            //        }
+                            //    }
+                            //    Mensaje.MostrarInfo("Se modifico el cliente con exito", "Modificar cliente");
+                            //    btnCancelar.PerformClick();
+                            //}
                         }
                     }
                 }

@@ -9,28 +9,8 @@ using Capa_de_Datos.Login;
 
 namespace Capa_Logica.Clases
 {
-    public class Empleado : Persona
+    public class MetodosEmpleado
     {
-        private string usuario;
-        private string contra;
-        private string tipo;
-        private bool estado;
-
-        #region Constructores
-        public Empleado() : base()
-        {
-            Telefonos = new List<string>();
-            estado = true;
-        }
-        #endregion
-
-        #region Getters y Setters
-        public string Usuario { get => usuario; set => usuario = value; }
-        public string Contra { get => contra; set => contra = value; }
-        public string Tipo { get => tipo; set => tipo = value; }
-        public bool Estado { get => estado; set => estado = value; }
-        #endregion
-
         #region Login
         public static int Loguearse(TextBox txtUsuario, TextBox txtContra)
         {
@@ -105,6 +85,5 @@ namespace Capa_Logica.Clases
             }
         }
         #endregion
-
     }
 }

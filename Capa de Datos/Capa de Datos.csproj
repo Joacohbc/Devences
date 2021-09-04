@@ -47,5 +47,11 @@
     <Compile Include="Login\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Capa Entidades\Capa Entidades.csproj">
+      <Project>{857a660e-1e76-4cd0-afc0-628afa727bbb}</Project>
+      <Name>Capa Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

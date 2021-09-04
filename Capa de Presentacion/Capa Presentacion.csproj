@@ -176,6 +176,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Capa Entidades\Capa Entidades.csproj">
+      <Project>{857a660e-1e76-4cd0-afc0-628afa727bbb}</Project>
+      <Name>Capa Entidades</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Capa Logica\Capa Logica.csproj">
       <Project>{ac3e80bc-8515-40e9-ba60-bdd70526abd5}</Project>
       <Name>Capa Logica</Name>

@@ -1,4 +1,4 @@
-﻿using Capa_Logica.Clases;
+﻿using Capa_Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;

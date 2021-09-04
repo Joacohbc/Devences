@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Capa_Logica
+namespace Capa_Entidades
 {
     public class Reserva
     {

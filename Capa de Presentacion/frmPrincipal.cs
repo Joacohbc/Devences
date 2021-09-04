@@ -1,4 +1,5 @@
 ﻿using Capa_de_Datos;
+using Capa_Entidades;
 using Capa_Logica;
 using Capa_Logica.Clases;
 using Capa_Presentacion.Formularios;
@@ -18,9 +19,6 @@ namespace Capa_Presentacion
 {
     public partial class frmPrincipal : Form
     {
-        public static List<Cliente> clientes = new List<Cliente>();
-        public static List<Reserva> reservas = new List<Reserva>();
-
         //En esta variable de tipo Empleado se almacena el 
         //empleado que esta usando la sesion
         private static Empleado Empleado;

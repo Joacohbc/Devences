@@ -18,7 +18,7 @@ namespace Capa_Presentacion
         public frmLogin()
         {
             InitializeComponent();
-            
+
             //Pongo el icono al form
             this.Icon = Properties.Resources.Logo;
         }
@@ -97,8 +97,8 @@ namespace Capa_Presentacion
             {
                 try
                 {
-                    int rol = Empleado.Loguearse(txtUsuario, txtContra);
-                    if(rol >= 0)
+                    int rol = MetodosEmpleado.Loguearse(txtUsuario, txtContra);
+                    if (rol >= 0)
                     {
                         //Le envio que usuario ingreso y que rol tiene
                         frmPrincipal formPrincipal = new frmPrincipal(txtUsuario.Text, rol);
@@ -115,13 +115,13 @@ namespace Capa_Presentacion
                         chkMostrarContra.Visible = false;
                         chkMostrarContra.Checked = true;
                     }
-                    else if(rol == -1)
+                    else if (rol == -1)
                     {
                         Mensaje.MostrarError("Usuario y/o Contraseña Incorrecta", Mensaje.ErrorIngreso);
                     }
 
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Mensaje.MostrarError("Ocurrio un error al iniciar sesion", Mensaje.ErrorBD);
                 }
