@@ -8,6 +8,5 @@ namespace Capa_Logica.Clases
 {
     public class MetodosIntegrantes
     {
-
     }
 }

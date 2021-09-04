@@ -10,11 +10,11 @@ namespace Capa_Logica
 {
     public class CreacionObjeto
     {
-        public static Cliente CrearCliente(TextBox txtCedula, TextBox txtPrimerNombre, TextBox txtSegundoNombre, TextBox txtPrimerApellido, TextBox txtSegundoApellido,
+        public static Cliente CrearCliente(int ci, TextBox txtPrimerNombre, TextBox txtSegundoNombre, TextBox txtPrimerApellido, TextBox txtSegundoApellido,
             TextBox txtMail, TextBox txtDireccion, DateTimePicker dtpNacimiento, RadioButton rdbHombre, RadioButton rdbMujer, ListBox listTelefonos)
         {
             Cliente cliente = new Cliente();
-            cliente.Ci = txtCedula.Text;
+            cliente.Ci = ci;
             cliente.PrimerNombre = txtPrimerNombre.Text;
             if (!String.IsNullOrWhiteSpace(txtSegundoNombre.Text))
             {

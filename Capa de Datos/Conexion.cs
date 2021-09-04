@@ -20,11 +20,11 @@ namespace Capa_de_Datos
             }
             else if (rol == "gerente")
             {
-                //conexion para gerente
+                conexionBD = new MySqlConnection("server=localhost; port=3306; database=proyectoprueba; uid=gerente; pwd=gerente;");
             }
             else
             {
-                //conexion para administrativo
+                conexionBD = new MySqlConnection("server=localhost; port=3306; database=proyectoprueba; uid=administrativo; pwd=administrativo;");
             }
         }
 

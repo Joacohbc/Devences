@@ -38,7 +38,7 @@ namespace Capa_Logica.Clases
                                         //Valido fecha de nacimiento
                                         if (ValidarPersona.ValidarFechaNacimiento(dtpNacimiento, errorProvider))
                                         {
-                                            Cliente ValidarPersona = CreacionObjeto.CrearCliente(txtCedula, txtPrimerApellido, txtSegundoNombre,
+                                            Cliente ValidarPersona = CreacionObjeto.CrearCliente(Convert.ToInt32(txtCedula.Text), txtPrimerApellido, txtSegundoNombre,
                                                 txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, dtpNacimiento, rdbHombre, rdbMujer, listTelefonos);
 
                                             //AQUI DEBERIA IR EL DAR DE ALTA

@@ -8,7 +8,7 @@ namespace Capa_Entidades
 {
     public class Persona
     {
-        private String ci;
+        private int ci;
         private String primerNombre;
         private String segundoNombre;
         private String primerApellido;
@@ -30,7 +30,7 @@ namespace Capa_Entidades
         #endregion
 
         #region Getters y Setters
-        public string Ci { get => ci; set => ci = value; }
+        public int Ci { get => ci; set => ci = value; }
         public string PrimerNombre { get => primerNombre; set => primerNombre = value; }
         public string SegundoNombre { get => segundoNombre; set => segundoNombre = value; }
         public string PrimerApellido { get => primerApellido; set => primerApellido = value; }

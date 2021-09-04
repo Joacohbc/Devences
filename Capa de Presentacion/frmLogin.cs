@@ -29,7 +29,6 @@ namespace Capa_Presentacion
             if (txtUsuario.Text == "Usuario")
             {
                 txtUsuario.Text = "";
-
             }
         }
 
