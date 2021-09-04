@@ -69,6 +69,8 @@ primary key(nombre));
 create table if not exists registroDeCambio (
 id int(11) auto_increment not null,
 ci int(8) not null,
+sentencia varchar(100) not null,
+descripcion varchar(100) not null,
 primary key(id),
 foreign key(ci) references empleado(ci));
 

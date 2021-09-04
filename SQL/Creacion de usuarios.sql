@@ -27,7 +27,7 @@ grant select,insert,update on proyectoprueba.cliente to gerente;
 grant select,insert,update on proyectoprueba.empleado to gerente;
 
 #Sobre la Tabla RegistroDeCamio 
-grant insert on proyectoprueba.registrodecambio to gerente;
+grant select,insert on proyectoprueba.registrodecambio to gerente;
 
 #Sobre la Tabla Integran
 grant select,insert,update on proyectoprueba.integran to gerente;
