@@ -296,7 +296,7 @@ namespace Capa_Presentacion.Formularios
                     {
                         if (ValidarPersona.ValidarDireccion(txtDireccion, errorProvider))
                         {
-                            Cliente cliente = CreacionObjeto.CrearCliente(txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail,
+                            Cliente cliente = CreacionObjeto.CrearCliente(Convert.ToInt32(txtCedula.Text), txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail,
                                  txtDireccion, dtpNacimiento, rdbHombre, rdbMujer, listTelefonos);
 
                             //if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar al cliente: " + txtModificarPrimerNombre.Text + " " + txtModificarPrimerApellido.Text + "?", "Modificar cliente"))
