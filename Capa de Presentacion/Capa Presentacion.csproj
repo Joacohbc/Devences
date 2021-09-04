@@ -87,6 +87,18 @@
     <Compile Include="Formularios\Gerente\frmRegEmpleados.Designer.cs">
       <DependentUpon>frmRegEmpleados.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Reservas\frmModifReservas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reservas\frmModifReservas.Designer.cs">
+      <DependentUpon>frmModifReservas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reservas\frmRegReservas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reservas\frmRegReservas.Designer.cs">
+      <DependentUpon>frmRegReservas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Servicios\frmModifServicios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +151,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Info\frmPreciosYHorarios.resx">
       <DependentUpon>frmPreciosYHorarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reservas\frmModifReservas.resx">
+      <DependentUpon>frmModifReservas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reservas\frmRegReservas.resx">
+      <DependentUpon>frmRegReservas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Servicios\frmModifServicios.resx">
       <DependentUpon>frmModifServicios.cs</DependentUpon>

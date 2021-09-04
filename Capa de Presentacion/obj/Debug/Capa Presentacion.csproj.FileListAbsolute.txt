@@ -164,3 +164,5 @@ C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Logica.pdb
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa de Datos.pdb
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\MySql.Data.xml
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CopyComplete
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifReservas.resources
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegReservas.resources
