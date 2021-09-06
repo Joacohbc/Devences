@@ -2,8 +2,10 @@
 create user login;
 #Le asigno la contrasenia
 set password for login=PASSWORD('login');
-#Le doy permiso para consultar solamente en la tabla de empleados
+#Le doy permiso para consultar solamente en la tabla de empleados y la
+#tabla persona
 grant select on proyectoprueba.empleado to login;
+grant select on proyectoprueba.persona to login;
 
 #--------------------------------------------------------------------------
 
