@@ -166,3 +166,36 @@ C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\MySql.Data.xml
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CopyComplete
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifReservas.resources
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegReservas.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.exe.config
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.exe
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.pdb
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Capa de Datos.dll
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Capa Entidades.dll
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Capa Logica.dll
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\MySql.Data.dll
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Google.Protobuf.dll
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Capa de Datos.pdb
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Capa Entidades.pdb
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Capa Logica.pdb
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\MySql.Data.xml
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csprojAssemblyReference.cache
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModClientes.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegClientes.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifEmpleados.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifHorariosYPrecios.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegEmpleados.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmInfoReservas.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmPreciosYHorarios.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifReservas.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegReservas.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.Servicios.frmModifServicios.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.Servicios.frmRegServicios.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.frmLogin.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.frmPrincipal.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Properties.Resources.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.GenerateResource.cache
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CopyComplete
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.exe
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.pdb

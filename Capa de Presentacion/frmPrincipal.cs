@@ -105,7 +105,7 @@ namespace Capa_Presentacion
                 btnInfoPyH.BackColor = Color.PowderBlue;
             if (Application.OpenForms["frmRegClientes"] == null)
                 btnRegCli.BackColor = Color.PowderBlue;
-            if (Application.OpenForms["frmModifClientes"] == null)
+            if (Application.OpenForms["frmModClientes"] == null)
                 btnModifCli.BackColor = Color.PowderBlue;
             if (Application.OpenForms["frmRegReservas"] == null)
                 btnIngRes.BackColor = Color.PowderBlue;

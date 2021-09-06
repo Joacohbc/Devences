@@ -58,12 +58,12 @@
             this.dtpNacimiento = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnTitulo = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistrarClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pnTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -387,16 +387,16 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // panel1
+            // pnTitulo
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btnSalir);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 47);
-            this.panel1.TabIndex = 54;
+            this.pnTitulo.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pnTitulo.Controls.Add(this.label1);
+            this.pnTitulo.Controls.Add(this.btnSalir);
+            this.pnTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnTitulo.Location = new System.Drawing.Point(0, 0);
+            this.pnTitulo.Name = "pnTitulo";
+            this.pnTitulo.Size = new System.Drawing.Size(1000, 47);
+            this.pnTitulo.TabIndex = 54;
             // 
             // label10
             // 
@@ -426,7 +426,7 @@
             this.ClientSize = new System.Drawing.Size(1000, 605);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnTitulo);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dtpNacimiento);
             this.Controls.Add(this.btnBorrarTelefono);
@@ -459,8 +459,8 @@
             this.Load += new System.EventHandler(this.frmRegClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistrarClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnTitulo.ResumeLayout(false);
+            this.pnTitulo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -497,7 +497,7 @@
         private System.Windows.Forms.DateTimePicker dtpNacimiento;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ErrorProvider errorProvider;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnTitulo;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
     }
