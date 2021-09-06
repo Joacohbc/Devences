@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Capa_de_Datos;
 using Capa_de_Datos.Login;
+using Capa_Entidades;
 
 namespace Capa_Logica.Clases
 {
@@ -36,6 +37,11 @@ namespace Capa_Logica.Clases
                 //Lo muestra este metodo
                 return -3;
             }
+        }
+
+        public static Empleado BuscarUsuario(String usuario, int rol)
+        {
+            return Login.BuscarEmpleado(usuario);
         }
 
         /// <summary>

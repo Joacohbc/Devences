@@ -21,12 +21,12 @@ namespace Capa_Presentacion
     {
         //En esta variable de tipo Empleado se almacena el 
         //empleado que esta usando la sesion
-        private static Empleado Empleado;
+        private static Empleado empleado;
 
         public frmPrincipal(string usuario, int rol)
         {
             InitializeComponent();
-            
+
             //Pongo el icono al form
             Icon = Properties.Resources.Logo;
 
@@ -41,12 +41,19 @@ namespace Capa_Presentacion
             }
 
             //Para que se guarde el usuario que inicio sesion
-            Empleado empleadoQueIngreso = new Empleado();
-            empleadoQueIngreso.Usuario = usuario;
-            Empleado = empleadoQueIngreso;
+            try
+            {
+                empleado = MetodosEmpleado.BuscarUsuario(usuario, rol);
+            }
+            catch(Exception ex)
+            {
+                Mensaje.MostrarError("Ocurrio un error al cargar al usuario de la sesion: " + ex.Message, Mensaje.ErrorBD);
+                Close();
+            }
 
             //Cargo el label con su nombre de usuario
-            lblUsuario.Text = empleadoQueIngreso.Usuario;
+            lblUsuario.Text = empleado.Usuario;
+
         }
 
         //Metodo para Mostrar Sub Menus
@@ -60,7 +67,6 @@ namespace Capa_Presentacion
             {
                 subMenu.Visible = false;
             }
-
         }
 
         //Metodo Para Mostrar Formularios

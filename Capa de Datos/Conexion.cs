@@ -12,13 +12,13 @@ namespace Capa_de_Datos
     {
         private MySqlConnection conexionBD;
 
-        public Conexion(String rol)
+        public Conexion(int rol)
         {
-            if (rol == "login")
+            if (rol == 2)
             {
                 conexionBD = new MySqlConnection("server=localhost; port=3306; database=proyectoprueba; uid=login; pwd=login;");
             }
-            else if (rol == "gerente")
+            else if (rol == 1)
             {
                 conexionBD = new MySqlConnection("server=localhost; port=3306; database=proyectoprueba; uid=gerente; pwd=gerente;");
             }

@@ -9,11 +9,12 @@ namespace Capa_de_Datos
 {
     public class Altas
     {
-        private static String rol;
-        public static string Rol { get => rol; set => rol = value; }
+        private Conexion conexion;
+        public Altas(int rol)
+        {
+            this.conexion = new Conexion(rol);
+        }
 
-        private static Conexion conexion = new Conexion(rol);
-        
         /// <summary>
         /// Se agrega un nuevo registro
         /// </summary>
@@ -21,7 +22,7 @@ namespace Capa_de_Datos
         /// <param name="sentenciaIngresada"> Sentencia que ejecuto</param>
         /// <param name="descripcion"> Descripcion de la sentencia que se ejecuto</param>
         /// <returns></returns>
-        public static int NuevoRegistro(int ci, String sentenciaIngresada, String descripcion)
+        public int NuevoRegistro(int ci, String sentenciaIngresada, String descripcion)
         {
             try
             {
