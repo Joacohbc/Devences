@@ -56,15 +56,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.chkConfirmada = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIntegrantes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(406, 25);
+            this.label1.Location = new System.Drawing.Point(12, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(175, 20);
             this.label1.TabIndex = 1;
@@ -72,9 +76,13 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(913, 12);
+            this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.Location = new System.Drawing.Point(917, 7);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.Size = new System.Drawing.Size(75, 32);
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -83,35 +91,42 @@
             // cmbTipoDeIngreso
             // 
             this.cmbTipoDeIngreso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoDeIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoDeIngreso.FormattingEnabled = true;
             this.cmbTipoDeIngreso.Items.AddRange(new object[] {
             "Normal",
             "Hospedado",
             "Pensionista o Jubilado"});
-            this.cmbTipoDeIngreso.Location = new System.Drawing.Point(197, 160);
+            this.cmbTipoDeIngreso.Location = new System.Drawing.Point(180, 207);
             this.cmbTipoDeIngreso.Name = "cmbTipoDeIngreso";
-            this.cmbTipoDeIngreso.Size = new System.Drawing.Size(193, 21);
+            this.cmbTipoDeIngreso.Size = new System.Drawing.Size(193, 24);
             this.cmbTipoDeIngreso.TabIndex = 92;
             // 
             // dtpFechaFin
             // 
-            this.dtpFechaFin.Location = new System.Drawing.Point(197, 216);
+            this.dtpFechaFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaFin.Location = new System.Drawing.Point(180, 278);
             this.dtpFechaFin.Name = "dtpFechaFin";
-            this.dtpFechaFin.Size = new System.Drawing.Size(193, 20);
+            this.dtpFechaFin.Size = new System.Drawing.Size(193, 23);
             this.dtpFechaFin.TabIndex = 91;
             // 
             // dtpFechaInico
             // 
-            this.dtpFechaInico.Location = new System.Drawing.Point(197, 189);
+            this.dtpFechaInico.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaInico.Location = new System.Drawing.Point(180, 247);
             this.dtpFechaInico.Name = "dtpFechaInico";
-            this.dtpFechaInico.Size = new System.Drawing.Size(193, 20);
+            this.dtpFechaInico.Size = new System.Drawing.Size(193, 23);
             this.dtpFechaInico.TabIndex = 90;
             // 
             // btnBorrarIntegrante
             // 
-            this.btnBorrarIntegrante.Location = new System.Drawing.Point(867, 128);
+            this.btnBorrarIntegrante.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnBorrarIntegrante.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnBorrarIntegrante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBorrarIntegrante.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrarIntegrante.Location = new System.Drawing.Point(881, 189);
             this.btnBorrarIntegrante.Name = "btnBorrarIntegrante";
-            this.btnBorrarIntegrante.Size = new System.Drawing.Size(75, 23);
+            this.btnBorrarIntegrante.Size = new System.Drawing.Size(90, 28);
             this.btnBorrarIntegrante.TabIndex = 89;
             this.btnBorrarIntegrante.Text = "Borrar";
             this.btnBorrarIntegrante.UseVisualStyleBackColor = true;
@@ -124,7 +139,7 @@
             this.Apellido,
             this.Genero,
             this.tipoDeIngreso});
-            this.dgvIntegrantes.Location = new System.Drawing.Point(456, 274);
+            this.dgvIntegrantes.Location = new System.Drawing.Point(471, 394);
             this.dgvIntegrantes.MultiSelect = false;
             this.dgvIntegrantes.Name = "dgvIntegrantes";
             this.dgvIntegrantes.ReadOnly = true;
@@ -158,9 +173,13 @@
             // 
             // btnDescartar
             // 
-            this.btnDescartar.Location = new System.Drawing.Point(303, 406);
+            this.btnDescartar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnDescartar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnDescartar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDescartar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDescartar.Location = new System.Drawing.Point(280, 427);
             this.btnDescartar.Name = "btnDescartar";
-            this.btnDescartar.Size = new System.Drawing.Size(87, 23);
+            this.btnDescartar.Size = new System.Drawing.Size(92, 36);
             this.btnDescartar.TabIndex = 87;
             this.btnDescartar.Text = "Descartar";
             this.btnDescartar.UseVisualStyleBackColor = true;
@@ -168,9 +187,13 @@
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(197, 406);
+            this.btnRegistrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.Location = new System.Drawing.Point(141, 427);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(100, 23);
+            this.btnRegistrar.Size = new System.Drawing.Size(92, 36);
             this.btnRegistrar.TabIndex = 86;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
@@ -178,9 +201,13 @@
             // 
             // btnAgregarIntegrante
             // 
-            this.btnAgregarIntegrante.Location = new System.Drawing.Point(585, 191);
+            this.btnAgregarIntegrante.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.btnAgregarIntegrante.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnAgregarIntegrante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarIntegrante.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarIntegrante.Location = new System.Drawing.Point(595, 269);
             this.btnAgregarIntegrante.Name = "btnAgregarIntegrante";
-            this.btnAgregarIntegrante.Size = new System.Drawing.Size(128, 23);
+            this.btnAgregarIntegrante.Size = new System.Drawing.Size(90, 28);
             this.btnAgregarIntegrante.TabIndex = 85;
             this.btnAgregarIntegrante.Text = "Agregar";
             this.btnAgregarIntegrante.UseVisualStyleBackColor = true;
@@ -188,17 +215,20 @@
             // 
             // listIntegrantes
             // 
+            this.listIntegrantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listIntegrantes.FormattingEnabled = true;
-            this.listIntegrantes.Location = new System.Drawing.Point(761, 128);
+            this.listIntegrantes.ItemHeight = 20;
+            this.listIntegrantes.Location = new System.Drawing.Point(734, 189);
             this.listIntegrantes.Name = "listIntegrantes";
-            this.listIntegrantes.Size = new System.Drawing.Size(100, 95);
+            this.listIntegrantes.Size = new System.Drawing.Size(141, 124);
             this.listIntegrantes.TabIndex = 84;
             // 
             // txtCedulaIntegrante
             // 
-            this.txtCedulaIntegrante.Location = new System.Drawing.Point(555, 128);
+            this.txtCedulaIntegrante.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCedulaIntegrante.Location = new System.Drawing.Point(544, 189);
             this.txtCedulaIntegrante.Name = "txtCedulaIntegrante";
-            this.txtCedulaIntegrante.Size = new System.Drawing.Size(184, 20);
+            this.txtCedulaIntegrante.Size = new System.Drawing.Size(184, 26);
             this.txtCedulaIntegrante.TabIndex = 83;
             this.txtCedulaIntegrante.TextChanged += new System.EventHandler(this.txtCedulaIntegrante_TextChanged);
             this.txtCedulaIntegrante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaIntegrante_KeyPress);
@@ -206,18 +236,20 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(453, 131);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(540, 161);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(96, 13);
+            this.label8.Size = new System.Drawing.Size(145, 20);
             this.label8.TabIndex = 82;
             this.label8.Text = "Cedula Integrantes";
             // 
             // lblTipoDeIng
             // 
             this.lblTipoDeIng.AutoSize = true;
-            this.lblTipoDeIng.Location = new System.Drawing.Point(142, 160);
+            this.lblTipoDeIng.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoDeIng.Location = new System.Drawing.Point(58, 211);
             this.lblTipoDeIng.Name = "lblTipoDeIng";
-            this.lblTipoDeIng.Size = new System.Drawing.Size(28, 13);
+            this.lblTipoDeIng.Size = new System.Drawing.Size(39, 20);
             this.lblTipoDeIng.TabIndex = 80;
             this.lblTipoDeIng.Tag = "";
             this.lblTipoDeIng.Text = "Tipo";
@@ -225,35 +257,39 @@
             // lblFechFin
             // 
             this.lblFechFin.AutoSize = true;
-            this.lblFechFin.Location = new System.Drawing.Point(142, 216);
+            this.lblFechFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechFin.Location = new System.Drawing.Point(58, 280);
             this.lblFechFin.Name = "lblFechFin";
-            this.lblFechFin.Size = new System.Drawing.Size(21, 13);
+            this.lblFechFin.Size = new System.Drawing.Size(31, 20);
             this.lblFechFin.TabIndex = 79;
             this.lblFechFin.Text = "Fin";
             // 
             // lblFechIn
             // 
             this.lblFechIn.AutoSize = true;
-            this.lblFechIn.Location = new System.Drawing.Point(141, 189);
+            this.lblFechIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechIn.Location = new System.Drawing.Point(58, 250);
             this.lblFechIn.Name = "lblFechIn";
-            this.lblFechIn.Size = new System.Drawing.Size(32, 13);
+            this.lblFechIn.Size = new System.Drawing.Size(46, 20);
             this.lblFechIn.TabIndex = 78;
             this.lblFechIn.Text = "Inicio";
             // 
             // lblCedTit
             // 
             this.lblCedTit.AutoSize = true;
-            this.lblCedTit.Location = new System.Drawing.Point(116, 136);
+            this.lblCedTit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCedTit.Location = new System.Drawing.Point(50, 170);
             this.lblCedTit.Name = "lblCedTit";
-            this.lblCedTit.Size = new System.Drawing.Size(72, 13);
+            this.lblCedTit.Size = new System.Drawing.Size(106, 20);
             this.lblCedTit.TabIndex = 77;
             this.lblCedTit.Text = "Cédula Titular";
             // 
             // txtCedulaTitular
             // 
-            this.txtCedulaTitular.Location = new System.Drawing.Point(197, 133);
+            this.txtCedulaTitular.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCedulaTitular.Location = new System.Drawing.Point(180, 167);
             this.txtCedulaTitular.Name = "txtCedulaTitular";
-            this.txtCedulaTitular.Size = new System.Drawing.Size(193, 20);
+            this.txtCedulaTitular.Size = new System.Drawing.Size(193, 26);
             this.txtCedulaTitular.TabIndex = 75;
             this.txtCedulaTitular.TextChanged += new System.EventHandler(this.txtCedulaTitular_TextChanged);
             this.txtCedulaTitular.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaTitular_KeyPress);
@@ -261,22 +297,24 @@
             // cmbTipoIngresoIntegrante
             // 
             this.cmbTipoIngresoIntegrante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoIngresoIntegrante.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoIngresoIntegrante.FormattingEnabled = true;
             this.cmbTipoIngresoIntegrante.Items.AddRange(new object[] {
             "Normal",
             "Hospedado",
             "Pensionista o Jubilado"});
-            this.cmbTipoIngresoIntegrante.Location = new System.Drawing.Point(555, 160);
+            this.cmbTipoIngresoIntegrante.Location = new System.Drawing.Point(544, 221);
             this.cmbTipoIngresoIntegrante.Name = "cmbTipoIngresoIntegrante";
-            this.cmbTipoIngresoIntegrante.Size = new System.Drawing.Size(184, 21);
+            this.cmbTipoIngresoIntegrante.Size = new System.Drawing.Size(184, 24);
             this.cmbTipoIngresoIntegrante.TabIndex = 95;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(521, 163);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(475, 221);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(28, 13);
+            this.label2.Size = new System.Drawing.Size(39, 20);
             this.label2.TabIndex = 96;
             this.label2.Tag = "";
             this.label2.Text = "Tipo";
@@ -284,9 +322,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(453, 258);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(472, 356);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.Size = new System.Drawing.Size(102, 24);
             this.label3.TabIndex = 97;
             this.label3.Text = "Integrantes";
             // 
@@ -297,18 +336,54 @@
             // chkConfirmada
             // 
             this.chkConfirmada.AutoSize = true;
-            this.chkConfirmada.Location = new System.Drawing.Point(197, 242);
+            this.chkConfirmada.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkConfirmada.Location = new System.Drawing.Point(180, 309);
             this.chkConfirmada.Name = "chkConfirmada";
-            this.chkConfirmada.Size = new System.Drawing.Size(79, 17);
+            this.chkConfirmada.Size = new System.Drawing.Size(104, 22);
             this.chkConfirmada.TabIndex = 98;
             this.chkConfirmada.Text = "Confirmada";
             this.chkConfirmada.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnSalir);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1000, 47);
+            this.panel1.TabIndex = 99;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(116, 89);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(71, 26);
+            this.label18.TabIndex = 100;
+            this.label18.Text = "Titular";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(539, 89);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(120, 26);
+            this.label4.TabIndex = 101;
+            this.label4.Text = "Integrantes";
             // 
             // frmRegReservas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1000, 605);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnAgregarIntegrante);
             this.Controls.Add(this.chkConfirmada);
             this.Controls.Add(this.label3);
@@ -329,14 +404,14 @@
             this.Controls.Add(this.lblFechIn);
             this.Controls.Add(this.lblCedTit);
             this.Controls.Add(this.txtCedulaTitular);
-            this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmRegReservas";
             this.Text = "frmRegReservas";
             this.Load += new System.EventHandler(this.frmRegReservas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvIntegrantes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -371,5 +446,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Genero;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipoDeIngreso;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label18;
     }
 }
