@@ -55,6 +55,20 @@ C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa Logica\bin\Debug\Ca
 C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa Logica\bin\Debug\MySql.Data.xml
 C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa Logica\obj\Debug\Capa Logica.csprojAssemblyReference.cache
 C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa Logica\obj\Debug\Capa Logica.csproj.CopyComplete
+C:\Users\emili\Documents\GitHub\Devences\Capa Logica\bin\Debug\Capa Logica.dll
+C:\Users\emili\Documents\GitHub\Devences\Capa Logica\bin\Debug\Capa Logica.pdb
+C:\Users\emili\Documents\GitHub\Devences\Capa Logica\bin\Debug\Capa de Datos.dll
+C:\Users\emili\Documents\GitHub\Devences\Capa Logica\bin\Debug\Capa Entidades.dll
+C:\Users\emili\Documents\GitHub\Devences\Capa Logica\bin\Debug\Google.Protobuf.dll
+C:\Users\emili\Documents\GitHub\Devences\Capa Logica\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\emili\Documents\GitHub\Devences\Capa Logica\bin\Debug\Capa de Datos.pdb
+C:\Users\emili\Documents\GitHub\Devences\Capa Logica\bin\Debug\Capa Entidades.pdb
+C:\Users\emili\Documents\GitHub\Devences\Capa Logica\bin\Debug\MySql.Data.xml
+C:\Users\emili\Documents\GitHub\Devences\Capa Logica\obj\Debug\Capa Logica.csprojAssemblyReference.cache
+C:\Users\emili\Documents\GitHub\Devences\Capa Logica\obj\Debug\Capa Logica.csproj.CoreCompileInputs.cache
+C:\Users\emili\Documents\GitHub\Devences\Capa Logica\obj\Debug\Capa Logica.csproj.CopyComplete
+C:\Users\emili\Documents\GitHub\Devences\Capa Logica\obj\Debug\Capa Logica.dll
+C:\Users\emili\Documents\GitHub\Devences\Capa Logica\obj\Debug\Capa Logica.pdb
 C:\Users\Joaco\Desktop\Devences\Capa Logica\bin\Debug\Capa Logica.dll
 C:\Users\Joaco\Desktop\Devences\Capa Logica\bin\Debug\Capa Logica.pdb
 C:\Users\Joaco\Desktop\Devences\Capa Logica\bin\Debug\Capa de Datos.dll
@@ -70,17 +84,3 @@ C:\Users\Joaco\Desktop\Devences\Capa Logica\obj\Debug\Capa Logica.csproj.CoreCom
 C:\Users\Joaco\Desktop\Devences\Capa Logica\obj\Debug\Capa Logica.csproj.CopyComplete
 C:\Users\Joaco\Desktop\Devences\Capa Logica\obj\Debug\Capa Logica.dll
 C:\Users\Joaco\Desktop\Devences\Capa Logica\obj\Debug\Capa Logica.pdb
-C:\Users\emili\Documents\GitHub\Devences\Capa Logica\bin\Debug\Capa Logica.dll
-C:\Users\emili\Documents\GitHub\Devences\Capa Logica\bin\Debug\Capa Logica.pdb
-C:\Users\emili\Documents\GitHub\Devences\Capa Logica\bin\Debug\Capa de Datos.dll
-C:\Users\emili\Documents\GitHub\Devences\Capa Logica\bin\Debug\Capa Entidades.dll
-C:\Users\emili\Documents\GitHub\Devences\Capa Logica\bin\Debug\Google.Protobuf.dll
-C:\Users\emili\Documents\GitHub\Devences\Capa Logica\bin\Debug\BouncyCastle.Crypto.dll
-C:\Users\emili\Documents\GitHub\Devences\Capa Logica\bin\Debug\Capa de Datos.pdb
-C:\Users\emili\Documents\GitHub\Devences\Capa Logica\bin\Debug\Capa Entidades.pdb
-C:\Users\emili\Documents\GitHub\Devences\Capa Logica\bin\Debug\MySql.Data.xml
-C:\Users\emili\Documents\GitHub\Devences\Capa Logica\obj\Debug\Capa Logica.csprojAssemblyReference.cache
-C:\Users\emili\Documents\GitHub\Devences\Capa Logica\obj\Debug\Capa Logica.csproj.CoreCompileInputs.cache
-C:\Users\emili\Documents\GitHub\Devences\Capa Logica\obj\Debug\Capa Logica.csproj.CopyComplete
-C:\Users\emili\Documents\GitHub\Devences\Capa Logica\obj\Debug\Capa Logica.dll
-C:\Users\emili\Documents\GitHub\Devences\Capa Logica\obj\Debug\Capa Logica.pdb
