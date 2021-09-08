@@ -41,13 +41,12 @@ namespace Capa_Presentacion
             }
 
             //Para que se guarde el usuario que inicio sesion
-            try
+            empleado = MetodosEmpleado.BuscarUsuario(usuario, rol);
+
+            ///Si es null, sigmifca que ocurrio un error
+            if (empleado == null)
             {
-                empleado = MetodosEmpleado.BuscarUsuario(usuario, rol);
-            }
-            catch(Exception ex)
-            {
-                Mensaje.MostrarError("Ocurrio un error al cargar al usuario de la sesion: " + ex.Message, Mensaje.ErrorBD);
+                Mensaje.MostrarError("Ocurrio un error al cargar al usuario de la sesion", Mensaje.ErrorBD);
                 Close();
             }
 

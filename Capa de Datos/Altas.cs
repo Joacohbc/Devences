@@ -42,7 +42,6 @@ namespace Capa_de_Datos
             {
                 conexion.CerrarConexion();
             }
-
         }
     }
 }

@@ -16,7 +16,6 @@ namespace Capa_de_Datos
         {
             this.conexion = new Conexion(rol);
         }
-
-
+        
     }
 }

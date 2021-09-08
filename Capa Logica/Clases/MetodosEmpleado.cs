@@ -50,7 +50,6 @@ namespace Capa_Logica.Clases
         /// <param name="txtBox"> El campo que quiere validar</param>
         /// <param name="deQue"> Si es 0, muestra un mensaje de error para el usuario y su es diferente de 0 muestra
         /// un mensaje de error para la contraseña</param>
-        /// <returns> True si es valido y false si no lo es</returns>
         private static bool validarUsuarioYContra(TextBox txtBox, int deQue)
         {
             Validaciones validar = new Validaciones();

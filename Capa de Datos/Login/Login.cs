@@ -67,10 +67,11 @@ namespace Capa_de_Datos.Login
         }
 
         /// <summary>
-        /// Este metodo se le pide el usuario y retorna un objeto Empleado con todos los datos(menos las contrasenia)
+        /// Este metodo se le pide el usuario y retorna un objeto Empleado con todos los datos(menos las contrasenia), en caso
+        /// de errror retorna null
         /// </summary>
         /// <param name="usuario"> El usuario del Empleado que se quiere</param>
-        /// <returns></returns>
+        /// <returns> El Objeto empleado cargado o Null si hay un error</returns>
         public static Empleado BuscarEmpleado(String usuario)
         {
             Empleado empleado = new Empleado();
@@ -85,6 +86,11 @@ namespace Capa_de_Datos.Login
                 MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
                 //Lo ejecuto
                 MySqlDataReader lector = select.ExecuteReader();
+
+                //No hago nada por si no existe
+                //Porque el que el usuario exista
+                //Ya se determina en el login
+                //Osea debe existir para llegar hasta aqui
 
                 //Cargar los datos
                 if (lector.Read())
@@ -109,8 +115,8 @@ namespace Capa_de_Datos.Login
             }
             catch
             {
-                //Si tira error devuelve -1
-                return empleado;
+                //Si tira error devuelve null
+                return null;
             }
             finally
             {
