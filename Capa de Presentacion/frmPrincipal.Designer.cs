@@ -410,7 +410,6 @@
             // 
             this.btnInfoPyH.BackColor = System.Drawing.Color.PowderBlue;
             this.btnInfoPyH.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnInfoPyH.Enabled = false;
             this.btnInfoPyH.FlatAppearance.BorderSize = 0;
             this.btnInfoPyH.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnInfoPyH.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
@@ -429,7 +428,6 @@
             // 
             this.btnConsultas.BackColor = System.Drawing.Color.PowderBlue;
             this.btnConsultas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConsultas.Enabled = false;
             this.btnConsultas.FlatAppearance.BorderSize = 0;
             this.btnConsultas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnConsultas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
