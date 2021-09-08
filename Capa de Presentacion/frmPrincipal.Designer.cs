@@ -129,7 +129,6 @@
             // 
             this.btnRegEmp.BackColor = System.Drawing.Color.PowderBlue;
             this.btnRegEmp.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnRegEmp.Enabled = false;
             this.btnRegEmp.FlatAppearance.BorderSize = 0;
             this.btnRegEmp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnRegEmp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
@@ -147,7 +146,6 @@
             // 
             this.btnModifEmp.BackColor = System.Drawing.Color.PowderBlue;
             this.btnModifEmp.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnModifEmp.Enabled = false;
             this.btnModifEmp.FlatAppearance.BorderSize = 0;
             this.btnModifEmp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnModifEmp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
@@ -165,7 +163,6 @@
             // 
             this.btnModifPyH.BackColor = System.Drawing.Color.PowderBlue;
             this.btnModifPyH.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnModifPyH.Enabled = false;
             this.btnModifPyH.FlatAppearance.BorderSize = 0;
             this.btnModifPyH.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnModifPyH.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
@@ -215,7 +212,6 @@
             // 
             this.btnModifServ.BackColor = System.Drawing.Color.PowderBlue;
             this.btnModifServ.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnModifServ.Enabled = false;
             this.btnModifServ.FlatAppearance.BorderSize = 0;
             this.btnModifServ.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnModifServ.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
@@ -233,7 +229,6 @@
             // 
             this.btnRegServ.BackColor = System.Drawing.Color.PowderBlue;
             this.btnRegServ.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRegServ.Enabled = false;
             this.btnRegServ.FlatAppearance.BorderSize = 0;
             this.btnRegServ.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnRegServ.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
