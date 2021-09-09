@@ -31,7 +31,7 @@ primary key(ci),
 foreign key(ci) references persona(ci));
 
 #Tabla Empleado
-create table empleado (
+create table if not exists empleado (
 ci int(8) not null,
 usuario varchar(20) not null unique, 
 contra varbinary(256) not null,
