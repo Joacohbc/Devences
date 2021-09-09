@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Capa_de_Datos;
 using Capa_de_Datos.Login;
+using Capa_Entidades;
 
 namespace Capa_Logica.Clases
 {
@@ -38,13 +39,17 @@ namespace Capa_Logica.Clases
             }
         }
 
+        public static Empleado BuscarUsuario(String usuario, int rol)
+        {
+            return Login.BuscarEmpleado(usuario);
+        }
+
         /// <summary>
         /// Valida que un usuario sea valido
         /// </summary>
         /// <param name="txtBox"> El campo que quiere validar</param>
         /// <param name="deQue"> Si es 0, muestra un mensaje de error para el usuario y su es diferente de 0 muestra
         /// un mensaje de error para la contraseña</param>
-        /// <returns> True si es valido y false si no lo es</returns>
         private static bool validarUsuarioYContra(TextBox txtBox, int deQue)
         {
             Validaciones validar = new Validaciones();

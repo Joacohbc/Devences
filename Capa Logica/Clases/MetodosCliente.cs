@@ -24,7 +24,7 @@ namespace Capa_Logica.Clases
                     if (ValidarPersona.ValidarSegundoNombre(txtSegundoApellido, errorProvider))
                     {
                         //Valido primer apellido
-                        if (ValidarPersona.ValidarApellido(txtPrimerNombre, 1, errorProvider))
+                        if (ValidarPersona.ValidarApellido(txtPrimerApellido, 1, errorProvider))
                         {
                             //Valido segundo apellido(Opcional)
                             if (ValidarPersona.ValidarApellido(txtSegundoApellido, 2, errorProvider))

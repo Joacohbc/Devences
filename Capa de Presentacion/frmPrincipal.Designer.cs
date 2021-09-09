@@ -146,7 +146,6 @@
             // 
             this.btnModifEmp.BackColor = System.Drawing.Color.PowderBlue;
             this.btnModifEmp.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnModifEmp.Enabled = false;
             this.btnModifEmp.FlatAppearance.BorderSize = 0;
             this.btnModifEmp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnModifEmp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
@@ -164,7 +163,6 @@
             // 
             this.btnModifPyH.BackColor = System.Drawing.Color.PowderBlue;
             this.btnModifPyH.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnModifPyH.Enabled = false;
             this.btnModifPyH.FlatAppearance.BorderSize = 0;
             this.btnModifPyH.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnModifPyH.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
@@ -214,7 +212,6 @@
             // 
             this.btnModifServ.BackColor = System.Drawing.Color.PowderBlue;
             this.btnModifServ.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnModifServ.Enabled = false;
             this.btnModifServ.FlatAppearance.BorderSize = 0;
             this.btnModifServ.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnModifServ.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
@@ -413,7 +410,6 @@
             // 
             this.btnInfoPyH.BackColor = System.Drawing.Color.PowderBlue;
             this.btnInfoPyH.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnInfoPyH.Enabled = false;
             this.btnInfoPyH.FlatAppearance.BorderSize = 0;
             this.btnInfoPyH.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnInfoPyH.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
@@ -432,7 +428,6 @@
             // 
             this.btnConsultas.BackColor = System.Drawing.Color.PowderBlue;
             this.btnConsultas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConsultas.Enabled = false;
             this.btnConsultas.FlatAppearance.BorderSize = 0;
             this.btnConsultas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnConsultas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;

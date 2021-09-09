@@ -120,9 +120,9 @@ namespace Capa_Presentacion
                     }
 
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
-                    Mensaje.MostrarError("Ocurrio un error al iniciar sesion", Mensaje.ErrorBD);
+                    Mensaje.MostrarError("Ocurrio un error al iniciar sesion: "+ ex.Message, Mensaje.ErrorBD);
                 }
             }
             else

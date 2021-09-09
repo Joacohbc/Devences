@@ -217,9 +217,9 @@ namespace Capa_Presentacion.Formularios
         {
             try
             {
-                if (MetodosCliente.DarAlta(txtCedula, txtPrimerApellido, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, dtpNacimiento, rdbHombre, rdbMujer, listTelefonos, errorProvider))
+                if (MetodosCliente.DarAlta(txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, dtpNacimiento, rdbHombre, rdbMujer, listTelefonos, errorProvider))
                 {
-                    Mensaje.MostrarInfo("Se dio de alta el cliente: " + txtPrimerNombre.Text + " " + txtPrimerApellido.Text + " con exito", "Alta de clietne exitosa");
+                    Mensaje.MostrarInfo("Se dio de alta el cliente: " + txtPrimerNombre.Text + " " + txtPrimerApellido.Text + " con exito", "Alta de cliente exitosa");
                 }
             }
             catch
