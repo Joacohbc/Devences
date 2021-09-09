@@ -15,6 +15,7 @@ namespace Capa_de_Datos
         public Altas(int rol, int ci)
         {
             this.conexion = new Conexion(rol);
+            this.ci = ci;
         }
 
         /// <summary>
@@ -29,7 +30,7 @@ namespace Capa_de_Datos
             try
             {
                 //Creo la sentencia de insert
-                String sentencia = String.Format("insert into registrodecambio values(0,{0},'{1}','{2}');", ci.ToString(), sentenciaIngresada, descripcion);
+                String sentencia = String.Format("insert into registrodecambio(ci,sentencia,descripcion) values({0},'{1}','{2}');", ci.ToString(), sentenciaIngresada, descripcion);
                 //Creo el comando
                 MySqlCommand insert = new MySqlCommand(sentencia, conexion.AbrirConexion());
                 //Lo ejecuto
