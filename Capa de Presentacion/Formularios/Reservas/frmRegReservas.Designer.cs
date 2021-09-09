@@ -91,6 +91,7 @@
             // cmbTipoDeIngreso
             // 
             this.cmbTipoDeIngreso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoDeIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbTipoDeIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoDeIngreso.FormattingEnabled = true;
             this.cmbTipoDeIngreso.Items.AddRange(new object[] {
@@ -215,20 +216,22 @@
             // 
             // listIntegrantes
             // 
+            this.listIntegrantes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listIntegrantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listIntegrantes.FormattingEnabled = true;
             this.listIntegrantes.ItemHeight = 20;
             this.listIntegrantes.Location = new System.Drawing.Point(734, 189);
             this.listIntegrantes.Name = "listIntegrantes";
-            this.listIntegrantes.Size = new System.Drawing.Size(141, 124);
+            this.listIntegrantes.Size = new System.Drawing.Size(141, 120);
             this.listIntegrantes.TabIndex = 84;
             // 
             // txtCedulaIntegrante
             // 
+            this.txtCedulaIntegrante.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCedulaIntegrante.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCedulaIntegrante.Location = new System.Drawing.Point(544, 189);
             this.txtCedulaIntegrante.Name = "txtCedulaIntegrante";
-            this.txtCedulaIntegrante.Size = new System.Drawing.Size(184, 26);
+            this.txtCedulaIntegrante.Size = new System.Drawing.Size(184, 19);
             this.txtCedulaIntegrante.TabIndex = 83;
             this.txtCedulaIntegrante.TextChanged += new System.EventHandler(this.txtCedulaIntegrante_TextChanged);
             this.txtCedulaIntegrante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaIntegrante_KeyPress);
@@ -286,10 +289,11 @@
             // 
             // txtCedulaTitular
             // 
+            this.txtCedulaTitular.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCedulaTitular.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCedulaTitular.Location = new System.Drawing.Point(180, 167);
             this.txtCedulaTitular.Name = "txtCedulaTitular";
-            this.txtCedulaTitular.Size = new System.Drawing.Size(193, 26);
+            this.txtCedulaTitular.Size = new System.Drawing.Size(193, 19);
             this.txtCedulaTitular.TabIndex = 75;
             this.txtCedulaTitular.TextChanged += new System.EventHandler(this.txtCedulaTitular_TextChanged);
             this.txtCedulaTitular.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaTitular_KeyPress);
@@ -297,6 +301,7 @@
             // cmbTipoIngresoIntegrante
             // 
             this.cmbTipoIngresoIntegrante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoIngresoIntegrante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbTipoIngresoIntegrante.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoIngresoIntegrante.FormattingEnabled = true;
             this.cmbTipoIngresoIntegrante.Items.AddRange(new object[] {

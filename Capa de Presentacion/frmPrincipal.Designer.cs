@@ -129,7 +129,6 @@
             // 
             this.btnRegEmp.BackColor = System.Drawing.Color.PowderBlue;
             this.btnRegEmp.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnRegEmp.Enabled = false;
             this.btnRegEmp.FlatAppearance.BorderSize = 0;
             this.btnRegEmp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnRegEmp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
@@ -233,7 +232,6 @@
             // 
             this.btnRegServ.BackColor = System.Drawing.Color.PowderBlue;
             this.btnRegServ.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRegServ.Enabled = false;
             this.btnRegServ.FlatAppearance.BorderSize = 0;
             this.btnRegServ.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnRegServ.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
