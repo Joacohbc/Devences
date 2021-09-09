@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Capa_Entidades;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,8 @@ namespace Capa_de_Datos
     public class Altas
     {
         private Conexion conexion;
-        public Altas(int rol)
+        private readonly int ci;
+        public Altas(int rol, int ci)
         {
             this.conexion = new Conexion(rol);
         }
@@ -22,7 +24,7 @@ namespace Capa_de_Datos
         /// <param name="sentenciaIngresada"> Sentencia que ejecuto</param>
         /// <param name="descripcion"> Descripcion de la sentencia que se ejecuto</param>
         /// <returns></returns>
-        public int NuevoRegistro(int ci, String sentenciaIngresada, String descripcion)
+        public int NuevoRegistro(String sentenciaIngresada, String descripcion)
         {
             try
             {
@@ -41,6 +43,32 @@ namespace Capa_de_Datos
             finally
             {
                 conexion.CerrarConexion();
+            }
+        }
+
+        public int AltaCliente(Cliente cliente)
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = String.Format("");
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresarRegistro = true;
+
+            try
+            {
+                MySqlCommand insert = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                return insert.ExecuteNonQuery();
+            }
+            catch
+            {
+                ingresarRegistro = false;
+                return -1;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+                if(ingresarRegistro) NuevoRegistro(sentencia, "Alta del cliente: " + cliente.Ci);
             }
         }
     }
