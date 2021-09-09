@@ -24,7 +24,7 @@ foreign key(ci) references persona(ci));
 #Tabla Cliente
 create table if not exists cliente (
 ci int(8) not null,
-fechaRegistro timestamp not null,
+fechaRegistro timestamp default current_timestamp(),
 #Predeterminadamente estara de dada del alta
 estado bool not null default true,
 primary key(ci),
@@ -71,6 +71,7 @@ id int(11) auto_increment not null,
 ci int(8) not null,
 sentencia varchar(100) not null,
 descripcion varchar(100) not null,
+cuando timestamp default current_timestamp(),
 primary key(id),
 foreign key(ci) references empleado(ci));
 
