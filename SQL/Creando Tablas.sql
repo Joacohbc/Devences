@@ -83,13 +83,14 @@ primary key(id));
 
 #Tabla de la Relacion Contiene
 create table if not exists contiene (
+idReservaServicio int (11) not null,
 id int(11) not null,
 nombre varchar(50) not null,
 inicio date not null, 
 fin date not null,
 estado enum('Confirmada','No Confirmada','Finalizada') default 'Confirmada',
 formaDePago enum('Credito', 'Debito', 'Contado') not null,
-primary key(id,nombre));
+primary key(idReservaServicio,id,nombre));
 
 #Tabla Parametros
 create table if not exists parametros (

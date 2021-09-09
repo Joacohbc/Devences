@@ -41,7 +41,7 @@ grant select,insert,update on proyectoprueba.reserva to gerente;
 grant select,insert,update on proyectoprueba.contiene to gerente;
 
 #Sobre la Tabla Servicio
-grant select,insert,update on proyectoprueba.servicio to gerente;
+grant select,update on proyectoprueba.servicio to gerente;
 
 #Sobre la Tabla Parametros
 grant select,insert,update on proyectoprueba.parametros to gerente;
