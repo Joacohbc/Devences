@@ -3,7 +3,7 @@ use proyectoprueba;
 
 #Tabla Persona
 create table if not exists persona (
-ci int(8),
+ci int(8) not null,
 primerNombre varchar(20) not null,
 segundoNombre varchar(20) default null,
 primerApellido varchar(20) not null,
@@ -26,7 +26,7 @@ create table if not exists cliente (
 ci int(8) not null,
 fechaRegistro timestamp default current_timestamp(),
 #Predeterminadamente estara de dada del alta
-estado bool not null default true,
+estado bool default true,
 primary key(ci),
 foreign key(ci) references persona(ci));
 
@@ -46,8 +46,8 @@ foreign key(ci) references persona(ci)
 create table if not exists reserva (
 id int(11) auto_increment not null, 
 ci int(8) not null,
-inicio date not null,
-fin date not null,
+inicio date not null,#Date y no DateTime porque es por todo el dia
+fin date not null,#Date y no DateTime porque es por todo el dia
 tipoDeIngreso enum('Normal', 'Hospedado', 'Pensionista o Jubilado') not null,
 precioTotal int(11) not null,
 #Predeterminadamente estara No Confirmada
@@ -84,14 +84,13 @@ primary key(id));
 
 #Tabla de la Relacion Contiene
 create table if not exists contiene (
-idReservaServicio int (11) not null,
 id int(11) not null,
 nombre varchar(50) not null,
-inicio date not null, 
-fin date not null,
+inicio datetime not null,#Datetime porque se necesita saber el dia y fecha que se registro
+fin datetime not null,#Datetime porque se necesita saber el dia y fecha que se registro
 estado enum('Confirmada','No Confirmada','Finalizada') default 'Confirmada',
 formaDePago enum('Credito', 'Debito', 'Contado') not null,
-primary key(idReservaServicio,id,nombre));
+primary key(id,nombre,inicio));
 
 #Tabla Parametros
 create table if not exists parametros (
