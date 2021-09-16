@@ -62,6 +62,10 @@ create table if not exists servicio (
 nombre varchar(50) not null,
 duracion time not null,
 capacidadMax int(3) not null,
+
+#Atributo para poder guardar la cantidad de Camionetas, Bicis, Caballos u otra
+#cantidad en caso de que el servicio la necesite
+cantidad int(3) default null,
 precio int(11) not null,
 primary key(nombre));
 
