@@ -215,16 +215,38 @@ namespace Capa_Presentacion.Formularios
         //Validar y registrar
         private void btnRegistra_Click(object sender, EventArgs e)
         {
-            try
+            MetodosEmpleado alta = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
+            Cliente cliente = alta.validarCliente(txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail,
+                txtDireccion, dtpNacimiento, rdbHombre, rdbMujer, listTelefonos, errorProvider);
+
+            if (cliente != null)
             {
-                if (MetodosCliente.DarAlta(txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, dtpNacimiento, rdbHombre, rdbMujer, listTelefonos, errorProvider))
+                Persona persona = cliente;
+                int retorno = alta.darAltaPersona(persona);
+                if (retorno > 0)
                 {
-                    Mensaje.MostrarInfo("Se dio de alta el cliente: " + txtPrimerNombre.Text + " " + txtPrimerApellido.Text + " con exito", "Alta de cliente exitosa");
+                    retorno = alta.darAltaCliente(cliente);
+                    if (retorno > 0)
+                    {
+                        Mensaje.MostrarInfo("Se dio de alta el cliente: " + txtPrimerNombre.Text + " " + txtPrimerApellido.Text + " con exito", "Alta de cliente exitosa");
+                    }
+                    else if (retorno == 1)
+                    {
+                        Mensaje.MostrarInfo("El Cliente que intenta dar de alta ya existe", "Aviso en alta Cliente");
+                    }
+                    else
+                    {
+                        Mensaje.MostrarError("Ocurrio un error a dar de alta al Cliente", Mensaje.ErrorBD);
+                    }
                 }
-            }
-            catch
-            {
-                Mensaje.MostrarError("Ocurrio un error al dar de alta", Mensaje.ErrorBD);
+                else if (retorno == 0)
+                {
+                    Mensaje.MostrarInfo("La Persona que intenta dar de alta ya existe", "Aviso en alta Persona");
+                }
+                else
+                {
+                    Mensaje.MostrarError("Ocurrio un error al dar de Alta a la Persona", Mensaje.ErrorBD);
+                }
             }
         }
 

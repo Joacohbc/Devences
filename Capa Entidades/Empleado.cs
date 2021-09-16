@@ -7,7 +7,7 @@ namespace Capa_Entidades
         private int ci;
         private string usuario;
         private string contra;
-        private string tipo;
+        private int tipo;
         private bool estado;
 
         #region Constructores
@@ -21,7 +21,7 @@ namespace Capa_Entidades
         #region Getters y Setters
         public string Usuario { get => usuario; set => usuario = value; }
         public string Contra { get => contra; set => contra = value; }
-        public string Tipo { get => tipo; set => tipo = value; }
+        public int Tipo { get => tipo; set => tipo = value; }
         public bool Estado { get => estado; set => estado = value; }
         #endregion
 

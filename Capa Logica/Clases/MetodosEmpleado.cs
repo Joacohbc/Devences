@@ -13,6 +13,13 @@ namespace Capa_Logica.Clases
     public class MetodosEmpleado
     {
         #region Login
+
+        /// <summary>
+        /// Verifica si existe un usuario y retornar su rol 0-Administrativo y 1-Gerente
+        /// </summary>
+        /// <param name="usuario"> El nombre del usuario</param>
+        /// <param name="contra"> La contrasenia del usuario</param>
+        /// <returns> Retorna el tipo de rol que tiene el usuario,(-1 o -2 son errores)</returns>
         public static int Loguearse(TextBox txtUsuario, TextBox txtContra)
         {
             //Valida el campo de usuario
@@ -39,7 +46,13 @@ namespace Capa_Logica.Clases
             }
         }
 
-        public static Empleado BuscarUsuario(String usuario, int rol)
+        /// <summary>
+        /// Este metodo se le pide el usuario y retorna un objeto Empleado con todos los datos(menos las contrasenia), en caso
+        /// de errror retorna null
+        /// </summary>
+        /// <param name="usuario"> El usuario del Empleado que se quiere</param>
+        /// <returns> El Objeto empleado cargado o Null si hay un error</returns>
+        public static Empleado BuscarUsuario(String usuario)
         {
             return Login.BuscarEmpleado(usuario);
         }
@@ -89,6 +102,174 @@ namespace Capa_Logica.Clases
                 return false;
             }
         }
+        #endregion
+
+        //LOS METODOS DE LOGUEO SON ESTATICOS
+        //YA QUE NO NECESITAN NI LA CEDULA NI EL ROL
+        //PERO EL RESTO NO LO SON PORQUE SE NECESITA 
+        //Y PARA ESO ESTA EL COSNTRUCTOR DE LA CLASE QUE LOS PIDE
+
+        private int ci;
+        private int rol;
+        private Altas altas;
+
+        public MetodosEmpleado(int ci, int rol)
+        {
+            this.ci = ci;
+            this.rol = rol;
+            altas = new Altas(rol, ci);
+        }
+    
+        #region Metodos Clientes
+
+        /// <summary>
+        /// Valida un cliente
+        /// </summary>
+        /// <param> PIde los datos de Cliente</param>
+        /// <returns> El Objeto Cliente cargado si es valido sino retorna null</returns>
+        public Cliente validarCliente(TextBox txtCedula, TextBox txtPrimerNombre, TextBox txtSegundoNombre, TextBox txtPrimerApellido, TextBox txtSegundoApellido,
+           TextBox txtMail, TextBox txtDireccion, DateTimePicker dtpNacimiento, RadioButton rdbHombre, RadioButton rdbMujer, ListBox listTelefonos, ErrorProvider errorProvider)
+        {
+            //Valida la cedula
+            if (ValidarPersona.ValidarCedula(txtCedula, errorProvider))
+            {
+                //Valido Primer nombre
+                if (ValidarPersona.ValidarPrimerNombre(txtPrimerNombre, errorProvider))
+                {
+                    //Valido segundo nombre
+                    if (ValidarPersona.ValidarSegundoNombre(txtSegundoApellido, errorProvider))
+                    {
+                        //Valido primer apellido
+                        if (ValidarPersona.ValidarApellido(txtPrimerApellido, 1, errorProvider))
+                        {
+                            //Valido segundo apellido(Opcional)
+                            if (ValidarPersona.ValidarApellido(txtSegundoApellido, 2, errorProvider))
+                            {
+                                //Valido mail(Opcional)
+                                if (ValidarPersona.ValidarMail(txtMail, errorProvider))
+                                {
+                                    //Valido direccion
+                                    if (ValidarPersona.ValidarDireccion(txtDireccion, errorProvider))
+                                    {
+                                        //Valido fecha de nacimiento
+                                        if (ValidarPersona.ValidarFechaNacimiento(dtpNacimiento, errorProvider))
+                                        {
+
+                                            return CreacionObjeto.CrearCliente(Convert.ToInt32(txtCedula.Text), txtPrimerApellido, txtSegundoNombre,
+                                                                txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, dtpNacimiento, rdbHombre, rdbMujer, listTelefonos);
+
+                                        }
+                                        else
+                                        {
+                                            return null;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        return null;
+                                    }
+                                }
+                                else
+                                {
+                                    return null;
+                                }
+                            }
+                            else
+                            {
+                                return null;
+                            }
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+      
+        /// <summary>
+        /// Da de alta una Persona
+        /// </summary>
+        /// <param name="persona"> Un Objeto Persona</param>
+        /// <returns> Retorna 1 si la da de Alta, retona 0 si esa persona ya existe en esa tabla y -1 si ocurrio un error</returns>
+        public int darAltaPersona(Persona persona)
+        {
+            //Busco la persona
+            int retorno = altas.buscarPersona(persona.Ci);
+            if (retorno == 0)
+            {
+                //Lo intento dar de alta a la Persona
+                retorno = altas.altaPersona(persona);
+                if (retorno > 0)
+                {
+                    return 1;
+                }
+                else
+                {
+                    //Si ocurrio un error a dar de alta a la persona
+                    return -1;
+                }
+            }
+            else if (retorno == 1)
+            {
+                //Si la persona ya existe
+                return 0;
+            }
+            else
+            {
+                //Si ocurrio un error al buscar a la persona
+                return -1;
+            }
+        }
+
+        /// <summary>
+        /// Da de alta un Cliente
+        /// </summary>
+        /// <param name="cliente"> Un Objeto Cliente</param>
+        /// <returns> Retorna 1 si la da de Alta, retona 0 si esa persona ya existe en esa tabla y -1 si ocurrio un error</returns>
+        public int darAltaCliente(Cliente cliente)
+        {
+            //Busco la persona
+            int retorno = altas.buscarCliente(cliente.Ci);
+            if (retorno == 0)
+            {
+                //Lo intento dar de alta a la Cliente
+                retorno = altas.altaCliente(cliente);
+                if (retorno > 0)
+                {
+                    return 1;
+                }
+                else
+                {
+                    //Si ocurrio un error a dar de alta a la Cliente
+                    return -1;
+                }
+            }
+            else if (retorno == 1)
+            {
+                //Si la Cliente ya existe
+                return 0;
+            }
+            else
+            {
+                //Si ocurrio un error al buscar a la Cliente
+                return -1;
+            }
+        }
+
         #endregion
     }
 }

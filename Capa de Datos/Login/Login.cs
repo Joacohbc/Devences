@@ -98,7 +98,10 @@ namespace Capa_de_Datos.Login
                     //Cargo los datos dentro del objeto
                     empleado.Ci = lector.GetInt32(0);
                     empleado.Usuario = lector.GetString(1);
-                    empleado.Tipo = lector.GetString(2);
+
+                    //Aqui uso el operador ternario, si es gerente le asigna 1 y si es Administrativo le asigna 0
+                    empleado.Tipo = lector.GetString(2) == "Gerente" ? 1 : 0;
+
                     empleado.Estado = lector.GetBoolean(3);
                     empleado.PrimerNombre = lector.GetString(4);
                     empleado.SegundoNombre = lector.GetString(5);

@@ -21,7 +21,7 @@ namespace Capa_Presentacion
     {
         //En esta variable de tipo Empleado se almacena el 
         //empleado que esta usando la sesion
-        private static Empleado empleado;
+        public static Empleado empleado;
 
         public frmPrincipal(string usuario, int rol)
         {
@@ -41,7 +41,7 @@ namespace Capa_Presentacion
             }
 
             //Para que se guarde el usuario que inicio sesion
-            empleado = MetodosEmpleado.BuscarUsuario(usuario, rol);
+            empleado = MetodosEmpleado.BuscarUsuario(usuario);
 
             ///Si es null, sigmifca que ocurrio un error
             if (empleado == null)

@@ -45,14 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\MetodosCliente.cs" />
     <Compile Include="Clases\MetodosEmpleado.cs" />
     <Compile Include="Clases\ValidarPersona.cs" />
     <Compile Include="Metodos\CreacionObjeto.cs" />
-    <Compile Include="Clases\MetodosIntegrantes.cs" />
     <Compile Include="Metodos\Mensaje.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Clases\MetodosReserva.cs" />
     <Compile Include="Metodos\Validaciones.cs" />
   </ItemGroup>
   <ItemGroup>
