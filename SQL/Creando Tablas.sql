@@ -73,7 +73,7 @@ primary key(nombre));
 create table if not exists registroDeCambio (
 id int(11) auto_increment not null,
 ci int(8) not null,
-sentencia varchar(100) not null,
+sentencia varchar(1000) not null,
 descripcion varchar(100) not null,
 cuando timestamp default current_timestamp(),
 primary key(id),
