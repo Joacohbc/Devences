@@ -84,7 +84,9 @@ create table if not exists integran (
 id int(11) not null,
 ci int(8) not null,
 tipoDeIngreso enum('Normal', 'Hospedado', 'Pensionista o Jubilado') not null,
-primary key(id));
+primary key(id, ci),
+foreign key(id) references reserva(id),
+foreign key(ci) references cliente(ci));
 
 #Tabla de la Relacion Contiene
 create table if not exists contiene (
@@ -94,7 +96,9 @@ inicio datetime not null,#Datetime porque se necesita saber el dia y fecha que s
 fin datetime not null,#Datetime porque se necesita saber el dia y fecha que se registro
 estado enum('Confirmada','No Confirmada','Finalizada') default 'Confirmada',
 formaDePago enum('Credito', 'Debito', 'Contado') not null,
-primary key(id,nombre,inicio));
+primary key(id,nombre,inicio),
+foreign key(id) references reserva(id),
+foreign key(nombre) references servicio(nombre));
 
 #Tabla Parametros
 create table if not exists parametros (
