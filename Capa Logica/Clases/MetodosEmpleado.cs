@@ -112,12 +112,13 @@ namespace Capa_Logica.Clases
         private int ci;
         private int rol;
         private Altas altas;
-
+        private Consultas consultas;
         public MetodosEmpleado(int ci, int rol)
         {
             this.ci = ci;
             this.rol = rol;
             altas = new Altas(rol, ci);
+            consultas = new Consultas(rol, ci);
         }
     
         #region Metodos Clientes
@@ -207,7 +208,7 @@ namespace Capa_Logica.Clases
         public int darAltaPersona(Persona persona)
         {
             //Busco la persona
-            int retorno = altas.buscarPersona(persona.Ci);
+            int retorno = consultas.buscarPersona(persona.Ci);
             if (retorno == 0)
             {
                 //Lo intento dar de alta a la Persona
@@ -235,6 +236,32 @@ namespace Capa_Logica.Clases
         }
 
         /// <summary>
+        /// Da de alta los Telefonos(Retorna True bien, Fasle mal)
+        /// </summary>
+        /// <param name="persona"> El objeto Persona</param>
+        /// <returns> Retorna true de si exitosa y retonar false si ocurrio un error</returns>
+        public bool darAltaTelefonos(Persona persona)
+        {
+            //Si la Persona tiene telefono, que los registre
+            if (persona.Telefonos.Count > 0)
+            {
+                //Recorro los telefono
+                foreach (String telefono in persona.Telefonos)
+                {
+                    //Si ocurre un error, que retorne -1
+                    if (altas.altaTelefono(persona.Ci, telefono) == -1)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            //Si llego aqui es que no hubo telefonos
+            //O que todos se dieron de altas correctamente
+            return true;
+        }
+
+        /// <summary>
         /// Da de alta un Cliente
         /// </summary>
         /// <param name="cliente"> Un Objeto Cliente</param>
@@ -242,7 +269,7 @@ namespace Capa_Logica.Clases
         public int darAltaCliente(Cliente cliente)
         {
             //Busco la persona
-            int retorno = altas.buscarCliente(cliente.Ci);
+            int retorno = consultas.buscarCliente(cliente.Ci);
             if (retorno == 0)
             {
                 //Lo intento dar de alta a la Cliente

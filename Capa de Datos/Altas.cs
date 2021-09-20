@@ -11,7 +11,9 @@ namespace Capa_de_Datos
     public class Altas
     {
         private Conexion conexion;
+
         private readonly int ci;
+
         public Altas(int rol, int ci)
         {
             this.conexion = new Conexion(rol);
@@ -48,13 +50,14 @@ namespace Capa_de_Datos
         }
         */
         #endregion 
+        
         /// <summary>
         /// Se agrega un nuevo registro
         /// </summary>
         /// <param name="ci"> La cedula del Empleado que realizo el registro</param>
         /// <param name="sentenciaIngresada"> Sentencia que ejecuto</param>
         /// <param name="descripcion"> Descripcion de la sentencia que se ejecuto</param>
-        /// <returns></returns>
+        /// <returns> Retorna 1 de si exitosa y retonar -1 si ocurrio un error</returns>
         public int nuevoRegistro(String sentenciaIngresada, String descripcion)
         {
             try
@@ -75,47 +78,6 @@ namespace Capa_de_Datos
             finally
             {
                 conexion.CerrarConexion();
-            }
-        }
-
-        /// <summary>
-        /// Pide la cedula y busca a la Persona. Retorna 1 si ya existe, 0 si no existe y -1 si hay error
-        /// </summary>
-        public int buscarPersona(int ci)
-        {
-            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
-            String sentencia = String.Format("select ci from persona where ci={0};", ci);
-
-            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
-            //si lo hara. SI es false si entre al catch, osea que hubo un error
-            bool ingresoRegistro = true;
-
-            try
-            {
-                MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
-                MySqlDataReader lector = select.ExecuteReader();
-                //Leo lo que devuelve
-                if (lector.Read())
-                {
-                    //Retorno 1 si encuentro
-                    return 1;
-                }
-                else
-                {
-                    //Retorno 0 si no encuentro
-                    return 0;
-                }
-            }
-            catch
-            {
-                ingresoRegistro = false;
-                return -1;
-            }
-            finally
-            {
-                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
-                conexion.CerrarConexion();
-                if (ingresoRegistro) nuevoRegistro(sentencia, "Busqueda de Persona: " + ci);
             }
         }
 
@@ -151,12 +113,15 @@ namespace Capa_de_Datos
         }
 
         /// <summary>
-        /// Pide la cedula y busca a la Cliente, Retorna 1 si ya existe, 0 si no existe y -1 error
+        /// Da de alta un Telefono(Retorna 1 bien, -1 error)
         /// </summary>
-        public int buscarCliente(int ci)
+        /// <param name="ciPersona"> Cedula de la Persona</param>
+        /// <param name="telefono"> El telefono </param>
+        /// <returns> Retorna 1 de si exitosa y retonar -1 si ocurrio un error</returns>
+        public int altaTelefono(int ciPersona, String telefono)
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
-            String sentencia = String.Format("select ci from cliente where ci={0};", ci);
+            String sentencia = String.Format("insert into telefono values({0},'{1}');", ciPersona, telefono);
 
             //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
             //si lo hara. SI es false si entre al catch, osea que hubo un error
@@ -164,19 +129,8 @@ namespace Capa_de_Datos
 
             try
             {
-                MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
-                MySqlDataReader lector = select.ExecuteReader();
-                //Leo lo que devuelve
-                if (lector.Read())
-                {
-                    //Retorno 1 si existe
-                    return 1;
-                }
-                else
-                {
-                    //Retorno 0 si no existe
-                    return 0;
-                }
+                MySqlCommand insert = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                return insert.ExecuteNonQuery();
             }
             catch
             {
@@ -187,10 +141,9 @@ namespace Capa_de_Datos
             {
                 //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
                 conexion.CerrarConexion();
-                if (ingresoRegistro) nuevoRegistro(sentencia, "Busqueda de Cliente: " + ci);
+                if (ingresoRegistro) nuevoRegistro(sentencia, "Alta de Telefono: " + telefono + " de " + ciPersona);
             }
         }
-
         /// <summary>
         /// Pide un objeto Cliente y lo da de Alta. Rotorna +0 de si lo da de alta o -1 si hay error
         /// </summary>

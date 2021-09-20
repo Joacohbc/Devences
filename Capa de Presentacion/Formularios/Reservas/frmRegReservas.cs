@@ -30,10 +30,14 @@ namespace Capa_Presentacion.Formularios
 
         private void frmRegReservas_Load(object sender, EventArgs e)
         {
+
             dtpFechaInico.MinDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             dtpFechaFin.MinDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+
+            //Se selecciona el primero por defecto
             cmbTipoDeIngreso.SelectedIndex = 0;
             cmbTipoIngresoIntegrante.SelectedIndex = 0;
+
         }
         #endregion
 

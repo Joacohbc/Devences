@@ -233,22 +233,30 @@ namespace Capa_Presentacion.Formularios
                 //Si es mayor 0, osea que se dio de alta la Persona
                 if (retorno > 0)
                 {
-                    //Hago alta del Cliente
-                    retorno = alta.darAltaCliente(cliente);
-                    //Si fue un alta exitosa
-                    if (retorno > 0)
+                    //Si es True, osea todos los telefonos se dieron de altas correctamente
+                    if(alta.darAltaTelefonos(persona))
                     {
-                        Mensaje.MostrarInfo("Se dio de alta el cliente: " + txtPrimerNombre.Text + " " + txtPrimerApellido.Text + " con exito", "Alta de cliente exitosa");
+                        //Hago alta del Cliente
+                        retorno = alta.darAltaCliente(cliente);
+                        //Si fue un alta exitosa
+                        if (retorno > 0)
+                        {
+                            Mensaje.MostrarInfo("Se dio de alta el cliente: " + txtPrimerNombre.Text + " " + txtPrimerApellido.Text + " con exito", "Alta de cliente exitosa");
+                        }
+                        //Si ese Cliente ya existia
+                        else if (retorno == 1)
+                        {
+                            Mensaje.MostrarInfo("El Cliente que intenta dar de alta ya existe", "Aviso en alta Cliente");
+                        }
+                        //Si dio Error
+                        else
+                        {
+                            Mensaje.MostrarError("Ocurrio un error a dar de alta al Cliente", Mensaje.ErrorBD);
+                        }
                     }
-                    //Si ese Cliente ya existia
-                    else if (retorno == 1)
-                    {
-                        Mensaje.MostrarInfo("El Cliente que intenta dar de alta ya existe", "Aviso en alta Cliente");
-                    }
-                    //Si dio Error
                     else
                     {
-                        Mensaje.MostrarError("Ocurrio un error a dar de alta al Cliente", Mensaje.ErrorBD);
+                        Mensaje.MostrarError("Ocurrio un error a dar de alta los Telefonos de la Persona", Mensaje.ErrorBD);
                     }
                 }
                 //Si es igual a 0, osea que la persona existe
