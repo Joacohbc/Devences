@@ -36,10 +36,6 @@
             this.dtpFechaInico = new System.Windows.Forms.DateTimePicker();
             this.btnBorrarIntegrante = new System.Windows.Forms.Button();
             this.dgvIntegrantes = new System.Windows.Forms.DataGridView();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoDeIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDescartar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnAgregarIntegrante = new System.Windows.Forms.Button();
@@ -60,7 +56,11 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbMetodosPago = new System.Windows.Forms.ComboBox();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoDeIngresoColumna = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIntegrantes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.panel1.SuspendLayout();
@@ -88,7 +88,7 @@
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.button1_Click);
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // cmbTipoDeIngreso
             // 
@@ -96,13 +96,10 @@
             this.cmbTipoDeIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbTipoDeIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoDeIngreso.FormattingEnabled = true;
-            this.cmbTipoDeIngreso.Items.AddRange(new object[] {
-            "Normal",
-            "Hospedado",
-            "Pensionista o Jubilado"});
+            this.cmbTipoDeIngreso.ImeMode = System.Windows.Forms.ImeMode.On;
             this.cmbTipoDeIngreso.Location = new System.Drawing.Point(180, 207);
             this.cmbTipoDeIngreso.Name = "cmbTipoDeIngreso";
-            this.cmbTipoDeIngreso.Size = new System.Drawing.Size(193, 24);
+            this.cmbTipoDeIngreso.Size = new System.Drawing.Size(249, 24);
             this.cmbTipoDeIngreso.TabIndex = 92;
             // 
             // dtpFechaFin
@@ -110,7 +107,7 @@
             this.dtpFechaFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaFin.Location = new System.Drawing.Point(180, 278);
             this.dtpFechaFin.Name = "dtpFechaFin";
-            this.dtpFechaFin.Size = new System.Drawing.Size(193, 23);
+            this.dtpFechaFin.Size = new System.Drawing.Size(249, 23);
             this.dtpFechaFin.TabIndex = 91;
             // 
             // dtpFechaInico
@@ -118,7 +115,7 @@
             this.dtpFechaInico.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaInico.Location = new System.Drawing.Point(180, 247);
             this.dtpFechaInico.Name = "dtpFechaInico";
-            this.dtpFechaInico.Size = new System.Drawing.Size(193, 23);
+            this.dtpFechaInico.Size = new System.Drawing.Size(249, 23);
             this.dtpFechaInico.TabIndex = 90;
             // 
             // btnBorrarIntegrante
@@ -127,7 +124,7 @@
             this.btnBorrarIntegrante.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnBorrarIntegrante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBorrarIntegrante.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBorrarIntegrante.Location = new System.Drawing.Point(881, 189);
+            this.btnBorrarIntegrante.Location = new System.Drawing.Point(898, 189);
             this.btnBorrarIntegrante.Name = "btnBorrarIntegrante";
             this.btnBorrarIntegrante.Size = new System.Drawing.Size(90, 28);
             this.btnBorrarIntegrante.TabIndex = 89;
@@ -141,7 +138,7 @@
             this.Nombre,
             this.Apellido,
             this.Genero,
-            this.tipoDeIngreso});
+            this.tipoDeIngresoColumna});
             this.dgvIntegrantes.Location = new System.Drawing.Point(471, 394);
             this.dgvIntegrantes.MultiSelect = false;
             this.dgvIntegrantes.Name = "dgvIntegrantes";
@@ -149,38 +146,13 @@
             this.dgvIntegrantes.Size = new System.Drawing.Size(486, 155);
             this.dgvIntegrantes.TabIndex = 88;
             // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Apellido
-            // 
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
-            // 
-            // Genero
-            // 
-            this.Genero.HeaderText = "Genero";
-            this.Genero.Name = "Genero";
-            this.Genero.ReadOnly = true;
-            // 
-            // tipoDeIngreso
-            // 
-            this.tipoDeIngreso.HeaderText = "Tipo de Ingreso";
-            this.tipoDeIngreso.Name = "tipoDeIngreso";
-            this.tipoDeIngreso.ReadOnly = true;
-            this.tipoDeIngreso.Width = 140;
-            // 
             // btnDescartar
             // 
             this.btnDescartar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnDescartar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnDescartar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDescartar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDescartar.Location = new System.Drawing.Point(280, 427);
+            this.btnDescartar.Location = new System.Drawing.Point(337, 427);
             this.btnDescartar.Name = "btnDescartar";
             this.btnDescartar.Size = new System.Drawing.Size(92, 36);
             this.btnDescartar.TabIndex = 87;
@@ -194,7 +166,7 @@
             this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(141, 427);
+            this.btnRegistrar.Location = new System.Drawing.Point(180, 427);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(92, 36);
             this.btnRegistrar.TabIndex = 86;
@@ -222,7 +194,7 @@
             this.listIntegrantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listIntegrantes.FormattingEnabled = true;
             this.listIntegrantes.ItemHeight = 20;
-            this.listIntegrantes.Location = new System.Drawing.Point(734, 189);
+            this.listIntegrantes.Location = new System.Drawing.Point(751, 189);
             this.listIntegrantes.Name = "listIntegrantes";
             this.listIntegrantes.Size = new System.Drawing.Size(141, 100);
             this.listIntegrantes.TabIndex = 84;
@@ -231,9 +203,9 @@
             // 
             this.txtCedulaIntegrante.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCedulaIntegrante.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedulaIntegrante.Location = new System.Drawing.Point(544, 189);
+            this.txtCedulaIntegrante.Location = new System.Drawing.Point(520, 189);
             this.txtCedulaIntegrante.Name = "txtCedulaIntegrante";
-            this.txtCedulaIntegrante.Size = new System.Drawing.Size(184, 19);
+            this.txtCedulaIntegrante.Size = new System.Drawing.Size(225, 19);
             this.txtCedulaIntegrante.TabIndex = 83;
             this.txtCedulaIntegrante.TextChanged += new System.EventHandler(this.txtCedulaIntegrante_TextChanged);
             this.txtCedulaIntegrante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaIntegrante_KeyPress);
@@ -242,7 +214,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(540, 161);
+            this.label8.Location = new System.Drawing.Point(566, 164);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(145, 20);
             this.label8.TabIndex = 82;
@@ -295,7 +267,7 @@
             this.txtCedulaTitular.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCedulaTitular.Location = new System.Drawing.Point(180, 167);
             this.txtCedulaTitular.Name = "txtCedulaTitular";
-            this.txtCedulaTitular.Size = new System.Drawing.Size(193, 19);
+            this.txtCedulaTitular.Size = new System.Drawing.Size(249, 19);
             this.txtCedulaTitular.TabIndex = 75;
             this.txtCedulaTitular.TextChanged += new System.EventHandler(this.txtCedulaTitular_TextChanged);
             this.txtCedulaTitular.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaTitular_KeyPress);
@@ -306,13 +278,9 @@
             this.cmbTipoIngresoIntegrante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbTipoIngresoIntegrante.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoIngresoIntegrante.FormattingEnabled = true;
-            this.cmbTipoIngresoIntegrante.Items.AddRange(new object[] {
-            "Normal",
-            "Hospedado",
-            "Pensionista o Jubilado"});
-            this.cmbTipoIngresoIntegrante.Location = new System.Drawing.Point(544, 221);
+            this.cmbTipoIngresoIntegrante.Location = new System.Drawing.Point(520, 221);
             this.cmbTipoIngresoIntegrante.Name = "cmbTipoIngresoIntegrante";
-            this.cmbTipoIngresoIntegrante.Size = new System.Drawing.Size(184, 24);
+            this.cmbTipoIngresoIntegrante.Size = new System.Drawing.Size(225, 24);
             this.cmbTipoIngresoIntegrante.TabIndex = 95;
             // 
             // label2
@@ -392,20 +360,45 @@
             this.label5.TabIndex = 102;
             this.label5.Text = "Método de Pago";
             // 
-            // comboBox1
+            // cmbMetodosPago
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Normal",
-            "Hospedado",
-            "Pensionista o Jubilado"});
-            this.comboBox1.Location = new System.Drawing.Point(180, 313);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(194, 24);
-            this.comboBox1.TabIndex = 103;
+            this.cmbMetodosPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMetodosPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbMetodosPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbMetodosPago.FormattingEnabled = true;
+            this.cmbMetodosPago.Items.AddRange(new object[] {
+            "Credito",
+            "Debito",
+            "Contado"});
+            this.cmbMetodosPago.Location = new System.Drawing.Point(180, 313);
+            this.cmbMetodosPago.Name = "cmbMetodosPago";
+            this.cmbMetodosPago.Size = new System.Drawing.Size(250, 24);
+            this.cmbMetodosPago.TabIndex = 103;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Apellido
+            // 
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            this.Apellido.ReadOnly = true;
+            // 
+            // Genero
+            // 
+            this.Genero.HeaderText = "Genero";
+            this.Genero.Name = "Genero";
+            this.Genero.ReadOnly = true;
+            // 
+            // tipoDeIngresoColumna
+            // 
+            this.tipoDeIngresoColumna.HeaderText = "Tipo de Ingreso";
+            this.tipoDeIngresoColumna.Name = "tipoDeIngresoColumna";
+            this.tipoDeIngresoColumna.ReadOnly = true;
+            this.tipoDeIngresoColumna.Width = 140;
             // 
             // frmRegReservas
             // 
@@ -413,7 +406,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1000, 605);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbMetodosPago);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label18);
@@ -476,14 +469,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.CheckBox chkConfirmada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Genero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDeIngreso;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbMetodosPago;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Genero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDeIngresoColumna;
     }
 }

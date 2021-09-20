@@ -105,5 +105,87 @@ namespace Capa_de_Datos
             }
         }
 
+        /// <summary>
+        /// Consulta los nombres de los servicios y los retonar en un List
+        /// </summary>
+        /// <returns> Retorna una lista con los servicios o null si hubo error</returns>
+        public List<String> traerServicios()
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = "select nombre from servicio;";
+
+            //Creo la lista que voy a retornar
+            List<String> servicios = new List<string>();
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                MySqlDataReader lector = select.ExecuteReader();
+
+                while (lector.Read())
+                {
+                    servicios.Add(lector.GetString(0));
+                }
+                return servicios;
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return null;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consulta de servicios(Solo Nombres)");
+            }
+        }
+
+        /// <summary>
+        /// Consulta los tipos de de ingreso, sus nombre y precio y los retonar en un List
+        /// </summary>
+        /// <returns>Un List con los tipos de Ingreso, sino retorna null</returns>
+        public List<String> traerTiposDeIngreso()
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = "select * from parametros where titulo like('ingreso%')  order by cast(valor as unsigned) desc;";
+
+            //Creo la lista que voy a retornar
+            List<String> tiposDeIngreso = new List<string>();
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                MySqlDataReader lector = select.ExecuteReader();
+
+                while (lector.Read())
+                {
+                    tiposDeIngreso.Add(lector.GetString(0) + "($" + lector.GetString(1) + ")");
+                }
+
+                return tiposDeIngreso;
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return null;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consulta de Tipos de Ingresos");
+            }
+        }
     }
 }

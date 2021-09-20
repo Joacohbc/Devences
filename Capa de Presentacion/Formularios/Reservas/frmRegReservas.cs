@@ -1,4 +1,5 @@
-﻿using Capa_Logica;
+﻿using Capa_de_Datos;
+using Capa_Logica;
 using Capa_Logica.Clases;
 using System;
 using System.Collections.Generic;
@@ -23,45 +24,69 @@ namespace Capa_Presentacion.Formularios
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
+        //Cargo los datos en los CMB y asigno Min y Max a los DTP
         private void frmRegReservas_Load(object sender, EventArgs e)
         {
-
             dtpFechaInico.MinDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             dtpFechaFin.MinDate = DateTime.Parse(DateTime.Now.ToShortDateString());
 
-            //Se selecciona el primero por defecto
-            cmbTipoDeIngreso.SelectedIndex = 0;
-            cmbTipoIngresoIntegrante.SelectedIndex = 0;
+            //Cargo los Combobox
+            MetodosEmpleado metodosEmpleado = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
 
+            List<String> tiposDeIngreso = metodosEmpleado.traerTipoIngreso();
+
+            //Si no es NULL, osea se cargo correctamente los tipos de ingreso
+            if (tiposDeIngreso != null)
+            {
+                foreach(String ingreso in tiposDeIngreso)
+                {
+                    cmbTipoDeIngreso.Items.Add(ingreso);
+                    cmbTipoIngresoIntegrante.Items.Add(ingreso);
+                }
+
+                //Se selecciona el primero por defecto
+                cmbTipoDeIngreso.SelectedIndex = 0;
+                cmbTipoIngresoIntegrante.SelectedIndex = 0;
+                cmbMetodosPago.SelectedIndex = 0;
+
+            }
+            else
+            {
+                Mensaje.MostrarError("Ocurrio un error la cargar los tipos de ingreso, cierre esta pestania e intentelo nuevamente", Mensaje.ErrorBD);
+
+                //Si ocurre un error se desahbiilita todo menos el boton de Cierre del Form
+                foreach(Control c in this.Controls)
+                {
+                    c.Enabled = false;
+                }
+
+                panel1.Enabled = true;
+                btnSalir.Enabled = true;
+            }
         }
         #endregion
 
-        #region Validciones de Ingreso(KeyPres)
+        #region Validciones de Ingreso
         //Cedula Titular
-        private void txtCedulaTitular_TextChanged(object sender, EventArgs e)
-        {
-            errorProvider.SetError(txtCedulaTitular, "");
-        }
-
         private void txtCedulaTitular_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !validar.validarSiCaracterEsDigito(e.KeyChar, false, "");
         }
 
-        //Cedula Integrante
-        private void txtCedulaIntegrante_TextChanged(object sender, EventArgs e)
+        private void txtCedulaTitular_TextChanged(object sender, EventArgs e)
         {
-            errorProvider.SetError(txtCedulaIntegrante, "");
+            errorProvider.SetError(txtCedulaTitular, "");
         }
 
+        //Cedula Integrante
         private void txtCedulaIntegrante_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !validar.validarSiCaracterEsDigito(e.KeyChar, false, "");
+        }
+
+        private void txtCedulaIntegrante_TextChanged(object sender, EventArgs e)
+        {
+            errorProvider.SetError(txtCedulaIntegrante, "");
         }
         #endregion
 
@@ -263,25 +288,40 @@ namespace Capa_Presentacion.Formularios
 
         }
 
+        //Descartar reserva
         private void btnDescartar_Click(object sender, EventArgs e)
         {
-            DialogResult op = MessageBox.Show("¿Quieres vaciar todos los campo?", "Borrar los campos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (op == DialogResult.Yes)
+            if (Mensaje.MostraPreguntaSiNo("¿Quiere borrar todos los campos?", "Borrar los campos"))
             {
-                txtCedulaTitular.Clear();
-                txtCedulaIntegrante.Clear();
+                //Limpio los componenetes
+                Control[] controles = { txtCedulaTitular, txtCedulaIntegrante, dtpFechaInico, dtpFechaFin, chkConfirmada ,listIntegrantes, dgvIntegrantes};
+                validar.limpiarControles(controles);
+
+                //Para que vuela a tener el predeterminado en el primero
                 cmbTipoDeIngreso.SelectedIndex = 0;
                 cmbTipoIngresoIntegrante.SelectedIndex = 0;
+                cmbMetodosPago.SelectedIndex = 0;
 
-                dtpFechaInico.Value = DateTime.Now;
-                dtpFechaFin.Value = DateTime.Now;
-
-                chkConfirmada.Checked = false;
-
-                listIntegrantes.Items.Clear();
-                dgvIntegrantes.Rows.Clear();
+                //Y borro el error provider
+                errorProvider.Clear();
             }
+        }
 
+        //Cerarr form
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Validaciones validaciones = new Validaciones();
+            if (validaciones.hayAlgo(this))
+            {
+                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacios ¿Quieres cerrar igual?", "Cerrar"))
+                {
+                    Close();
+                }
+            }
+            else
+            {
+                Close();
+            }
         }
     }
 }

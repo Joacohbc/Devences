@@ -20,6 +20,9 @@ namespace Capa_Presentacion.Formularios
         public frmRegClientes()
         {
             InitializeComponent();
+
+            //Checkeo el rdbHombre para simpre haya uno chekeado
+            rdbHombre.Checked = true;
         }
 
         //Pongo el MaxDate del DatePicker, eviatar que la Fec.Nac sea la misma
@@ -242,6 +245,7 @@ namespace Capa_Presentacion.Formularios
                         if (retorno > 0)
                         {
                             Mensaje.MostrarInfo("Se dio de alta el cliente: " + txtPrimerNombre.Text + " " + txtPrimerApellido.Text + " con exito", "Alta de cliente exitosa");
+                            btnCancelar.PerformClick();
                         }
                         //Si ese Cliente ya existia
                         else if (retorno == 1)
@@ -283,7 +287,7 @@ namespace Capa_Presentacion.Formularios
 
                 //Checkeo el rdbHombre para simpre haya uno chekeado
                 rdbHombre.Checked = true;
-
+  
                 //Y borro el error provider
                 errorProvider.Clear();
             }

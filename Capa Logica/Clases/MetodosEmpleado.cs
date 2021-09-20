@@ -113,6 +113,7 @@ namespace Capa_Logica.Clases
         private int rol;
         private Altas altas;
         private Consultas consultas;
+
         public MetodosEmpleado(int ci, int rol)
         {
             this.ci = ci;
@@ -121,8 +122,7 @@ namespace Capa_Logica.Clases
             consultas = new Consultas(rol, ci);
         }
     
-        #region Metodos Clientes
-
+        #region Metodos Altas Clientes
         /// <summary>
         /// Valida un cliente
         /// </summary>
@@ -297,5 +297,12 @@ namespace Capa_Logica.Clases
         }
 
         #endregion
+
+        #region Metodos cargar datos para Reserva
+        public List<String> traerTipoIngreso()
+        {
+            return consultas.traerTiposDeIngreso();
+        }
+        #endregion
     }
-}
+}   
