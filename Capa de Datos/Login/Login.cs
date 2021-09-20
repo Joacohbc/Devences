@@ -17,7 +17,7 @@ namespace Capa_de_Datos.Login
         private static Conexion conexion = new Conexion(2);
 
         /// <summary>
-        /// Verifica si existe un usuario y retornar su rol 0-Administrativo y 1-Gerente
+        /// Verifica si existe un usuario y esta dado de Alta(Osea estado Estado=True) y retornar su rol 0-Administrativo y 1-Gerente
         /// </summary>
         /// <param name="usuario"> El nombre del usuario</param>
         /// <param name="contra"> La contrasenia del usuario</param>
@@ -26,7 +26,7 @@ namespace Capa_de_Datos.Login
         {
             try
             {
-                MySqlCommand select = new MySqlCommand(String.Format("select tipo from empleado where usuario='{0}' and contra=aes_encrypt('{1}','{1}');", usuario, contra), conexion.AbrirConexion());
+                MySqlCommand select = new MySqlCommand(String.Format("select tipo from empleado where usuario='{0}' and contra=aes_encrypt('{1}','{1}') and estado=true;", usuario, contra), conexion.AbrirConexion());
                 MySqlDataReader lector = select.ExecuteReader();
 
                 //Uso IF en vez de While porque el select solo retornara una o ninguna, ya que usuariio es UNIQUE

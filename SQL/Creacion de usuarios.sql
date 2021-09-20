@@ -32,7 +32,6 @@ Update: Modificar y Dar de Baja de Telefonos de Personas
 Select: Consultar Telefonos de Personas
 */
 
-
 #Sobre la Tabla Cliente
 grant select,insert,update on proyectoprueba.cliente to gerente;
 /*

@@ -215,34 +215,48 @@ namespace Capa_Presentacion.Formularios
         //Validar y registrar
         private void btnRegistra_Click(object sender, EventArgs e)
         {
+            //Instnacio el objeto de MetodoEmpleado
             MetodosEmpleado alta = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
+            //Creo el Objeto cliente
             Cliente cliente = alta.validarCliente(txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail,
                 txtDireccion, dtpNacimiento, rdbHombre, rdbMujer, listTelefonos, errorProvider);
 
+            //Si no es Null, osea que todo sus atributos fueron validados con exito
             if (cliente != null)
             {
+                //Creo un objeto Persona a partir de un objeto de su clase Hija Cliente
                 Persona persona = cliente;
+
+                //Hago el alta de esa Persona
                 int retorno = alta.darAltaPersona(persona);
+                
+                //Si es mayor 0, osea que se dio de alta la Persona
                 if (retorno > 0)
                 {
+                    //Hago alta del Cliente
                     retorno = alta.darAltaCliente(cliente);
+                    //Si fue un alta exitosa
                     if (retorno > 0)
                     {
                         Mensaje.MostrarInfo("Se dio de alta el cliente: " + txtPrimerNombre.Text + " " + txtPrimerApellido.Text + " con exito", "Alta de cliente exitosa");
                     }
+                    //Si ese Cliente ya existia
                     else if (retorno == 1)
                     {
                         Mensaje.MostrarInfo("El Cliente que intenta dar de alta ya existe", "Aviso en alta Cliente");
                     }
+                    //Si dio Error
                     else
                     {
                         Mensaje.MostrarError("Ocurrio un error a dar de alta al Cliente", Mensaje.ErrorBD);
                     }
                 }
+                //Si es igual a 0, osea que la persona existe
                 else if (retorno == 0)
                 {
                     Mensaje.MostrarInfo("La Persona que intenta dar de alta ya existe", "Aviso en alta Persona");
                 }
+                //Y -1 si es error
                 else
                 {
                     Mensaje.MostrarError("Ocurrio un error al dar de Alta a la Persona", Mensaje.ErrorBD);

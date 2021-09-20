@@ -157,7 +157,6 @@ namespace Capa_Logica.Clases
 
                                             return CreacionObjeto.CrearCliente(Convert.ToInt32(txtCedula.Text), txtPrimerApellido, txtSegundoNombre,
                                                                 txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, dtpNacimiento, rdbHombre, rdbMujer, listTelefonos);
-
                                         }
                                         else
                                         {
