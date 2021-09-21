@@ -48,7 +48,7 @@ id int(11) auto_increment not null,
 ci int(8) not null,
 inicio date not null,#Date y no DateTime porque es por todo el dia
 fin date not null,#Date y no DateTime porque es por todo el dia
-tipoDeIngreso enum('Normal', 'Hospedado', 'Pensionista o Jubilado') not null,
+tipoDeIngreso enum('Ingreso Normal', 'Ingreso de alojados', 'Ingreso Jubilados/Pensionistas') not null,
 precioTotal int(11) not null,
 #Predeterminadamente estara No Confirmada
 estado enum('Confirmada','No Confirmada', 'Eliminada' ,'Cancelada', 'Finalizada') default 'No Confirmada',
@@ -83,7 +83,7 @@ foreign key(ci) references empleado(ci));
 create table if not exists integran (
 id int(11) not null,
 ci int(8) not null,
-tipoDeIngreso enum('Normal', 'Hospedado', 'Pensionista o Jubilado') not null,
+tipoDeIngreso enum('Ingreso Normal', 'Ingreso de alojados', 'Ingreso Jubilados/Pensionistas') not null,
 primary key(id, ci),
 foreign key(id) references reserva(id),
 foreign key(ci) references cliente(ci));
