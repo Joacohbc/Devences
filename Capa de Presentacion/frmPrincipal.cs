@@ -1,5 +1,4 @@
-﻿using Capa_de_Datos;
-using Capa_Entidades;
+﻿using Capa_Entidades;
 using Capa_Logica;
 using Capa_Logica.Clases;
 using Capa_Presentacion.Formularios;

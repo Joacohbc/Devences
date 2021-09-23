@@ -1,3 +1,4 @@
+
 create database if not exists proyectoprueba;
 use proyectoprueba;
 
@@ -53,7 +54,7 @@ precioTotal int(11) not null,
 #Predeterminadamente estara No Confirmada
 estado enum('Confirmada','No Confirmada', 'Eliminada' ,'Cancelada', 'Finalizada') default 'No Confirmada',
 formaDePago enum('Credito', 'Debito', 'Contado') not null,
-primary key(id),
+primary key(id, ci, inicio, estado),
 foreign key(ci) references cliente(ci)
 );
 

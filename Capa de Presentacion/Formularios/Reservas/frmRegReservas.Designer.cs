@@ -36,6 +36,10 @@
             this.dtpFechaInico = new System.Windows.Forms.DateTimePicker();
             this.btnBorrarIntegrante = new System.Windows.Forms.Button();
             this.dgvIntegrantes = new System.Windows.Forms.DataGridView();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoDeIngresoColumna = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDescartar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnAgregarIntegrante = new System.Windows.Forms.Button();
@@ -57,10 +61,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbMetodosPago = new System.Windows.Forms.ComboBox();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoDeIngresoColumna = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIntegrantes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.panel1.SuspendLayout();
@@ -124,9 +124,9 @@
             this.btnBorrarIntegrante.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnBorrarIntegrante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBorrarIntegrante.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBorrarIntegrante.Location = new System.Drawing.Point(898, 189);
+            this.btnBorrarIntegrante.Location = new System.Drawing.Point(917, 189);
             this.btnBorrarIntegrante.Name = "btnBorrarIntegrante";
-            this.btnBorrarIntegrante.Size = new System.Drawing.Size(90, 28);
+            this.btnBorrarIntegrante.Size = new System.Drawing.Size(71, 28);
             this.btnBorrarIntegrante.TabIndex = 89;
             this.btnBorrarIntegrante.Text = "Borrar";
             this.btnBorrarIntegrante.UseVisualStyleBackColor = true;
@@ -134,6 +134,7 @@
             // 
             // dgvIntegrantes
             // 
+            this.dgvIntegrantes.AllowUserToAddRows = false;
             this.dgvIntegrantes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre,
             this.Apellido,
@@ -145,6 +146,31 @@
             this.dgvIntegrantes.ReadOnly = true;
             this.dgvIntegrantes.Size = new System.Drawing.Size(486, 155);
             this.dgvIntegrantes.TabIndex = 88;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Apellido
+            // 
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            this.Apellido.ReadOnly = true;
+            // 
+            // Genero
+            // 
+            this.Genero.HeaderText = "Genero";
+            this.Genero.Name = "Genero";
+            this.Genero.ReadOnly = true;
+            // 
+            // tipoDeIngresoColumna
+            // 
+            this.tipoDeIngresoColumna.HeaderText = "Tipo de Ingreso";
+            this.tipoDeIngresoColumna.Name = "tipoDeIngresoColumna";
+            this.tipoDeIngresoColumna.ReadOnly = true;
+            this.tipoDeIngresoColumna.Width = 140;
             // 
             // btnDescartar
             // 
@@ -194,9 +220,9 @@
             this.listIntegrantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listIntegrantes.FormattingEnabled = true;
             this.listIntegrantes.ItemHeight = 20;
-            this.listIntegrantes.Location = new System.Drawing.Point(751, 189);
+            this.listIntegrantes.Location = new System.Drawing.Point(773, 189);
             this.listIntegrantes.Name = "listIntegrantes";
-            this.listIntegrantes.Size = new System.Drawing.Size(141, 100);
+            this.listIntegrantes.Size = new System.Drawing.Size(138, 100);
             this.listIntegrantes.TabIndex = 84;
             // 
             // txtCedulaIntegrante
@@ -374,31 +400,6 @@
             this.cmbMetodosPago.Name = "cmbMetodosPago";
             this.cmbMetodosPago.Size = new System.Drawing.Size(250, 24);
             this.cmbMetodosPago.TabIndex = 103;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Apellido
-            // 
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
-            // 
-            // Genero
-            // 
-            this.Genero.HeaderText = "Genero";
-            this.Genero.Name = "Genero";
-            this.Genero.ReadOnly = true;
-            // 
-            // tipoDeIngresoColumna
-            // 
-            this.tipoDeIngresoColumna.HeaderText = "Tipo de Ingreso";
-            this.tipoDeIngresoColumna.Name = "tipoDeIngresoColumna";
-            this.tipoDeIngresoColumna.ReadOnly = true;
-            this.tipoDeIngresoColumna.Width = 140;
             // 
             // frmRegReservas
             // 

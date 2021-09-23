@@ -70,7 +70,7 @@ namespace Capa_de_Datos
         public int buscarCliente(int ci)
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
-            String sentencia = String.Format("select ci from cliente where ci={0};", ci);
+            String sentencia = String.Format("select ci from cliente where ci={0} and estado=true;", ci);
 
             //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
             //si lo hara. SI es false si entre al catch, osea que hubo un error
@@ -104,18 +104,73 @@ namespace Capa_de_Datos
                 if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Busqueda de Cliente: " + ci);
             }
         }
+        
+        /// <summary>
+        /// Consulta una Persona por su cedula y retonar el objeto Persona, o NUll si hay error
+        /// </summary>|
+        /// <param name="ci">La cedula de la persona</param>
+        /// <returns>Retorna el Objeto Persona, o Null si ocurrio un error</returns>
+        public Persona traerPersona(int ci)
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = String.Format("select * from persona where ci={0};", ci);
 
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                MySqlDataReader lector = select.ExecuteReader();
+
+                Persona persona = new Persona();
+                //Leo lo que devuelve
+                if (lector.Read())
+                {
+                    //Retorno 1 si encuentro
+                    persona.Ci = lector.GetInt32(0);
+                    persona.PrimerNombre = lector.GetString(1);
+                    persona.SegundoNombre = lector.GetString(2);
+                    persona.PrimerApellido = lector.GetString(3);
+                    persona.SegundoApellido = lector.GetString(4);
+                    persona.Genero = lector.GetString(5);
+                    persona.FechaNacimiento = lector.GetDateTime(6);
+                    persona.Mail = lector.GetString(7);
+                    persona.Direccion = lector.GetString(8);
+
+                    return persona;
+                }
+                else
+                {
+                    //Retorno Null si no la encuentro
+                    return null;
+                }
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return null;
+            }
+            finally
+            {
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consulta de Persona: " + ci);
+            }
+        }
+       
         /// <summary>
         /// Consulta los nombres de los servicios y los retonar en un List
         /// </summary>
         /// <returns> Retorna una lista con los servicios o null si hubo error</returns>
-        public List<String> traerServicios()
+        public List<Servicios> traerServicios()
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
-            String sentencia = "select nombre from servicio;";
+            String sentencia = "select * from servicio;";
 
             //Creo la lista que voy a retornar
-            List<String> servicios = new List<string>();
+            List<Servicios> servicios = new List<Servicios>();
 
             //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
             //si lo hara. SI es false si entre al catch, osea que hubo un error
@@ -128,7 +183,7 @@ namespace Capa_de_Datos
 
                 while (lector.Read())
                 {
-                    servicios.Add(lector.GetString(0));
+                    servicios.Add(new Servicios(lector.GetString(0), lector.GetTimeSpan(1), lector.GetInt32(2), lector.GetInt32(3), lector.GetInt32(4)));
                 }
                 return servicios;
             }
@@ -139,24 +194,24 @@ namespace Capa_de_Datos
             }
             finally
             {
-                conexion.CerrarConexion();
                 //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
                 conexion.CerrarConexion();
-                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consulta de servicios(Solo Nombres)");
+
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consulta de servicios");
             }
         }
 
         /// <summary>
         /// Consulta los tipos de de ingreso, sus nombre y precio y los retonar en un List
         /// </summary>
-        /// <returns>Un List con los tipos de Ingreso, sino retorna null</returns>
-        public List<String> traerTiposDeIngreso()
+        /// <returns>Un List bidimensional con los tipos de Ingreso y el precio, sino retorna null</returns>
+        public List<String[]> traerTiposDeIngreso()
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
             String sentencia = "select * from parametros where titulo like('ingreso%')  order by cast(valor as unsigned) desc;";
 
             //Creo la lista que voy a retornar
-            List<String> tiposDeIngreso = new List<string>();
+            List<String[]> tiposDeIngresos = new List<String[]>();
 
             //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
             //si lo hara. SI es false si entre al catch, osea que hubo un error
@@ -169,10 +224,11 @@ namespace Capa_de_Datos
 
                 while (lector.Read())
                 {
-                    tiposDeIngreso.Add(lector.GetString(0) + "($" + lector.GetString(1) + ")");
+                    String[] tipoDeIngreso = { lector.GetString(0), lector.GetString(1) };
+                    tiposDeIngresos.Add(tipoDeIngreso);
                 }
 
-                return tiposDeIngreso;
+                return tiposDeIngresos;
             }
             catch
             {
@@ -185,6 +241,125 @@ namespace Capa_de_Datos
                 //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
                 conexion.CerrarConexion();
                 if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consulta de Tipos de Ingresos");
+            }
+        }
+
+        /// <summary>
+        /// Busca si el Cliente tiene una Reserva con ese inicio que no este ni Eliminada ni Cancelada ni Finalizada, 1 si encuentra una, 0 si no la encuentra y -1 error
+        /// </summary>
+        /// <returns> 1 si encuentra una, 0 si no la encuentra y -1 error </returns>
+        public int validarFechaReserva(Reserva reserva)
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = String.Format("select id from reserva where ci={0} and inicio='{1}' and not estado = 'Eliminada' and not estado = 'Cancelada' and not estado = 'Finalizada';"
+                ,reserva.Ci, reserva.Inicio.ToString("yyyy-MM-dd"));
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                MySqlDataReader lector = select.ExecuteReader();
+
+                if (lector.Read())
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return -1;
+            }
+            finally
+            {
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consultar valides de una reserva: " + reserva.Ci + " en " + reserva.Inicio.ToString("yyyy-MM-dd"));
+            }
+        }
+
+        public int buscarIdDeReserva(int ci, DateTime inicio)
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = String.Format("select id from reserva where ci={0} and inicio='{1}' and not estado = 'Eliminada' and not estado = 'Cancelada' " +
+                "and not estado = 'Finalizada'", ci, inicio.ToString("yyyy-MM-dd"));
+
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                //Consulto el ID de la reserva
+                MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                MySqlDataReader lector = select.ExecuteReader();
+
+                if (lector.Read())
+                {
+                    return lector.GetInt32(0);
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return -1;
+            }
+            finally
+            {
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consulta de ID de Reserva");
+            }
+        }
+
+        public int buscarEmpleado(int ci)
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = String.Format("select ci from empleado where ci={0} and estado=true;", ci);
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                MySqlDataReader lector = select.ExecuteReader();
+                //Leo lo que devuelve
+                if (lector.Read())
+                {
+                    //Retorno 1 si existe
+                    return 1;
+                }
+                else
+                {
+                    //Retorno 0 si no existe
+                    return 0;
+                }
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return -1;
+            }
+            finally
+            {
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Busqueda de Empleado: " + ci);
             }
         }
     }

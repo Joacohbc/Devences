@@ -4,7 +4,6 @@ namespace Capa_Entidades
 {
     public class Empleado : Persona
     {
-        private int ci;
         private string usuario;
         private string contra;
         private int tipo;

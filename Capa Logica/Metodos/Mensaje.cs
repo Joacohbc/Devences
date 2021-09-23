@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Capa_de_Datos
+namespace Capa_Logica
 {
     public class Mensaje
     {

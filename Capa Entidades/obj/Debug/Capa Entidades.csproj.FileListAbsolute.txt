@@ -4,9 +4,15 @@ C:\Users\emili\Documents\GitHub\Devences\Capa Entidades\obj\Debug\Capa Entidades
 C:\Users\emili\Documents\GitHub\Devences\Capa Entidades\obj\Debug\Capa Entidades.csproj.CoreCompileInputs.cache
 C:\Users\emili\Documents\GitHub\Devences\Capa Entidades\obj\Debug\Capa Entidades.dll
 C:\Users\emili\Documents\GitHub\Devences\Capa Entidades\obj\Debug\Capa Entidades.pdb
+D:\Devences\Capa Entidades\bin\Debug\Capa Entidades.dll
+D:\Devences\Capa Entidades\bin\Debug\Capa Entidades.pdb
+D:\Devences\Capa Entidades\obj\Debug\Capa Entidades.csprojAssemblyReference.cache
+D:\Devences\Capa Entidades\obj\Debug\Capa Entidades.csproj.CoreCompileInputs.cache
+D:\Devences\Capa Entidades\obj\Debug\Capa Entidades.dll
+D:\Devences\Capa Entidades\obj\Debug\Capa Entidades.pdb
 C:\Users\Joaco\Desktop\Devences\Capa Entidades\bin\Debug\Capa Entidades.dll
 C:\Users\Joaco\Desktop\Devences\Capa Entidades\bin\Debug\Capa Entidades.pdb
+C:\Users\Joaco\Desktop\Devences\Capa Entidades\obj\Debug\Capa Entidades.csprojAssemblyReference.cache
 C:\Users\Joaco\Desktop\Devences\Capa Entidades\obj\Debug\Capa Entidades.csproj.CoreCompileInputs.cache
 C:\Users\Joaco\Desktop\Devences\Capa Entidades\obj\Debug\Capa Entidades.dll
 C:\Users\Joaco\Desktop\Devences\Capa Entidades\obj\Debug\Capa Entidades.pdb
-C:\Users\Joaco\Desktop\Devences\Capa Entidades\obj\Debug\Capa Entidades.csprojAssemblyReference.cache
