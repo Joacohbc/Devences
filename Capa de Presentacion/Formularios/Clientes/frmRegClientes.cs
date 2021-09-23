@@ -8,7 +8,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Capa_de_Datos;
 using Capa_Logica;
 using Capa_Logica.Clases;
 using Capa_Entidades;
@@ -20,12 +19,16 @@ namespace Capa_Presentacion.Formularios
         public frmRegClientes()
         {
             InitializeComponent();
+
         }
 
         //Pongo el MaxDate del DatePicker, eviatar que la Fec.Nac sea la misma
         private void frmRegClientes_Load(object sender, EventArgs e)
         {
             dtpNacimiento.MaxDate = DateTime.Now;
+            
+            //Checkeo el rdbHombre para simpre haya uno chekeado
+            rdbHombre.Checked = true;
         }
 
         #region Validaciones de Ingreso(TextBoxes)
@@ -215,16 +218,64 @@ namespace Capa_Presentacion.Formularios
         //Validar y registrar
         private void btnRegistra_Click(object sender, EventArgs e)
         {
-            try
+            //Instnacio el objeto de MetodoEmpleado
+            MetodosEmpleado alta = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
+            //Creo el Objeto cliente
+            Cliente cliente = alta.validarCliente(txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, dtpNacimiento, rdbHombre, rdbMujer, listTelefonos, errorProvider);
+
+            //Si no es Null, osea que todo sus atributos fueron validados con exito
+            if (cliente != null)
             {
-                if (MetodosCliente.DarAlta(txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, dtpNacimiento, rdbHombre, rdbMujer, listTelefonos, errorProvider))
+                if (Mensaje.MostraPreguntaSiNo("¿Quiere dar de alta a cliente "+ cliente.PrimerNombre +" " + cliente.PrimerApellido +"?", "Alta de cliente"))
                 {
-                    Mensaje.MostrarInfo("Se dio de alta el cliente: " + txtPrimerNombre.Text + " " + txtPrimerApellido.Text + " con exito", "Alta de cliente exitosa");
+                    //Creo un objeto Persona a partir de un objeto de su clase Hija Cliente
+                    Persona persona = cliente;
+
+                    //Hago el alta de esa Persona
+                    int retorno = alta.darAltaPersona(persona);
+
+                    //Si es mayor 0, osea que se dio de alta la Persona
+                    if (retorno > 0)
+                    {
+                        //Si es True, osea todos los telefonos se dieron de altas correctamente
+                        if (alta.darAltaTelefonos(persona))
+                        {
+                            //Hago alta del Cliente
+                            retorno = alta.darAltaCliente(cliente);
+                            //Si fue un alta exitosa
+                            if (retorno > 0)
+                            {
+                                Mensaje.MostrarInfo("Se dio de alta el cliente: " + txtPrimerNombre.Text + " " + txtPrimerApellido.Text + " con exito", "Alta de cliente exitosa");
+                                dgvRegistrarClientes.Rows.Add(persona.Ci, persona.PrimerNombre, persona.PrimerApellido, persona.Genero);
+                                btnCancelar.PerformClick();
+                            }
+                            //Si ese Cliente ya existia
+                            else if (retorno == 1)
+                            {
+                                Mensaje.MostrarInfo("El Cliente que intenta dar de alta ya existe", "Aviso en alta Cliente");
+                            }
+                            //Si dio Error
+                            else
+                            {
+                                Mensaje.MostrarError("Ocurrio un error a dar de alta al Cliente", Mensaje.ErrorBD);
+                            }
+                        }
+                        else
+                        {
+                            Mensaje.MostrarError("Ocurrio un error a dar de alta los Telefonos de la Persona", Mensaje.ErrorBD);
+                        }
+                    }
+                    //Si es igual a 0, osea que la persona existe
+                    else if (retorno == 0)
+                    {
+                        Mensaje.MostrarInfo("La Persona que intenta dar de alta ya existe", "Aviso en alta Persona");
+                    }
+                    //Y -1 si es error
+                    else
+                    {
+                        Mensaje.MostrarError("Ocurrio un error al dar de Alta a la Persona", Mensaje.ErrorBD);
+                    }
                 }
-            }
-            catch
-            {
-                Mensaje.MostrarError("Ocurrio un error al dar de alta", Mensaje.ErrorBD);
             }
         }
 
@@ -239,9 +290,18 @@ namespace Capa_Presentacion.Formularios
 
                 //Checkeo el rdbHombre para simpre haya uno chekeado
                 rdbHombre.Checked = true;
-
+  
                 //Y borro el error provider
                 errorProvider.Clear();
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            if (Mensaje.MostraPreguntaSiNo("¿Quiere borrar todos las filas de la tabla", "Borrar tabla"))
+            {
+                //Limpio los componenetes
+                dgvRegistrarClientes.Rows.Clear();
             }
         }
     }

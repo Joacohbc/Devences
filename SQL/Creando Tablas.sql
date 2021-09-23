@@ -1,9 +1,10 @@
+
 create database if not exists proyectoprueba;
 use proyectoprueba;
 
 #Tabla Persona
 create table if not exists persona (
-ci int(8),
+ci int(8) not null,
 primerNombre varchar(20) not null,
 segundoNombre varchar(20) default null,
 primerApellido varchar(20) not null,
@@ -24,14 +25,14 @@ foreign key(ci) references persona(ci));
 #Tabla Cliente
 create table if not exists cliente (
 ci int(8) not null,
-fechaRegistro timestamp not null,
+fechaRegistro timestamp default current_timestamp(),
 #Predeterminadamente estara de dada del alta
-estado bool not null default true,
+estado bool default true,
 primary key(ci),
 foreign key(ci) references persona(ci));
 
 #Tabla Empleado
-create table empleado (
+create table if not exists empleado (
 ci int(8) not null,
 usuario varchar(20) not null unique, 
 contra varbinary(256) not null,
@@ -46,14 +47,14 @@ foreign key(ci) references persona(ci)
 create table if not exists reserva (
 id int(11) auto_increment not null, 
 ci int(8) not null,
-inicio date not null,
-fin date not null,
-tipoDeIngreso enum('Normal', 'Hospedado', 'Pensionista o Jubilado') not null,
+inicio date not null,#Date y no DateTime porque es por todo el dia
+fin date not null,#Date y no DateTime porque es por todo el dia
+tipoDeIngreso enum('Ingreso Normal', 'Ingreso de alojados', 'Ingreso Jubilados/Pensionistas') not null,
 precioTotal int(11) not null,
 #Predeterminadamente estara No Confirmada
 estado enum('Confirmada','No Confirmada', 'Eliminada' ,'Cancelada', 'Finalizada') default 'No Confirmada',
 formaDePago enum('Credito', 'Debito', 'Contado') not null,
-primary key(id),
+primary key(id, ci, inicio, estado),
 foreign key(ci) references cliente(ci)
 );
 
@@ -62,6 +63,10 @@ create table if not exists servicio (
 nombre varchar(50) not null,
 duracion time not null,
 capacidadMax int(3) not null,
+
+#Atributo para poder guardar la cantidad de Camionetas, Bicis, Caballos u otra
+#cantidad en caso de que el servicio la necesite
+cantidad int(3) default null,
 precio int(11) not null,
 primary key(nombre));
 
@@ -69,8 +74,9 @@ primary key(nombre));
 create table if not exists registroDeCambio (
 id int(11) auto_increment not null,
 ci int(8) not null,
-sentencia varchar(100) not null,
+sentencia varchar(1000) not null,
 descripcion varchar(100) not null,
+cuando timestamp default current_timestamp(),
 primary key(id),
 foreign key(ci) references empleado(ci));
 
@@ -78,18 +84,22 @@ foreign key(ci) references empleado(ci));
 create table if not exists integran (
 id int(11) not null,
 ci int(8) not null,
-tipoDeIngreso enum('Normal', 'Hospedado', 'Pensionista o Jubilado') not null,
-primary key(id));
+tipoDeIngreso enum('Ingreso Normal', 'Ingreso de alojados', 'Ingreso Jubilados/Pensionistas') not null,
+primary key(id, ci),
+foreign key(id) references reserva(id),
+foreign key(ci) references cliente(ci));
 
 #Tabla de la Relacion Contiene
 create table if not exists contiene (
 id int(11) not null,
 nombre varchar(50) not null,
-inicio date not null, 
-fin date not null,
+inicio datetime not null,#Datetime porque se necesita saber el dia y fecha que se registro
+fin datetime not null,#Datetime porque se necesita saber el dia y fecha que se registro
 estado enum('Confirmada','No Confirmada','Finalizada') default 'Confirmada',
 formaDePago enum('Credito', 'Debito', 'Contado') not null,
-primary key(id,nombre));
+primary key(id,nombre,inicio),
+foreign key(id) references reserva(id),
+foreign key(nombre) references servicio(nombre));
 
 #Tabla Parametros
 create table if not exists parametros (

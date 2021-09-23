@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -66,7 +67,9 @@
             this.txtContra = new System.Windows.Forms.TextBox();
             this.txtConfContra = new System.Windows.Forms.TextBox();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -79,25 +82,24 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Registro de Empleados";
             // 
-            // button1
+            // btnSalir
             // 
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(917, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 32);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Salir";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.Location = new System.Drawing.Point(917, 7);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 32);
+            this.btnSalir.TabIndex = 4;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -145,6 +147,7 @@
             this.btnBorrarTelefono.TabStop = false;
             this.btnBorrarTelefono.Text = "Borrar";
             this.btnBorrarTelefono.UseVisualStyleBackColor = true;
+            this.btnBorrarTelefono.Click += new System.EventHandler(this.btnBorrarTelefono_Click);
             // 
             // btnCancelar
             // 
@@ -158,6 +161,7 @@
             this.btnCancelar.TabIndex = 76;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnRegistra
             // 
@@ -171,6 +175,7 @@
             this.btnRegistra.TabIndex = 74;
             this.btnRegistra.Text = "Registrar";
             this.btnRegistra.UseVisualStyleBackColor = true;
+            this.btnRegistra.Click += new System.EventHandler(this.btnRegistra_Click);
             // 
             // btnAgregarTelefono
             // 
@@ -178,12 +183,13 @@
             this.btnAgregarTelefono.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnAgregarTelefono.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarTelefono.Location = new System.Drawing.Point(388, 375);
+            this.btnAgregarTelefono.Location = new System.Drawing.Point(386, 363);
             this.btnAgregarTelefono.Name = "btnAgregarTelefono";
             this.btnAgregarTelefono.Size = new System.Drawing.Size(90, 34);
             this.btnAgregarTelefono.TabIndex = 73;
             this.btnAgregarTelefono.Text = "Agregar";
             this.btnAgregarTelefono.UseVisualStyleBackColor = true;
+            this.btnAgregarTelefono.Click += new System.EventHandler(this.btnAgregarTelefono_Click);
             // 
             // listTelefonos
             // 
@@ -201,10 +207,12 @@
             // 
             this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(177, 375);
+            this.txtTelefono.Location = new System.Drawing.Point(176, 369);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(175, 19);
             this.txtTelefono.TabIndex = 70;
+            this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // rdbNoBinario
             // 
@@ -321,6 +329,8 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(299, 19);
             this.txtDireccion.TabIndex = 64;
+            this.txtDireccion.TextChanged += new System.EventHandler(this.txtDireccion_TextChanged);
+            this.txtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDireccion_KeyPress);
             // 
             // txtSegundoApellido
             // 
@@ -330,6 +340,8 @@
             this.txtSegundoApellido.Name = "txtSegundoApellido";
             this.txtSegundoApellido.Size = new System.Drawing.Size(136, 19);
             this.txtSegundoApellido.TabIndex = 62;
+            this.txtSegundoApellido.TextChanged += new System.EventHandler(this.txtSegudoApellido_TextChanged);
+            this.txtSegundoApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSegudoApellido_KeyPress);
             // 
             // txtPrimerApellido
             // 
@@ -339,6 +351,8 @@
             this.txtPrimerApellido.Name = "txtPrimerApellido";
             this.txtPrimerApellido.Size = new System.Drawing.Size(136, 19);
             this.txtPrimerApellido.TabIndex = 61;
+            this.txtPrimerApellido.TextChanged += new System.EventHandler(this.txtPrimerApellido_TextChanged);
+            this.txtPrimerApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrimerApellido_KeyPress);
             // 
             // txtMail
             // 
@@ -348,6 +362,8 @@
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(299, 19);
             this.txtMail.TabIndex = 63;
+            this.txtMail.TextChanged += new System.EventHandler(this.txtMail_TextChanged);
+            this.txtMail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMail_KeyPress);
             // 
             // txtSegundoNombre
             // 
@@ -357,6 +373,8 @@
             this.txtSegundoNombre.Name = "txtSegundoNombre";
             this.txtSegundoNombre.Size = new System.Drawing.Size(136, 19);
             this.txtSegundoNombre.TabIndex = 60;
+            this.txtSegundoNombre.TextChanged += new System.EventHandler(this.txtSegundoNombre_TextChanged);
+            this.txtSegundoNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSegundoNombre_KeyPress);
             // 
             // txtPrimerNombre
             // 
@@ -366,6 +384,8 @@
             this.txtPrimerNombre.Name = "txtPrimerNombre";
             this.txtPrimerNombre.Size = new System.Drawing.Size(136, 19);
             this.txtPrimerNombre.TabIndex = 59;
+            this.txtPrimerNombre.TextChanged += new System.EventHandler(this.txtPrimerNombre_TextChanged);
+            this.txtPrimerNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrimerNombre_KeyPress);
             // 
             // txtCedula
             // 
@@ -375,6 +395,8 @@
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(299, 19);
             this.txtCedula.TabIndex = 58;
+            this.txtCedula.TextChanged += new System.EventHandler(this.txtCedula_TextChanged);
+            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // label11
             // 
@@ -434,6 +456,8 @@
             this.txtNomUsu.Name = "txtNomUsu";
             this.txtNomUsu.Size = new System.Drawing.Size(166, 19);
             this.txtNomUsu.TabIndex = 87;
+            this.txtNomUsu.TextChanged += new System.EventHandler(this.txtNomUsu_TextChanged);
+            this.txtNomUsu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomUsu_KeyPress);
             // 
             // txtContra
             // 
@@ -443,6 +467,8 @@
             this.txtContra.Name = "txtContra";
             this.txtContra.Size = new System.Drawing.Size(166, 19);
             this.txtContra.TabIndex = 88;
+            this.txtContra.TextChanged += new System.EventHandler(this.txtContra_TextChanged);
+            this.txtContra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContra_KeyPress);
             // 
             // txtConfContra
             // 
@@ -452,15 +478,24 @@
             this.txtConfContra.Name = "txtConfContra";
             this.txtConfContra.Size = new System.Drawing.Size(167, 19);
             this.txtConfContra.TabIndex = 89;
+            this.txtConfContra.TextChanged += new System.EventHandler(this.txtConfContra_TextChanged);
+            this.txtConfContra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtConfContra_KeyPress);
             // 
             // cmbTipo
             // 
             this.cmbTipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbTipo.FormattingEnabled = true;
+            this.cmbTipo.Items.AddRange(new object[] {
+            "Administrativo",
+            "Gerente"});
             this.cmbTipo.Location = new System.Drawing.Point(717, 146);
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(166, 21);
             this.cmbTipo.TabIndex = 90;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // frmRegEmpleados
             // 
@@ -507,8 +542,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmRegEmpleados";
             this.Text = "frmRegEmpleados";
+            this.Load += new System.EventHandler(this.frmRegEmpleados_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -517,7 +554,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -554,5 +591,6 @@
         private System.Windows.Forms.TextBox txtContra;
         private System.Windows.Forms.TextBox txtConfContra;
         private System.Windows.Forms.ComboBox cmbTipo;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

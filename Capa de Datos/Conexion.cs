@@ -17,14 +17,23 @@ namespace Capa_de_Datos
             if (rol == 2)
             {
                 conexionBD = new MySqlConnection("server=localhost; port=3306; database=proyectoprueba; uid=login; pwd=login;");
+
+                //Conexion para la UTU
+                //conexionBD = new MySqlConnection("server=192.168.2.53; port=3306; database=Devences; uid=jgenova; pwd=53626663;");
             }
             else if (rol == 1)
             {
                 conexionBD = new MySqlConnection("server=localhost; port=3306; database=proyectoprueba; uid=gerente; pwd=gerente;");
+
+                //Conexion para la UTU
+                //conexionBD = new MySqlConnection("server=192.168.2.53; port=3306; database=Devences; uid=jgenova; pwd=53626663;");
             }
             else
             {
                 conexionBD = new MySqlConnection("server=localhost; port=3306; database=proyectoprueba; uid=administrativo; pwd=administrativo;");
+                
+                //Conexion para la UTU
+                //conexionBD = new MySqlConnection("server=192.168.2.53; port=3306; database=Devences; uid=jgenova; pwd=53626663;");
             }
         }
 

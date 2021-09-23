@@ -39,7 +39,7 @@
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoDeIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoDeIngresoColumna = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDescartar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnAgregarIntegrante = new System.Windows.Forms.Button();
@@ -60,7 +60,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbMetodosPago = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIntegrantes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.panel1.SuspendLayout();
@@ -70,10 +70,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(12, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(210, 25);
+            this.label1.Size = new System.Drawing.Size(175, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Ingreso de Reservas";
             // 
@@ -83,14 +82,13 @@
             this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(1223, 9);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Location = new System.Drawing.Point(917, 7);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(100, 39);
+            this.btnSalir.Size = new System.Drawing.Size(75, 32);
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.button1_Click);
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // cmbTipoDeIngreso
             // 
@@ -98,32 +96,26 @@
             this.cmbTipoDeIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbTipoDeIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoDeIngreso.FormattingEnabled = true;
-            this.cmbTipoDeIngreso.Items.AddRange(new object[] {
-            "Normal",
-            "Hospedado",
-            "Pensionista o Jubilado"});
-            this.cmbTipoDeIngreso.Location = new System.Drawing.Point(240, 255);
-            this.cmbTipoDeIngreso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbTipoDeIngreso.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.cmbTipoDeIngreso.Location = new System.Drawing.Point(180, 207);
             this.cmbTipoDeIngreso.Name = "cmbTipoDeIngreso";
-            this.cmbTipoDeIngreso.Size = new System.Drawing.Size(256, 28);
+            this.cmbTipoDeIngreso.Size = new System.Drawing.Size(249, 24);
             this.cmbTipoDeIngreso.TabIndex = 92;
             // 
             // dtpFechaFin
             // 
             this.dtpFechaFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaFin.Location = new System.Drawing.Point(240, 342);
-            this.dtpFechaFin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFechaFin.Location = new System.Drawing.Point(180, 278);
             this.dtpFechaFin.Name = "dtpFechaFin";
-            this.dtpFechaFin.Size = new System.Drawing.Size(256, 26);
+            this.dtpFechaFin.Size = new System.Drawing.Size(249, 23);
             this.dtpFechaFin.TabIndex = 91;
             // 
             // dtpFechaInico
             // 
             this.dtpFechaInico.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaInico.Location = new System.Drawing.Point(240, 304);
-            this.dtpFechaInico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFechaInico.Location = new System.Drawing.Point(180, 247);
             this.dtpFechaInico.Name = "dtpFechaInico";
-            this.dtpFechaInico.Size = new System.Drawing.Size(256, 26);
+            this.dtpFechaInico.Size = new System.Drawing.Size(249, 23);
             this.dtpFechaInico.TabIndex = 90;
             // 
             // btnBorrarIntegrante
@@ -132,10 +124,9 @@
             this.btnBorrarIntegrante.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnBorrarIntegrante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBorrarIntegrante.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBorrarIntegrante.Location = new System.Drawing.Point(1175, 233);
-            this.btnBorrarIntegrante.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBorrarIntegrante.Location = new System.Drawing.Point(917, 189);
             this.btnBorrarIntegrante.Name = "btnBorrarIntegrante";
-            this.btnBorrarIntegrante.Size = new System.Drawing.Size(120, 34);
+            this.btnBorrarIntegrante.Size = new System.Drawing.Size(71, 28);
             this.btnBorrarIntegrante.TabIndex = 89;
             this.btnBorrarIntegrante.Text = "Borrar";
             this.btnBorrarIntegrante.UseVisualStyleBackColor = true;
@@ -143,17 +134,17 @@
             // 
             // dgvIntegrantes
             // 
+            this.dgvIntegrantes.AllowUserToAddRows = false;
             this.dgvIntegrantes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre,
             this.Apellido,
             this.Genero,
-            this.tipoDeIngreso});
-            this.dgvIntegrantes.Location = new System.Drawing.Point(628, 485);
-            this.dgvIntegrantes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tipoDeIngresoColumna});
+            this.dgvIntegrantes.Location = new System.Drawing.Point(471, 394);
             this.dgvIntegrantes.MultiSelect = false;
             this.dgvIntegrantes.Name = "dgvIntegrantes";
             this.dgvIntegrantes.ReadOnly = true;
-            this.dgvIntegrantes.Size = new System.Drawing.Size(648, 191);
+            this.dgvIntegrantes.Size = new System.Drawing.Size(486, 155);
             this.dgvIntegrantes.TabIndex = 88;
             // 
             // Nombre
@@ -174,12 +165,12 @@
             this.Genero.Name = "Genero";
             this.Genero.ReadOnly = true;
             // 
-            // tipoDeIngreso
+            // tipoDeIngresoColumna
             // 
-            this.tipoDeIngreso.HeaderText = "Tipo de Ingreso";
-            this.tipoDeIngreso.Name = "tipoDeIngreso";
-            this.tipoDeIngreso.ReadOnly = true;
-            this.tipoDeIngreso.Width = 140;
+            this.tipoDeIngresoColumna.HeaderText = "Tipo de Ingreso";
+            this.tipoDeIngresoColumna.Name = "tipoDeIngresoColumna";
+            this.tipoDeIngresoColumna.ReadOnly = true;
+            this.tipoDeIngresoColumna.Width = 140;
             // 
             // btnDescartar
             // 
@@ -187,10 +178,9 @@
             this.btnDescartar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnDescartar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDescartar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDescartar.Location = new System.Drawing.Point(373, 526);
-            this.btnDescartar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDescartar.Location = new System.Drawing.Point(337, 427);
             this.btnDescartar.Name = "btnDescartar";
-            this.btnDescartar.Size = new System.Drawing.Size(123, 44);
+            this.btnDescartar.Size = new System.Drawing.Size(92, 36);
             this.btnDescartar.TabIndex = 87;
             this.btnDescartar.Text = "Descartar";
             this.btnDescartar.UseVisualStyleBackColor = true;
@@ -202,10 +192,9 @@
             this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(188, 526);
-            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRegistrar.Location = new System.Drawing.Point(180, 427);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(123, 44);
+            this.btnRegistrar.Size = new System.Drawing.Size(92, 36);
             this.btnRegistrar.TabIndex = 86;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
@@ -217,10 +206,9 @@
             this.btnAgregarIntegrante.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnAgregarIntegrante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarIntegrante.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarIntegrante.Location = new System.Drawing.Point(793, 331);
-            this.btnAgregarIntegrante.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregarIntegrante.Location = new System.Drawing.Point(595, 261);
             this.btnAgregarIntegrante.Name = "btnAgregarIntegrante";
-            this.btnAgregarIntegrante.Size = new System.Drawing.Size(120, 34);
+            this.btnAgregarIntegrante.Size = new System.Drawing.Size(90, 28);
             this.btnAgregarIntegrante.TabIndex = 85;
             this.btnAgregarIntegrante.Text = "Agregar";
             this.btnAgregarIntegrante.UseVisualStyleBackColor = true;
@@ -231,21 +219,19 @@
             this.listIntegrantes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listIntegrantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listIntegrantes.FormattingEnabled = true;
-            this.listIntegrantes.ItemHeight = 25;
-            this.listIntegrantes.Location = new System.Drawing.Point(979, 233);
-            this.listIntegrantes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listIntegrantes.ItemHeight = 20;
+            this.listIntegrantes.Location = new System.Drawing.Point(773, 189);
             this.listIntegrantes.Name = "listIntegrantes";
-            this.listIntegrantes.Size = new System.Drawing.Size(188, 125);
+            this.listIntegrantes.Size = new System.Drawing.Size(138, 100);
             this.listIntegrantes.TabIndex = 84;
             // 
             // txtCedulaIntegrante
             // 
             this.txtCedulaIntegrante.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCedulaIntegrante.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedulaIntegrante.Location = new System.Drawing.Point(725, 233);
-            this.txtCedulaIntegrante.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCedulaIntegrante.Location = new System.Drawing.Point(520, 189);
             this.txtCedulaIntegrante.Name = "txtCedulaIntegrante";
-            this.txtCedulaIntegrante.Size = new System.Drawing.Size(245, 23);
+            this.txtCedulaIntegrante.Size = new System.Drawing.Size(225, 19);
             this.txtCedulaIntegrante.TabIndex = 83;
             this.txtCedulaIntegrante.TextChanged += new System.EventHandler(this.txtCedulaIntegrante_TextChanged);
             this.txtCedulaIntegrante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaIntegrante_KeyPress);
@@ -254,10 +240,9 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(720, 198);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(566, 164);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(177, 25);
+            this.label8.Size = new System.Drawing.Size(145, 20);
             this.label8.TabIndex = 82;
             this.label8.Text = "Cedula Integrantes";
             // 
@@ -265,10 +250,9 @@
             // 
             this.lblTipoDeIng.AutoSize = true;
             this.lblTipoDeIng.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoDeIng.Location = new System.Drawing.Point(77, 260);
-            this.lblTipoDeIng.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTipoDeIng.Location = new System.Drawing.Point(58, 211);
             this.lblTipoDeIng.Name = "lblTipoDeIng";
-            this.lblTipoDeIng.Size = new System.Drawing.Size(51, 25);
+            this.lblTipoDeIng.Size = new System.Drawing.Size(39, 20);
             this.lblTipoDeIng.TabIndex = 80;
             this.lblTipoDeIng.Tag = "";
             this.lblTipoDeIng.Text = "Tipo";
@@ -277,10 +261,9 @@
             // 
             this.lblFechFin.AutoSize = true;
             this.lblFechFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechFin.Location = new System.Drawing.Point(77, 345);
-            this.lblFechFin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFechFin.Location = new System.Drawing.Point(58, 280);
             this.lblFechFin.Name = "lblFechFin";
-            this.lblFechFin.Size = new System.Drawing.Size(39, 25);
+            this.lblFechFin.Size = new System.Drawing.Size(31, 20);
             this.lblFechFin.TabIndex = 79;
             this.lblFechFin.Text = "Fin";
             // 
@@ -288,10 +271,9 @@
             // 
             this.lblFechIn.AutoSize = true;
             this.lblFechIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechIn.Location = new System.Drawing.Point(77, 308);
-            this.lblFechIn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFechIn.Location = new System.Drawing.Point(58, 250);
             this.lblFechIn.Name = "lblFechIn";
-            this.lblFechIn.Size = new System.Drawing.Size(57, 25);
+            this.lblFechIn.Size = new System.Drawing.Size(46, 20);
             this.lblFechIn.TabIndex = 78;
             this.lblFechIn.Text = "Inicio";
             // 
@@ -299,10 +281,9 @@
             // 
             this.lblCedTit.AutoSize = true;
             this.lblCedTit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCedTit.Location = new System.Drawing.Point(67, 209);
-            this.lblCedTit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCedTit.Location = new System.Drawing.Point(50, 170);
             this.lblCedTit.Name = "lblCedTit";
-            this.lblCedTit.Size = new System.Drawing.Size(134, 25);
+            this.lblCedTit.Size = new System.Drawing.Size(106, 20);
             this.lblCedTit.TabIndex = 77;
             this.lblCedTit.Text = "Cédula Titular";
             // 
@@ -310,10 +291,9 @@
             // 
             this.txtCedulaTitular.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCedulaTitular.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedulaTitular.Location = new System.Drawing.Point(240, 206);
-            this.txtCedulaTitular.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCedulaTitular.Location = new System.Drawing.Point(180, 167);
             this.txtCedulaTitular.Name = "txtCedulaTitular";
-            this.txtCedulaTitular.Size = new System.Drawing.Size(257, 23);
+            this.txtCedulaTitular.Size = new System.Drawing.Size(249, 19);
             this.txtCedulaTitular.TabIndex = 75;
             this.txtCedulaTitular.TextChanged += new System.EventHandler(this.txtCedulaTitular_TextChanged);
             this.txtCedulaTitular.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaTitular_KeyPress);
@@ -324,24 +304,18 @@
             this.cmbTipoIngresoIntegrante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbTipoIngresoIntegrante.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoIngresoIntegrante.FormattingEnabled = true;
-            this.cmbTipoIngresoIntegrante.Items.AddRange(new object[] {
-            "Normal",
-            "Hospedado",
-            "Pensionista o Jubilado"});
-            this.cmbTipoIngresoIntegrante.Location = new System.Drawing.Point(725, 272);
-            this.cmbTipoIngresoIntegrante.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbTipoIngresoIntegrante.Location = new System.Drawing.Point(520, 221);
             this.cmbTipoIngresoIntegrante.Name = "cmbTipoIngresoIntegrante";
-            this.cmbTipoIngresoIntegrante.Size = new System.Drawing.Size(244, 28);
+            this.cmbTipoIngresoIntegrante.Size = new System.Drawing.Size(225, 24);
             this.cmbTipoIngresoIntegrante.TabIndex = 95;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(633, 272);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(475, 221);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 25);
+            this.label2.Size = new System.Drawing.Size(39, 20);
             this.label2.TabIndex = 96;
             this.label2.Tag = "";
             this.label2.Text = "Tipo";
@@ -350,10 +324,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(629, 438);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(472, 356);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(132, 29);
+            this.label3.Size = new System.Drawing.Size(102, 24);
             this.label3.TabIndex = 97;
             this.label3.Text = "Integrantes";
             // 
@@ -365,10 +338,9 @@
             // 
             this.chkConfirmada.AutoSize = true;
             this.chkConfirmada.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkConfirmada.Location = new System.Drawing.Point(240, 441);
-            this.chkConfirmada.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkConfirmada.Location = new System.Drawing.Point(180, 343);
             this.chkConfirmada.Name = "chkConfirmada";
-            this.chkConfirmada.Size = new System.Drawing.Size(128, 28);
+            this.chkConfirmada.Size = new System.Drawing.Size(104, 22);
             this.chkConfirmada.TabIndex = 98;
             this.chkConfirmada.Text = "Confirmada";
             this.chkConfirmada.UseVisualStyleBackColor = true;
@@ -380,19 +352,17 @@
             this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1333, 58);
+            this.panel1.Size = new System.Drawing.Size(1000, 47);
             this.panel1.TabIndex = 99;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(155, 110);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Location = new System.Drawing.Point(116, 89);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(90, 31);
+            this.label18.Size = new System.Drawing.Size(71, 26);
             this.label18.TabIndex = 100;
             this.label18.Text = "Titular";
             // 
@@ -400,10 +370,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(719, 110);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(539, 89);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(151, 31);
+            this.label4.Size = new System.Drawing.Size(120, 26);
             this.label4.TabIndex = 101;
             this.label4.Text = "Integrantes";
             // 
@@ -411,36 +380,34 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(45, 385);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(34, 313);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(156, 25);
+            this.label5.Size = new System.Drawing.Size(126, 20);
             this.label5.TabIndex = 102;
             this.label5.Text = "Método de Pago";
             // 
-            // comboBox1
+            // cmbMetodosPago
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Normal",
-            "Hospedado",
-            "Pensionista o Jubilado"});
-            this.comboBox1.Location = new System.Drawing.Point(240, 385);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(257, 28);
-            this.comboBox1.TabIndex = 103;
+            this.cmbMetodosPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMetodosPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbMetodosPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbMetodosPago.FormattingEnabled = true;
+            this.cmbMetodosPago.Items.AddRange(new object[] {
+            "Credito",
+            "Debito",
+            "Contado"});
+            this.cmbMetodosPago.Location = new System.Drawing.Point(180, 313);
+            this.cmbMetodosPago.Name = "cmbMetodosPago";
+            this.cmbMetodosPago.Size = new System.Drawing.Size(250, 24);
+            this.cmbMetodosPago.TabIndex = 103;
             // 
             // frmRegReservas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(1333, 745);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(1000, 605);
+            this.Controls.Add(this.cmbMetodosPago);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label18);
@@ -466,7 +433,6 @@
             this.Controls.Add(this.lblCedTit);
             this.Controls.Add(this.txtCedulaTitular);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmRegReservas";
             this.Text = "frmRegReservas";
             this.Load += new System.EventHandler(this.frmRegReservas_Load);
@@ -504,14 +470,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.CheckBox chkConfirmada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Genero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDeIngreso;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbMetodosPago;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Genero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDeIngresoColumna;
     }
 }

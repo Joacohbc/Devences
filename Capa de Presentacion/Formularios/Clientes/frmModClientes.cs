@@ -9,7 +9,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Capa_de_Datos;
 using Capa_Entidades;
 using Capa_Logica;
 using Capa_Logica.Clases;
