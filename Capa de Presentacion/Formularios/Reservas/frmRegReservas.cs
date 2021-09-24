@@ -51,6 +51,8 @@ namespace Capa_Presentacion.Formularios
                 cmbTipoIngresoIntegrante.SelectedIndex = 0;
                 cmbMetodosPago.SelectedIndex = 0;
 
+                //Logo del ErrorProvider
+                errorProvider.Icon = Properties.Resources.ErrorProvider;
             }
             else
             {

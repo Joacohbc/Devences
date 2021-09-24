@@ -29,6 +29,9 @@ namespace Capa_Presentacion.Formularios
             
             //Checkeo el rdbHombre para simpre haya uno chekeado
             rdbHombre.Checked = true;
+            
+            //Logo del ErrorProvider
+            errorProvider.Icon = Properties.Resources.ErrorProvider;
         }
 
         #region Validaciones de Ingreso(TextBoxes)

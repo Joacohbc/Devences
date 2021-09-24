@@ -41,6 +41,9 @@ namespace Capa_Presentacion.Formularios.Servicios
                 cmbFormaDePago.SelectedIndex = 0;
 
                 dtpInicioServicio.MinDate = DateTime.Now;
+
+                //Logo del ErrorProvider
+                errorProvider.Icon = Properties.Resources.ErrorProvider;
             }
             else
             {

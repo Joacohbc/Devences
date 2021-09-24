@@ -282,7 +282,6 @@ namespace Capa_Logica
             }
             else//Digitos y personalizado
             {
-
                 if (char.IsDigit(c))
                 {
                     return true;

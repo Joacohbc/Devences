@@ -215,7 +215,7 @@ namespace Capa_Logica.Clases
                 if (ValidarPersona.ValidarPrimerNombre(txtPrimerNombre, errorProvider))
                 {
                     //Valido segundo nombre
-                    if (ValidarPersona.ValidarSegundoNombre(txtSegundoApellido, errorProvider))
+                    if (ValidarPersona.ValidarSegundoNombre(txtSegundoNombre, errorProvider))
                     {
                         //Valido primer apellido
                         if (ValidarPersona.ValidarApellido(txtPrimerApellido, 1, errorProvider))
@@ -504,7 +504,7 @@ namespace Capa_Logica.Clases
                 if (ValidarPersona.ValidarPrimerNombre(txtPrimerNombre, errorProvider))
                 {
                     //Valido segundo nombre
-                    if (ValidarPersona.ValidarSegundoNombre(txtSegundoApellido, errorProvider))
+                    if (ValidarPersona.ValidarSegundoNombre(txtSegundoNombre, errorProvider))
                     {
                         //Valido primer apellido
                         if (ValidarPersona.ValidarApellido(txtPrimerApellido, 1, errorProvider))
