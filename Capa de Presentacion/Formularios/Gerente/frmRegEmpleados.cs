@@ -18,6 +18,7 @@ namespace Capa_Presentacion.Formularios
         public frmRegEmpleados()
         {
             InitializeComponent();
+            errorProvider.Icon = Properties.Resources.IconoError;
         }
 
         private void frmRegEmpleados_Load(object sender, EventArgs e)

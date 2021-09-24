@@ -20,6 +20,7 @@ namespace Capa_Presentacion.Formularios
         public frmModClientes()
         {
             InitializeComponent();
+            errorProvider.Icon = Properties.Resources.IconoError;
         }
 
         #region Eventos del Form

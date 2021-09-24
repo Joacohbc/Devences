@@ -24,6 +24,7 @@ namespace Capa_Presentacion.Formularios
         public frmRegReservas()
         {
             InitializeComponent();
+            errorProvider.Icon = Properties.Resources.IconoError;
         }
 
         //Cargo los datos en los CMB y asigno Min y Max a los DTP

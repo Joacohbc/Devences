@@ -19,7 +19,7 @@ namespace Capa_Presentacion.Formularios
         public frmRegClientes()
         {
             InitializeComponent();
-
+            errorProvider.Icon = Properties.Resources.IconoError;
         }
 
         //Pongo el MaxDate del DatePicker, eviatar que la Fec.Nac sea la misma

@@ -20,6 +20,7 @@ namespace Capa_Presentacion.Formularios.Servicios
         public frmRegServicios()
         {
             InitializeComponent();
+            errorProvider.Icon = Properties.Resources.IconoError;
         }
 
         private void frmRegServicios_Load(object sender, EventArgs e)
