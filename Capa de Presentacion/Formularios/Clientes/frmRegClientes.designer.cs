@@ -54,6 +54,10 @@
             this.btnRegistra = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dgvRegistrarClientes = new System.Windows.Forms.DataGridView();
+            this.columnCi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnNombre1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columApellido1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columGenero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBorrarTelefono = new System.Windows.Forms.Button();
             this.dtpNacimiento = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
@@ -61,10 +65,6 @@
             this.pnTitulo = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.columnCi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnNombre1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columApellido1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columGenero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistrarClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -363,6 +363,34 @@
             this.dgvRegistrarClientes.Size = new System.Drawing.Size(409, 327);
             this.dgvRegistrarClientes.TabIndex = 26;
             // 
+            // columnCi
+            // 
+            this.columnCi.Frozen = true;
+            this.columnCi.HeaderText = "Cedula";
+            this.columnCi.Name = "columnCi";
+            this.columnCi.ReadOnly = true;
+            // 
+            // columnNombre1
+            // 
+            this.columnNombre1.Frozen = true;
+            this.columnNombre1.HeaderText = "1er Nombre";
+            this.columnNombre1.Name = "columnNombre1";
+            this.columnNombre1.ReadOnly = true;
+            // 
+            // columApellido1
+            // 
+            this.columApellido1.Frozen = true;
+            this.columApellido1.HeaderText = "1er Apellido";
+            this.columApellido1.Name = "columApellido1";
+            this.columApellido1.ReadOnly = true;
+            // 
+            // columGenero
+            // 
+            this.columGenero.Frozen = true;
+            this.columGenero.HeaderText = "Genero";
+            this.columGenero.Name = "columGenero";
+            this.columGenero.ReadOnly = true;
+            // 
             // btnBorrarTelefono
             // 
             this.btnBorrarTelefono.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -430,34 +458,6 @@
             this.label11.Size = new System.Drawing.Size(213, 26);
             this.label11.TabIndex = 56;
             this.label11.Text = "Clientes Registrados";
-            // 
-            // columnCi
-            // 
-            this.columnCi.Frozen = true;
-            this.columnCi.HeaderText = "Cedula";
-            this.columnCi.Name = "columnCi";
-            this.columnCi.ReadOnly = true;
-            // 
-            // columnNombre1
-            // 
-            this.columnNombre1.Frozen = true;
-            this.columnNombre1.HeaderText = "1er Nombre";
-            this.columnNombre1.Name = "columnNombre1";
-            this.columnNombre1.ReadOnly = true;
-            // 
-            // columApellido1
-            // 
-            this.columApellido1.Frozen = true;
-            this.columApellido1.HeaderText = "1er Apellido";
-            this.columApellido1.Name = "columApellido1";
-            this.columApellido1.ReadOnly = true;
-            // 
-            // columGenero
-            // 
-            this.columGenero.Frozen = true;
-            this.columGenero.HeaderText = "Genero";
-            this.columGenero.Name = "columGenero";
-            this.columGenero.ReadOnly = true;
             // 
             // btnLimpiar
             // 

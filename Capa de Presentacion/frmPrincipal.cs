@@ -253,6 +253,7 @@ namespace Capa_Presentacion
             }
         }
 
+        //Metodo para Cerrar el Form
         private bool cerrar = false;
         private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -264,7 +265,7 @@ namespace Capa_Presentacion
             {
                 if (cerrar)
                 {
-                    if (Mensaje.MostraPreguntaSiNo("Quieres Cerrar Sesion? El trabajo no guardado se perdera", "Cerrar Sesion"))
+                    if (Mensaje.MostraPreguntaSiNo("¿Quieres cerrar esion? El trabajo no guardado se perdera", "Cerrar Sesion"))
                     {
                         this.Dispose(true);
 
@@ -278,7 +279,7 @@ namespace Capa_Presentacion
                 else
                 {
                     cerrar = false;
-                    if (Mensaje.MostraPreguntaSiNo("Quieres Cerrar El Programa? El trabajo no guardado se perdera", "Cerrar Programa"))
+                    if (Mensaje.MostraPreguntaSiNo("¿Quieres cerrar el programa? El trabajo no guardado se perdera", "Cerrar Programa"))
                     {
                         Application.Exit();
                     }
@@ -290,6 +291,7 @@ namespace Capa_Presentacion
             }
         }
 
+        //Metodo para Cerrar Sesion
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             cerrar = true;  //Para que cumpla la condicion 
