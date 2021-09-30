@@ -45,20 +45,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\Cliente.cs" />
-    <Compile Include="Clases\Empleado.cs" />
-    <Compile Include="Clases\Persona.cs" />
+    <Compile Include="Clases\MetodosEmpleado.cs" />
+    <Compile Include="Clases\ValidarPersona.cs" />
     <Compile Include="Metodos\CreacionObjeto.cs" />
-    <Compile Include="Clases\Integrantes.cs" />
     <Compile Include="Metodos\Mensaje.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Clases\Reserva.cs" />
     <Compile Include="Metodos\Validaciones.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Capa de Datos\Capa de Datos.csproj">
       <Project>{a0aa7f5c-2277-4e9b-a11b-35d2f0bb5cc0}</Project>
       <Name>Capa de Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Capa Entidades\Capa Entidades.csproj">
+      <Project>{857a660e-1e76-4cd0-afc0-628afa727bbb}</Project>
+      <Name>Capa Entidades</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

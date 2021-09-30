@@ -1,4 +1,4 @@
-﻿using Capa_de_Datos;
+﻿using Capa_Entidades;
 using Capa_Logica;
 using Capa_Logica.Clases;
 using Capa_Presentacion.Formularios;
@@ -18,17 +18,14 @@ namespace Capa_Presentacion
 {
     public partial class frmPrincipal : Form
     {
-        public static List<Cliente> clientes = new List<Cliente>();
-        public static List<Reserva> reservas = new List<Reserva>();
-
         //En esta variable de tipo Empleado se almacena el 
         //empleado que esta usando la sesion
-        private static Empleado Empleado;
+        public static Empleado empleado;
 
         public frmPrincipal(string usuario, int rol)
         {
             InitializeComponent();
-            
+
             //Pongo el icono al form
             Icon = Properties.Resources.Logo;
 
@@ -43,12 +40,18 @@ namespace Capa_Presentacion
             }
 
             //Para que se guarde el usuario que inicio sesion
-            Empleado empleadoQueIngreso = new Empleado();
-            empleadoQueIngreso.Usuario = usuario;
-            Empleado = empleadoQueIngreso;
+            empleado = MetodosEmpleado.BuscarUsuario(usuario);
+
+            ///Si es null, sigmifca que ocurrio un error
+            if (empleado == null)
+            {
+                Mensaje.MostrarError("Ocurrio un error al cargar al usuario de la sesion", Mensaje.ErrorBD);
+                Close();
+            }
 
             //Cargo el label con su nombre de usuario
-            lblUsuario.Text = empleadoQueIngreso.Usuario;
+            lblUsuario.Text = empleado.Usuario;
+
         }
 
         //Metodo para Mostrar Sub Menus
@@ -62,7 +65,6 @@ namespace Capa_Presentacion
             {
                 subMenu.Visible = false;
             }
-
         }
 
         //Metodo Para Mostrar Formularios
@@ -101,7 +103,7 @@ namespace Capa_Presentacion
                 btnInfoPyH.BackColor = Color.PowderBlue;
             if (Application.OpenForms["frmRegClientes"] == null)
                 btnRegCli.BackColor = Color.PowderBlue;
-            if (Application.OpenForms["frmModifClientes"] == null)
+            if (Application.OpenForms["frmModClientes"] == null)
                 btnModifCli.BackColor = Color.PowderBlue;
             if (Application.OpenForms["frmRegReservas"] == null)
                 btnIngRes.BackColor = Color.PowderBlue;
@@ -161,13 +163,13 @@ namespace Capa_Presentacion
 
         private void btnIngRes_Click(object sender, EventArgs e)
         {
-            //AbrirFormularios<frmRegReservas>();
+            AbrirFormularios<frmRegReservas>();
             btnIngRes.BackColor = Color.SkyBlue;
         }
 
         private void btnModifRes_Click(object sender, EventArgs e)
         {
-            //AbrirFormularios<frmModifReservas>();
+            AbrirFormularios<frmModifReservas>();
             btnModifRes.BackColor = Color.SkyBlue;
         }
 
@@ -251,6 +253,7 @@ namespace Capa_Presentacion
             }
         }
 
+        //Metodo para Cerrar el Form
         private bool cerrar = false;
         private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -262,7 +265,7 @@ namespace Capa_Presentacion
             {
                 if (cerrar)
                 {
-                    if (Mensaje.MostraPreguntaSiNo("Quieres Cerrar Sesion? El trabajo no guardado se perdera", "Cerrar Sesion"))
+                    if (Mensaje.MostraPreguntaSiNo("¿Quieres cerrar esion? El trabajo no guardado se perdera", "Cerrar Sesion"))
                     {
                         this.Dispose(true);
 
@@ -276,7 +279,7 @@ namespace Capa_Presentacion
                 else
                 {
                     cerrar = false;
-                    if (Mensaje.MostraPreguntaSiNo("Quieres Cerrar El Programa? El trabajo no guardado se perdera", "Cerrar Programa"))
+                    if (Mensaje.MostraPreguntaSiNo("¿Quieres cerrar el programa? El trabajo no guardado se perdera", "Cerrar Programa"))
                     {
                         Application.Exit();
                     }
@@ -288,6 +291,7 @@ namespace Capa_Presentacion
             }
         }
 
+        //Metodo para Cerrar Sesion
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             cerrar = true;  //Para que cumpla la condicion 

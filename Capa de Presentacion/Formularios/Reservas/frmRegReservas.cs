@@ -1,4 +1,5 @@
-﻿using Capa_Logica;
+﻿using Capa_Entidades;
+using Capa_Logica;
 using Capa_Logica.Clases;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,9 @@ namespace Capa_Presentacion.Formularios
 {
     public partial class frmRegReservas : Form
     {
+
         List<Integrantes> integrantes = new List<Integrantes>();
+
         Validaciones validar = new Validaciones();
 
         #region Cosas del Form
@@ -23,310 +26,283 @@ namespace Capa_Presentacion.Formularios
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
+        //Cargo los datos en los CMB y asigno Min y Max a los DTP
         private void frmRegReservas_Load(object sender, EventArgs e)
         {
             dtpFechaInico.MinDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             dtpFechaFin.MinDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            cmbTipoDeIngreso.SelectedIndex = 0;
-            cmbTipoIngresoIntegrante.SelectedIndex = 0;
+
+            //Cargo los Combobox
+            MetodosEmpleado metodosEmpleado = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
+
+            List<String> tiposDeIngreso = metodosEmpleado.traerTipoIngreso();
+
+            //Si no es NULL, osea se cargo correctamente los tipos de ingreso
+            if (tiposDeIngreso != null)
+            {
+                foreach (String ingreso in tiposDeIngreso)
+                {
+                    cmbTipoDeIngreso.Items.Add(ingreso);
+                    cmbTipoIngresoIntegrante.Items.Add(ingreso);
+                }
+
+                //Se selecciona el primero por defecto
+                cmbTipoDeIngreso.SelectedIndex = 0;
+                cmbTipoIngresoIntegrante.SelectedIndex = 0;
+                cmbMetodosPago.SelectedIndex = 0;
+
+                //Logo del ErrorProvider
+                errorProvider.Icon = Properties.Resources.ErrorProvider;
+            }
+            else
+            {
+                Mensaje.MostrarError("Ocurrio un error la cargar los tipos de ingreso, cierre esta pestania e intentelo nuevamente", Mensaje.ErrorBD);
+
+                //Si ocurre un error se desahbiilita todo menos el boton de Cierre del Form
+                foreach (Control c in this.Controls)
+                {
+                    c.Enabled = false;
+                }
+
+                panel1.Enabled = true;
+                btnSalir.Enabled = true;
+            }
         }
         #endregion
 
-        #region Validciones de Ingreso(KeyPres)
+        #region Validciones de Ingreso
         //Cedula Titular
+        private void txtCedulaTitular_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !validar.validarSiCaracterEsDigito(e.KeyChar, false, "");
+        }
+
         private void txtCedulaTitular_TextChanged(object sender, EventArgs e)
         {
             errorProvider.SetError(txtCedulaTitular, "");
         }
 
-        private void txtCedulaTitular_KeyPress(object sender, KeyPressEventArgs e)
+        //Cedula Integrante
+        private void txtCedulaIntegrante_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !validar.validarSiCaracterEsDigito(e.KeyChar, false, false, "");
+            e.Handled = !validar.validarSiCaracterEsDigito(e.KeyChar, false, "");
         }
 
-        //Cedula Integrante
         private void txtCedulaIntegrante_TextChanged(object sender, EventArgs e)
         {
             errorProvider.SetError(txtCedulaIntegrante, "");
         }
-
-        private void txtCedulaIntegrante_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !validar.validarSiCaracterEsDigito(e.KeyChar, false, false, "");
-        }
         #endregion
 
         #region Validacions de Ingreso de Integrantes
+        //Agregar Integrante
         private void btnAgregarIntegrante_Click(object sender, EventArgs e)
         {
-            if (frmPrincipal.clientes.Count > 0)
+            //Valido la cedula del Integrante
+            if (ValidarPersona.ValidarCedula(txtCedulaIntegrante, errorProvider))
             {
-                if (Cliente.ValidarCedula(txtCedulaTitular, errorProvider))
+                //Valido que no este ya en la lista
+                if (!listIntegrantes.Items.Contains(txtCedulaIntegrante.Text))
                 {
-                    #region Codigo Viejo
-                    bool titualrExiste = false;
-                    foreach (Cliente c in frmPrincipal.clientes)
+                    MetodosEmpleado metodosEmpleado = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
+                    int retorno = metodosEmpleado.buscarCliente(Convert.ToInt32(txtCedulaIntegrante.Text));
+
+                    //Valido que el Integrante exista
+                    if (retorno == 1)
                     {
-                        if (c.Ci == txtCedulaIntegrante.Text)
+                        //Esto lo hago primero para que en caso de error
+                        //No agregue el Integrante al las listas
+
+                        //Agrego el integrante al DGV de Integrantes
+                        Persona persona = metodosEmpleado.traerPersona(Convert.ToInt32(txtCedulaIntegrante.Text));
+                        if (persona != null)
                         {
-                            if (!listIntegrantes.Items.Contains(txtCedulaIntegrante.Text))
-                            {
-                                listIntegrantes.Items.Add(txtCedulaIntegrante.Text);
-                                dgvIntegrantes.Rows.Add(c.PrimerNombre, c.PrimerApellido, c.Genero, cmbTipoIngresoIntegrante.SelectedItem.ToString());
-                                integrantes.Add(new Integrantes(txtCedulaIntegrante.Text, cmbTipoIngresoIntegrante.SelectedItem.ToString()));
-                                txtCedulaIntegrante.Clear();
-                                titualrExiste = true;
-                                break;
-                            }
-                            else
-                            {
-                                MessageBox.Show("Este integrante ya se agrego a la lista", "Alta de Reserva", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                titualrExiste = true;
-                                break;
-                            }
+                            //Agrego el integrante a la lista de Integrantes
+                            String tipoDeIngreso = cmbTipoIngresoIntegrante.SelectedItem.ToString();
+
+                            //Agrego el tipo de Ingreso pero sin el ($Precio) para que se igual que en la BD
+                            tipoDeIngreso = tipoDeIngreso.Substring(0, tipoDeIngreso.IndexOf('('));
+
+                            integrantes.Add(new Integrantes(Convert.ToInt32(txtCedulaIntegrante.Text), tipoDeIngreso));
+
+                            //Agrego el integrante a la listBox de Integrantes                       
+                            listIntegrantes.Items.Add(txtCedulaIntegrante.Text);
+
+                            dgvIntegrantes.Rows.Add(persona.PrimerNombre, persona.PrimerApellido, persona.Genero, cmbTipoIngresoIntegrante.SelectedItem.ToString());
+                            Mensaje.MostrarInfo("Se cargo el integrante con exito", "Carga de Integrante exitosa");
+                            txtCedulaIntegrante.Clear();
+                        }
+                        else
+                        {
+                            Mensaje.MostrarError("Ocurrio un error buscar el Cliente", Mensaje.ErrorBD);
                         }
                     }
-
-                    if (!titualrExiste)
+                    else if (retorno == 0)
                     {
-                        MessageBox.Show("El cliente que quiere agregar no existe", "Alta de Reserva", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Mensaje.MostrarInfo("El Cliente que intenta agregar como Integrante no existe", "Aviso en busqueda de Cliente");
                     }
-                    #endregion
-                }
-            }
-            else
-            {
-                MessageBox.Show("Primero ingrese un cliente", "Alta de Reserva", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnBorrarIntegrante_Click(object sender, EventArgs e)
-        {
-            if (listIntegrantes.Items.Count > 0)
-            {
-                if (listIntegrantes.SelectedItem != null)
-                {
-                    DialogResult op = MessageBox.Show("¿Quiere eliminar el integrante seleccionado?", "Eliminar integrante", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (op == DialogResult.Yes)
+                    //Si dio Error
+                    else
                     {
-                        dgvIntegrantes.Rows.RemoveAt(listIntegrantes.SelectedIndex);
-                        listIntegrantes.Items.Remove(listIntegrantes.SelectedItem);
+                        Mensaje.MostrarError("Ocurrio un error buscar el Cliente", Mensaje.ErrorBD);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Seleccione un integrante", "Eliminar integrante", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Mensaje.MostrarError("El Integrante que quiere agregar ya esta agregado", Mensaje.ErrorIngreso);
+                }
+            }
+        }
+
+        //Borrar Integrante
+        private void btnBorrarIntegrante_Click(object sender, EventArgs e)
+        {
+            //Si Integrantes en la lista
+            if (listIntegrantes.Items.Count > 0)
+            {
+                //Si hay uno seleccionado
+                if (listIntegrantes.SelectedItem != null)
+                {
+                    //Pregunta si quiere eliminarlo
+                    if (Mensaje.MostraPreguntaSiNo("¿Quiere eliminar el integrante seleccionado?", "Error al borrar Integrante"))
+                    {
+                        try
+                        {
+                            integrantes.RemoveAt(listIntegrantes.SelectedIndex);
+                            dgvIntegrantes.Rows.RemoveAt(listIntegrantes.SelectedIndex);
+
+                            //Lo pongo al final porque si borro el Index seleccionado primero, luego
+                            //El index seleccionado pasa a ser -1, y cuando quira borrar el index
+                            //En los otros me tirara error ya que el index -1 no existe
+                            listIntegrantes.Items.RemoveAt(listIntegrantes.SelectedIndex);
+                        }
+                        catch
+                        {
+                            Mensaje.MostrarError("Ocurrio un error al borrar a un integrante", "Error al borrar Integrante");
+
+                            //Para evitar errores mas adelante vacio las listas y el DGV
+                            listIntegrantes.Items.Clear();
+                            integrantes.Clear();
+                            dgvIntegrantes.Rows.Clear();
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un integrante", "Error al borrar Integrante", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Primero ingrese un integrante", "Eliminar intengrante", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Primero ingrese un integrante", "Error al borrar Integrante", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         #endregion
 
+        //Agregar Reserva
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            //Valido cedula
-            if (validarCedula(txtCedulaTitular, errorProvider))
+            MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
+
+            //Cargo el Array Object con el Metodo, en el Index 0 esta el Objeto Reserva y en el Index 1 esta el numero de Error
+            Object[] reserva = metodos.validarReserva(txtCedulaTitular, errorProvider, dtpFechaInico, dtpFechaFin, cmbTipoDeIngreso, cmbMetodosPago, chkConfirmada, integrantes);
+
+            //Compruebo si la Reserva es Valida
+
+            //En el Index 1 deberia haber un 1 si la valdacion fue correcta
+            if (Convert.ToInt32(reserva[1]) == 1)
             {
-                //Valido que las fechas sean validas
-                if (validar.validarFechaPrimeraEsMenor(dtpFechaInico.Value, dtpFechaFin.Value))
+                //Si ese cliente no tiene una reserva con ese inicio
+                int retorno = metodos.validarFechaReserva((Reserva)reserva[0]);
+                if (retorno == 0)
                 {
-                    bool titularExiste = false;
-                    //Busco al titular dentro de Clientes
-                    foreach (Cliente c in frmPrincipal.clientes)
+                    if (Mensaje.MostraPreguntaSiNo("¿Quiere dar del alta una Reserva para el cliente " + txtCedulaTitular.Text + " " +
+                          "\n del " + dtpFechaInico.Value.ToShortDateString() + " al " + dtpFechaFin.Value.ToShortDateString() + "?", "Alta Reserva"))
                     {
-                        if (c.Ci == txtCedulaTitular.Text)
+                        //Si la Reserva se dio de Alta con Exito, osea retorna 1
+                        if (metodos.altaReserva((Reserva)reserva[0], integrantes) > 0)
                         {
-                            titularExiste = true;
-                            break;
+                            Mensaje.MostrarInfo("Alta de Reserva exitosa", "Alta exitosa");
                         }
-                    }
-
-                    //Si el titular existe
-                    if (titularExiste)
-                    {
-                        //Checkeo que el Titular no este agregado como cliente
-                        if (!listIntegrantes.Items.Contains(txtCedulaTitular.Text))
-                        {
-                            //Le doy todos los parametros
-                            Reserva reserva = new Reserva();
-                            reserva.Ci = txtCedulaTitular.Text;
-                            reserva.Inicio = dtpFechaInico.Value;
-                            reserva.Fin = dtpFechaFin.Value;
-                            reserva.TipoDeIngreso = cmbTipoDeIngreso.SelectedItem.ToString();
-
-                            //Agrego los Integrantes
-                            foreach (Integrantes i in integrantes)
-                            {
-                                reserva.CiIntegrantes.Add(i.Ci);
-                                reserva.TipoDeIngresoIntegrantes.Add(i.TipoDeIngreso);
-                            }
-
-                            int precio = 0;
-
-                            //Calculo el precio
-                            if (reserva.TipoDeIngreso == "Normal")
-                            {
-                                precio += 150;
-                            }
-                            else if (reserva.TipoDeIngreso == "Hospedado")
-                            {
-                                precio += 100;
-                            }
-                            else
-                            {
-                                precio += 80;
-                            }
-
-                            //Si hay integrantes conformando la reserva que agregue su precio
-                            if (reserva.CiIntegrantes.Count > 0)
-                            {
-                                foreach (String s in reserva.TipoDeIngresoIntegrantes)
-                                {
-                                    if (s == "Normal")
-                                    {
-                                        precio += 150;
-                                    }
-                                    else if (s == "Hospedado")
-                                    {
-                                        precio += 100;
-                                    }
-                                    else
-                                    {
-                                        precio += 80;
-                                    }
-                                }
-                            }
-
-
-                            reserva.PrecioTotal = precio * ((dtpFechaFin.Value - dtpFechaInico.Value).Days + 1);
-
-                            if (chkConfirmada.Checked)
-                            {
-                                reserva.Estado = "Confirmada";
-                            }
-                            else
-                            {
-                                reserva.Estado = "No Confirmada";
-                            }
-
-                            DialogResult op = MessageBox.Show("¿Quieres confirmar la reserva de titular: " + txtCedulaTitular.Text + " con valor de " + reserva.PrecioTotal.ToString(), "Alta de Reserva", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                            if (op == DialogResult.Yes)
-                            {
-                                bool yaTieneReserva = false;
-                                foreach (Reserva r in frmPrincipal.reservas)
-                                {
-                                    if (r.Ci == txtCedulaTitular.Text)
-                                    {
-                                        yaTieneReserva = true;
-                                    }
-                                }
-
-                                if (!yaTieneReserva)
-                                {
-                                    frmPrincipal.reservas.Add(reserva);
-                                    btnDescartar.PerformClick();
-                                }
-                                else
-                                {
-                                    MessageBox.Show("El cliente ya tiene una reserva", "Alta de Reserva", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                            }
-                        }
+                        //Sino ocurrio un error
                         else
                         {
-                            MessageBox.Show("El titular no puede ser un integrante", "Alta de Reserva", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            Mensaje.MostrarError("Ocurrio un error al dar de alta la Reserva", Mensaje.ErrorBD);
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("El cliente que quiere agregar no existe", "Alta de Reserva", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
                 }
-                else
+                else if (retorno == 1)
                 {
-                    errorProvider.SetError(dtpFechaInico, "La fecha de inicio de la reserva debe ser obligatoriamente posteriror o igual a la de fin");
+                    Mensaje.MostrarError("El Cliente ya tiene una reserva realizada con ese inicio", Mensaje.ErrorIngreso);
                 }
-
+                else if (retorno == -1)
+                {
+                    Mensaje.MostrarError("Ocurrio un error al validar la fecha de la Reserva", Mensaje.ErrorBD);
+                }
             }
-
+            //Si el Titular es un Integrante muestro el Error
+            //En el Index 1 deberia haber un -1 si la el titular es un integrante
+            else if (Convert.ToInt32(reserva[1]) == -1)
+            {
+                Mensaje.MostrarError("El cliente Titular no puede ser un Integrante de la Reserva", Mensaje.ErrorIngreso);
+            }
+            //Si el Titular no existe como cliente
+            //En el Index 1 deberia haber un -2 si el Titular no existe
+            else if (Convert.ToInt32(reserva[1]) == -2)
+            {
+                Mensaje.MostrarError("El Titular no esta registrado como cliente", Mensaje.ErrorIngreso);
+            }
+            //Si al buscar al TItular ocurrio un error
+            //En el Index 1 deberia haber un -3 si hay error en buscar al Titular
+            else if (Convert.ToInt32(reserva[1]) == -3)
+            {
+                Mensaje.MostrarError("Ocurrio un error al buscar el Titular", Mensaje.ErrorBD);
+            }
+            //Si la Fecha de inicio es posterior a la de Fin muestro error
+            //En el Index 1 deberia haber un -2 si hay un error en las fecha
+            else if (Convert.ToInt32(reserva[1]) == -4)
+            {
+                Mensaje.MostrarError("La fecha de inicio debe ser anterior a la de fin", Mensaje.ErrorIngreso);
+            }
         }
 
+        //Descartar reserva
         private void btnDescartar_Click(object sender, EventArgs e)
         {
-            DialogResult op = MessageBox.Show("¿Quieres vaciar todos los campo?", "Borrar los campos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (op == DialogResult.Yes)
+            if (Mensaje.MostraPreguntaSiNo("¿Quiere borrar todos los campos?", "Borrar los campos"))
             {
-                txtCedulaTitular.Clear();
-                txtCedulaIntegrante.Clear();
+                //Limpio los componenetes
+                Control[] controles = { txtCedulaTitular, txtCedulaIntegrante, dtpFechaInico, dtpFechaFin, chkConfirmada, listIntegrantes, dgvIntegrantes };
+                validar.limpiarControles(controles);
+
+                //Para que vuela a tener el predeterminado en el primero
                 cmbTipoDeIngreso.SelectedIndex = 0;
                 cmbTipoIngresoIntegrante.SelectedIndex = 0;
+                cmbMetodosPago.SelectedIndex = 0;
 
-                dtpFechaInico.Value = DateTime.Now;
-                dtpFechaFin.Value = DateTime.Now;
+                //Borro los integrantes
+                integrantes.Clear();
 
-                chkConfirmada.Checked = false;
-
-                listIntegrantes.Items.Clear();
-                dgvIntegrantes.Rows.Clear();
+                //Y borro el error provider
+                errorProvider.Clear();
             }
-
         }
 
-        //Valida la cedula
-        private bool validarCedula(TextBox txtBox, ErrorProvider errorProvider)
+        //Cerarr form
+        private void btnSalir_Click(object sender, EventArgs e)
         {
-            ValidacionesConErrorProvider validarEP = new ValidacionesConErrorProvider();
-
-            if (validarEP.validarVacio(txtBox, errorProvider, 13))
+            Validaciones validaciones = new Validaciones();
+            if (validaciones.hayAlgo(this))
             {
-                if (txtBox.Text.Length >= 8)
+                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacios ¿Quieres cerrar igual?", "Cerrar"))
                 {
-                    bool valido = true;
-                    foreach (Char c in txtBox.Text)
-                    {
-                        //Valida caracter por caracter con los parametros indicados, sino valido sea falso(retorne false) 
-                        if (!validar.validarSiCaracterEsDigito(c, false, false, ""))
-                        {
-                            valido = false;
-                            break;
-                        }
-                    }
-
-                    if (valido)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        errorProvider.SetIconPadding(txtBox, 5);
-                        errorProvider.SetError(txtBox, "Este campo solo puede contener digitos");
-                        txtBox.Focus();
-                        return false;
-                    }
-                }
-                else
-                {
-                    errorProvider.SetIconPadding(txtBox, 5);
-                    errorProvider.SetError(txtBox, "Este campo debe contener por lo menos 8 digitos");
-                    txtBox.Focus();
-                    return false;
+                    Close();
                 }
             }
             else
             {
-                return false;
+                Close();
             }
-
-
         }
-
     }
 }

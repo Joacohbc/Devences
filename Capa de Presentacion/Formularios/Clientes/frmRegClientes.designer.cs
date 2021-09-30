@@ -54,16 +54,21 @@
             this.btnRegistra = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dgvRegistrarClientes = new System.Windows.Forms.DataGridView();
+            this.columnCi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnNombre1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columApellido1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columGenero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBorrarTelefono = new System.Windows.Forms.Button();
             this.dtpNacimiento = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnTitulo = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistrarClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pnTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -343,12 +348,48 @@
             // 
             // dgvRegistrarClientes
             // 
+            this.dgvRegistrarClientes.AllowUserToAddRows = false;
+            this.dgvRegistrarClientes.AllowUserToDeleteRows = false;
             this.dgvRegistrarClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRegistrarClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.columnCi,
+            this.columnNombre1,
+            this.columApellido1,
+            this.columGenero});
             this.dgvRegistrarClientes.Enabled = false;
             this.dgvRegistrarClientes.Location = new System.Drawing.Point(554, 149);
             this.dgvRegistrarClientes.Name = "dgvRegistrarClientes";
+            this.dgvRegistrarClientes.ReadOnly = true;
             this.dgvRegistrarClientes.Size = new System.Drawing.Size(409, 327);
             this.dgvRegistrarClientes.TabIndex = 26;
+            // 
+            // columnCi
+            // 
+            this.columnCi.Frozen = true;
+            this.columnCi.HeaderText = "Cedula";
+            this.columnCi.Name = "columnCi";
+            this.columnCi.ReadOnly = true;
+            // 
+            // columnNombre1
+            // 
+            this.columnNombre1.Frozen = true;
+            this.columnNombre1.HeaderText = "1er Nombre";
+            this.columnNombre1.Name = "columnNombre1";
+            this.columnNombre1.ReadOnly = true;
+            // 
+            // columApellido1
+            // 
+            this.columApellido1.Frozen = true;
+            this.columApellido1.HeaderText = "1er Apellido";
+            this.columApellido1.Name = "columApellido1";
+            this.columApellido1.ReadOnly = true;
+            // 
+            // columGenero
+            // 
+            this.columGenero.Frozen = true;
+            this.columGenero.HeaderText = "Genero";
+            this.columGenero.Name = "columGenero";
+            this.columGenero.ReadOnly = true;
             // 
             // btnBorrarTelefono
             // 
@@ -387,16 +428,16 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // panel1
+            // pnTitulo
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btnSalir);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 47);
-            this.panel1.TabIndex = 54;
+            this.pnTitulo.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pnTitulo.Controls.Add(this.label1);
+            this.pnTitulo.Controls.Add(this.btnSalir);
+            this.pnTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnTitulo.Location = new System.Drawing.Point(0, 0);
+            this.pnTitulo.Name = "pnTitulo";
+            this.pnTitulo.Size = new System.Drawing.Size(1000, 47);
+            this.pnTitulo.TabIndex = 54;
             // 
             // label10
             // 
@@ -418,15 +459,30 @@
             this.label11.TabIndex = 56;
             this.label11.Text = "Clientes Registrados";
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.btnLimpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Location = new System.Drawing.Point(846, 482);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(117, 29);
+            this.btnLimpiar.TabIndex = 57;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // frmRegClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1000, 605);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnTitulo);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dtpNacimiento);
             this.Controls.Add(this.btnBorrarTelefono);
@@ -459,8 +515,8 @@
             this.Load += new System.EventHandler(this.frmRegClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistrarClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnTitulo.ResumeLayout(false);
+            this.pnTitulo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -497,8 +553,13 @@
         private System.Windows.Forms.DateTimePicker dtpNacimiento;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ErrorProvider errorProvider;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnTitulo;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnCi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnNombre1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columApellido1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columGenero;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }

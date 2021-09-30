@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Capa_Logica
+namespace Capa_Entidades
 {
     public class Reserva
     {
         private int id;
-        private string ci;
+        private int ci;
         private DateTime inicio;
         private DateTime fin;
         private String tipoDeIngreso;
@@ -23,7 +23,7 @@ namespace Capa_Logica
 
         #region Getters y Setters
         public int Id { get => id; set => id = value; }
-        public string Ci { get => ci; set => ci = value; }
+        public int Ci { get => ci; set => ci = value; }
         public DateTime Inicio { get => inicio; set => inicio = value; }
         public DateTime Fin { get => fin; set => fin = value; }
         public string TipoDeIngreso { get => tipoDeIngreso; set => tipoDeIngreso = value; }

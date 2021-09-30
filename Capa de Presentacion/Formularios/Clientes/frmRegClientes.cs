@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -10,15 +9,29 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Capa_Logica;
+using Capa_Logica.Clases;
+using Capa_Entidades;
 
 namespace Capa_Presentacion.Formularios
 {
     public partial class frmRegClientes : Form
     {
-
         public frmRegClientes()
         {
             InitializeComponent();
+
+        }
+
+        //Pongo el MaxDate del DatePicker, eviatar que la Fec.Nac sea la misma
+        private void frmRegClientes_Load(object sender, EventArgs e)
+        {
+            dtpNacimiento.MaxDate = DateTime.Now;
+            
+            //Checkeo el rdbHombre para simpre haya uno chekeado
+            rdbHombre.Checked = true;
+            
+            //Logo del ErrorProvider
+            errorProvider.Icon = Properties.Resources.ErrorProvider;
         }
 
         #region Validaciones de Ingreso(TextBoxes)
@@ -28,7 +41,7 @@ namespace Capa_Presentacion.Formularios
         //Cedula
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !validar.validarSiCaracterEsDigito(e.KeyChar, false, false, "");
+            e.Handled = !validar.validarSiCaracterEsDigito(e.KeyChar, false, "");
         }
 
         private void txtCedula_TextChanged(object sender, EventArgs e)
@@ -39,7 +52,7 @@ namespace Capa_Presentacion.Formularios
         //Primer Nombre
         private void txtPrimerNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !validar.validarSiCaracterEsLetra(e.KeyChar, true, false, "");
+            e.Handled = !validar.validarSiCaracterEsLetra(e.KeyChar, true, "");
         }
 
         private void txtPrimerNombre_TextChanged(object sender, EventArgs e)
@@ -50,7 +63,7 @@ namespace Capa_Presentacion.Formularios
         //Segundo Nombre
         private void txtSegundoNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !validar.validarSiCaracterEsLetra(e.KeyChar, true, false, "");
+            e.Handled = !validar.validarSiCaracterEsLetra(e.KeyChar, true, "");
         }
 
         private void txtSegundoNombre_TextChanged(object sender, EventArgs e)
@@ -61,7 +74,7 @@ namespace Capa_Presentacion.Formularios
         //Primer Apellido
         private void txtPrimerApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !validar.validarSiCaracterEsLetra(e.KeyChar, true, false, "");
+            e.Handled = !validar.validarSiCaracterEsLetra(e.KeyChar, true, "");
         }
 
         private void txtPrimerApellido_TextChanged(object sender, EventArgs e)
@@ -72,7 +85,7 @@ namespace Capa_Presentacion.Formularios
         //Segundo Apellido
         private void txtSegudoApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !validar.validarSiCaracterEsLetra(e.KeyChar, true, false, "");
+            e.Handled = !validar.validarSiCaracterEsLetra(e.KeyChar, true, "");
         }
 
         private void txtSegudoApellido_TextChanged(object sender, EventArgs e)
@@ -84,7 +97,7 @@ namespace Capa_Presentacion.Formularios
         private void txtMail_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Los mail solo aceptan numeros 0-9 letras A-Z y los simbolos "@",".","-" y "_"
-            e.Handled = !validar.validarSiCaracterEsDigitoLetra(e.KeyChar, false, true, "@ . - _");
+            e.Handled = !validar.validarSiCaracterEsDigitoLetra(e.KeyChar, false, "@ . - _");
         }
 
         private void txtMail_TextChanged(object sender, EventArgs e)
@@ -95,7 +108,7 @@ namespace Capa_Presentacion.Formularios
         //Telefono
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !validar.validarSiCaracterEsDigito(e.KeyChar, false, true, "+ -");
+            e.Handled = !validar.validarSiCaracterEsDigito(e.KeyChar, false, "+ -");
         }
 
         private void txtTelefono_TextChanged(object sender, EventArgs e)
@@ -104,6 +117,10 @@ namespace Capa_Presentacion.Formularios
         }
 
         //Direccion
+        private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !validar.validarSiCaracterEsDigitoLetra(e.KeyChar, false, ". /");
+        }
         private void txtDireccion_TextChanged(object sender, EventArgs e)
         {
             errorProvider.SetError(txtDireccion, "");
@@ -111,13 +128,11 @@ namespace Capa_Presentacion.Formularios
 
         #endregion
 
-        ValidacionesConErrorProvider validarEP = new ValidacionesConErrorProvider();
-
         #region Eventos de Botones de Telefono
 
         private void btnAgregarTelefono_Click(object sender, EventArgs e)
         {
-            if (validarEP.validarDigitos(txtTelefono, errorProvider, false, true, "+ -", 21))
+            if (ValidarPersona.ValidarTelefono(txtTelefono, errorProvider))
             {
                 ///Si el telefono no esta en la lista
                 if (!listTelefonos.Items.Contains(txtTelefono.Text))
@@ -129,7 +144,7 @@ namespace Capa_Presentacion.Formularios
                 }
                 else
                 {
-                    MessageBox.Show("El telefono que quiere agregar ya existe", "Agregar telefono", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Mensaje.MostrarError("El telefono que quiere agregar ya existe", "Agregar telefono");
                 }
             }
         }
@@ -142,8 +157,7 @@ namespace Capa_Presentacion.Formularios
                 //Que algun telefono este seleccionado
                 if (listTelefonos.SelectedItem != null)
                 {
-                    DialogResult op = MessageBox.Show("¿Quiere eliminar el telefono seleccionado?", "Eliminar telefono", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (op == DialogResult.Yes)
+                    if (Mensaje.MostraPreguntaSiNo("¿Quiere eliminar el telefono seleccionado?", "Eliminar telefono"))
                     {
                         //Borro el telefono seleccionado
                         listTelefonos.Items.Remove(listTelefonos.SelectedItem);
@@ -151,12 +165,12 @@ namespace Capa_Presentacion.Formularios
                 }
                 else
                 {
-                    MessageBox.Show("Seleccione un telefono", "Eliminar telefono", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Mensaje.MostrarError("Seleccione un telefono", "Eliminar telefono");
                 }
             }
             else
             {
-                MessageBox.Show("Primero ingrese un telefono", "Eliminar telefono", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Mensaje.MostrarError("Primero ingrese un telefono", "Eliminar telefono");
             }
         }
 
@@ -176,12 +190,12 @@ namespace Capa_Presentacion.Formularios
                 }
                 else
                 {
-                    MessageBox.Show("Seleccione un telefono", "Editar telefono", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Mensaje.MostrarError("Seleccione un telefono", "Editar telefono");
                 }
             }
             else
             {
-                MessageBox.Show("Primero ingrese un telefono", "Editar telefono", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Mensaje.MostrarError("Primero ingrese un telefono", "Editar telefono");
             }
         }
 
@@ -190,121 +204,79 @@ namespace Capa_Presentacion.Formularios
         //Cerarr form
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Close();
+            Validaciones validaciones = new Validaciones();
+            if (validaciones.hayAlgo(this))
+            {
+                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacios ¿Quieres cerrar igual?", "Cerrar"))
+                {
+                    Close();
+                }
+            }
+            else
+            {
+                Close();
+            }
         }
 
         //Validar y registrar
         private void btnRegistra_Click(object sender, EventArgs e)
         {
-            //Valida la cedul
-            if (validarCedula(txtCedula, errorProvider))
+            //Instnacio el objeto de MetodoEmpleado
+            MetodosEmpleado alta = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
+            //Creo el Objeto cliente
+            Cliente cliente = alta.validarCliente(txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, dtpNacimiento, rdbHombre, rdbMujer, listTelefonos, errorProvider);
+
+            //Si no es Null, osea que todo sus atributos fueron validados con exito
+            if (cliente != null)
             {
-                if (validarEP.validarLetras(txtPrimerNombre, errorProvider, true, false, "", 20))
+                if (Mensaje.MostraPreguntaSiNo("¿Quiere dar de alta a cliente "+ cliente.PrimerNombre +" " + cliente.PrimerApellido +"?", "Alta de cliente"))
                 {
-                    //Si no esta vacio, que lo valide(ES OPCIONAL)
-                    if (String.IsNullOrWhiteSpace(txtSegundoNombre.Text) || validarEP.validarLetras(txtSegundoNombre, errorProvider, true, false, "", 20))
+                    //Creo un objeto Persona a partir de un objeto de su clase Hija Cliente
+                    Persona persona = cliente;
+
+                    //Hago el alta de esa Persona
+                    int retorno = alta.darAltaPersona(persona);
+
+                    //Si es mayor 0, osea que se dio de alta la Persona
+                    if (retorno > 0)
                     {
-                        
-                        if (validarEP.validarLetras(txtPrimerApellido, errorProvider, true, false, "", 20))
+                        //Si es True, osea todos los telefonos se dieron de altas correctamente
+                        if (alta.darAltaTelefonos(persona))
                         {
-                            if (validarEP.validarLetras(txtSegundoApellido, errorProvider, true, false, "", 20))
+                            //Hago alta del Cliente
+                            retorno = alta.darAltaCliente(cliente);
+                            //Si fue un alta exitosa
+                            if (retorno > 0)
                             {
-                                //Si no esta vacio, que lo valide(ES OPCIONAL)
-                                if (String.IsNullOrWhiteSpace(txtMail.Text) || validarEP.validarLetrasDigitos(txtMail, errorProvider, false, true, "@ . - _", 320))
-                                {
-                                    //Validar el mail
-                                    if (String.IsNullOrWhiteSpace(txtMail.Text) || validarEmail(txtMail))
-                                    {
-                                        if (validarEP.validarVacio(txtDireccion, errorProvider, 250))
-                                        {
-                                            if (validar.validarFechaPrimeraEsMenor(dtpNacimiento.Value, DateTime.Now))
-                                            {
-                                                errorProvider.SetError(dtpNacimiento, "");
-
-                                                if (rdbHombre.Checked || rdbMujer.Checked || rdbNoBinario.Checked)
-                                                {
-                                                    errorProvider.SetError(rdbNoBinario, "");
-                                                    Cliente cliente = new Cliente();
-                                                    cliente.Ci = txtCedula.Text;
-                                                    cliente.PrimerNombre = txtPrimerNombre.Text;
-                                                    if (!String.IsNullOrWhiteSpace(txtSegundoNombre.Text))
-                                                    {
-                                                        cliente.SegundoNombre = txtSegundoNombre.Text;
-                                                    }
-                                                    cliente.PrimerApellido = txtPrimerApellido.Text;
-                                                    cliente.SegundoApellido = txtSegundoApellido.Text;
-                                                    cliente.Mail = txtMail.Text;
-                                                    cliente.Direccion = txtDireccion.Text;
-                                                    cliente.FechaNacimiento = DateTime.Parse(dtpNacimiento.Value.ToShortDateString());
-                                                    if (rdbHombre.Checked)
-                                                    {
-                                                        cliente.Genero = "Masculino";
-
-                                                    }
-                                                    else if (rdbMujer.Checked)
-                                                    {
-                                                        cliente.Genero = "Femenino";
-                                                    }
-                                                    else
-                                                    {
-                                                        cliente.Genero = "No Binario";
-                                                    }
-
-                                                    if(listTelefonos.Items.Count > 0)
-                                                    {
-                                                        //Casteo la listTelefonos a un List de Strings
-                                                        cliente.Telefonos = listTelefonos.Items.Cast<String>().ToList();
-                                                    }
-                                                    else
-                                                    {
-                                                        cliente.Telefonos = new List<string>();
-                                                    }
-
-                                                    DialogResult op = MessageBox.Show("¿Quiere confirmar al cliente: " + cliente.PrimerNombre + " " + cliente.PrimerApellido + "?", "Alta de cliente", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                                                    if (op == DialogResult.Yes)
-                                                    {
-                                                        bool yaExiste = false;
-                                                        foreach(Cliente c in frmPrincipal.clientes)
-                                                        {
-                                                            if(c.Ci == cliente.Ci)
-                                                            {
-                                                                yaExiste = true;
-                                                                break;
-                                                            }
-                                                        }
-
-                                                        if (!yaExiste)
-                                                        {
-                                                            frmPrincipal.clientes.Add(cliente);
-                                                            MessageBox.Show("Se registro el cliente con exito", "Alta de cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                            btnCancelar.PerformClick();
-                                                        }
-                                                        else
-                                                        {
-                                                            MessageBox.Show("El cliente con la cedula: " + cliente.Ci + " ya existe", "Alta de cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                        }
-
-                                                    }
-                                                }
-                                                else
-                                                {
-                                                    errorProvider.SetIconPadding(rdbNoBinario, 5);
-                                                    errorProvider.SetError(rdbNoBinario, "Debe elegir un genero");
-                                                }
-
-                                            }
-                                            else
-                                            {
-                                                errorProvider.SetIconPadding(dtpNacimiento, 5);
-                                                errorProvider.SetError(dtpNacimiento, "Fecha de nacimiento invalida");
-                                            }
-                                        }
-
-                                    }
-                                }
+                                Mensaje.MostrarInfo("Se dio de alta el cliente: " + txtPrimerNombre.Text + " " + txtPrimerApellido.Text + " con exito", "Alta de cliente exitosa");
+                                dgvRegistrarClientes.Rows.Add(persona.Ci, persona.PrimerNombre, persona.PrimerApellido, persona.Genero);
+                                btnCancelar.PerformClick();
+                            }
+                            //Si ese Cliente ya existia
+                            else if (retorno == 1)
+                            {
+                                Mensaje.MostrarInfo("El Cliente que intenta dar de alta ya existe", "Aviso en alta Cliente");
+                            }
+                            //Si dio Error
+                            else
+                            {
+                                Mensaje.MostrarError("Ocurrio un error a dar de alta al Cliente", Mensaje.ErrorBD);
                             }
                         }
+                        else
+                        {
+                            Mensaje.MostrarError("Ocurrio un error a dar de alta los Telefonos de la Persona", Mensaje.ErrorBD);
+                        }
+                    }
+                    //Si es igual a 0, osea que la persona existe
+                    else if (retorno == 0)
+                    {
+                        Mensaje.MostrarInfo("La Persona que intenta dar de alta ya existe", "Aviso en alta Persona");
+                    }
+                    //Y -1 si es error
+                    else
+                    {
+                        Mensaje.MostrarError("Ocurrio un error al dar de Alta a la Persona", Mensaje.ErrorBD);
                     }
                 }
             }
@@ -313,102 +285,27 @@ namespace Capa_Presentacion.Formularios
         //Borrar los campos
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            DialogResult op = MessageBox.Show("¿Quiere borrar todos los campos?", "Borrar los campos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (op == DialogResult.Yes)
+            if (Mensaje.MostraPreguntaSiNo("¿Quiere borrar todos los campos?", "Borrar los campos"))
             {
-                //Limpio los TextBox
-                TextBox[] textBoxes = { txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, txtTelefono };
-                validar.limpiarTextBots(textBoxes);
+                //Limpio los componenetes
+                Control[] controles = { txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, txtTelefono, dtpNacimiento, rdbHombre, rdbMujer, rdbNoBinario, listTelefonos };
+                validar.limpiarControles(controles);
 
-                //Le doy de nuevo la fecha
-                dtpNacimiento.Value = DateTime.Parse(DateTime.Now.ToShortDateString());
-
-                //Restablesco los RadioBtn
-                rdbHombre.Checked = false;
-                rdbMujer.Checked = false;
-                rdbNoBinario.Checked = false;
-
-                //Vacio los telefonos
-                listTelefonos.Items.Clear();
-
-                //Limpio todos los errores
+                //Checkeo el rdbHombre para simpre haya uno chekeado
+                rdbHombre.Checked = true;
+  
+                //Y borro el error provider
                 errorProvider.Clear();
             }
         }
 
-        //Pongo el MaxDate del DatePicker, eviatar que la Fec.Nac sea la misma
-        private void frmRegClientes_Load(object sender, EventArgs e)
+        private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            dtpNacimiento.MaxDate = DateTime.Now;
-        }
-
-        //Validar mails
-        private bool validarEmail(TextBox txtBox)
-        {
-            if (validarEP.validarVacio(txtBox, errorProvider, 320)) 
+            if (Mensaje.MostraPreguntaSiNo("¿Quiere borrar todos las filas de la tabla", "Borrar tabla"))
             {
-                if (new EmailAddressAttribute().IsValid(txtBox.Text))
-                {
-                    return true;
-                }
-                else
-                {
-                    errorProvider.SetIconPadding(txtBox, 5);
-                    errorProvider.SetError(txtBox, "El formato del mail ingresado es invalido");
-                    return false;
-                }
+                //Limpio los componenetes
+                dgvRegistrarClientes.Rows.Clear();
             }
-            else
-            {
-                return false;
-            }
-        }
-
-        //Valida la cedula
-        private bool validarCedula(TextBox txtBox, ErrorProvider errorProvider)
-        {
-
-            if (validarEP.validarVacio(txtBox, errorProvider, 13))
-            {
-                if (txtBox.Text.Length >= 8)
-                {
-                    bool valido = true;
-                    foreach (Char c in txtBox.Text)
-                    {
-                        //Valida caracter por caracter con los parametros indicados, sino valido sea falso(retorne false) 
-                        if (!validar.validarSiCaracterEsDigito(c, false, false, ""))
-                        {
-                            valido = false;
-                            break;
-                        }
-                    }
-
-                    if (valido)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        errorProvider.SetIconPadding(txtBox, 5);
-                        errorProvider.SetError(txtBox, "Este campo solo puede contener digitos");
-                        txtBox.Focus();
-                        return false;
-                    }
-                }
-                else
-                {
-                    errorProvider.SetIconPadding(txtBox, 5);
-                    errorProvider.SetError(txtBox, "Este campo debe contener por lo menos 8 digitos");
-                    txtBox.Focus();
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-
-
         }
     }
 }

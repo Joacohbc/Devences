@@ -133,3 +133,102 @@ C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\bin
 C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CopyComplete
 C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.exe
 C:\Users\Joaco\source\repos\ProyectoFinal\ProyectoFinal\Capa de Presentacion\obj\Debug\Capa Presentacion.pdb
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.exe.config
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.exe
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.pdb
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Capa de Datos.dll
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Capa Entidades.dll
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Capa Logica.dll
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\MySql.Data.dll
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Google.Protobuf.dll
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Capa de Datos.pdb
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Capa Entidades.pdb
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Capa Logica.pdb
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\MySql.Data.xml
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csprojAssemblyReference.cache
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModClientes.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegClientes.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifEmpleados.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifHorariosYPrecios.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegEmpleados.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmInfoReservas.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmPreciosYHorarios.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifReservas.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegReservas.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.Servicios.frmModifServicios.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.Servicios.frmRegServicios.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.frmLogin.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.frmPrincipal.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Properties.Resources.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.GenerateResource.cache
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CopyComplete
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.exe
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.pdb
+D:\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.exe.config
+D:\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.exe
+D:\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.pdb
+D:\Devences\Capa de Presentacion\bin\Debug\Capa Entidades.dll
+D:\Devences\Capa de Presentacion\bin\Debug\Capa Logica.dll
+D:\Devences\Capa de Presentacion\bin\Debug\Capa de Datos.dll
+D:\Devences\Capa de Presentacion\bin\Debug\MySql.Data.dll
+D:\Devences\Capa de Presentacion\bin\Debug\Google.Protobuf.dll
+D:\Devences\Capa de Presentacion\bin\Debug\BouncyCastle.Crypto.dll
+D:\Devences\Capa de Presentacion\bin\Debug\Capa Entidades.pdb
+D:\Devences\Capa de Presentacion\bin\Debug\Capa Logica.pdb
+D:\Devences\Capa de Presentacion\bin\Debug\Capa de Datos.pdb
+D:\Devences\Capa de Presentacion\bin\Debug\MySql.Data.xml
+D:\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csprojAssemblyReference.cache
+D:\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModClientes.resources
+D:\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegClientes.resources
+D:\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifEmpleados.resources
+D:\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifHorariosYPrecios.resources
+D:\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegEmpleados.resources
+D:\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmInfoReservas.resources
+D:\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmPreciosYHorarios.resources
+D:\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifReservas.resources
+D:\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegReservas.resources
+D:\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.Servicios.frmModifServicios.resources
+D:\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.Servicios.frmRegServicios.resources
+D:\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.frmLogin.resources
+D:\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.frmPrincipal.resources
+D:\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Properties.Resources.resources
+D:\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.GenerateResource.cache
+D:\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CoreCompileInputs.cache
+D:\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CopyComplete
+D:\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.exe
+D:\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.pdb
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.exe.config
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.exe
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.pdb
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Entidades.dll
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Logica.dll
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa de Datos.dll
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\MySql.Data.dll
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Google.Protobuf.dll
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Entidades.pdb
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Logica.pdb
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa de Datos.pdb
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\MySql.Data.xml
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csprojAssemblyReference.cache
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModClientes.resources
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegClientes.resources
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifEmpleados.resources
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifHorariosYPrecios.resources
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegEmpleados.resources
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmInfoReservas.resources
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmPreciosYHorarios.resources
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifReservas.resources
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegReservas.resources
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.Servicios.frmModifServicios.resources
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.Servicios.frmRegServicios.resources
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.frmLogin.resources
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.frmPrincipal.resources
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Properties.Resources.resources
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.GenerateResource.cache
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CopyComplete
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.exe
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.pdb
