@@ -30,7 +30,7 @@ namespace Capa_Presentacion.Formularios
             //Que tenga uno seleccionado
             cmbTipo.SelectedIndex = 0;
 
-            //Que tenga contra senia
+            //Que tenga contrasenia activada
             txtContra.UseSystemPasswordChar = true;
             txtConfContra.UseSystemPasswordChar = true;
 
@@ -272,6 +272,7 @@ namespace Capa_Presentacion.Formularios
             }
         }
 
+        //Registra la Reserva
         private void btnRegistra_Click(object sender, EventArgs e)
         {
             MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);

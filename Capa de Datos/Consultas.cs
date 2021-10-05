@@ -285,6 +285,12 @@ namespace Capa_de_Datos
             }
         }
 
+        /// <summary>
+        /// Buscar si existen Reservas de un cliente con determinada fechade inicio y retorna el ID de la reserva(Retorna ID, 0 No, -1 error)
+        /// </summary>
+        /// <param name="ci"> una Cedula </param>
+        /// <param name="inicio"> el inicio de la reserva</param>
+        /// <returns> 1 o +1 si hay alguna, 0 si no hay ninguna y -1 si ocurrio un error </returns>
         public int buscarIdDeReserva(int ci, DateTime inicio)
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
@@ -304,6 +310,7 @@ namespace Capa_de_Datos
 
                 if (lector.Read())
                 {
+                   //Retorna el ID
                     return lector.GetInt32(0);
                 }
                 else
@@ -325,6 +332,11 @@ namespace Capa_de_Datos
             }
         }
 
+        /// <summary>
+        /// Buscar si hay un empleado(1 Si, 0 No, -1 error)
+        /// </summary>
+        /// <param name="ci"> la Cedula</param>
+        /// <returns>1 Si, 0 No, -1 error </returns>
         public int buscarEmpleado(int ci)
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
