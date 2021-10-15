@@ -54,8 +54,6 @@ namespace Capa_Logica
                     //Si es un DatePicker
                     else if (c is DateTimePicker)
                     {
-                        //Pone su fecha maxima en en el dia de hoy
-                        ((DateTimePicker)c).MaxDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                         //Y lo setea en el dia de hoy
                         ((DateTimePicker)c).Value = DateTime.Parse(DateTime.Now.ToShortDateString());
                     }

@@ -73,6 +73,10 @@ namespace Capa_Presentacion.Formularios.Servicios
             {
                 //Limpio los componenetes
                 Control[] controles = { txtCedulaTitular, dtpFechaInico, dtpInicioServicio, cmbServicio, cmbFormaDePago };
+
+                //Le pongo el MinDate antes de resetear la fecha para que no tire error 
+                dtpInicioServicio.MinDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+
                 validar.limpiarControles(controles);
 
                 //Y borro el error provider
