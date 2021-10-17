@@ -16,12 +16,15 @@ namespace Capa_Presentacion.Formularios.Servicios
     public partial class frmRegServicios : Form
     {
         private Validaciones validar = new Validaciones();
+
         private List<Capa_Entidades.Servicios> servicios;
+
         public frmRegServicios()
         {
             InitializeComponent();
         }
 
+        //Cosas del Form
         private void frmRegServicios_Load(object sender, EventArgs e)
         {
             //Instancio la Clase
@@ -38,7 +41,7 @@ namespace Capa_Presentacion.Formularios.Servicios
                 {
                     //Agrego los servicios al CMB y al DGV
                     String cantidad = s.Cantidad == 0 ? "---" : s.Cantidad.ToString();
-                    dgvServicios.Rows.Add(s.Nombre, s.CapacidadMaxima, cantidad, s.Precio);
+                    dgvServicios.Rows.Add(s.Nombre, s.Duracion, cantidad, s.Precio);
                     cmbServicio.Items.Add(s.Nombre);
                 }
 
@@ -67,15 +70,17 @@ namespace Capa_Presentacion.Formularios.Servicios
             }
         }
 
+        //Descartar Servicio
         private void btnDescartar_Click(object sender, EventArgs e)
         {
             if (Mensaje.MostraPreguntaSiNo("¿Quiere borrar todos los campos?", "Borrar los campos"))
             {
                 //Limpio los componenetes
-                Control[] controles = { txtCedulaTitular, dtpFechaInico, dtpInicioServicio, cmbServicio, cmbFormaDePago };
+                Control[] controles = { txtCedulaTitular, dtpFechaInico, cmbServicio, cmbFormaDePago };
 
-                //Le pongo el MinDate antes de resetear la fecha para que no tire error 
-                dtpInicioServicio.MinDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                //No lo hago con el metodo porque necesito la fecha actual
+                dtpInicioServicio.MinDate = DateTime.Now;
+                dtpInicioServicio.Value = DateTime.Now;
 
                 validar.limpiarControles(controles);
 
@@ -84,6 +89,7 @@ namespace Capa_Presentacion.Formularios.Servicios
             }
         }
 
+        //Registrar Servicio
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             //Valido que la cedula sea correcta
@@ -93,6 +99,7 @@ namespace Capa_Presentacion.Formularios.Servicios
                 
                 //Busco si existe un cliente con esa cedula
                 int retorno = metodos.buscarCliente(Convert.ToInt32(txtCedulaTitular.Text));
+
                 //Si exieste
                 if (retorno >= 1)
                 {

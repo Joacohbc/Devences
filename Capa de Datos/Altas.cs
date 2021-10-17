@@ -268,7 +268,8 @@ namespace Capa_de_Datos
         public int altaServicio(int id, String nombreServicio, DateTime inicio, DateTime fin, String formaDePago)
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
-            String sentencia = String.Format("insert into contiene values({0},'{1}', '{2}','{3}',1,'{4}');", id, nombreServicio, inicio.ToString("yyyy-MM-dd HH:mm"), fin.ToString("yyyy-MM-dd HH:mm"), formaDePago);
+            String sentencia = String.Format("insert into contiene values({0},'{1}', '{2}','{3}',1,'{4}');", 
+                id, nombreServicio, inicio.ToString("yyyy-MM-dd HH:mm"), fin.ToString("yyyy-MM-dd HH:mm"), formaDePago);
 
             //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
             //si lo hara. SI es false si entre al catch, osea que hubo un error
