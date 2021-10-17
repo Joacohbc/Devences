@@ -485,7 +485,7 @@ namespace Capa_Logica.Clases
             if (id >= 1)
             {
                 DateTime fin = inicioServicio + servicio.Duracion;
-                return altas.altaServicio(id, servicio.Nombre, inicio, fin, formaDePago);
+                return altas.altaServicio(id, servicio.Nombre, inicioServicio, fin, formaDePago);
             }
             else if (id == 0)
             {
