@@ -47,6 +47,7 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="Consultas.cs" />
     <Compile Include="Login\Login.cs" />
+    <Compile Include="Modificaciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

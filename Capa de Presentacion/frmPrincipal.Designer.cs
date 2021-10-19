@@ -365,7 +365,6 @@
             // 
             this.btnModifCli.BackColor = System.Drawing.Color.PowderBlue;
             this.btnModifCli.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnModifCli.Enabled = false;
             this.btnModifCli.FlatAppearance.BorderSize = 0;
             this.btnModifCli.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnModifCli.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;

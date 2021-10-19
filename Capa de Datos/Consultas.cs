@@ -65,7 +65,7 @@ namespace Capa_de_Datos
         }
 
         /// <summary>
-        /// Pide la cedula y busca a la Cliente, Retorna 1 si ya existe, 0 si no existe y -1 error
+        /// Pide la cedula y busca a la Cliente(Si esta dado de Alta), Retorna 1 si ya existe, 0 si no existe y -1 error
         /// </summary>
         public int buscarCliente(int ci)
         {
@@ -104,7 +104,48 @@ namespace Capa_de_Datos
                 if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Busqueda de Cliente: " + ci);
             }
         }
-        
+
+        /// <summary>
+        /// Pide la cedula y busca a la Cliente(Si existe), Retorna 1 si ya existe, 0 si no existe y -1 error
+        /// </summary>
+        public int existeCliente(int ci)
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = String.Format("select ci from cliente where ci={0};", ci);
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                MySqlDataReader lector = select.ExecuteReader();
+                //Leo lo que devuelve
+                if (lector.Read())
+                {
+                    //Retorno 1 si existe
+                    return 1;
+                }
+                else
+                {
+                    //Retorno 0 si no existe
+                    return 0;
+                }
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return -1;
+            }
+            finally
+            {
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Busqueda(si existe) de Cliente: " + ci);
+            }
+        }
+
         /// <summary>
         /// Consulta una Persona por su cedula y retonar el objeto Persona, o NUll si hay error
         /// </summary>|
@@ -113,7 +154,9 @@ namespace Capa_de_Datos
         public Persona traerPersona(int ci)
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
-            String sentencia = String.Format("select * from persona where ci={0};", ci);
+            String sentencia = String.Format("select p.ci, primerNombre, segundoNombre, primerApellido, segundoApellido, genero, fechaNacimiento, mail, direccion, telefono " +
+                "from persona p join telefono t on p.ci = t.ci " +
+                "where p.ci={0};", ci);
 
             //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
             //si lo hara. SI es false si entre al catch, osea que hubo un error
@@ -125,8 +168,9 @@ namespace Capa_de_Datos
                 MySqlDataReader lector = select.ExecuteReader();
 
                 Persona persona = new Persona();
+               
                 //Leo lo que devuelve
-                if (lector.Read())
+                while (lector.Read())
                 {
                     //Retorno 1 si encuentro
                     persona.Ci = lector.GetInt32(0);
@@ -138,14 +182,10 @@ namespace Capa_de_Datos
                     persona.FechaNacimiento = lector.GetDateTime(6);
                     persona.Mail = lector.GetString(7);
                     persona.Direccion = lector.GetString(8);
+                    persona.Telefonos.Add(lector.GetString(9));
+                }
 
-                    return persona;
-                }
-                else
-                {
-                    //Retorno Null si no la encuentro
-                    return null;
-                }
+                return persona;
             }
             catch
             {

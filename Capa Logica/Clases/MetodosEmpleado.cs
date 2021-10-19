@@ -113,6 +113,7 @@ namespace Capa_Logica.Clases
         private int rol;
         private Altas altas;
         private Consultas consultas;
+        private Modificaciones modificaciones;
 
         public MetodosEmpleado(int ci, int rol)
         {
@@ -120,23 +121,24 @@ namespace Capa_Logica.Clases
             this.rol = rol;
             altas = new Altas(rol, ci);
             consultas = new Consultas(rol, ci);
+            modificaciones = new Modificaciones(rol, ci);
         }
 
+
         /// <summary>
-        /// Pide la cedula y busca a la Cliente, Retorna 1 si ya existe, 0 si no existe y -1 error
+        /// Pide la cedula y busca a la Cliente(Si esta dado de Alta), Retorna 1 si ya existe, 0 si no existe y -1 error
         /// </summary>
-        public int buscarCliente(int ci)
-        {
-            return consultas.buscarCliente(ci);
-        }
+        public int buscarCliente(int ci) => consultas.buscarCliente(ci);
+
+        /// <summary>
+        /// Pide la cedula y busca a la Cliente(Si existe), Retorna 1 si ya existe, 0 si no existe y -1 error
+        /// </summary>
+        public int existeCliente(int ci) => consultas.existeCliente(ci);
 
         /// <summary>
         /// Retorna una persona por su Cedula, si retorna null ocurrio un error o no la encontro
         /// </summary>
-        public Persona traerPersona(int ci)
-        {
-            return consultas.traerPersona(ci);
-        }
+        public Persona traerPersona(int ci) => consultas.traerPersona(ci);
 
         /// <summary>
         /// Da de alta una Persona
@@ -415,10 +417,7 @@ namespace Capa_Logica.Clases
         /// Busca si el Cliente tiene una Reserva con ese inicio que no este ni Eliminada ni Cancelada ni Finalizada, 1 si encuentra una, 0 si no la encuentra y -1 error
         /// </summary>
         /// <returns> 1 si encuentra una, 0 si no la encuentra y -1 error </returns>
-        public int validarFechaReserva(Reserva reserva)
-        {
-            return consultas.validarFechaReserva(reserva);
-        }
+        public int validarFechaReserva(Reserva reserva) => consultas.validarFechaReserva(reserva);
 
         /// <summary>
         /// Da de alta una reserva y sus Integrantes, retona 1 si fue exitosa y -1 si no
@@ -471,10 +470,7 @@ namespace Capa_Logica.Clases
         /// <summary>
         /// Trae los servicios en una Lista<Nombre y Precio>
         /// </summary>
-        public List<Servicios> traerServicios()
-        {
-            return consultas.traerServicios();
-        }
+        public List<Servicios> traerServicios() => consultas.traerServicios();
 
         /// <summary>
         /// Dar de alta una servicio
@@ -604,22 +600,24 @@ namespace Capa_Logica.Clases
                 return null;
             }
         }
-        
+
         /// <summary>
         /// Buscar si hay un empleado(1 Si, 0 No, -1 error)
         /// </summary>
-        public int buscarEmpleado(int ci)
-        {
-           return consultas.buscarEmpleado(ci);
-        }
+        public int buscarEmpleado(int ci) => consultas.buscarEmpleado(ci);
 
         /// <summary>
         /// Da de alta un Servicio a una Reserva(1 Exito, -1 error)
         /// </summary>
-        public int altaEmpleado(Empleado empleado)
-        {
-            return altas.altaEmpleado(empleado);
-        }
+        public int altaEmpleado(Empleado empleado) => altas.altaEmpleado(empleado);
         #endregion
+
+        #region Metodos De Moficacion de Persona
+        public int modificarPersona(Persona persona) => modificaciones.ModificarPersona(persona);
+
+        public int borrarTelefonosPersona(int ci, List<String> telefonosNuevos) => modificaciones.BorrarTelefonos(ci, telefonosNuevos);
+        #endregion
+
+
     }
 }

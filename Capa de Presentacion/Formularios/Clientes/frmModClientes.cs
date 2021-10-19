@@ -23,7 +23,7 @@ namespace Capa_Presentacion.Formularios
         }
 
         #region Eventos del Form
-        //Pongo el MaxDate del DatePicker, eviatar que la Fec.Nac sea la misma
+        //Pongo el MaxDate del DatePicker, eviatar que la FechaNac sea la misma
         private void frmRegClientes_Load(object sender, EventArgs e)
         {
             dtpNacimiento.MaxDate = DateTime.Now;
@@ -207,79 +207,93 @@ namespace Capa_Presentacion.Formularios
         {
             if (ValidarPersona.ValidarCedula(txtCedula, errorProvider))
             {
-                //if (frmPrincipal.clientes.Count > 0)
-                //{
-                //    bool existe = false;
-                //    foreach (MetodosCliente c in frmPrincipal.clientes)
-                //    {
-                //        if (c.Ci == txtCedula.Text)
-                //        {
-                //            txtModificarPrimerNombre.Text = c.PrimerNombre;
-                //            txtPrimerNombre.Text = c.PrimerNombre;
+                MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
 
-                //            txtModificarSegundoNombre.Text = !String.IsNullOrWhiteSpace(c.SegundoNombre) ? c.SegundoNombre : "";
-                //            txtSegundoNombre.Text = !String.IsNullOrWhiteSpace(c.SegundoNombre) ? c.SegundoNombre : "";
+                //Busco si existe y no si esta dado de Alta, porque puede que quiera modificar su
+                //estado(alta/baja)
+                int retorno = metodos.existeCliente(Convert.ToInt32(txtCedula.Text));
 
-                //            txtModificarPrimerApellido.Text = c.PrimerApellido;
-                //            txtPrimerApellido.Text = c.PrimerApellido;
+                //Cliente existe
+                if (retorno == 1)
+                {
+                    //Cargo los datos del Cliente
+                    Persona persona = metodos.traerPersona(Convert.ToInt32(txtCedula.Text));
+                    int alta = metodos.buscarCliente(Convert.ToInt32(txtCedula.Text));
 
-                //            txtModificarSegundoApellido.Text = c.SegundoApellido;
-                //            txtSegundoApellido.Text = c.SegundoApellido;
+                    if (persona != null && alta != -1)
+                    {
 
-                //            txtModificarMail.Text = !String.IsNullOrWhiteSpace(c.Mail) ? c.Mail : "";
-                //            txtMail.Text = !String.IsNullOrWhiteSpace(c.Mail) ? c.Mail : "";
+                        //Cargo los datos en los TextBox de Modificar y en los de Info
+                        txtModificarPrimerNombre.Text = persona.PrimerNombre;
+                        txtPrimerNombre.Text = persona.PrimerNombre;
 
-                //            txtModificarDireccion.Text = c.Direccion;
-                //            txtDireccion.Text = c.Direccion;
+                        txtModificarSegundoNombre.Text = !String.IsNullOrWhiteSpace(persona.SegundoNombre) ? persona.SegundoNombre : "";
+                        txtSegundoNombre.Text = !String.IsNullOrWhiteSpace(persona.SegundoNombre) ? persona.SegundoNombre : "";
 
-                //            dtpModificarNacimiento.Value = c.FechaNacimiento;
-                //            dtpNacimiento.Value = c.FechaNacimiento;
+                        txtModificarPrimerApellido.Text = persona.PrimerApellido;
+                        txtPrimerApellido.Text = persona.PrimerApellido;
 
-                //            if (c.Genero == "Masculino")
-                //            {
-                //                chkModificarHombre.Checked = true;
-                //                rdbHombre.Checked = true;
-                //            }
-                //            else if (c.Genero == "Femenino")
-                //            {
-                //                chkModificarMujer.Checked = true;
-                //                rdbMujer.Checked = true;
-                //            }
-                //            else
-                //            {
-                //                chkModificarNoBinario.Checked = true;
-                //                rdbNoBinario.Checked = true;
-                //            }
+                        txtModificarSegundoApellido.Text = persona.SegundoApellido;
+                        txtSegundoApellido.Text = persona.SegundoApellido;
 
-                //            if (c.Telefonos.Count > 0)
-                //            {
-                //                //Los limpio para que no se repitan los telefonos
-                //                listTelefonos.Items.Clear();
-                //                listModificarTelefonos.Items.Clear();
+                        txtModificarMail.Text = !String.IsNullOrWhiteSpace(persona.Mail) ? persona.Mail : "";
+                        txtMail.Text = !String.IsNullOrWhiteSpace(persona.Mail) ? persona.Mail : "";
 
-                //                foreach (String s in c.Telefonos)
-                //                {
-                //                    listModificarTelefonos.Items.Add(s);
-                //                    listTelefonos.Items.Add(s);
-                //                }
-                //            }
-                //            existe = true;
-                //            break;
-                //        }
-                //    }
-                //    if (existe)
-                //    {
-                //        MessageBox.Show("Cliente ya encontrado, puede empezar a modificarlo", "Modificar clientes", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("No hay clientes registrados con esa cedula", "Modificar clientes", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    }
-                //}
-                //else
-                //{
-                //    MessageBox.Show("No hay clientes registrados", "Modificar clientes", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //}
+                        txtModificarDireccion.Text = persona.Direccion;
+                        txtDireccion.Text = persona.Direccion;
+
+                        dtpModificarNacimiento.Value = persona.FechaNacimiento;
+                        dtpNacimiento.Value = persona.FechaNacimiento;
+
+                        if (persona.Genero == "Masculino")
+                        {
+                            chkModificarHombre.Checked = true;
+                            rdbHombre.Checked = true;
+                        }
+                        else if (persona.Genero == "Femenino")
+                        {
+                            chkModificarMujer.Checked = true;
+                            rdbMujer.Checked = true;
+                        }
+                        else
+                        {
+                            chkModificarNoBinario.Checked = true;
+                            rdbNoBinario.Checked = true;
+                        }
+
+                        if (persona.Telefonos.Count > 0)
+                        {
+                            //Los limpio para que no se repitan los telefonos
+                            listTelefonos.Items.Clear();
+                            listModificarTelefonos.Items.Clear();
+
+                            foreach (String s in persona.Telefonos)
+                            {
+                                listModificarTelefonos.Items.Add(s);
+                                listTelefonos.Items.Add(s);
+                            }
+                        }
+
+                        //chkEstado.Checked = (alta == 1 ? true : false);
+                        //chkEstado.Text = (alta == 1 ? "Alta" : "Baja");
+
+                        MessageBox.Show("Cliente ya encontrado, puede empezar a modificarlo", "Modificar clientes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        Mensaje.MostrarError("Ocurrio un error al consultar la informacion del cliente", Mensaje.ErrorBD);
+                    }
+                }
+
+                //Cliente no existe
+                else if (retorno == 0)
+                {
+                    Mensaje.MostrarInfo("No existe un Cliente con esa cedula", Mensaje.ErrorIngreso);
+                }
+                else
+                {
+                    Mensaje.MostrarError("Ocurrio un error al buscar al cliente", Mensaje.ErrorBD);
+                }
 
             }
         }
@@ -298,18 +312,49 @@ namespace Capa_Presentacion.Formularios
                             Cliente cliente = CreacionObjeto.CrearCliente(Convert.ToInt32(txtCedula.Text), txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail,
                                  txtDireccion, dtpNacimiento, rdbHombre, rdbMujer, listTelefonos);
 
-                            //if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar al cliente: " + txtModificarPrimerNombre.Text + " " + txtModificarPrimerApellido.Text + "?", "Modificar cliente"))
-                            //{
-                            //    for (int i = 0; i < frmPrincipal.clientes.Count; i++)
-                            //    {
-                            //        if (frmPrincipal.clientes[i].Ci == txtCedula.Text)
-                            //        {
-                            //            frmPrincipal.clientes[i] = cliente;
-                            //        }
-                            //    }
-                            //    Mensaje.MostrarInfo("Se modifico el cliente con exito", "Modificar cliente");
-                            //    btnCancelar.PerformClick();
-                            //}
+                            if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar al cliente: " + txtModificarPrimerNombre.Text + " " + txtModificarPrimerApellido.Text + "?", "Modificar cliente"))
+                            {
+                                MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
+
+                                //Busco si existe y no si esta dado de Alta, porque puede que quiera modificar su
+                                //estado(alta/baja)
+                                int retorno = metodos.existeCliente(cliente.Ci);
+
+                                //Cliente existe
+                                if (retorno == 1)
+                                {
+                                    Persona persona = cliente;
+                                    retorno = metodos.modificarPersona(cliente);
+
+                                    if (retorno > 0)
+                                    {
+                                        retorno = metodos.borrarTelefonosPersona(persona.Ci, persona.Telefonos);
+                                        if (retorno == 1)
+                                        {
+                                            Mensaje.MostrarInfo("Se modifico el cliente con exito", "Modificar cliente");
+                                            btnCancelar.PerformClick();
+                                        }
+                                        else
+                                        {
+                                            Mensaje.MostrarError("Ocurrio un error al modificar los telefonos cliente", Mensaje.ErrorBD);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Mensaje.MostrarError("Ocurrio un error al modificar al cliente", Mensaje.ErrorBD);
+                                    }
+
+                                }
+                                //Cliente no existe
+                                else if (retorno == 0)
+                                {
+                                    Mensaje.MostrarError("El cliente que ingreso no esta registrado", Mensaje.ErrorBD);
+                                }
+                                else
+                                {
+                                    Mensaje.MostrarError("Ocurrio un error al buscar al cliente", Mensaje.ErrorBD);
+                                }
+                            }
                         }
                     }
                 }
@@ -337,6 +382,7 @@ namespace Capa_Presentacion.Formularios
 
             }
         }
+
     }
 
 }
