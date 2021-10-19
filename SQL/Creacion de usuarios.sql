@@ -25,7 +25,7 @@ Select: Consultar Personas(Empleado y Clientes)
 grant select,insert,update on proyectoprueba.persona to gerente;
 
 #Sobre la Tabla Telefono
-grant select,insert,update on proyectoprueba.telefono to gerente;
+grant select,insert,update,delete on proyectoprueba.telefono to gerente;
 /*
 Insert: Dar Altas a Telefonos de Personas
 Update: Modificar y Dar de Baja de Telefonos de Personas
@@ -105,6 +105,9 @@ set password for administrativo=PASSWORD('administrativo');
 #Sobre la Tabla Persona
 grant insert, update, select on proyectoprueba.persona to administrativo;
 
+#Sobre la Tabla Telefono
+grant insert, update, select, delete  on proyectoprueba.telefono to administrativo;
+
 #Sobre la Tabla Cliente
 grant insert, update, select on proyectoprueba.cliente to administrativo;
 
@@ -120,7 +123,5 @@ grant select on proyectoprueba.servicio to administrativo;
 #Sobre la Tabla RegistroDeCambio
 grant insert on proyectoprueba.registrodecambio to administrativo;
 
-#Sobre la Tabla Telefono
-grant insert, update, select on proyectoprueba.telefono to administrativo;
 #Sobre la Tabla Parametros
 grant select on proyectoprueba.parametros to administrativo;
