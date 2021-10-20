@@ -20,6 +20,7 @@ namespace Capa_Presentacion.Formularios
             InitializeComponent();
         }
 
+        #region Eventos del Form
         private void frmRegEmpleados_Load(object sender, EventArgs e)
         {
             dtpNacimiento.MaxDate = DateTime.Now;
@@ -37,7 +38,25 @@ namespace Capa_Presentacion.Formularios
             //Logo del ErrorProvider
             errorProvider.Icon = Properties.Resources.ErrorProvider;
         }
-       
+
+        //Cerarr form
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Validaciones validaciones = new Validaciones();
+            if (validaciones.hayAlgo(this))
+            {
+                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacios ¿Quieres cerrar igual?", "Cerrar"))
+                {
+                    Close();
+                }
+            }
+            else
+            {
+                Close();
+            }
+        }
+        #endregion
+
         #region Validaciones de Ingreso 
         Validaciones validar = new Validaciones();
 
@@ -256,23 +275,6 @@ namespace Capa_Presentacion.Formularios
 
                 //Y borro el error provider
                 errorProvider.Clear();
-            }
-        }
-
-        //Cerarr form
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Validaciones validaciones = new Validaciones();
-            if (validaciones.hayAlgo(this))
-            {
-                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacios ¿Quieres cerrar igual?", "Cerrar"))
-                {
-                    Close();
-                }
-            }
-            else
-            {
-                Close();
             }
         }
 

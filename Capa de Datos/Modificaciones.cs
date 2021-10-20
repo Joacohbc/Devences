@@ -84,7 +84,7 @@ namespace Capa_de_Datos
             }
         }
 
-        public int BorrarTelefonos(int ci, List<String> telefonosNuevos)
+        public int ModificarTelefonos(int ci, List<String> telefonosNuevos)
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
             String sentencia = String.Format("delete from telefono where ci={0};", ci);

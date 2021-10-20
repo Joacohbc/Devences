@@ -15,15 +15,31 @@ namespace Capa_Presentacion.Formularios
 {
     public partial class frmRegReservas : Form
     {
+        private List<Integrantes> integrantes = new List<Integrantes>();
 
-        List<Integrantes> integrantes = new List<Integrantes>();
+        private Validaciones validar = new Validaciones();
 
-        Validaciones validar = new Validaciones();
-
-        #region Cosas del Form
         public frmRegReservas()
         {
             InitializeComponent();
+        }
+
+        #region Eventos del Form
+        //Cerarr form
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Validaciones validaciones = new Validaciones();
+            if (validaciones.hayAlgo(this))
+            {
+                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacios ¿Quieres cerrar igual?", "Cerrar"))
+                {
+                    Close();
+                }
+            }
+            else
+            {
+                Close();
+            }
         }
 
         //Cargo los datos en los CMB y asigno Min y Max a los DTP
@@ -293,21 +309,5 @@ namespace Capa_Presentacion.Formularios
             }
         }
 
-        //Cerarr form
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Validaciones validaciones = new Validaciones();
-            if (validaciones.hayAlgo(this))
-            {
-                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacios ¿Quieres cerrar igual?", "Cerrar"))
-                {
-                    Close();
-                }
-            }
-            else
-            {
-                Close();
-            }
-        }
     }
 }

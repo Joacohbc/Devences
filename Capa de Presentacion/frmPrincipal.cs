@@ -74,7 +74,7 @@ namespace Capa_Presentacion
 
             Form formulario = pnForms.Controls.OfType<Forms>().FirstOrDefault(); //Buscamos en la coleccion al formulario
 
-            if (formulario == null)                                              //si no existe lo crea
+            if (formulario == null)//si no existe lo crea
             {
                 formulario = new Forms();
                 formulario.FormBorderStyle = FormBorderStyle.None;
@@ -86,8 +86,8 @@ namespace Capa_Presentacion
                 formulario.BringToFront();
                 formulario.FormClosed += new FormClosedEventHandler(ColorCerrarForms);
             }
-            else
-            {                                                               //si ya existe lo trae al frente
+            else //si ya existe lo trae al frente
+            {
                 formulario.BringToFront();
             }
 

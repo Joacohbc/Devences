@@ -615,7 +615,7 @@ namespace Capa_Logica.Clases
         #region Metodos De Moficacion de Persona
         public int modificarPersona(Persona persona) => modificaciones.ModificarPersona(persona);
 
-        public int borrarTelefonosPersona(int ci, List<String> telefonosNuevos) => modificaciones.BorrarTelefonos(ci, telefonosNuevos);
+        public int modificarTelefonosPersona(int ci, List<String> telefonosNuevos) => modificaciones.ModificarTelefonos(ci, telefonosNuevos);
         #endregion
 
 

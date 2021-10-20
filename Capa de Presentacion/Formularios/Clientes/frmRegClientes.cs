@@ -22,9 +22,10 @@ namespace Capa_Presentacion.Formularios
 
         }
 
-        //Pongo el MaxDate del DatePicker, eviatar que la Fec.Nac sea la misma
+        #region Eventos del Form
         private void frmRegClientes_Load(object sender, EventArgs e)
         {
+            //Pongo el MaxDate del DatePicker, eviatar que la Fec.Nac sea la misma
             dtpNacimiento.MaxDate = DateTime.Now;
             
             //Checkeo el rdbHombre para simpre haya uno chekeado
@@ -33,6 +34,24 @@ namespace Capa_Presentacion.Formularios
             //Logo del ErrorProvider
             errorProvider.Icon = Properties.Resources.ErrorProvider;
         }
+
+        //Cerarr form
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Validaciones validaciones = new Validaciones();
+            if (validaciones.hayAlgo(this))
+            {
+                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacios ¿Quieres cerrar igual?", "Cerrar"))
+                {
+                    Close();
+                }
+            }
+            else
+            {
+                Close();
+            }
+        }
+        #endregion
 
         #region Validaciones de Ingreso(TextBoxes)
 
@@ -201,30 +220,15 @@ namespace Capa_Presentacion.Formularios
 
         #endregion
 
-        //Cerarr form
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Validaciones validaciones = new Validaciones();
-            if (validaciones.hayAlgo(this))
-            {
-                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacios ¿Quieres cerrar igual?", "Cerrar"))
-                {
-                    Close();
-                }
-            }
-            else
-            {
-                Close();
-            }
-        }
-
         //Validar y registrar
         private void btnRegistra_Click(object sender, EventArgs e)
         {
             //Instnacio el objeto de MetodoEmpleado
             MetodosEmpleado alta = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
+
             //Creo el Objeto cliente
-            Cliente cliente = alta.validarCliente(txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, dtpNacimiento, rdbHombre, rdbMujer, listTelefonos, errorProvider);
+            Cliente cliente = alta.validarCliente(txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail, 
+                txtDireccion, dtpNacimiento, rdbHombre, rdbMujer, listTelefonos, errorProvider);
 
             //Si no es Null, osea que todo sus atributos fueron validados con exito
             if (cliente != null)
@@ -280,6 +284,10 @@ namespace Capa_Presentacion.Formularios
                     }
                 }
             }
+            else
+            {
+                Mensaje.MostrarError("Ocurrio un error cargar datos del cliente", Mensaje.ErrorBD);
+            }
         }
 
         //Borrar los campos
@@ -288,7 +296,8 @@ namespace Capa_Presentacion.Formularios
             if (Mensaje.MostraPreguntaSiNo("¿Quiere borrar todos los campos?", "Borrar los campos"))
             {
                 //Limpio los componenetes
-                Control[] controles = { txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, txtTelefono, dtpNacimiento, rdbHombre, rdbMujer, rdbNoBinario, listTelefonos };
+                Control[] controles = { txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail,
+                    txtDireccion, txtTelefono, dtpNacimiento, rdbHombre, rdbMujer, rdbNoBinario, listTelefonos };
 
                 //Le pongo la MaxDate nuevamente en Hoy
                 dtpNacimiento.MaxDate = DateTime.Parse(DateTime.Now.ToShortDateString());
@@ -302,13 +311,21 @@ namespace Capa_Presentacion.Formularios
                 errorProvider.Clear();
             }
         }
-
+        
+        //Limpia el DataGrid
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            if (Mensaje.MostraPreguntaSiNo("¿Quiere borrar todos las filas de la tabla", "Borrar tabla"))
+            if(dgvRegistrarClientes.Rows.Count > 0)
             {
-                //Limpio los componenetes
-                dgvRegistrarClientes.Rows.Clear();
+                if (Mensaje.MostraPreguntaSiNo("¿Quiere borrar todos las filas de la tabla", "Borrar tabla"))
+                {
+                    //Limpio los componenetes
+                    dgvRegistrarClientes.Rows.Clear();
+                }
+            }
+            else
+            {
+                Mensaje.MostrarError("La tabla no contiene registros", Mensaje.ErrorIngreso);
             }
         }
     }

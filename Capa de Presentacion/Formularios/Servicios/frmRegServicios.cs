@@ -24,7 +24,7 @@ namespace Capa_Presentacion.Formularios.Servicios
             InitializeComponent();
         }
 
-        //Cosas del Form
+        #region Eventos del Form
         private void frmRegServicios_Load(object sender, EventArgs e)
         {
             //Instancio la Clase
@@ -70,6 +70,24 @@ namespace Capa_Presentacion.Formularios.Servicios
             }
         }
 
+        //Cerarr form
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Validaciones validaciones = new Validaciones();
+            if (validaciones.hayAlgo(this))
+            {
+                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacios ¿Quieres cerrar igual?", "Cerrar"))
+                {
+                    Close();
+                }
+            }
+            else
+            {
+                Close();
+            }
+        }
+        #endregion
+
         //Descartar Servicio
         private void btnDescartar_Click(object sender, EventArgs e)
         {
@@ -96,7 +114,7 @@ namespace Capa_Presentacion.Formularios.Servicios
             if (ValidarPersona.ValidarCedula(txtCedulaTitular, errorProvider))
             {
                 MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
-                
+
                 //Busco si existe un cliente con esa cedula
                 int retorno = metodos.buscarCliente(Convert.ToInt32(txtCedulaTitular.Text));
 
@@ -113,17 +131,21 @@ namespace Capa_Presentacion.Formularios.Servicios
                     {
                         Validaciones fechas = new Validaciones();
 
-                        if(fechas.validarFechaPrimeraEsMenor(dtpFechaInico.Value, dtpInicioServicio.Value))
+                        if (fechas.validarFechaPrimeraEsMenor(dtpFechaInico.Value, dtpInicioServicio.Value))
                         {
-                            //Intendo dar de Alta el Servicio
-                            retorno = metodos.altaServicio(Convert.ToInt32(txtCedulaTitular.Text), servicios[cmbServicio.SelectedIndex], dtpFechaInico.Value, dtpInicioServicio.Value, cmbFormaDePago.SelectedItem.ToString());
-                            if (retorno > 0)
+                            if (Mensaje.MostraPreguntaSiNo("¿Quiere dar del alta el servicio " + cmbServicio.SelectedItem.ToString() + " para la reserva del cliente " + txtCedulaTitular.Text + " " +
+                                                                   "en la fecha" + dtpFechaInico.Value.ToShortDateString() + "?", "Alta Reserva"))
                             {
-                                Mensaje.MostrarInfo("Alta de Servicio exitosa", "Alta exitosa");
-                            }
-                            else
-                            {
-                                Mensaje.MostrarError("Ocurrio un error al dar de alta el Servicio", Mensaje.ErrorBD);
+                                //Intendo dar de Alta el Servicio
+                                retorno = metodos.altaServicio(Convert.ToInt32(txtCedulaTitular.Text), servicios[cmbServicio.SelectedIndex], dtpFechaInico.Value, dtpInicioServicio.Value, cmbFormaDePago.SelectedItem.ToString());
+                                if (retorno > 0)
+                                {
+                                    Mensaje.MostrarInfo("Alta de Servicio exitosa", "Alta exitosa");
+                                }
+                                else
+                                {
+                                    Mensaje.MostrarError("Ocurrio un error al dar de alta el Servicio", Mensaje.ErrorBD);
+                                }
                             }
                         }
                         else
@@ -148,23 +170,6 @@ namespace Capa_Presentacion.Formularios.Servicios
                 {
                     Mensaje.MostrarError("Ocurrio un error al buscar el Cliente", Mensaje.ErrorBD);
                 }
-            }
-        }
-
-        //Cerarr form
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Validaciones validaciones = new Validaciones();
-            if (validaciones.hayAlgo(this))
-            {
-                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacios ¿Quieres cerrar igual?", "Cerrar"))
-                {
-                    Close();
-                }
-            }
-            else
-            {
-                Close();
             }
         }
 
