@@ -111,15 +111,24 @@ namespace Capa_Presentacion.Formularios.Servicios
                     retorno = metodos.validarFechaReserva(reserva);
                     if (retorno == 1)
                     {
-                        //Intendo dar de Alta el Servicio
-                        retorno = metodos.altaServicio(Convert.ToInt32(txtCedulaTitular.Text), servicios[cmbServicio.SelectedIndex], dtpFechaInico.Value, dtpInicioServicio.Value, cmbFormaDePago.SelectedItem.ToString());
-                        if(retorno > 0)
+                        Validaciones fechas = new Validaciones();
+
+                        if(fechas.validarFechaPrimeraEsMenor(dtpFechaInico.Value, dtpInicioServicio.Value))
                         {
-                            Mensaje.MostrarInfo("Alta de Servicio exitosa", "Alta exitosa");
+                            //Intendo dar de Alta el Servicio
+                            retorno = metodos.altaServicio(Convert.ToInt32(txtCedulaTitular.Text), servicios[cmbServicio.SelectedIndex], dtpFechaInico.Value, dtpInicioServicio.Value, cmbFormaDePago.SelectedItem.ToString());
+                            if (retorno > 0)
+                            {
+                                Mensaje.MostrarInfo("Alta de Servicio exitosa", "Alta exitosa");
+                            }
+                            else
+                            {
+                                Mensaje.MostrarError("Ocurrio un error al dar de alta el Servicio", Mensaje.ErrorBD);
+                            }
                         }
                         else
                         {
-                            Mensaje.MostrarError("Ocurrio un error al dar de alta el Servicio", Mensaje.ErrorBD);
+                            Mensaje.MostrarError("La fecha de registro del servicio no puede ser anterior a la de reserva", Mensaje.ErrorIngreso);
                         }
                     }
                     else if (retorno == 0)
