@@ -147,6 +147,47 @@ namespace Capa_de_Datos
         }
 
         /// <summary>
+        /// Pide la cedula y busca a si tiene telefonos, Retorna 1 si ya existe, 0 si no existe y -1 error
+        /// </summary>
+        public int tieneTelefonos(int ci)
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = String.Format("select ci from telefono where ci={0};", ci);
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                MySqlDataReader lector = select.ExecuteReader();
+                //Leo lo que devuelve
+                if (lector.Read())
+                {
+                    //Retorno 1 si existe
+                    return 1;
+                }
+                else
+                {
+                    //Retorno 0 si no existe
+                    return 0;
+                }
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return -1;
+            }
+            finally
+            {
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consultar telefonos: " + ci);
+            }
+        }
+
+        /// <summary>
         /// Consulta una Persona por su cedula y retonar el objeto Persona, o NUll si hay error
         /// </summary>|
         /// <param name="ci">La cedula de la persona</param>
@@ -164,25 +205,52 @@ namespace Capa_de_Datos
 
             try
             {
-                MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
-                MySqlDataReader lector = select.ExecuteReader();
-
                 Persona persona = new Persona();
-               
-                //Leo lo que devuelve
-                while (lector.Read())
+
+                //Si no tiene telefono, que cambie la sentencia
+                if (tieneTelefonos(ci) == 0)
                 {
-                    //Retorno 1 si encuentro
-                    persona.Ci = lector.GetInt32(0);
-                    persona.PrimerNombre = lector.GetString(1);
-                    persona.SegundoNombre = lector.GetString(2);
-                    persona.PrimerApellido = lector.GetString(3);
-                    persona.SegundoApellido = lector.GetString(4);
-                    persona.Genero = lector.GetString(5);
-                    persona.FechaNacimiento = lector.GetDateTime(6);
-                    persona.Mail = lector.GetString(7);
-                    persona.Direccion = lector.GetString(8);
-                    persona.Telefonos.Add(lector.GetString(9));
+                    sentencia = String.Format("select ci, primerNombre, segundoNombre, primerApellido, segundoApellido, genero, fechaNacimiento, mail, direccion " +
+                             "from persona where ci={0};", ci);
+                    MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                    MySqlDataReader lector = select.ExecuteReader();
+
+                    //Leo lo que devuelve
+                    if (lector.Read())
+                    {
+                        //Retorno 1 si encuentro
+                        persona.Ci = lector.GetInt32(0);
+                        persona.PrimerNombre = lector.GetString(1);
+                        persona.SegundoNombre = lector.GetString(2);
+                        persona.PrimerApellido = lector.GetString(3);
+                        persona.SegundoApellido = lector.GetString(4);
+                        persona.Genero = lector.GetString(5);
+                        persona.FechaNacimiento = lector.GetDateTime(6);
+                        persona.Mail = lector.GetString(7);
+                        persona.Direccion = lector.GetString(8);
+                    }
+                }
+                //Si tiene telefonos
+                else
+                {
+                    MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                    MySqlDataReader lector = select.ExecuteReader();
+                    
+                    //Leo lo que devuelve
+                    while (lector.Read())
+                    {
+                        //Retorno 1 si encuentro
+                        persona.Ci = lector.GetInt32(0);
+                        persona.PrimerNombre = lector.GetString(1);
+                        persona.SegundoNombre = lector.GetString(2);
+                        persona.PrimerApellido = lector.GetString(3);
+                        persona.SegundoApellido = lector.GetString(4);
+                        persona.Genero = lector.GetString(5);
+                        persona.FechaNacimiento = lector.GetDateTime(6);
+                        persona.Mail = lector.GetString(7);
+                        persona.Direccion = lector.GetString(8);
+                        persona.Telefonos.Add(lector.GetString(9));
+                    }
                 }
 
                 return persona;
@@ -199,7 +267,7 @@ namespace Capa_de_Datos
                 if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consulta de Persona: " + ci);
             }
         }
-       
+
         /// <summary>
         /// Consulta los nombres de los servicios y los retonar en un List
         /// </summary>
@@ -292,7 +360,7 @@ namespace Capa_de_Datos
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
             String sentencia = String.Format("select id from reserva where ci={0} and inicio='{1}' and not estado = 'Eliminada' and not estado = 'Cancelada' and not estado = 'Finalizada';"
-                ,reserva.Ci, reserva.Inicio.ToString("yyyy-MM-dd"));
+                , reserva.Ci, reserva.Inicio.ToString("yyyy-MM-dd"));
 
             //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
             //si lo hara. SI es false si entre al catch, osea que hubo un error
@@ -350,7 +418,7 @@ namespace Capa_de_Datos
 
                 if (lector.Read())
                 {
-                   //Retorna el ID
+                    //Retorna el ID
                     return lector.GetInt32(0);
                 }
                 else
@@ -414,6 +482,6 @@ namespace Capa_de_Datos
                 if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Busqueda de Empleado: " + ci);
             }
         }
-
+            
     }
 }

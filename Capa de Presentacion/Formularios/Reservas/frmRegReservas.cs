@@ -150,7 +150,7 @@ namespace Capa_Presentacion.Formularios
                         }
                         else
                         {
-                            Mensaje.MostrarError("Ocurrio un error buscar el Cliente", Mensaje.ErrorBD);
+                            Mensaje.MostrarError("Ocurrio un error buscar los datos del Cliente", Mensaje.ErrorBD);
                         }
                     }
                     else if (retorno == 0)

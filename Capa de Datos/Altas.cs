@@ -219,6 +219,8 @@ namespace Capa_de_Datos
                         sentencia = String.Format("insert into integran values({0},{1},'{2}');", id, integrante.Ci, integrante.TipoDeIngreso);
                         MySqlCommand insertIntegrantes = new MySqlCommand(sentencia, conexion.AbrirConexion());
                         insertIntegrantes.ExecuteNonQuery();
+
+                        nuevoRegistro(sentencia, "Alta de Integrante: " + integrante.Ci + " para la reserva de ID:" + id);
                     }
 
                     return 1;
@@ -249,10 +251,8 @@ namespace Capa_de_Datos
                 //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
                 conexion.CerrarConexion();
 
-                if (ingresoRegistro)
-                {
-                    nuevoRegistro(sentencia, "Alta de Reserva para el cliente: " + reserva.Ci);
-                }
+                if (ingresoRegistro) nuevoRegistro(sentencia, "Alta de Reserva para el cliente: " + reserva.Ci);
+
             }
         }
 
@@ -268,7 +268,7 @@ namespace Capa_de_Datos
         public int altaServicio(int id, String nombreServicio, DateTime inicio, DateTime fin, String formaDePago)
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
-            String sentencia = String.Format("insert into contiene values({0},'{1}', '{2}','{3}',1,'{4}');", 
+            String sentencia = String.Format("insert into contiene values({0},'{1}','{2}','{3}',1,'{4}');", 
                 id, nombreServicio, inicio.ToString("yyyy-MM-dd HH:mm"), fin.ToString("yyyy-MM-dd HH:mm"), formaDePago);
 
             //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
