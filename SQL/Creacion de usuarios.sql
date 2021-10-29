@@ -49,7 +49,7 @@ Select: Consultar Empleados
 */
 
 #Sobre la Tabla RegistroDeCambio
-grant select,insert on proyectoprueba.registrodecambio to gerente;
+grant select,insert on proyectoprueba.registroDeCambio to gerente;
 /*
 Insert: Dar Altas de Registros
 Select: Consultar los Registros
@@ -121,7 +121,7 @@ grant insert, update, select on proyectoprueba.contiene to administrativo;
 grant select on proyectoprueba.servicio to administrativo;
 
 #Sobre la Tabla RegistroDeCambio
-grant insert on proyectoprueba.registrodecambio to administrativo;
+grant insert on proyectoprueba.registroDeCambio to administrativo;
 
 #Sobre la Tabla Parametros
 grant select on proyectoprueba.parametros to administrativo;
