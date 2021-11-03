@@ -125,3 +125,9 @@ grant insert on proyectoprueba.registroDeCambio to administrativo;
 
 #Sobre la Tabla Parametros
 grant select on proyectoprueba.parametros to administrativo;
+
+#--------------------------------------------------------------------------------------------------------------------
+
+#Permisos en proceso esctructurados
+grant execute on procedure comprobarDiaEnReserva to gerente, administrativo;
+grant execute on procedure MaxPersonasServicio to gerente, administrativo;

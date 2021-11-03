@@ -11,12 +11,12 @@ from contiene
 where inicio between '2021-10-17 17:14:00' and '2021-10-17 17:35' and nombre = 'Alquiler de bicicletas';
 
 #Lo mismo que la de arriba, pero devuelve todos los datos
-select id 
+select *
 from contiene 
-where inicio between '2021-10-17 17:00:00' and '2021-10-17 17:35:00' and nombre = 'Alquiler de bicicletas';
+where inicio between '2021-10-28 18:00:00' and '2021-10-28 18:35:00' and nombre = 'Alquiler de bicicletas';
 
-#Cantidad de integrantes de reserva
-select r.id, r.inicio, (i.ci)
+#Cantidad de integrantes de cada reserva
+select r.id, r.inicio, (r.ci), count(i.ci) as 'Cantidad de Integrantes'
 from cliente c join integran i join reserva r
 on c.ci = i.ci and r.id=i.id
 group by r.id;
@@ -34,7 +34,7 @@ NO TIENE EN CUENTA LAS RESERVA SIN INTEGRANTES
 select count(i.ci)
 from cliente c join integran i join reserva r
 on c.ci = i.ci and r.id=i.id
-where i.id in 
+where (not r.estado = 'Eliminada' and not r.estado = 'Cancelada' and not r.estado = 'No Confirmada') and i.id in 
 (
 select id 
 from contiene 
@@ -45,13 +45,13 @@ and nombre = 'Alquiler de bicicletas'
 #Sino solo quiero el restualdo final
 
 /*
-Cuantas reservas, reservaron un servicio
+Cuantas reservas(PARA TITULARES), reservaron un servicio
 en determinado periodo de tiempo
 */
 select count(r.id)
 from contiene c join reserva r
 on c.id = r.id
-where r.id in 
+where (not r.estado = 'Eliminada' and not r.estado = 'Cancelada' and not r.estado = 'No Confirmada') and r.id in 
 (
 select id 
 from contiene 
@@ -59,7 +59,7 @@ where (inicio between '2021-10-28 18:00:00' and '2021-10-28 18:35:00')
 and nombre = 'Alquiler de bicicletas'
 );
 #group by i.id; Uso esto si quiero saber de que reserva son
-#Sino solo quiero el restualdo final
+			   #en este caso solo quiero el resultado final
 
 
 ######################################################
@@ -67,28 +67,28 @@ and nombre = 'Alquiler de bicicletas'
 ######################################################
 
 /*
-Devuelve la suma de los integrantes y titurales de re las reservas
-que reservaron determinado servicio en determinado periodo de tiempo
+Devuelve la suma de los integrantes y titurales de re las reservas(que esten
+confirmadas) que reservaron determinado servicio en determinado periodo de tiempo
 */
 SELECT
 (select count(i.ci)
 from cliente c join integran i join reserva r
 on c.ci = i.ci and r.id=i.id
-where i.id in 
+where (not r.estado = 'Eliminada' and not r.estado = 'Cancelada' and not r.estado = 'No Confirmada') and i.id in 
 (
 select id 
 from contiene 
-where (inicio between '2021-10-28 18:00:00' and '2021-10-28 18:35:00') 
+where (inicio between '2021-11-07 16:10:33' and '2021-11-07 16:40:33') 
 and nombre = 'Alquiler de bicicletas'))
 +
 (select count(r.id)
 from contiene c join reserva r
 on c.id = r.id
-where r.id in 
+where (not r.estado = 'Eliminada' and not r.estado = 'Cancelada' and not r.estado = 'No Confirmada') and r.id in 
 (
 select id 
 from contiene 
-where (inicio between '2021-10-28 18:00:00' and '2021-10-28 18:35:00') 
+where (inicio between '2021-11-07 16:10:33' and '2021-11-07 16:40:33') 
 and nombre = 'Alquiler de bicicletas')) 
 as 'Clientes totales';
 
