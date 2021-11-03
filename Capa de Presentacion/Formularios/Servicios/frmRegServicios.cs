@@ -123,39 +123,76 @@ namespace Capa_Presentacion.Formularios.Servicios
                 {
                     //Creo un Objeto Reserva con los datos que necesito para validar que exista
                     Reserva reserva = new Reserva();
+                    
+                    //Le asigno los valores
                     reserva.Ci = Convert.ToInt32(txtCedulaTitular.Text);
                     reserva.Inicio = dtpFechaInico.Value;
 
-                    retorno = metodos.validarFechaReserva(reserva);
-                    if (retorno == 1)
+                    //Valido si la reserva existe
+                    retorno = metodos.buscarIdDeReservaConfirmada(reserva);
+                    if (retorno > 0)
                     {
+                        //Creo este objeto para validar
                         Validaciones fechas = new Validaciones();
 
-                        if (fechas.validarFechaPrimeraEsMenor(dtpFechaInico.Value, dtpInicioServicio.Value))
+                        //Valido que la fecha de inicio del servico no ocurra antes que el inicio de la reserva al cual se le asgina
+                        retorno = metodos.validarFechaServicio(reserva, dtpInicioServicio.Value);
+                        if (retorno == 1)
                         {
-                            if (Mensaje.MostraPreguntaSiNo("¿Quiere dar del alta el servicio " + cmbServicio.SelectedItem.ToString() + " para la reserva del cliente " + txtCedulaTitular.Text + " " +
-                                                                   "en la fecha" + dtpFechaInico.Value.ToShortDateString() + "?", "Alta Reserva"))
+                            retorno = metodos.servicioYaExiste(servicios[cmbServicio.SelectedIndex].Nombre, dtpInicioServicio.Value, reserva.Ci);
+                            if(retorno == 0)
                             {
-                                //Intendo dar de Alta el Servicio
-                                retorno = metodos.altaServicio(Convert.ToInt32(txtCedulaTitular.Text), servicios[cmbServicio.SelectedIndex], dtpFechaInico.Value, dtpInicioServicio.Value, cmbFormaDePago.SelectedItem.ToString());
-                                if (retorno > 0)
+                                //Compruebo que los cupos del servicio no esten llenos
+                                retorno = metodos.validarMaxCantidadServicio(servicios[cmbServicio.SelectedIndex], dtpInicioServicio.Value, servicios[cmbServicio.SelectedIndex].Nombre);
+                                if (retorno == 1)
                                 {
-                                    Mensaje.MostrarInfo("Alta de Servicio exitosa", "Alta exitosa");
+                                    if (Mensaje.MostraPreguntaSiNo("¿Quiere dar del alta el servicio " + cmbServicio.SelectedItem.ToString() + " para la reserva del cliente " + txtCedulaTitular.Text + " " +
+                                                                           "en la fecha " + dtpFechaInico.Value.ToShortDateString() + "?", "Alta Reserva"))
+                                    {
+                                        //Intendo dar de Alta el Servicio
+                                        retorno = metodos.altaServicio(Convert.ToInt32(txtCedulaTitular.Text), servicios[cmbServicio.SelectedIndex], dtpFechaInico.Value, dtpInicioServicio.Value, cmbFormaDePago.SelectedItem.ToString());
+                                        if (retorno > 0)
+                                        {
+                                            Mensaje.MostrarInfo("Alta de Servicio exitosa", "Alta exitosa");
+                                        }
+                                        else
+                                        {
+                                            Mensaje.MostrarError("Ocurrio un error al dar de alta el Servicio", Mensaje.ErrorBD);
+                                        }
+                                    }
+                                }
+                                else if (retorno == 1)
+                                {
+                                    DateTime fin = dtpInicioServicio.Value + servicios[cmbServicio.SelectedIndex].Duracion;
+                                    Mensaje.MostrarError("Este servicio en el horario " + dtpInicioServicio.Value.ToShortDateString() + " a " + fin.ToShortDateString() +
+                                        "ya esta lleno, eliga otro horario", Mensaje.ErrorIngreso);
                                 }
                                 else
                                 {
-                                    Mensaje.MostrarError("Ocurrio un error al dar de alta el Servicio", Mensaje.ErrorBD);
+                                    Mensaje.MostrarError("Ocurrio un error al comprobar la cantidad maxima del servicio", Mensaje.ErrorBD);
                                 }
                             }
+                            else if(retorno == 1)
+                            {
+                                Mensaje.MostrarError("El Cliente ya tiene ese servicio regitrado con ese inicio, marque otro horario", Mensaje.ErrorIngreso);
+                            }
+                            else
+                            {
+                                Mensaje.MostrarError("Ocurrio un error al comprobar si ya existe el servicio", Mensaje.ErrorBD);
+                            }
+                        }
+                        else if(retorno == -2)
+                        {
+                            Mensaje.MostrarError("La fecha de registro del servicio no se encuentra dentro de esa reserva", Mensaje.ErrorIngreso);
                         }
                         else
                         {
-                            Mensaje.MostrarError("La fecha de registro del servicio no puede ser anterior a la de reserva", Mensaje.ErrorIngreso);
+                            Mensaje.MostrarError("Ocurrio un error al comprobar las fechas del servicio", Mensaje.ErrorBD);
                         }
                     }
                     else if (retorno == 0)
                     {
-                        Mensaje.MostrarError("El Cliente ingresado no tiene una reserva con inicio en " + dtpFechaInico.Value.ToString("dd/MM/yyyy"), Mensaje.ErrorIngreso);
+                        Mensaje.MostrarError("El Cliente ingresado no tiene una reserva confirmada con inicio para " + dtpFechaInico.Value.ToString("dd/MM/yyyy"), Mensaje.ErrorIngreso);
                     }
                     else
                     {

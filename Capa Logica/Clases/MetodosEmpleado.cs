@@ -201,6 +201,10 @@ namespace Capa_Logica.Clases
             return true;
         }
 
+        public int buscarIdDeReservaConfirmada(Reserva reserva) => consultas.buscarIdDeReservaConfirmada(reserva.Ci, reserva.Inicio);
+
+        public Reserva traerReserva(int ci, DateTime inicio) => consultas.traerReserva(ci, inicio);
+
         #region Metodos Altas Clientes
         /// <summary>
         /// Valida un cliente
@@ -417,7 +421,7 @@ namespace Capa_Logica.Clases
         /// Busca si el Cliente tiene una Reserva con ese inicio que no este ni Eliminada ni Cancelada ni Finalizada, 1 si encuentra una, 0 si no la encuentra y -1 error
         /// </summary>
         /// <returns> 1 si encuentra una, 0 si no la encuentra y -1 error </returns>
-        public int validarFechaReserva(Reserva reserva) => consultas.validarFechaReserva(reserva);
+        public int existeReserva(Reserva reserva) => consultas.existeReserva(reserva);
 
         /// <summary>
         /// Da de alta una reserva y sus Integrantes, retona 1 si fue exitosa y -1 si no
@@ -477,7 +481,8 @@ namespace Capa_Logica.Clases
         /// </summary>
         public int altaServicio(int ci, Servicios servicio, DateTime inicio, DateTime inicioServicio, String formaDePago)
         {
-            int id = consultas.buscarIdDeReserva(ci, inicio);
+            //Alta de servicio solo en reservas que esten confirmadas
+            int id = consultas.buscarIdDeReservaConfirmada(ci, inicio);
             if (id >= 1)
             {
                 DateTime fin = inicioServicio + servicio.Duracion;
@@ -485,7 +490,7 @@ namespace Capa_Logica.Clases
             }
             else if (id == 0)
             {
-                //Si no existe una reserva de ese cliente con ese inicio
+                //Si no existe una Reserva Confirmada con ese cliente con ese inicio
                 return -1;
             }
             else
@@ -494,6 +499,71 @@ namespace Capa_Logica.Clases
                 return -2;
             }
         }
+
+        public int cantidadDePersonasPorServicio(DateTime fechaInicio, DateTime fechaFin, String nombre) => consultas.cantidadDePersonasPorServicio(fechaInicio, fechaFin, nombre);
+
+        public int validarMaxCantidadServicio(Servicios servicio, DateTime fechaInicio, String  nombre)
+        {
+            //Calculo la fecha fin del servicio
+            DateTime fin = (fechaInicio + servicio.Duracion);
+
+            //Si el servicio tiene cantidad, como Biciletas, Cabalgata o Paseos en bote
+            int capMax = 0;
+            if (servicio.Cantidad != 0)
+            {
+                //MUltiplico la cantidad x la capacidadMax para obtener la capacidad maxima total
+                capMax = servicio.CapacidadMaxima * servicio.Cantidad;
+            }
+
+            int retorno = cantidadDePersonasPorServicio(fechaInicio, fin, nombre);
+
+            if (retorno >= 0)
+            {
+                if (retorno <= capMax)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            else
+            {
+                //Ocurrio un error en la BD
+                return -1;
+            }
+        }
+
+        public int validarFechaServicio(Reserva r, DateTime inicioServicio)
+        {
+            Reserva reserva = traerReserva(r.Ci, r.Inicio);
+            if (reserva == null)
+            {
+                //Ocurrio un error
+                return -1;
+            }
+            else if (reserva.Ci == -1)
+            {
+                //El cliente no tien una reserva ese dia
+                return 0;
+            }
+            else
+            {
+                Validaciones validar = new Validaciones();
+                if (validar.validarFechaIntermedia(inicioServicio, reserva.Inicio, reserva.Fin))
+                {
+                    return 1;
+                }
+                else
+                {
+                    return -2;
+                }
+            }
+
+        }
+
+        public int servicioYaExiste(String nombre, DateTime inicio, int ci) => consultas.servicioYaExiste(nombre, inicio, ci);
         #endregion
 
         #region Metodos Alta Empleado
@@ -528,15 +598,15 @@ namespace Capa_Logica.Clases
                                         //Valido fecha de nacimiento
                                         if (ValidarPersona.ValidarFechaNacimiento(dtpNacimiento, errorProvider))
                                         {
-                                            if(validarUsuarioYContra(txtUsuario, 0))
+                                            if (validarUsuarioYContra(txtUsuario, 0))
                                             {
-                                                if(validarUsuarioYContra(txtContra, 1))
+                                                if (validarUsuarioYContra(txtContra, 1))
                                                 {
-                                                    if(validarUsuarioYContra(txtContra2, 1))
+                                                    if (validarUsuarioYContra(txtContra2, 1))
                                                     {
-                                                        if(txtContra.Text == txtContra2.Text)
+                                                        if (txtContra.Text == txtContra2.Text)
                                                         {
-                                                            return CreacionObjeto.CrearEmpleado(Convert.ToInt32(txtCedula.Text), txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, 
+                                                            return CreacionObjeto.CrearEmpleado(Convert.ToInt32(txtCedula.Text), txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido,
                                                                 txtMail, txtDireccion, dtpNacimiento, rdbHombre, rdbMujer, listTelefonos, txtUsuario, cmbTipo, txtContra);
                                                         }
                                                         else

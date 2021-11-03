@@ -229,7 +229,7 @@ namespace Capa_Presentacion.Formularios
             if (Convert.ToInt32(reserva[1]) == 1)
             {
                 //Si ese cliente no tiene una reserva con ese inicio
-                int retorno = metodos.validarFechaReserva((Reserva)reserva[0]);
+                int retorno = metodos.existeReserva((Reserva)reserva[0]);
                 if (retorno == 0)
                 {
                     if (Mensaje.MostraPreguntaSiNo("¿Quiere dar del alta una Reserva para el cliente " + txtCedulaTitular.Text + " " +
@@ -290,11 +290,12 @@ namespace Capa_Presentacion.Formularios
                 //Limpio los componenetes
                 Control[] controles = { txtCedulaTitular, txtCedulaIntegrante, dtpFechaInico, dtpFechaFin, chkConfirmada, listIntegrantes, dgvIntegrantes };
 
-                //Le pongo la MaxDate nuevamente en Hoy
-                dtpFechaInico.MaxDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-                dtpFechaFin.MaxDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-
                 validar.limpiarControles(controles);
+
+                //Le pongo la MinDate nuevamente en Hoy
+                dtpFechaInico.MinDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                dtpFechaFin.MinDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+
 
                 //Para que vuela a tener el predeterminado en el primero
                 cmbTipoDeIngreso.SelectedIndex = 0;
