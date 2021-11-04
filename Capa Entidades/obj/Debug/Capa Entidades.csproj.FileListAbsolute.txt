@@ -12,7 +12,8 @@ D:\Devences\Capa Entidades\obj\Debug\Capa Entidades.dll
 D:\Devences\Capa Entidades\obj\Debug\Capa Entidades.pdb
 C:\Users\Joaco\Desktop\Devences\Capa Entidades\bin\Debug\Capa Entidades.dll
 C:\Users\Joaco\Desktop\Devences\Capa Entidades\bin\Debug\Capa Entidades.pdb
-C:\Users\Joaco\Desktop\Devences\Capa Entidades\obj\Debug\Capa Entidades.csprojAssemblyReference.cache
 C:\Users\Joaco\Desktop\Devences\Capa Entidades\obj\Debug\Capa Entidades.csproj.CoreCompileInputs.cache
 C:\Users\Joaco\Desktop\Devences\Capa Entidades\obj\Debug\Capa Entidades.dll
 C:\Users\Joaco\Desktop\Devences\Capa Entidades\obj\Debug\Capa Entidades.pdb
+C:\Users\Joaco\Desktop\Devences\Capa Entidades\bin\Debug\Capa Entidades.dll.CodeAnalysisLog.xml
+C:\Users\Joaco\Desktop\Devences\Capa Entidades\bin\Debug\Capa Entidades.dll.lastcodeanalysissucceeded

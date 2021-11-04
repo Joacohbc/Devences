@@ -113,44 +113,47 @@ namespace Capa_Presentacion.Formularios.Servicios
             //Valido que la cedula sea correcta
             if (ValidarPersona.ValidarCedula(txtCedulaTitular, errorProvider))
             {
+                //Creo objeto para usar los metodos de BBDD
                 MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
+
+                //Creo un objeto servicio con el servicio seleccionado
+                Capa_Entidades.Servicios servicioSeleccionado = servicios[cmbServicio.SelectedIndex];
 
                 //Busco si existe un cliente con esa cedula
                 int retorno = metodos.buscarCliente(Convert.ToInt32(txtCedulaTitular.Text));
 
-                //Si exieste
+                //Si existe el cliente
                 if (retorno >= 1)
                 {
-                    //Creo un Objeto Reserva con los datos que necesito para validar que exista
-                    Reserva reserva = new Reserva();
-                    
-                    //Le asigno los valores
-                    reserva.Ci = Convert.ToInt32(txtCedulaTitular.Text);
-                    reserva.Inicio = dtpFechaInico.Value;
-
                     //Valido si la reserva existe
-                    retorno = metodos.buscarIdDeReservaConfirmada(reserva);
+                    retorno = metodos.buscarIdDeReservaConfirmada(Convert.ToInt32(txtCedulaTitular.Text), dtpFechaInico.Value);
+
+                    //Si la reserva existe
                     if (retorno > 0)
                     {
+                        //Creo un Objeto Reserva
+                        Reserva reserva = metodos.traerReserva(Convert.ToInt32(txtCedulaTitular.Text), dtpFechaInico.Value);
+
                         //Creo este objeto para validar
                         Validaciones fechas = new Validaciones();
 
                         //Valido que la fecha de inicio del servico no ocurra antes que el inicio de la reserva al cual se le asgina
                         retorno = metodos.validarFechaServicio(reserva, dtpInicioServicio.Value);
+
                         if (retorno == 1)
                         {
-                            retorno = metodos.servicioYaExiste(servicios[cmbServicio.SelectedIndex].Nombre, dtpInicioServicio.Value, reserva.Ci);
+                            retorno = metodos.servicioYaExiste(servicioSeleccionado.Nombre, reserva.Ci);
                             if(retorno == 0)
                             {
                                 //Compruebo que los cupos del servicio no esten llenos
-                                retorno = metodos.validarMaxCantidadServicio(servicios[cmbServicio.SelectedIndex], dtpInicioServicio.Value, servicios[cmbServicio.SelectedIndex].Nombre);
+                                retorno = metodos.validarMaxCantidadServicio(servicioSeleccionado, dtpInicioServicio.Value);
                                 if (retorno == 1)
                                 {
-                                    if (Mensaje.MostraPreguntaSiNo("¿Quiere dar del alta el servicio " + cmbServicio.SelectedItem.ToString() + " para la reserva del cliente " + txtCedulaTitular.Text + " " +
+                                    if (Mensaje.MostraPreguntaSiNo("¿Quiere dar del alta el servicio " + servicioSeleccionado.Nombre + " para la reserva del cliente " + reserva.Ci + " " +
                                                                            "en la fecha " + dtpFechaInico.Value.ToShortDateString() + "?", "Alta Reserva"))
                                     {
                                         //Intendo dar de Alta el Servicio
-                                        retorno = metodos.altaServicio(Convert.ToInt32(txtCedulaTitular.Text), servicios[cmbServicio.SelectedIndex], dtpFechaInico.Value, dtpInicioServicio.Value, cmbFormaDePago.SelectedItem.ToString());
+                                        retorno = metodos.altaServicio(reserva.Ci, servicioSeleccionado, reserva.Inicio, dtpInicioServicio.Value, cmbFormaDePago.SelectedItem.ToString());
                                         if (retorno > 0)
                                         {
                                             Mensaje.MostrarInfo("Alta de Servicio exitosa", "Alta exitosa");
@@ -161,11 +164,11 @@ namespace Capa_Presentacion.Formularios.Servicios
                                         }
                                     }
                                 }
-                                else if (retorno == 1)
+                                else if (retorno == 0)
                                 {
-                                    DateTime fin = dtpInicioServicio.Value + servicios[cmbServicio.SelectedIndex].Duracion;
-                                    Mensaje.MostrarError("Este servicio en el horario " + dtpInicioServicio.Value.ToShortDateString() + " a " + fin.ToShortDateString() +
-                                        "ya esta lleno, eliga otro horario", Mensaje.ErrorIngreso);
+                                    DateTime fin = dtpInicioServicio.Value + servicioSeleccionado.Duracion;
+                                    Mensaje.MostrarError("Este servicio en el horario " + dtpInicioServicio.Value.ToLongTimeString() + " a " + fin.ToLongTimeString() +
+                                        " ya esta lleno, eliga otro horario", Mensaje.ErrorIngreso);
                                 }
                                 else
                                 {
@@ -174,7 +177,7 @@ namespace Capa_Presentacion.Formularios.Servicios
                             }
                             else if(retorno == 1)
                             {
-                                Mensaje.MostrarError("El Cliente ya tiene ese servicio regitrado con ese inicio, marque otro horario", Mensaje.ErrorIngreso);
+                                Mensaje.MostrarError("El Cliente ya tiene ese servicio regitrado, espere que termine o delo de baja", Mensaje.ErrorIngreso);
                             }
                             else
                             {

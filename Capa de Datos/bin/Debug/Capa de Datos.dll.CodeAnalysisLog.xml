@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio\2017\community\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="15.0">
+ <Targets>
+  <Target Name="C:\Users\Joaco\Desktop\Devences\Capa de Datos\bin\Debug\Capa de Datos.dll">
+   <Modules>
+    <Module Name="capa de datos.dll">
+     <Namespaces>
+      <Namespace Name="Capa_de_Datos">
+       <Types>
+        <Type Name="Altas" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#altaCliente(Capa_Entidades.Cliente)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Altas.cs" Line="161">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Altas.altaCliente(Cliente)' podría contener las siguientes variables: 'cliente.Ci'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#altaEmpleado(Capa_Entidades.Empleado)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Altas.cs" Line="314">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Altas.altaEmpleado(Empleado)' podría contener las siguientes variables: 'empleado.Ci', 'empleado.Usuario', 'empleado.Contra'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#altaPersona(Capa_Entidades.Persona)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Altas.cs" Line="98">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Altas.altaPersona(Persona)' podría contener las siguientes variables: 'p.Ci', 'p.PrimerNombre', 'p.SegundoNombre', 'p.PrimerApellido', 'p.SegundoApellido', 'p.Genero', 'Local2.ToString("yyyy-MM-dd")', 'p.Mail', 'p.Direccion'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#altaReserva(Capa_Entidades.Reserva,System.Collections.Generic.List`1&lt;Capa_Entidades.Integrantes&gt;)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Altas.cs" Line="220">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Altas.altaReserva(Reserva, List&lt;Integrantes&gt;)' podría contener las siguientes variables: 'id', 'integrante.Ci', 'integrante.TipoDeIngreso'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Altas.cs" Line="204">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Altas.altaReserva(Reserva, List&lt;Integrantes&gt;)' podría contener las siguientes variables: 'reserva.Ci', 'Local2.ToString("yyyy-MM-dd")'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Altas.cs" Line="196">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Altas.altaReserva(Reserva, List&lt;Integrantes&gt;)' podría contener las siguientes variables: 'reserva.Ci', 'Local2.ToString("yyyy-MM-dd")', 'Local2.ToString("yyyy-MM-dd")', 'reserva.TipoDeIngreso', 'reserva.PrecioTotal', 'reserva.Estado', 'reserva.FormaDePago'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Altas.cs" Line="240">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Altas.altaReserva(Reserva, List&lt;Integrantes&gt;)' podría contener las siguientes variables: 'reserva.Ci', 'Local2.ToString("yyyy-MM-dd")', 'reserva.Estado'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#altaServicio(System.Int32,System.String,System.DateTime,System.DateTime,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Altas.cs" Line="280">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Altas.altaServicio(int, string, DateTime, DateTime, string)' podría contener las siguientes variables: 'id', 'nombreServicio', 'inicio.ToString("yyyy-MM-dd HH:mm")', 'fin.ToString("yyyy-MM-dd HH:mm")', 'formaDePago'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#altaTelefono(System.Int32,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Altas.cs" Line="131">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Altas.altaTelefono(int, string)' podría contener las siguientes variables: 'ciPersona', 'telefono'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#nuevoRegistro(System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Altas.cs" Line="69">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Altas.nuevoRegistro(string, string)' podría contener las siguientes variables: 'base.ToString()', 'sentenciaIngresada', 'descripcion'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Conexion" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="NonBreaking">
+           <Issue Name="DependsOnFix" Certainty="95" Level="CriticalError">Implemente IDisposable en 'Conexion' porque crea miembros de los tipos IDisposable siguientes: 'MySqlConnection'. Si ya se había distribuido 'Conexion', agregar nuevos miembros que implementen IDisposable en este tipo se considera un cambio rotundo para los consumidores existentes.</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Consultas" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#buscarCliente(System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Consultas.cs" Line="81">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Consultas.buscarCliente(int)' podría contener las siguientes variables: 'ci'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#buscarEmpleado(System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Consultas.cs" Line="421">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Consultas.buscarEmpleado(int)' podría contener las siguientes variables: 'ci'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#buscarIdDeReserva(System.Int32,System.DateTime)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Consultas.cs" Line="378">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Consultas.buscarIdDeReserva(int, DateTime)' podría contener las siguientes variables: 'ci', 'inicio.ToString("yyyy-MM-dd")'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#buscarIdDeReservaConfirmada(System.Int32,System.DateTime)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Consultas.cs" Line="467">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Consultas.buscarIdDeReservaConfirmada(int, DateTime)' podría contener las siguientes variables: 'ci', 'inicio.ToString("yyyy-MM-dd")'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#buscarPersona(System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Consultas.cs" Line="40">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Consultas.buscarPersona(int)' podría contener las siguientes variables: 'ci'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#cantidadDePersonasPorServicio(System.DateTime,System.DateTime,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Consultas.cs" Line="603">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Consultas.cantidadDePersonasPorServicio(DateTime, DateTime, string)' podría contener las siguientes variables: 'fechaInicio.ToString("yyyy-MM-dd HH:mm:ss")', 'fechaFin.ToString("yyyy-MM-dd HH:mm:ss")', 'nombre'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#existeCliente(System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Consultas.cs" Line="122">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Consultas.existeCliente(int)' podría contener las siguientes variables: 'ci'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#servicioYaExiste(System.String,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Consultas.cs" Line="563">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Consultas.servicioYaExiste(string, int)' podría contener las siguientes variables: 'nombre', 'ci'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#tieneTelefonos(System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Consultas.cs" Line="163">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Consultas.tieneTelefonos(int)' podría contener las siguientes variables: 'ci'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#traerPersona(System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Consultas.cs" Line="215">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Consultas.traerPersona(int)' podría contener las siguientes variables: 'ci'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Consultas.cs" Line="236">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Consultas.traerPersona(int)' podría contener las siguientes variables: 'ci'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#traerReserva(System.Int32,System.DateTime)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Consultas.cs" Line="508">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Consultas.traerReserva(int, DateTime)' podría contener las siguientes variables: 'ci', 'inicio.ToString("yyyy-MM-dd")'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Modificaciones" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#ModificarEstadoCliente(System.Int32,System.Boolean)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Modificaciones.cs" Line="135">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Modificaciones.ModificarEstadoCliente(int, bool)' podría contener las siguientes variables: 'estado', 'ci'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ModificarPersona(Capa_Entidades.Persona)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Modificaciones.cs" Line="70">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Modificaciones.ModificarPersona(Persona)' podría contener las siguientes variables: 'p.PrimerNombre', 'p.SegundoNombre', 'p.Genero', 'p.Mail', 'p.Direccion', 'p.Ci'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ModificarTelefonos(System.Int32,System.Collections.Generic.List`1&lt;System.String&gt;)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos" File="Modificaciones.cs" Line="98">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Modificaciones.ModificarTelefonos(int, List&lt;string&gt;)' podría contener las siguientes variables: 'ci'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="Capa_de_Datos.Login">
+       <Types>
+        <Type Name="Login" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#BuscarEmpleado(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos\Login" File="Login.cs" Line="86">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Login.BuscarEmpleado(string)' podría contener las siguientes variables: 'usuario'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Loguearse(System.String,System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="ExcludedInSource" Created="2021-11-03 21:21:40Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\Joaco\Desktop\Devences\Capa de Datos\Login" File="Login.cs" Line="29">La cadena de consulta pasada a 'MySqlCommand.MySqlCommand(string, MySqlConnection)' en 'Login.Loguearse(string, string)' podría contener las siguientes variables: 'usuario', 'contra'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100">
+   <Name>Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad</Name>
+   <Description>Una cadena de comando SQL compilada a partir de datos proporcionados por el usuario es vulnerable a ataques pon inyección de código SQL. Microsoft SQL Server y otros servidores de bases de datos admiten procedimientos almacenados y consultas SQL parametrizadas, que reducen el riesgo de ataques por inyección.</Description>
+   <Resolution Name="WithNonLiterals">La cadena de consulta pasada a {0} en {1} podría contener las siguientes variables: {2}. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182310.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="15.0.0.0" />
+  </Rule>
+  <Rule TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001">
+   <Name>Los tipos que poseen campos descartables deben ser descartables</Name>
+   <Description>Los tipos que declaran miembros descartables también deben implementar IDisposable. Si el tipo no posee ningún recurso no administrado, no implementar un finalizador.</Description>
+   <Resolution Name="DependsOnFix">Implemente IDisposable en {0} porque crea miembros de los tipos IDisposable siguientes: {1}. Si ya se había distribuido {0}, agregar nuevos miembros que implementen IDisposable en este tipo se considera un cambio rotundo para los consumidores existentes.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182172.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="designrules.dll" Version="15.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Categoría</String>
+  <String Key="Certainty">Certeza</String>
+  <String Key="CollapseAll">Contraer todo</String>
+  <String Key="CheckId">Comprobar id.</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">errores</String>
+  <String Key="ExpandAll">Expandir todo</String>
+  <String Key="Help">Ayuda</String>
+  <String Key="Line">Línea</String>
+  <String Key="Messages">mensajes</String>
+  <String Key="LocationNotStoredInPdb">[Ubicación no almacenada en Pdb]</String>
+  <String Key="Project">Proyecto</String>
+  <String Key="Resolution">Resolución</String>
+  <String Key="Rule">Regla</String>
+  <String Key="RuleFile">Archivo de regla</String>
+  <String Key="RuleDescription">Descripción de la regla</String>
+  <String Key="Source">Origen</String>
+  <String Key="Status">Estado</String>
+  <String Key="Target">Círculos concéntricos</String>
+  <String Key="Warning">Advertencia</String>
+  <String Key="Warnings">advertencias</String>
+  <String Key="ReportTitle">Informe de análisis del código</String>
+ </Localized>
+</FxCopReport>

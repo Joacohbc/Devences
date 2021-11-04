@@ -355,47 +355,6 @@ namespace Capa_de_Datos
         }
 
         /// <summary>
-        /// Busca si el Cliente tiene una Reserva con ese inicio que no este ni Eliminada ni Cancelada ni Finalizada, 1 si encuentra una, 0 si no la encuentra y -1 error
-        /// </summary>
-        /// <returns> 1 si encuentra una, 0 si no la encuentra y -1 error </returns>
-        public int existeReserva(Reserva reserva)
-        {
-            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
-            String sentencia = String.Format("select id from reserva where ci={0} and inicio='{1}' and not estado = 'Eliminada' and not estado = 'Cancelada' and not estado = 'Finalizada';"
-                , reserva.Ci, reserva.Inicio.ToString("yyyy-MM-dd"));
-
-            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
-            //si lo hara. SI es false si entre al catch, osea que hubo un error
-            bool ingresoRegistro = true;
-
-            try
-            {
-                MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
-                MySqlDataReader lector = select.ExecuteReader();
-
-                if (lector.Read())
-                {
-                    return 1;
-                }
-                else
-                {
-                    return 0;
-                }
-            }
-            catch
-            {
-                ingresoRegistro = false;
-                return -1;
-            }
-            finally
-            {
-                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
-                conexion.CerrarConexion();
-                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consultar valides de una reserva: " + reserva.Ci + " en " + reserva.Inicio.ToString("yyyy-MM-dd"));
-            }
-        }
-
-        /// <summary>
         /// Buscar si existen Reservas(que no este ni Eliminada ni Cancelada ni Finalizada) de un 
         /// cliente con determinada fecha de inicio y retorna el ID de la reserva(Retorna ID, 0 No, -1 error)
         /// </summary>
@@ -581,11 +540,16 @@ namespace Capa_de_Datos
             }
         }
 
-        public int servicioYaExiste(String nombre, DateTime inicio, int ci)
+        public int servicioYaExiste(String nombre, int ci)
         {
+            /*
+                SI LA RESERVA YA TIENE ESE SERVICIO DADO DE ALTA(CONFIRMADO) QUE NO 
+                SE LO DEJE CONFIRMAR OTRA VEZ
+             */
+
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
             String sentencia = String.Format("select r.id from contiene c join reserva r on c.id = r.id " +
-                "where c.nombre = '{0}' and c.inicio = '{1}' and r.ci={2}; ", nombre, inicio.ToString("yyyy-MM-dd HH:mm"), ci);
+                "where c.nombre = '{0}' and r.ci={1} and c.estado='Confirmada';", nombre, ci);
 
             //Creo la lista que voy a retornar
             List<String[]> tiposDeIngresos = new List<String[]>();

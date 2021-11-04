@@ -201,7 +201,7 @@ namespace Capa_Logica.Clases
             return true;
         }
 
-        public int buscarIdDeReservaConfirmada(Reserva reserva) => consultas.buscarIdDeReservaConfirmada(reserva.Ci, reserva.Inicio);
+        public int buscarIdDeReservaConfirmada(int ci, DateTime inicio) => consultas.buscarIdDeReservaConfirmada(ci, inicio);
 
         public Reserva traerReserva(int ci, DateTime inicio) => consultas.traerReserva(ci, inicio);
 
@@ -421,7 +421,7 @@ namespace Capa_Logica.Clases
         /// Busca si el Cliente tiene una Reserva con ese inicio que no este ni Eliminada ni Cancelada ni Finalizada, 1 si encuentra una, 0 si no la encuentra y -1 error
         /// </summary>
         /// <returns> 1 si encuentra una, 0 si no la encuentra y -1 error </returns>
-        public int existeReserva(Reserva reserva) => consultas.existeReserva(reserva);
+        public int buscarIdReserva(Reserva reserva) => consultas.buscarIdDeReserva(reserva.Ci, reserva.Inicio);
 
         /// <summary>
         /// Da de alta una reserva y sus Integrantes, retona 1 si fue exitosa y -1 si no
@@ -502,7 +502,7 @@ namespace Capa_Logica.Clases
 
         public int cantidadDePersonasPorServicio(DateTime fechaInicio, DateTime fechaFin, String nombre) => consultas.cantidadDePersonasPorServicio(fechaInicio, fechaFin, nombre);
 
-        public int validarMaxCantidadServicio(Servicios servicio, DateTime fechaInicio, String  nombre)
+        public int validarMaxCantidadServicio(Servicios servicio, DateTime fechaInicio)
         {
             //Calculo la fecha fin del servicio
             DateTime fin = (fechaInicio + servicio.Duracion);
@@ -515,7 +515,7 @@ namespace Capa_Logica.Clases
                 capMax = servicio.CapacidadMaxima * servicio.Cantidad;
             }
 
-            int retorno = cantidadDePersonasPorServicio(fechaInicio, fin, nombre);
+            int retorno = cantidadDePersonasPorServicio(fechaInicio, fin, servicio.Nombre);
 
             if (retorno >= 0)
             {
@@ -535,9 +535,8 @@ namespace Capa_Logica.Clases
             }
         }
 
-        public int validarFechaServicio(Reserva r, DateTime inicioServicio)
+        public int validarFechaServicio(Reserva reserva, DateTime inicioServicio)
         {
-            Reserva reserva = traerReserva(r.Ci, r.Inicio);
             if (reserva == null)
             {
                 //Ocurrio un error
@@ -563,7 +562,7 @@ namespace Capa_Logica.Clases
 
         }
 
-        public int servicioYaExiste(String nombre, DateTime inicio, int ci) => consultas.servicioYaExiste(nombre, inicio, ci);
+        public int servicioYaExiste(String nombre, int ci) => consultas.servicioYaExiste(nombre, ci);
         #endregion
 
         #region Metodos Alta Empleado

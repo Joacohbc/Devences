@@ -229,7 +229,8 @@ namespace Capa_Presentacion.Formularios
             if (Convert.ToInt32(reserva[1]) == 1)
             {
                 //Si ese cliente no tiene una reserva con ese inicio
-                int retorno = metodos.existeReserva((Reserva)reserva[0]);
+                int retorno = metodos.buscarIdReserva((Reserva)reserva[0]);
+
                 if (retorno == 0)
                 {
                     if (Mensaje.MostraPreguntaSiNo("¿Quiere dar del alta una Reserva para el cliente " + txtCedulaTitular.Text + " " +
