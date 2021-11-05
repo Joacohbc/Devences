@@ -27,6 +27,9 @@ namespace Capa_Presentacion.Formularios
         private void frmRegClientes_Load(object sender, EventArgs e)
         {
             dtpNacimiento.MaxDate = DateTime.Now;
+
+            //Logo del ErrorProvider
+            errorProvider.Icon = Properties.Resources.ErrorProvider;
         }
 
         //Cerarr form
@@ -276,6 +279,29 @@ namespace Capa_Presentacion.Formularios
                         //chkEstado.Checked = (alta == 1 ? true : false);
                         //chkEstado.Text = (alta == 1 ? "Alta" : "Baja");
 
+                        //Deshabilito el poder ingresar la cedula
+                        txtCedula.Enabled = false;
+                        btnBuscar.Enabled = false;
+
+                        //Habilito los campos que se pueden editar
+                        txtPrimerNombre.Enabled = true;
+                        txtSegundoNombre.Enabled = true;
+                        txtMail.Enabled = true;
+                        txtDireccion.Enabled = true;
+
+                        rdbHombre.Enabled = true;
+                        rdbMujer.Enabled = true;
+                        rdbNoBinario.Enabled = true;
+
+                        txtTelefono.Enabled = true;
+                        listTelefonos.Enabled = true;
+                        btnAgregarTelefono.Enabled = true;
+                        btnBorrarTelefono.Enabled = true;
+
+                        //Habilito los botones para Modificar y Cancelar
+                        btnModificar.Enabled = true;
+                        btnCancelar.Enabled = true;
+
                         MessageBox.Show("Cliente ya encontrado, puede empezar a modificarlo", "Modificar clientes", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
@@ -367,6 +393,29 @@ namespace Capa_Presentacion.Formularios
                 dtpModificarNacimiento.MaxDate = DateTime.Parse(DateTime.Now.ToShortDateString());
 
                 validar.limpiarControles(controles);
+
+                //Nabilito el poder ingresar la cedula
+                txtCedula.Enabled = true;
+                btnBuscar.Enabled = true;
+
+                //Deshabilito los campos que se pueden editar
+                txtPrimerNombre.Enabled = false;
+                txtSegundoNombre.Enabled = false;
+                txtMail.Enabled = false;
+                txtDireccion.Enabled = false;
+
+                rdbHombre.Enabled = false;
+                rdbMujer.Enabled = false;
+                rdbNoBinario.Enabled = false;
+
+                txtTelefono.Enabled = false;
+                listTelefonos.Enabled = false;
+                btnAgregarTelefono.Enabled = false;
+                btnBorrarTelefono.Enabled = false;
+
+                //Deshabilito los botones para Modificar y Cancelar
+                btnModificar.Enabled = false;
+                btnCancelar.Enabled = false;
 
                 //Limpio todos los errores
                 errorProvider.Clear();

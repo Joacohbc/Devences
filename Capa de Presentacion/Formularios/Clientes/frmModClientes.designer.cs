@@ -111,6 +111,7 @@
             // txtPrimerNombre
             // 
             this.txtPrimerNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPrimerNombre.Enabled = false;
             this.txtPrimerNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrimerNombre.Location = new System.Drawing.Point(619, 156);
             this.txtPrimerNombre.Name = "txtPrimerNombre";
@@ -122,6 +123,7 @@
             // txtSegundoNombre
             // 
             this.txtSegundoNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSegundoNombre.Enabled = false;
             this.txtSegundoNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSegundoNombre.Location = new System.Drawing.Point(782, 157);
             this.txtSegundoNombre.Name = "txtSegundoNombre";
@@ -133,6 +135,7 @@
             // txtMail
             // 
             this.txtMail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMail.Enabled = false;
             this.txtMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMail.Location = new System.Drawing.Point(619, 228);
             this.txtMail.Name = "txtMail";
@@ -168,6 +171,7 @@
             // txtDireccion
             // 
             this.txtDireccion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDireccion.Enabled = false;
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Location = new System.Drawing.Point(619, 262);
             this.txtDireccion.Name = "txtDireccion";
@@ -239,6 +243,7 @@
             // rdbHombre
             // 
             this.rdbHombre.AutoSize = true;
+            this.rdbHombre.Enabled = false;
             this.rdbHombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbHombre.Location = new System.Drawing.Point(617, 331);
             this.rdbHombre.Name = "rdbHombre";
@@ -251,6 +256,7 @@
             // rdbMujer
             // 
             this.rdbMujer.AutoSize = true;
+            this.rdbMujer.Enabled = false;
             this.rdbMujer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbMujer.Location = new System.Drawing.Point(691, 331);
             this.rdbMujer.Name = "rdbMujer";
@@ -263,6 +269,7 @@
             // rdbNoBinario
             // 
             this.rdbNoBinario.AutoSize = true;
+            this.rdbNoBinario.Enabled = false;
             this.rdbNoBinario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbNoBinario.Location = new System.Drawing.Point(752, 331);
             this.rdbNoBinario.Name = "rdbNoBinario";
@@ -275,6 +282,7 @@
             // txtTelefono
             // 
             this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTelefono.Enabled = false;
             this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono.Location = new System.Drawing.Point(619, 365);
             this.txtTelefono.Name = "txtTelefono";
@@ -286,6 +294,7 @@
             // listTelefonos
             // 
             this.listTelefonos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listTelefonos.Enabled = false;
             this.listTelefonos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listTelefonos.FormattingEnabled = true;
             this.listTelefonos.ItemHeight = 20;
@@ -298,6 +307,7 @@
             // 
             // btnAgregarTelefono
             // 
+            this.btnAgregarTelefono.Enabled = false;
             this.btnAgregarTelefono.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnAgregarTelefono.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnAgregarTelefono.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -312,6 +322,7 @@
             // 
             // btnBorrarTelefono
             // 
+            this.btnBorrarTelefono.Enabled = false;
             this.btnBorrarTelefono.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnBorrarTelefono.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnBorrarTelefono.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -545,6 +556,7 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Enabled = false;
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -559,6 +571,7 @@
             // 
             // btnModificar
             // 
+            this.btnModificar.Enabled = false;
             this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
