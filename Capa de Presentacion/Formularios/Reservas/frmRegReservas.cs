@@ -223,6 +223,7 @@ namespace Capa_Presentacion.Formularios
             //Cargo el Array Object con el Metodo, en el Index 0 esta el Objeto Reserva y en el Index 1 esta el numero de Error
             Object[] reserva = metodos.validarReserva(txtCedulaTitular, errorProvider, dtpFechaInico, dtpFechaFin, cmbTipoDeIngreso, cmbMetodosPago, chkConfirmada, integrantes);
 
+            Reserva reservaFinal = (Reserva)reserva[0];
             //Compruebo si la Reserva es Valida
 
             //En el Index 1 deberia haber un 1 si la valdacion fue correcta
@@ -233,22 +234,35 @@ namespace Capa_Presentacion.Formularios
 
                 if (retorno == 0)
                 {
-                    if (Mensaje.MostraPreguntaSiNo("¿Quiere dar del alta una Reserva para el cliente " + txtCedulaTitular.Text + " " +
-                          "\n del " + dtpFechaInico.Value.ToShortDateString() + " al " + dtpFechaFin.Value.ToShortDateString() + "?", "Alta Reserva"))
+                    Object[] validarFecha = metodos.comprobarDiasTodosDiasReservas(reservaFinal.Ci, reservaFinal.Inicio, reservaFinal.Fin);
+
+                    if ((int)validarFecha[1] == 0)
                     {
-                        //Si la Reserva se dio de Alta con Exito, osea retorna 1
-                        if (metodos.altaReserva((Reserva)reserva[0], integrantes) > 0)
+                        if (Mensaje.MostraPreguntaSiNo("¿Quiere dar del alta una Reserva para el cliente " + txtCedulaTitular.Text + " " +
+                                "\n del " + dtpFechaInico.Value.ToShortDateString() + " al " + dtpFechaFin.Value.ToShortDateString() + "?", "Alta Reserva"))
                         {
-                            Mensaje.MostrarInfo("Alta de Reserva exitosa", "Alta exitosa");
-                        }
-                        //Sino ocurrio un error
-                        else
-                        {
-                            Mensaje.MostrarError("Ocurrio un error al dar de alta la Reserva", Mensaje.ErrorBD);
+                            //Si la Reserva se dio de Alta con Exito, osea retorna 1
+                            if (metodos.altaReserva((Reserva)reserva[0], integrantes) > 0)
+                            {
+                                Mensaje.MostrarInfo("Alta de Reserva exitosa", "Alta exitosa");
+                            }
+                            //Sino ocurrio un error
+                            else
+                            {
+                                Mensaje.MostrarError("Ocurrio un error al dar de alta la Reserva", Mensaje.ErrorBD);
+                            }
                         }
                     }
+                    else if ((int)validarFecha[1] == 1)
+                    {
+                        Mensaje.MostrarError("El Cliente ya tiene reservado el dia " + ((DateTime)validarFecha[0]).ToShortDateString() + " en alguna de sus reservas", Mensaje.ErrorIngreso);
+                    }
+                    else
+                    {
+                        Mensaje.MostrarError("Ocurrio un error al validar los dias de la reserva", Mensaje.ErrorBD);
+                    }
                 }
-                else if (retorno == 1)
+                else if (retorno > 0)
                 {
                     Mensaje.MostrarError("El Cliente ya tiene una reserva realizada con ese inicio", Mensaje.ErrorIngreso);
                 }

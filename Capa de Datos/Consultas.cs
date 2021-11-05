@@ -491,6 +491,15 @@ namespace Capa_de_Datos
             }
         }
 
+        /// <summary>
+        /// Retorna una reserva(da igual el estado), retona la reserva con la CI=-1 si no la encuentra
+        /// y retorna null si ocurrio un erro
+        /// </summary>
+        /// <param name="ci"> La cedula del titular de la reserva</param>
+        /// <param name="inicio"> el inicio de la reserva</param>
+        /// <returns> Retorna un objeto reserva con todos los datos si se ejcuto correctamente
+        /// la sentencia, retorna la reserva con la CI=-1 si no encotro la reserrva
+        /// y retorna null si ocurrio un error</returns>
         public Reserva traerReserva(int ci, DateTime inicio)
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
@@ -540,6 +549,13 @@ namespace Capa_de_Datos
             }
         }
 
+        /// <summary>
+        /// Valida que una Reserva no tenga ya ese servicio reservado(Si esta Confirmado), retorna  1 si ya lo tiene, 0 si no
+        /// y null si ocurrio une error
+        /// </summary>
+        /// <param name="nombre"> Nombre del servicio</param>
+        /// <param name="ci"> cedula del titular de la reserva </param>
+        /// <returns></returns>
         public int servicioYaExiste(String nombre, int ci)
         {
             /*
@@ -585,8 +601,56 @@ namespace Capa_de_Datos
                 if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consultar si ya existe un servicio");
             }
         }
-        
+
         #region Consultras de Reserva Avanzadas
+
+        public int comprobarDiaEnReserva(int ci, DateTime dia)
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = String.Format("call proyectoprueba.comprobarDiaEnReserva('{0}',{1});",
+                dia.ToString("yyyy-MM-dd"), ci);
+
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                MySqlDataReader lector = select.ExecuteReader();
+                //Leo lo que devuelve
+                if (lector.Read())
+                {
+                    //Retorno la cantidad de reservas
+                    return 1;
+                }
+                else
+                {
+                    //Retorno 0 si no hay ningun servicio
+                    return 0;
+                }
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return -1;
+            }
+            finally
+            {
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consulta si un dia pertenece a una reserva: " + dia.ToString("yyyy-MM-dd") + " Reservas de:" + ci);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fechaInicio"></param>
+        /// <param name="fechaFin"></param>
+        /// <param name="nombre"></param>
+        /// <returns></returns>
         public int cantidadDePersonasPorServicio(DateTime fechaInicio, DateTime fechaFin, String nombre)
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro

@@ -529,7 +529,7 @@ namespace Capa_Logica
             fechaFin = DateTime.Parse(fechaFin.ToShortDateString());
 
             //Si la fecha de inicio es <= a la de fin retorna true
-            if (DateTime.Compare(fechaInicio, fechaFin) < 0)
+            if (DateTime.Compare(fechaInicio, fechaFin) <= 0)
             {
                 return true;
             }

@@ -467,6 +467,36 @@ namespace Capa_Logica.Clases
 
             return altas.altaReserva(reserva, integrantes);
         }
+
+        public Object[] comprobarDiasTodosDiasReservas(int ci, DateTime inicio, DateTime final)
+        {
+            //Recorro todos los dias de la reserva(contado Inicio y Fin) 
+            //y compruebo que ya no esten reservados en una reserva
+            for (DateTime dia = inicio; dia <= final; dia = dia.AddDays(1))
+            {
+                //Comprobar si ese dia ya esta registrado
+                int valido = consultas.comprobarDiaEnReserva(ci, dia);
+                if (valido == 1)
+                {
+                    //Si ya esta registrado
+                    Object[] yaExiste = {dia, 1};
+                    return yaExiste;
+                }
+                else if (valido == -1)
+                {
+                    //Si ocurrio un error
+                    Object[] error = { null, -1};
+                    return error;
+                }
+            }
+
+            /*
+             Si recorre todo todos los dias sin que existan sigmifica que todos
+             los dias son validos
+             */
+            Object[] retorno = { null, 0};
+            return retorno;
+        }
         #endregion
 
         #region Metodos Alta Servicio

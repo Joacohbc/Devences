@@ -232,5 +232,3 @@ C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CopyComplete
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.exe
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.pdb
-C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.exe.CodeAnalysisLog.xml
-C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.exe.lastcodeanalysissucceeded

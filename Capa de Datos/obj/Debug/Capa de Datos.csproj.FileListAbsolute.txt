@@ -71,5 +71,3 @@ C:\Users\Joaco\Desktop\Devences\Capa de Datos\obj\Debug\Capa de Datos.csproj.Cor
 C:\Users\Joaco\Desktop\Devences\Capa de Datos\obj\Debug\Capa de Datos.csproj.CopyComplete
 C:\Users\Joaco\Desktop\Devences\Capa de Datos\obj\Debug\Capa de Datos.dll
 C:\Users\Joaco\Desktop\Devences\Capa de Datos\obj\Debug\Capa de Datos.pdb
-C:\Users\Joaco\Desktop\Devences\Capa de Datos\bin\Debug\Capa de Datos.dll.CodeAnalysisLog.xml
-C:\Users\Joaco\Desktop\Devences\Capa de Datos\bin\Debug\Capa de Datos.dll.lastcodeanalysissucceeded
