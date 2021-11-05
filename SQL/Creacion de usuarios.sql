@@ -17,12 +17,12 @@ set password for gerente=PASSWORD('gerente');
 #Le asigno los privilegios
 
 #Sobre la Tabla Persona:
+grant select,insert,update on proyectoprueba.persona to gerente;
 /*
 Insert: Dar Altas a Personas(Empleado y Clientes)
 Update: Modificar y Dar Bajas a Personas(Empleado y Clientes)
 Select: Consultar Personas(Empleado y Clientes)
 */
-grant select,insert,update on proyectoprueba.persona to gerente;
 
 #Sobre la Tabla Telefono
 grant select,insert,update,delete on proyectoprueba.telefono to gerente;
@@ -110,6 +110,9 @@ grant insert, update, select, delete  on proyectoprueba.telefono to administrati
 
 #Sobre la Tabla Cliente
 grant insert, update, select on proyectoprueba.cliente to administrativo;
+
+#Sobre la Tabla Reserva
+grant select,insert,update on proyectoprueba.reserva to administrativo;
 
 #Sobre la Tabla Integran
 grant insert, update, select on proyectoprueba.integran to administrativo;
