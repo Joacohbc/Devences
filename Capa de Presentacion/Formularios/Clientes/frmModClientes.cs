@@ -321,58 +321,120 @@ namespace Capa_Presentacion.Formularios
 
             }
         }
+        
+        //Valida que los campos no sean iguales
+        public bool validarDatosNoIguales()
+        {
+            if (txtModificarPrimerNombre.Text == txtPrimerNombre.Text)
+            {
+                if (txtModificarSegundoNombre.Text == txtSegundoNombre.Text)
+                {
+                    if (txtModificarPrimerApellido.Text == txtPrimerApellido.Text)
+                    {
+                        if (txtModificarSegundoApellido.Text == txtSegundoApellido.Text)
+                        {
+                            if (txtModificarMail.Text == txtMail.Text)
+                            {
+                                if (txtModificarDireccion.Text == txtDireccion.Text)
+                                {
+                                    if (dtpModificarNacimiento.Value == dtpNacimiento.Value)
+                                    {
+                                        if (chkModificarHombre.Checked == rdbHombre.Checked && chkModificarMujer.Checked == rdbMujer.Checked && chkModificarNoBinario.Checked == rdbNoBinario.Checked)
+                                        {
+                                            bool iguales = true;
+                                            
+                                            //Recorror los 2 list para comprobar si son iguales
+                                            for (int i = 0; i < listModificarTelefonos.Items.Count; i++)
+                                            {
+                                                //Si tienen cantidad de items diferente no son iguales
+                                                if (listModificarTelefonos.Items.Count == listTelefonos.Items.Count)
+                                                {
+                                                    //Comparo si los items son diferentes
+                                                    if (listModificarTelefonos.Items[i].ToString() != listTelefonos.Items[i].ToString())
+                                                    {
+                                                        //Si lo son, salgo y pongo igual = false
+                                                        iguales = false;
+                                                        break;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    //Salgo y pongo igual = false
+                                                    iguales = false;
+                                                    break;
+                                                }
+                                            }
+
+                                            if (iguales)
+                                            {
+                                                Mensaje.MostrarError("Los datos son iguales, cambie algun dato antes de realizar la modificacion", Mensaje.ErrorBD);
+                                                return false;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return true;
+        }
 
         //Modificar cliente
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
-
-            Cliente cliente = metodos.validarCliente(txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail,
-                    txtDireccion, dtpNacimiento, rdbHombre, rdbMujer, listTelefonos, errorProvider);
-
-            if(cliente != null)
+            if (validarDatosNoIguales())
             {
-                if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar al cliente: " + txtModificarPrimerNombre.Text + " " + txtModificarPrimerApellido.Text + "?", "Modificar cliente"))
+                MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
+
+                Cliente cliente = metodos.validarCliente(txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail,
+                        txtDireccion, dtpNacimiento, rdbHombre, rdbMujer, listTelefonos, errorProvider);
+
+                if (cliente != null)
                 {
-                    //Busco si existe y no si esta dado de Alta, porque puede que quiera modificar su
-                    //estado(alta/baja)
-                    int retorno = metodos.existeCliente(cliente.Ci);
-
-                    //Cliente existe
-                    if (retorno == 1)
+                    if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar al cliente: " + txtModificarPrimerNombre.Text + " " + txtModificarPrimerApellido.Text + "?", "Modificar cliente"))
                     {
-                        //Lo guardo en Persona, ya que lo que se modifica son los datos de una Persona
-                        Persona persona = cliente;
-                        
-                        retorno = metodos.modificarPersona(cliente);
-                        if (retorno > 0)
-                        {
-                            retorno = metodos.modificarTelefonosPersona(persona.Ci, persona.Telefonos);
+                        //Busco si existe y no si esta dado de Alta, porque puede que quiera modificar su
+                        //estado(alta/baja)
+                        int retorno = metodos.existeCliente(cliente.Ci);
 
-                            if (retorno == 1)
+                        //Cliente existe
+                        if (retorno == 1)
+                        {
+                            //Lo guardo en Persona, ya que lo que se modifica son los datos de una Persona
+                            Persona persona = cliente;
+
+                            retorno = metodos.modificarPersona(cliente);
+                            if (retorno > 0)
                             {
-                                Mensaje.MostrarInfo("Se modifico el cliente con exito", "Modificar cliente");
-                                btnCancelar.PerformClick();
+                                retorno = metodos.modificarTelefonosPersona(persona.Ci, persona.Telefonos);
+
+                                if (retorno == 1)
+                                {
+                                    Mensaje.MostrarInfo("Se modifico el cliente con exito", "Modificar cliente");
+                                    btnCancelar.PerformClick();
+                                }
+                                else
+                                {
+                                    Mensaje.MostrarError("Ocurrio un error al modificar los telefonos cliente, pero la persona se ha modificado correctamente", Mensaje.ErrorBD);
+                                }
                             }
                             else
                             {
-                                Mensaje.MostrarError("Ocurrio un error al modificar los telefonos cliente, pero la persona se ha modificado correctamente", Mensaje.ErrorBD);
+                                Mensaje.MostrarError("Ocurrio un error al modificar al cliente", Mensaje.ErrorBD);
                             }
+
+                        }
+                        //Cliente no existe
+                        else if (retorno == 0)
+                        {
+                            Mensaje.MostrarError("El cliente que ingreso no esta registrado", Mensaje.ErrorBD);
                         }
                         else
                         {
-                            Mensaje.MostrarError("Ocurrio un error al modificar al cliente", Mensaje.ErrorBD);
+                            Mensaje.MostrarError("Ocurrio un error al buscar al cliente", Mensaje.ErrorBD);
                         }
-
-                    }
-                    //Cliente no existe
-                    else if (retorno == 0)
-                    {
-                        Mensaje.MostrarError("El cliente que ingreso no esta registrado", Mensaje.ErrorBD);
-                    }
-                    else
-                    {
-                        Mensaje.MostrarError("Ocurrio un error al buscar al cliente", Mensaje.ErrorBD);
                     }
                 }
             }
