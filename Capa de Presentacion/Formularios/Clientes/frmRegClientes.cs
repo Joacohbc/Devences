@@ -29,6 +29,9 @@ namespace Capa_Presentacion.Formularios
             
             //Checkeo el rdbHombre para simpre haya uno chekeado
             rdbHombre.Checked = true;
+            
+            //Logo del ErrorProvider
+            errorProvider.Icon = Properties.Resources.ErrorProvider;
         }
 
         #region Validaciones de Ingreso(TextBoxes)
@@ -286,6 +289,10 @@ namespace Capa_Presentacion.Formularios
             {
                 //Limpio los componenetes
                 Control[] controles = { txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, txtTelefono, dtpNacimiento, rdbHombre, rdbMujer, rdbNoBinario, listTelefonos };
+
+                //Le pongo la MaxDate nuevamente en Hoy
+                dtpNacimiento.MaxDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                
                 validar.limpiarControles(controles);
 
                 //Checkeo el rdbHombre para simpre haya uno chekeado

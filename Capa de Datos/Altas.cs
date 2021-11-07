@@ -256,6 +256,15 @@ namespace Capa_de_Datos
             }
         }
 
+        /// <summary>
+        /// Da de alta un Servicio a una Reserva
+        /// </summary>
+        /// <param name="id"> Id de la reserva donde queremos realizar la Reserva</param>
+        /// <param name="nombreServicio"> Nombre del servicio a reservar</param>
+        /// <param name="inicio"> Fecha de Inicio del Servicio</param>
+        /// <param name="fin"> Fecha de Fin del Servicio</param>
+        /// <param name="formaDePago"> Forma del Pago del servicio</param>
+        /// <returns> Retorna 1/+1 Exito, -1 Error</returns>
         public int altaServicio(int id, String nombreServicio, DateTime inicio, DateTime fin, String formaDePago)
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
@@ -284,6 +293,11 @@ namespace Capa_de_Datos
             }
         }
         
+        /// <summary>
+        /// Da de alta un Empleado
+        /// </summary>
+        /// <param name="empleado"> El Objeto Empleado</param>
+        /// <returns> Retorna 1/+1 Exito, -1 Error</returns>
         public int altaEmpleado(Empleado empleado)
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro

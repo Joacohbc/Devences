@@ -52,6 +52,8 @@ namespace Capa_Presentacion.Formularios
                 cmbTipoIngresoIntegrante.SelectedIndex = 0;
                 cmbMetodosPago.SelectedIndex = 0;
 
+                //Logo del ErrorProvider
+                errorProvider.Icon = Properties.Resources.ErrorProvider;
             }
             else
             {
@@ -272,6 +274,11 @@ namespace Capa_Presentacion.Formularios
             {
                 //Limpio los componenetes
                 Control[] controles = { txtCedulaTitular, txtCedulaIntegrante, dtpFechaInico, dtpFechaFin, chkConfirmada, listIntegrantes, dgvIntegrantes };
+
+                //Le pongo la MaxDate nuevamente en Hoy
+                dtpFechaInico.MaxDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                dtpFechaFin.MaxDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+
                 validar.limpiarControles(controles);
 
                 //Para que vuela a tener el predeterminado en el primero

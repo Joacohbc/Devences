@@ -1,6 +1,6 @@
 #Inserto 2 Personas
-insert into persona values(12345678,'Joaquin','','Genova','Guerendian','Masculino','2003-09-08','','En mi casa');
-insert into persona values(87654321,'Peter','Gonzales','Rodriguez','Martinez','Masculino','1990-01-01','peter@gmail.com','En su casa');
+insert into persona values(12345678,'Joaquin','','Genova','Guerendian','Masculino','2003-09-08','','Av Italia');
+insert into persona values(87654321,'Peter','Gonzales','Rodriguez','Martinez','Masculino','1990-01-01','peter@gmail.com','8 de Octubre');
 
 #Usuario Gerente para pruebas
 insert into empleado values (12345678, 'JoaquinG', aes_encrypt('admin','admin'), 'Gerente', true);

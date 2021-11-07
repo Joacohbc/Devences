@@ -25,11 +25,16 @@ namespace Capa_Presentacion.Formularios.Servicios
 
         private void frmRegServicios_Load(object sender, EventArgs e)
         {
+            //Instancio la Clase
             MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
+
+            //Guardo los servicios que traje en un List<>
             servicios = metodos.traerServicios();
 
+            //Si no es null(Osea que los trajo exitosamente)
             if (servicios != null)
             {
+                //Los Cargo en el DGV
                 foreach (Capa_Entidades.Servicios s in servicios)
                 {
                     //Agrego los servicios al CMB y al DGV
@@ -38,15 +43,21 @@ namespace Capa_Presentacion.Formularios.Servicios
                     cmbServicio.Items.Add(s.Nombre);
                 }
 
+                //Para que los CMB empienzen en algun elemento
                 cmbServicio.SelectedIndex = 0;
                 cmbFormaDePago.SelectedIndex = 0;
 
+                //Para que el servicio no pueda tener un inicio anterir a la fecha actual
                 dtpInicioServicio.MinDate = DateTime.Now;
+
+                //Logo del ErrorProvider
+                errorProvider.Icon = Properties.Resources.ErrorProvider;
             }
             else
             {
                 Mensaje.MostrarError("Ocurrio un error al cargar los servicios, cierre este apartado e intente nuevamente", Mensaje.ErrorBD);
 
+                //Dehabilito todo menos el boton de salir
                 foreach (Control c in this.Controls)
                 {
                     c.Enabled = false;
@@ -63,6 +74,10 @@ namespace Capa_Presentacion.Formularios.Servicios
             {
                 //Limpio los componenetes
                 Control[] controles = { txtCedulaTitular, dtpFechaInico, dtpInicioServicio, cmbServicio, cmbFormaDePago };
+
+                //Le pongo el MinDate antes de resetear la fecha para que no tire error 
+                dtpInicioServicio.MinDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+
                 validar.limpiarControles(controles);
 
                 //Y borro el error provider

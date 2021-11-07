@@ -215,7 +215,7 @@ namespace Capa_Logica.Clases
                 if (ValidarPersona.ValidarPrimerNombre(txtPrimerNombre, errorProvider))
                 {
                     //Valido segundo nombre
-                    if (ValidarPersona.ValidarSegundoNombre(txtSegundoApellido, errorProvider))
+                    if (ValidarPersona.ValidarSegundoNombre(txtSegundoNombre, errorProvider))
                     {
                         //Valido primer apellido
                         if (ValidarPersona.ValidarApellido(txtPrimerApellido, 1, errorProvider))
@@ -467,11 +467,18 @@ namespace Capa_Logica.Clases
         #endregion
 
         #region Metodos Alta Servicio
+
+        /// <summary>
+        /// Trae los servicios en una Lista<Nombre y Precio>
+        /// </summary>
         public List<Servicios> traerServicios()
         {
             return consultas.traerServicios();
         }
 
+        /// <summary>
+        /// Dar de alta una servicio
+        /// </summary>
         public int altaServicio(int ci, Servicios servicio, DateTime inicio, DateTime inicioServicio, String formaDePago)
         {
             int id = consultas.buscarIdDeReserva(ci, inicio);
@@ -494,6 +501,10 @@ namespace Capa_Logica.Clases
         #endregion
 
         #region Metodos Alta Empleado
+
+        /// <summary>
+        /// Valida si los atributos son validos y retorna el Objeto EMpleado(Null=Error)
+        /// </summary>
         public Empleado validarEmpleado(TextBox txtCedula, TextBox txtPrimerNombre, TextBox txtSegundoNombre, TextBox txtPrimerApellido, TextBox txtSegundoApellido,
             TextBox txtMail, TextBox txtDireccion, DateTimePicker dtpNacimiento, RadioButton rdbHombre, RadioButton rdbMujer, ListBox listTelefonos, TextBox txtUsuario, ComboBox cmbTipo, TextBox txtContra, TextBox txtContra2, ErrorProvider errorProvider)
         {
@@ -504,7 +515,7 @@ namespace Capa_Logica.Clases
                 if (ValidarPersona.ValidarPrimerNombre(txtPrimerNombre, errorProvider))
                 {
                     //Valido segundo nombre
-                    if (ValidarPersona.ValidarSegundoNombre(txtSegundoApellido, errorProvider))
+                    if (ValidarPersona.ValidarSegundoNombre(txtSegundoNombre, errorProvider))
                     {
                         //Valido primer apellido
                         if (ValidarPersona.ValidarApellido(txtPrimerApellido, 1, errorProvider))
@@ -594,11 +605,17 @@ namespace Capa_Logica.Clases
             }
         }
         
+        /// <summary>
+        /// Buscar si hay un empleado(1 Si, 0 No, -1 error)
+        /// </summary>
         public int buscarEmpleado(int ci)
         {
            return consultas.buscarEmpleado(ci);
         }
 
+        /// <summary>
+        /// Da de alta un Servicio a una Reserva(1 Exito, -1 error)
+        /// </summary>
         public int altaEmpleado(Empleado empleado)
         {
             return altas.altaEmpleado(empleado);

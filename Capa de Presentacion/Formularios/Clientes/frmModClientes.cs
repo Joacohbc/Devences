@@ -327,6 +327,10 @@ namespace Capa_Presentacion.Formularios
                 txtModificarPrimerApellido, txtModificarSegundoApellido, txtModificarMail,txtModificarDireccion, dtpNacimiento, dtpModificarNacimiento, rdbHombre, rdbMujer, rdbNoBinario,
                     chkModificarHombre, chkModificarMujer, chkModificarNoBinario, listTelefonos, listModificarTelefonos };
 
+                //Le pongo la MaxDate nuevamente en Hoy
+                dtpNacimiento.MaxDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                dtpModificarNacimiento.MaxDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+
                 validar.limpiarControles(controles);
 
                 //Limpio todos los errores

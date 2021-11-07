@@ -31,10 +31,12 @@ namespace Capa_Presentacion.Formularios
             //Que tenga uno seleccionado
             cmbTipo.SelectedIndex = 0;
 
-            //Que tenga contra senia
+            //Que tenga contrasenia activada
             txtContra.UseSystemPasswordChar = true;
             txtConfContra.UseSystemPasswordChar = true;
 
+            //Logo del ErrorProvider
+            errorProvider.Icon = Properties.Resources.ErrorProvider;
         }
        
         #region Validaciones de Ingreso 
@@ -244,6 +246,10 @@ namespace Capa_Presentacion.Formularios
             {
                 //Limpio los componenetes
                 Control[] controles = { txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, txtTelefono, dtpNacimiento, rdbHombre, rdbMujer, rdbNoBinario, listTelefonos };
+
+                //Le pongo la MaxDate nuevamente en Hoy
+                dtpNacimiento.MaxDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                
                 validar.limpiarControles(controles);
 
                 //Checkeo el rdbHombre para simpre haya uno chekeado
@@ -271,6 +277,7 @@ namespace Capa_Presentacion.Formularios
             }
         }
 
+        //Registra la Reserva
         private void btnRegistra_Click(object sender, EventArgs e)
         {
             MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);

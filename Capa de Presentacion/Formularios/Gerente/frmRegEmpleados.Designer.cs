@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegEmpleados));
             this.label1 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -94,6 +95,7 @@
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // panel1
             // 
@@ -483,19 +485,22 @@
             // 
             // cmbTipo
             // 
+            this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cmbTipo.FormattingEnabled = true;
             this.cmbTipo.Items.AddRange(new object[] {
             "Administrativo",
             "Gerente"});
-            this.cmbTipo.Location = new System.Drawing.Point(717, 146);
+            this.cmbTipo.Location = new System.Drawing.Point(716, 142);
             this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(166, 21);
+            this.cmbTipo.Size = new System.Drawing.Size(166, 24);
             this.cmbTipo.TabIndex = 90;
             // 
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
+            this.errorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider.Icon")));
             // 
             // frmRegEmpleados
             // 
