@@ -17,10 +17,10 @@ namespace Capa_de_Datos
             if (rol == 2)
             {
                 //conexion joaco
-                conexionBD = new MySqlConnection("server=167.57.106.13; port=3306; database=proyectoprueba; uid=login; pwd=login;");
+                //conexionBD = new MySqlConnection("server=167.57.106.13; port=3306; database=proyectoprueba; uid=login; pwd=login;");
 
                 //conexion local
-               // conexionBD = new MySqlConnection("server=localhost; port=3306; database=proyectoprueba; uid=login; pwd=login;");
+               conexionBD = new MySqlConnection("server=localhost; port=3306; database=proyectoprueba; uid=login; pwd=login;");
 
                 //Conexion para la UTU
                 //conexionBD = new MySqlConnection("server=192.168.2.53; port=3306; database=Devences; uid=jgenova; pwd=53626663;");
@@ -28,10 +28,10 @@ namespace Capa_de_Datos
             else if (rol == 1)
             {
                 //Conexion joaco
-                conexionBD = new MySqlConnection("server=167.57.106.13; port=3306; database=proyectoprueba; uid=gerente; pwd=gerente;");
+                //conexionBD = new MySqlConnection("server=167.57.106.13; port=3306; database=proyectoprueba; uid=gerente; pwd=gerente;");
 
                 //conexion local
-                //conexionBD = new MySqlConnection("server=localhost; port=3306; database=proyectoprueba; uid=gerente; pwd=gerente;");
+                conexionBD = new MySqlConnection("server=localhost; port=3306; database=proyectoprueba; uid=gerente; pwd=gerente;");
 
                 //Conexion para la UTU
                 //conexionBD = new MySqlConnection("server=192.168.2.53; port=3306; database=Devences; uid=jgenova; pwd=53626663;");
@@ -39,10 +39,10 @@ namespace Capa_de_Datos
             else
             {
                 //conexion joaco
-                conexionBD = new MySqlConnection("server=167.57.106.13; port=3306; database=proyectoprueba; uid=administrativo; pwd=administrativo;");
+                //conexionBD = new MySqlConnection("server=167.57.106.13; port=3306; database=proyectoprueba; uid=administrativo; pwd=administrativo;");
 
                 //conexion local
-                //conexionBD = new MySqlConnection("server=localhost; port=3306; database=proyectoprueba; uid=administrativo; pwd=administrativo;");
+                conexionBD = new MySqlConnection("server=localhost; port=3306; database=proyectoprueba; uid=administrativo; pwd=administrativo;");
                 
                 //Conexion para la UTU
                 //conexionBD = new MySqlConnection("server=192.168.2.53; port=3306; database=Devences; uid=jgenova; pwd=53626663;");

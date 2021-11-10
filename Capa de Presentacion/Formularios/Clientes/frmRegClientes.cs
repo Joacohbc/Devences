@@ -31,7 +31,7 @@ namespace Capa_Presentacion.Formularios
             rdbHombre.Checked = true;
             
             //Logo del ErrorProvider
-            errorProvider.Icon = Properties.Resources.ErrorProvider;
+            errorProvider.Icon = Properties.Resources.IconoError;
         }
 
         #region Validaciones de Ingreso(TextBoxes)

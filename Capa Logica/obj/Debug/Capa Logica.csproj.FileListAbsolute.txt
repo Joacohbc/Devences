@@ -99,3 +99,4 @@ C:\Users\Joaco\Desktop\Devences\Capa Logica\obj\Debug\Capa Logica.csproj.CoreCom
 C:\Users\Joaco\Desktop\Devences\Capa Logica\obj\Debug\Capa Logica.csproj.CopyComplete
 C:\Users\Joaco\Desktop\Devences\Capa Logica\obj\Debug\Capa Logica.dll
 C:\Users\Joaco\Desktop\Devences\Capa Logica\obj\Debug\Capa Logica.pdb
+C:\Users\emili\Documents\GitHub\Devences\Capa Logica\bin\Debug\MySql.Data.dll

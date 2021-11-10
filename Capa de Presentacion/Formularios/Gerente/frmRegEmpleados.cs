@@ -36,7 +36,7 @@ namespace Capa_Presentacion.Formularios
             txtConfContra.UseSystemPasswordChar = true;
 
             //Logo del ErrorProvider
-            errorProvider.Icon = Properties.Resources.ErrorProvider;
+            errorProvider.Icon = Properties.Resources.IconoError;
         }
        
         #region Validaciones de Ingreso 
