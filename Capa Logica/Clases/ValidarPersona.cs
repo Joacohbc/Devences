@@ -36,6 +36,33 @@ namespace Capa_Logica.Clases
             }
         }
 
+        private static bool validarCedulaOficial(String cedula)
+        {
+            //Los numeros por los cuales multiplico
+            int[] numeros = { 2, 9, 8, 7, 6, 3, 4 };
+
+            //Creo una variable para guardar la suma de las multiplicaciones
+            int resultado = 0;
+
+            //Multiplico los digitos de la cedula por los de los numeros
+            for (int i = 0; i < 7; i++)
+            {
+                resultado += Convert.ToInt32(cedula[i].ToString()) * numeros[i];
+            }
+
+            //Creo una variable para guardar el siguietne numero que termine en 0 de la suma de los digitos
+            int siguienteConCero = resultado;
+
+            //Busco el siguiente numero con 0
+            while (Convert.ToString(siguienteConCero).Last() != '0') siguienteConCero++;
+
+            //Obtengo cual deeberia ser el primer digito
+            int ultimoDigito = siguienteConCero - resultado;
+
+            //Y si ultimo digito de la cedula que se ingreso, si es el del resultado, se retorna True, sino False
+            return Convert.ToInt32(cedula[cedula.Length - 1].ToString()) == ultimoDigito ? true : false;
+        }
+
         /// <summary>
         /// Valida que una cedula sea valida, y mostrar el error, si hay, en un ErrorProvider
         /// </summary>
@@ -49,8 +76,23 @@ namespace Capa_Logica.Clases
             {
                 if (txtCi.Text.Length == 8)
                 {
-                    error.SetError(txtCi, "");
-                    return true;
+                    /*
+                     * SACAR ESE TRUE
+                     * EN ESTE CASO
+                     * ES SOLO PARA PRUEBAS
+                     */
+                    if (validarCedulaOficial(txtCi.Text) || true)
+                    {
+                        error.SetError(txtCi, "");
+                        return true;
+                    }
+                    else
+                    {
+                        error.SetError(txtCi, "El campo de la cedula debe contener una cedula valida");
+                        txtCi.Focus();
+                        return false;
+                    }
+                    
                 }
                 else
                 {

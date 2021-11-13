@@ -284,10 +284,6 @@ namespace Capa_Presentacion.Formularios
                     }
                 }
             }
-            else
-            {
-                Mensaje.MostrarError("Ocurrio un error cargar datos del cliente", Mensaje.ErrorBD);
-            }
         }
 
         //Borrar los campos
