@@ -22,6 +22,7 @@ namespace Capa_Presentacion.Formularios.Servicios
         public frmRegServicios()
         {
             InitializeComponent();
+            errorProvider.Icon = Properties.Resources.IconoError;
         }
 
         #region Eventos del Form
@@ -53,7 +54,7 @@ namespace Capa_Presentacion.Formularios.Servicios
                 dtpInicioServicio.MinDate = DateTime.Now;
 
                 //Logo del ErrorProvider
-                errorProvider.Icon = Properties.Resources.ErrorProvider;
+                errorProvider.Icon = Properties.Resources.IconoError;
             }
             else
             {

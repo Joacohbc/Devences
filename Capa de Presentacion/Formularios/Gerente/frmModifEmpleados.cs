@@ -17,9 +17,53 @@ namespace Capa_Presentacion.Formularios
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSalir_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void chkMostrarContra_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkMostrarContra.Checked)
+            {
+                txtContra.UseSystemPasswordChar = false;
+                chkMostrarContra.Image = Properties.Resources.ojo_cerrado;
+
+            }
+            else if (!chkMostrarContra.Checked)
+            {
+                txtContra.UseSystemPasswordChar = true;
+                chkMostrarContra.Image = Properties.Resources.ojo;
+            }
+        }
+
+        private void btnBuscarCed_Click(object sender, EventArgs e)
+        {
+
+
+
+
+
+
+
+
+            chkMostrarContra.Checked = false;
+            chkMostrarContra.Visible = true;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+
+
+
+
+
+
+
+
+            chkMostrarContra.Checked = true;
+            chkMostrarContra.Visible = false;
         }
     }
 }

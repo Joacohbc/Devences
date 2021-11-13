@@ -22,6 +22,7 @@ namespace Capa_Presentacion.Formularios
         public frmRegReservas()
         {
             InitializeComponent();
+            errorProvider.Icon = Properties.Resources.IconoError;
         }
 
         #region Eventos del Form
@@ -68,7 +69,7 @@ namespace Capa_Presentacion.Formularios
                 cmbMetodosPago.SelectedIndex = 0;
 
                 //Logo del ErrorProvider
-                errorProvider.Icon = Properties.Resources.ErrorProvider;
+                errorProvider.Icon = Properties.Resources.IconoError;
             }
             else
             {

@@ -17,10 +17,12 @@ namespace Capa_Presentacion.Formularios
         Reserva reserva = new Reserva();
         Validaciones validar = new Validaciones();
 
+
         #region Eventos del Form
         public frmModifReservas()
         {
             InitializeComponent();
+            errorProvider.Icon = Properties.Resources.IconoError;
         }
 
         private void frmModifReservas_Load(object sender, EventArgs e)

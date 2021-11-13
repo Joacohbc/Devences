@@ -17,7 +17,8 @@ namespace Capa_Presentacion.Formularios
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void btnSalir_Click(object sender, EventArgs e)
         {
             Close();
         }
