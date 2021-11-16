@@ -20,7 +20,6 @@ namespace Capa_Presentacion.Formularios
         public frmModClientes()
         {
             InitializeComponent();
-            errorProvider.Icon = Properties.Resources.IconoError;
         }
 
         #region Eventos del Form
@@ -30,7 +29,7 @@ namespace Capa_Presentacion.Formularios
             dtpNacimiento.MaxDate = DateTime.Now;
 
             //Logo del ErrorProvider
-            errorProvider.Icon = Properties.Resources.ErrorProvider;
+            errorProvider.Icon = Properties.Resources.IconoError;
         }
 
         //Cerarr form
@@ -222,9 +221,8 @@ namespace Capa_Presentacion.Formularios
                 {
                     //Cargo los datos del Cliente
                     Persona persona = metodos.traerPersona(Convert.ToInt32(txtCedula.Text));
-                    int alta = metodos.buscarCliente(Convert.ToInt32(txtCedula.Text));
 
-                    if (persona != null && alta != -1)
+                    if (persona != null)
                     {
                         //Cargo los datos en los TextBox de Modificar y en los de Info
                         txtModificarPrimerNombre.Text = persona.PrimerNombre;

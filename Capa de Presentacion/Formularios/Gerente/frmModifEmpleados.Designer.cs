@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.dtpNacimiento = new System.Windows.Forms.DateTimePicker();
@@ -94,7 +95,9 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.chkMostrarContra = new System.Windows.Forms.CheckBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label10
@@ -468,34 +471,39 @@
             // 
             // btnBorrarTel
             // 
+            this.btnBorrarTel.Enabled = false;
             this.btnBorrarTel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnBorrarTel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnBorrarTel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBorrarTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBorrarTel.Location = new System.Drawing.Point(825, 301);
+            this.btnBorrarTel.Location = new System.Drawing.Point(825, 305);
             this.btnBorrarTel.Name = "btnBorrarTel";
             this.btnBorrarTel.Size = new System.Drawing.Size(90, 31);
             this.btnBorrarTel.TabIndex = 138;
             this.btnBorrarTel.TabStop = false;
             this.btnBorrarTel.Text = "Borrar";
             this.btnBorrarTel.UseVisualStyleBackColor = true;
+            this.btnBorrarTel.Click += new System.EventHandler(this.btnBorrarTelefono_Click);
             // 
             // btnAgregarTel
             // 
+            this.btnAgregarTel.Enabled = false;
             this.btnAgregarTel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnAgregarTel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnAgregarTel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarTel.Location = new System.Drawing.Point(825, 264);
+            this.btnAgregarTel.Location = new System.Drawing.Point(825, 268);
             this.btnAgregarTel.Name = "btnAgregarTel";
             this.btnAgregarTel.Size = new System.Drawing.Size(90, 31);
             this.btnAgregarTel.TabIndex = 128;
             this.btnAgregarTel.Text = "Agregar";
             this.btnAgregarTel.UseVisualStyleBackColor = true;
+            this.btnAgregarTel.Click += new System.EventHandler(this.btnAgregarTelefono_Click);
             // 
             // listTelefonosMod
             // 
             this.listTelefonosMod.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listTelefonosMod.Enabled = false;
             this.listTelefonosMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listTelefonosMod.FormattingEnabled = true;
             this.listTelefonosMod.ItemHeight = 18;
@@ -504,19 +512,24 @@
             this.listTelefonosMod.Size = new System.Drawing.Size(191, 54);
             this.listTelefonosMod.TabIndex = 137;
             this.listTelefonosMod.UseTabStops = false;
+            this.listTelefonosMod.DoubleClick += new System.EventHandler(this.listTelefonosMod_DoubleClick);
             // 
             // txtTelefono
             // 
             this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTelefono.Enabled = false;
             this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono.Location = new System.Drawing.Point(616, 271);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(191, 17);
             this.txtTelefono.TabIndex = 127;
+            this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // rdbNoBinario
             // 
             this.rdbNoBinario.AutoSize = true;
+            this.rdbNoBinario.Enabled = false;
             this.rdbNoBinario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbNoBinario.Location = new System.Drawing.Point(752, 241);
             this.rdbNoBinario.Name = "rdbNoBinario";
@@ -529,6 +542,7 @@
             // rdbMujer
             // 
             this.rdbMujer.AutoSize = true;
+            this.rdbMujer.Enabled = false;
             this.rdbMujer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbMujer.Location = new System.Drawing.Point(690, 241);
             this.rdbMujer.Name = "rdbMujer";
@@ -541,6 +555,7 @@
             // rdbHombre
             // 
             this.rdbHombre.AutoSize = true;
+            this.rdbHombre.Enabled = false;
             this.rdbHombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbHombre.Location = new System.Drawing.Point(616, 241);
             this.rdbHombre.Name = "rdbHombre";
@@ -614,11 +629,13 @@
             // txtDireMod
             // 
             this.txtDireMod.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDireMod.Enabled = false;
             this.txtDireMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireMod.Location = new System.Drawing.Point(617, 189);
             this.txtDireMod.Name = "txtDireMod";
             this.txtDireMod.Size = new System.Drawing.Size(299, 17);
             this.txtDireMod.TabIndex = 124;
+            this.txtDireMod.TextChanged += new System.EventHandler(this.txtDireMod_TextChanged);
             // 
             // txtAp2Mod
             // 
@@ -629,6 +646,8 @@
             this.txtAp2Mod.Name = "txtAp2Mod";
             this.txtAp2Mod.Size = new System.Drawing.Size(136, 17);
             this.txtAp2Mod.TabIndex = 122;
+            this.txtAp2Mod.TextChanged += new System.EventHandler(this.txtAp2Mod_TextChanged);
+            this.txtAp2Mod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAp2Mod_KeyPress);
             // 
             // txtApMod
             // 
@@ -639,33 +658,44 @@
             this.txtApMod.Name = "txtApMod";
             this.txtApMod.Size = new System.Drawing.Size(136, 17);
             this.txtApMod.TabIndex = 121;
+            this.txtApMod.TextChanged += new System.EventHandler(this.txtApMod_TextChanged);
+            this.txtApMod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApMod_KeyPress);
             // 
             // txtMailMod
             // 
             this.txtMailMod.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMailMod.Enabled = false;
             this.txtMailMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMailMod.Location = new System.Drawing.Point(617, 162);
             this.txtMailMod.Name = "txtMailMod";
             this.txtMailMod.Size = new System.Drawing.Size(299, 17);
             this.txtMailMod.TabIndex = 123;
+            this.txtMailMod.TextChanged += new System.EventHandler(this.txtMailMod_TextChanged);
+            this.txtMailMod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMailMod_KeyPress);
             // 
             // txtSegNomMod
             // 
             this.txtSegNomMod.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSegNomMod.Enabled = false;
             this.txtSegNomMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSegNomMod.Location = new System.Drawing.Point(781, 112);
             this.txtSegNomMod.Name = "txtSegNomMod";
             this.txtSegNomMod.Size = new System.Drawing.Size(136, 17);
             this.txtSegNomMod.TabIndex = 120;
+            this.txtSegNomMod.TextChanged += new System.EventHandler(this.txtSegNomMod_TextChanged);
+            this.txtSegNomMod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSegNomMod_KeyPress);
             // 
             // txtPrimNomMod
             // 
             this.txtPrimNomMod.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPrimNomMod.Enabled = false;
             this.txtPrimNomMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrimNomMod.Location = new System.Drawing.Point(617, 111);
             this.txtPrimNomMod.Name = "txtPrimNomMod";
             this.txtPrimNomMod.Size = new System.Drawing.Size(136, 17);
             this.txtPrimNomMod.TabIndex = 119;
+            this.txtPrimNomMod.TextChanged += new System.EventHandler(this.txtPrimNomMod_TextChanged);
+            this.txtPrimNomMod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrimNomMod_KeyPress);
             // 
             // label23
             // 
@@ -680,6 +710,7 @@
             // cmbCargoMod
             // 
             this.cmbCargoMod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCargoMod.Enabled = false;
             this.cmbCargoMod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbCargoMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cmbCargoMod.FormattingEnabled = true;
@@ -694,6 +725,7 @@
             // txtConfContraMod
             // 
             this.txtConfContraMod.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtConfContraMod.Enabled = false;
             this.txtConfContraMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConfContraMod.Location = new System.Drawing.Point(690, 492);
             this.txtConfContraMod.Name = "txtConfContraMod";
@@ -703,6 +735,7 @@
             // txtContraMod
             // 
             this.txtContraMod.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtContraMod.Enabled = false;
             this.txtContraMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContraMod.Location = new System.Drawing.Point(691, 467);
             this.txtContraMod.Name = "txtContraMod";
@@ -712,6 +745,7 @@
             // txtNomUsuMod
             // 
             this.txtNomUsuMod.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNomUsuMod.Enabled = false;
             this.txtNomUsuMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomUsuMod.Location = new System.Drawing.Point(691, 444);
             this.txtNomUsuMod.Name = "txtNomUsuMod";
@@ -760,6 +794,7 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Enabled = false;
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -774,6 +809,7 @@
             // 
             // btnModificar
             // 
+            this.btnModificar.Enabled = false;
             this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -784,6 +820,7 @@
             this.btnModificar.TabIndex = 150;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // chkMostrarContra
             // 
@@ -805,6 +842,10 @@
             this.chkMostrarContra.UseVisualStyleBackColor = false;
             this.chkMostrarContra.Visible = false;
             this.chkMostrarContra.CheckedChanged += new System.EventHandler(this.chkMostrarContra_CheckedChanged);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // frmModifEmpleados
             // 
@@ -879,8 +920,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmModifEmpleados";
             this.Text = "frmModifEmpleados";
+            this.Load += new System.EventHandler(this.frmModifEmpleados_Load);
             this.pnTitulo.ResumeLayout(false);
             this.pnTitulo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -953,5 +996,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.CheckBox chkMostrarContra;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

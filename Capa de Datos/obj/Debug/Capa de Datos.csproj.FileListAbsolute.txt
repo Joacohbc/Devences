@@ -58,6 +58,7 @@ D:\Devences\Capa de Datos\obj\Debug\Capa de Datos.csproj.CoreCompileInputs.cache
 D:\Devences\Capa de Datos\obj\Debug\Capa de Datos.csproj.CopyComplete
 D:\Devences\Capa de Datos\obj\Debug\Capa de Datos.dll
 D:\Devences\Capa de Datos\obj\Debug\Capa de Datos.pdb
+C:\Users\emili\Documents\GitHub\Devences\Capa de Datos\bin\Debug\MySql.Data.dll
 C:\Users\Joaco\Desktop\Devences\Capa de Datos\bin\Debug\Capa de Datos.dll
 C:\Users\Joaco\Desktop\Devences\Capa de Datos\bin\Debug\Capa de Datos.pdb
 C:\Users\Joaco\Desktop\Devences\Capa de Datos\bin\Debug\Capa Entidades.dll
@@ -71,4 +72,3 @@ C:\Users\Joaco\Desktop\Devences\Capa de Datos\obj\Debug\Capa de Datos.csproj.Cor
 C:\Users\Joaco\Desktop\Devences\Capa de Datos\obj\Debug\Capa de Datos.csproj.CopyComplete
 C:\Users\Joaco\Desktop\Devences\Capa de Datos\obj\Debug\Capa de Datos.dll
 C:\Users\Joaco\Desktop\Devences\Capa de Datos\obj\Debug\Capa de Datos.pdb
-C:\Users\emili\Documents\GitHub\Devences\Capa de Datos\bin\Debug\MySql.Data.dll

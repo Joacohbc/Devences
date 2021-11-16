@@ -205,6 +205,8 @@ namespace Capa_Logica.Clases
 
         public Reserva traerReserva(int ci, DateTime inicio) => consultas.traerReserva(ci, inicio);
 
+        public Empleado traerEmpleado(int ci) => consultas.traerEmpleado(ci);
+
         #region Metodos Altas Clientes
         /// <summary>
         /// Valida un cliente
@@ -640,7 +642,7 @@ namespace Capa_Logica.Clases
                                                         }
                                                         else
                                                         {
-                                                            Mensaje.MostrarError("Las confirmacion de la contraseña con concide", Mensaje.ErrorBD);
+                                                            Mensaje.MostrarError("Las confirmacion de la contraseña con concide", Mensaje.ErrorIngreso);
                                                             return null;
                                                         }
                                                     }
@@ -701,9 +703,14 @@ namespace Capa_Logica.Clases
         }
 
         /// <summary>
-        /// Buscar si hay un empleado(1 Si, 0 No, -1 error)
+        /// Buscar si hay un empleado de alta (1 Si, 0 No, -1 error)
         /// </summary>
         public int buscarEmpleado(int ci) => consultas.buscarEmpleado(ci);
+
+        /// <summary>
+        /// Buscar si hay un empleado de alta (1 Si, 0 No, -1 error)
+        /// </summary>
+        public int existeEmpleado(int ci) => consultas.existeEmpleado(ci);
 
         /// <summary>
         /// Da de alta un Servicio a una Reserva(1 Exito, -1 error)
@@ -717,6 +724,10 @@ namespace Capa_Logica.Clases
         public int modificarTelefonosPersona(int ci, List<String> telefonosNuevos) => modificaciones.ModificarTelefonos(ci, telefonosNuevos);
         #endregion
 
+        #region Metodos De Moficacion de Empleado
+        public int modificarEmpleado(Empleado empleado) => modificaciones.modificarEmpleado(empleado);
+        
 
+        #endregion
     }
 }

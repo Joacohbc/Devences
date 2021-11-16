@@ -142,7 +142,7 @@ namespace Capa_de_Datos
             {
                 //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
                 conexion.CerrarConexion();
-                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Busqueda(si existe) de Cliente: " + ci);
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Busqueda de Cliente(existe): " + ci);
             }
         }
 
@@ -265,6 +265,51 @@ namespace Capa_de_Datos
                 //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
                 conexion.CerrarConexion();
                 if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consulta de Persona: " + ci);
+            }
+        }
+
+        public Empleado traerEmpleado(int ci)
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = String.Format("select * from empleado where ci='{0}';", ci);
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                sentencia = String.Format(sentencia, ci);
+                MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                MySqlDataReader lector = select.ExecuteReader();
+
+                Empleado empleado = new Empleado();
+                //Leo lo que devuelve
+                if (lector.Read())
+                {
+                    empleado.Ci = lector.GetInt32(0);
+                    empleado.Usuario = lector.GetString(1);
+                    empleado.Tipo = lector.GetString(3) == "Gerente" ? 1: 0;
+                    empleado.Estado = lector.GetBoolean(4);
+                    return empleado;
+                }
+                else
+                {
+                    empleado.Ci = 0;
+                    return empleado;
+                }
+
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return null;
+            }
+            finally
+            {
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consulta de Empleado: " + ci);
             }
         }
 
@@ -403,7 +448,7 @@ namespace Capa_de_Datos
         }
 
         /// <summary>
-        /// Buscar si hay un empleado(1 Si, 0 No, -1 error)
+        /// Buscar si hay un empleado dado de alta(1 Si, 0 No, -1 error)
         /// </summary>
         /// <param name="ci"> la Cedula</param>
         /// <returns>1 Si, 0 No, -1 error </returns>
@@ -442,6 +487,49 @@ namespace Capa_de_Datos
                 //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
                 conexion.CerrarConexion();
                 if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Busqueda de Empleado: " + ci);
+            }
+        }
+
+        /// <summary>
+        /// Buscar si hay un empleado(1 Si, 0 No, -1 error)
+        /// </summary>
+        /// <param name="ci"> la Cedula</param>
+        /// <returns>1 Si, 0 No, -1 error </returns>
+        public int existeEmpleado(int ci)
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = String.Format("select ci from empleado where ci={0};", ci);
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                MySqlDataReader lector = select.ExecuteReader();
+                //Leo lo que devuelve
+                if (lector.Read())
+                {
+                    //Retorno 1 si existe
+                    return 1;
+                }
+                else
+                {
+                    //Retorno 0 si no existe
+                    return 0;
+                }
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return -1;
+            }
+            finally
+            {
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Busqueda de Empleado(existe): " + ci);
             }
         }
 

@@ -301,11 +301,11 @@ namespace Capa_Presentacion.Formularios
                         //Si es True, osea todos los telefonos se dieron de altas correctamente
                         if (metodos.darAltaTelefonos(persona))
                         {
-                            retorno = metodos.buscarEmpleado(empleado.Ci);
-                            if(retorno == 0)
+                            retorno = metodos.existeEmpleado(empleado.Ci);
+                            if (retorno == 0)
                             {
                                 retorno = metodos.altaEmpleado(empleado);
-                                if(retorno > 0)
+                                if (retorno > 0)
                                 {
                                     Mensaje.MostrarInfo("El Empleado " + empleado.PrimerNombre + " " + empleado.PrimerApellido + " se dio de alta con exito", "Alta exitosa");
                                 }
@@ -314,7 +314,7 @@ namespace Capa_Presentacion.Formularios
                                     Mensaje.MostrarError("Ocurrio un error a dar de alta el Empleado", Mensaje.ErrorBD);
                                 }
                             }
-                            else if(retorno == 0)
+                            else if (retorno == 1)
                             {
                                 Mensaje.MostrarInfo("El Empleado que intenta dar de Alta ya existe", "Aviso en alta de Empleado");
                             }
@@ -341,5 +341,7 @@ namespace Capa_Presentacion.Formularios
                 }
             }
         }
+            
+
     }
 }
