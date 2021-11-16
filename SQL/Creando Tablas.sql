@@ -95,7 +95,7 @@ id int(11) not null,
 nombre varchar(50) not null,
 inicio datetime not null,#Datetime porque se necesita saber el dia y fecha que se registro
 fin datetime not null,#Datetime porque se necesita saber el dia y fecha que se registro
-estado enum('Confirmada','No Confirmada','Finalizada') default 'Confirmada',
+estado enum('Confirmada','Cancelada','Finalizada') default 'Confirmada',
 formaDePago enum('Credito', 'Debito', 'Contado') not null,
 primary key(id,nombre,inicio),
 foreign key(id) references reserva(id),

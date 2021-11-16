@@ -70,7 +70,7 @@ and nombre = 'Alquiler de bicicletas'
 Devuelve la suma de los integrantes y titurales de re las reservas(que esten
 confirmadas) que reservaron determinado servicio en determinado periodo de tiempo
 */
-SELECT
+//SELECT
 (select count(i.ci)
 from cliente c join integran i join reserva r
 on c.ci = i.ci and r.id=i.id
