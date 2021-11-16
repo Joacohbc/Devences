@@ -48,3 +48,11 @@ values ('Paseos en bote','01:00',2,5,400);
 INSERT INTO servicio
 values ('Camionetas','05:50',6,2,350);
 
+INSERT INTO servicio 
+values ('Piscina de agua tibia abierta','02:00:00',50,0,0);
+
+INSERT INTO servicio
+values ('Piscina de agua tibia cerrada','02:00:00',50,0,0);
+
+INSERT INTO servicio
+values ('Piscina de barro','00:20:00',40,0,0);
