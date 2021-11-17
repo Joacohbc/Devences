@@ -53,6 +53,7 @@ tipoDeIngreso enum('Ingreso Normal', 'Ingreso de alojados', 'Ingreso Jubilados/P
 precioTotal int(11) not null,
 #Predeterminadamente estara No Confirmada
 estado enum('Confirmada','No Confirmada', 'Eliminada' ,'Cancelada', 'Finalizada') default 'No Confirmada',
+fechaRegistro timestamp default current_timestamp(),
 formaDePago enum('Credito', 'Debito', 'Contado') not null,
 primary key(id, ci, inicio, estado),
 foreign key(ci) references cliente(ci)
