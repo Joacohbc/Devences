@@ -366,7 +366,7 @@ namespace Capa_Presentacion.Formularios
 
                                             if (iguales)
                                             {
-                                                Mensaje.MostrarError("Los datos son iguales, cambie algun dato antes de realizar la modificacion", Mensaje.ErrorBD);
+                                                Mensaje.MostrarError("Los datos son iguales, cambie algun dato antes de realizar la modificacion", Mensaje.ErrorIngreso);
                                                 return false;
                                             }
                                         }

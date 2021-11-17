@@ -175,5 +175,75 @@ namespace Capa_de_Datos
                 if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Modificar Empleado: " + empleado.Ci);
             }
         }
+
+        public int modificarPreciosIngreso(int precioNormal, int precioNormalAntes, int precioAlojado, int precioAlojadoAntes, int precioJub, int precioJubAntes)
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = String.Format(
+                "UPDATE parametros SET valor='{0}' WHERE titulo='Ingreso Jubilados/Pensionistas' and valor='{1}'; " +
+                "UPDATE parametros SET valor = '{2}' WHERE titulo = 'Ingreso de alojados' and valor = '{3}';" +
+                "UPDATE parametros SET valor = '{4}' WHERE titulo = 'Ingreso Normal' and valor = '{5}';",
+                precioJub, precioJubAntes,
+                precioAlojado, precioAlojadoAntes,
+                precioNormal, precioNormalAntes);
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                MySqlCommand update = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                return update.ExecuteNonQuery();
+
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return -1;
+            }
+            finally
+            {
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Cambio de precios de ingreso");
+            }
+        }
+
+        public int modificarHorarios(String entradaSpa, String entradaSpaAntes, String entradaVest, String entradaVestAntes, String salidaSpa, String salidaSpaAntes, String salidaVest,
+            String salidaVestAntes)
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = String.Format("" +
+                "UPDATE parametros SET valor='{0}' WHERE titulo='Horario entrada' and valor='{1}';" +
+                "UPDATE parametros SET valor = '{2}' WHERE titulo = 'Horario entrada a vestuarios' and valor = '{3}';" +
+                "UPDATE parametros SET valor = '{4}' WHERE titulo = 'Horario salida' and valor = '{5}';" +
+                "UPDATE parametros SET valor = '{6}' WHERE titulo = 'Horario salida de vestuarios' and valor = '{7}';",
+                entradaSpa, entradaSpaAntes,
+                entradaVest, entradaVestAntes,
+                salidaSpa, salidaSpaAntes,
+                salidaVest, salidaVestAntes);
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                MySqlCommand update = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                return update.ExecuteNonQuery();
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return -1;
+            }
+            finally
+            {
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Modificacion de Horarios");
+            }
+        }
     }
 }

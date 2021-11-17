@@ -52,13 +52,10 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtContra = new System.Windows.Forms.TextBox();
             this.txtNomUsu = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtCargoActual = new System.Windows.Forms.TextBox();
             this.chkModificarNoBinario = new System.Windows.Forms.CheckBox();
             this.chkModificarMujer = new System.Windows.Forms.CheckBox();
             this.chkModificarHombre = new System.Windows.Forms.CheckBox();
@@ -94,8 +91,8 @@
             this.label27 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.chkMostrarContra = new System.Windows.Forms.CheckBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cmbCargo = new System.Windows.Forms.ComboBox();
             this.pnTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -341,16 +338,6 @@
             this.label11.TabIndex = 107;
             this.label11.Text = "Datos Personales a Modificar";
             // 
-            // txtContra
-            // 
-            this.txtContra.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtContra.Enabled = false;
-            this.txtContra.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContra.Location = new System.Drawing.Point(130, 536);
-            this.txtContra.Name = "txtContra";
-            this.txtContra.Size = new System.Drawing.Size(166, 17);
-            this.txtContra.TabIndex = 114;
-            // 
             // txtNomUsu
             // 
             this.txtNomUsu.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -371,16 +358,6 @@
             this.label14.TabIndex = 111;
             this.label14.Text = "Cargo";
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(40, 534);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(85, 18);
-            this.label13.TabIndex = 110;
-            this.label13.Text = "Contraseña";
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -400,16 +377,6 @@
             this.label16.Size = new System.Drawing.Size(270, 26);
             this.label16.TabIndex = 108;
             this.label16.Text = "Datos de Usuario Actuales";
-            // 
-            // txtCargoActual
-            // 
-            this.txtCargoActual.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCargoActual.Enabled = false;
-            this.txtCargoActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCargoActual.Location = new System.Drawing.Point(130, 472);
-            this.txtCargoActual.Name = "txtCargoActual";
-            this.txtCargoActual.Size = new System.Drawing.Size(166, 17);
-            this.txtCargoActual.TabIndex = 115;
             // 
             // chkModificarNoBinario
             // 
@@ -822,30 +789,24 @@
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // chkMostrarContra
-            // 
-            this.chkMostrarContra.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkMostrarContra.BackColor = System.Drawing.Color.Transparent;
-            this.chkMostrarContra.Checked = true;
-            this.chkMostrarContra.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkMostrarContra.FlatAppearance.BorderSize = 0;
-            this.chkMostrarContra.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.chkMostrarContra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.chkMostrarContra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.chkMostrarContra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkMostrarContra.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.chkMostrarContra.Image = global::Capa_Presentacion.Properties.Resources.ojo;
-            this.chkMostrarContra.Location = new System.Drawing.Point(307, 526);
-            this.chkMostrarContra.Name = "chkMostrarContra";
-            this.chkMostrarContra.Size = new System.Drawing.Size(32, 32);
-            this.chkMostrarContra.TabIndex = 151;
-            this.chkMostrarContra.UseVisualStyleBackColor = false;
-            this.chkMostrarContra.Visible = false;
-            this.chkMostrarContra.CheckedChanged += new System.EventHandler(this.chkMostrarContra_CheckedChanged);
-            // 
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
+            // 
+            // cmbCargo
+            // 
+            this.cmbCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCargo.Enabled = false;
+            this.cmbCargo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.cmbCargo.FormattingEnabled = true;
+            this.cmbCargo.Items.AddRange(new object[] {
+            "Administrativo",
+            "Gerente"});
+            this.cmbCargo.Location = new System.Drawing.Point(130, 469);
+            this.cmbCargo.Name = "cmbCargo";
+            this.cmbCargo.Size = new System.Drawing.Size(166, 23);
+            this.cmbCargo.TabIndex = 151;
             // 
             // frmModifEmpleados
             // 
@@ -853,7 +814,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1000, 605);
-            this.Controls.Add(this.chkMostrarContra);
+            this.Controls.Add(this.cmbCargo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.cmbCargoMod);
@@ -889,11 +850,8 @@
             this.Controls.Add(this.chkModificarNoBinario);
             this.Controls.Add(this.chkModificarMujer);
             this.Controls.Add(this.chkModificarHombre);
-            this.Controls.Add(this.txtCargoActual);
-            this.Controls.Add(this.txtContra);
             this.Controls.Add(this.txtNomUsu);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label11);
@@ -953,13 +911,10 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtContra;
         private System.Windows.Forms.TextBox txtNomUsu;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox txtCargoActual;
         private System.Windows.Forms.CheckBox chkModificarNoBinario;
         private System.Windows.Forms.CheckBox chkModificarMujer;
         private System.Windows.Forms.CheckBox chkModificarHombre;
@@ -995,7 +950,7 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.CheckBox chkMostrarContra;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.ComboBox cmbCargo;
     }
 }

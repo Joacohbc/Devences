@@ -54,7 +54,7 @@ namespace Capa_de_Datos
         /// <summary>
         /// Se agrega un nuevo registro
         /// </summary>
-        /// <param name="ci"> La cedula del Empleado que realizo el registro</param>
+        /// <param namAe="ci"> La cedula del Empleado que realizo el registro</param>
         /// <param name="sentenciaIngresada"> Sentencia que ejecuto</param>
         /// <param name="descripcion"> Descripcion de la sentencia que se ejecuto</param>
         /// <returns> Retorna 1 de si exitosa y retonar -1 si ocurrio un error</returns>
@@ -183,7 +183,7 @@ namespace Capa_de_Datos
         public int altaReserva(Reserva reserva, List<Integrantes> integrantes)
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
-            String sentencia = String.Format("Insert into reserva values(0, {0}, '{1}','{2}','{3}',{4},'{5}','{6}');", reserva.Ci, reserva.Inicio.ToString("yyyy-MM-dd"),
+            String sentencia = String.Format("Insert into reserva values(0, {0}, '{1}','{2}','{3}',{4},'{5}','{6}',current_timestamp());", reserva.Ci, reserva.Inicio.ToString("yyyy-MM-dd"),
                 reserva.Fin.ToString("yyyy-MM-dd"), reserva.TipoDeIngreso, reserva.PrecioTotal, reserva.Estado, reserva.FormaDePago);
 
             //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 

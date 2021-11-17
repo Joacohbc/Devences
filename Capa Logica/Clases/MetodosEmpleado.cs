@@ -347,6 +347,8 @@ namespace Capa_Logica.Clases
             return tiposDeIngresosRetonar;
         }
 
+        public List<String> traerHorarios() => consultas.traerHorarios();
+
         /// <summary>
         /// Valida que una reserva sea valida, si no retorna un Array Objet donde el Index 1 es Null(error en cedula), -1(Si el Titular es un Integrante), -2(titular no existe), -3(error al buscar titular),-4(error en fechas)
         /// </summary>
@@ -726,8 +728,18 @@ namespace Capa_Logica.Clases
 
         #region Metodos De Moficacion de Empleado
         public int modificarEmpleado(Empleado empleado) => modificaciones.modificarEmpleado(empleado);
-        
 
+
+        #endregion
+
+        #region Metodos De Moficacion de Precios y Horarios
+        public int modificarPreciosIngreso(int precioNormal, int precioNormalAntes, int precioAlojado, int precioAlojadoAntes, int precioJub, int precioJubAntes) =>
+            modificaciones.modificarPreciosIngreso(precioNormal, precioNormalAntes, precioAlojado, precioAlojadoAntes, precioJub, precioJubAntes);
+
+        public List<String[]> traerTiposDeIngresoPorSeparado() => consultas.traerTiposDeIngreso();
+
+        public int modificarHorarios(String entradaSpa, String entradaSpaAntes, String entradaVest, String entradaVestAntes, String salidaSpa, String salidaSpaAntes, String salidaVest,
+            String salidaVestAntes) => modificaciones.modificarHorarios(entradaSpa, entradaSpaAntes, entradaVest, entradaVestAntes, salidaSpa, salidaSpaAntes, salidaVest, salidaSpaAntes);
         #endregion
     }
 }

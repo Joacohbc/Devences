@@ -690,6 +690,41 @@ namespace Capa_de_Datos
             }
         }
 
+        public List<String> traerHorarios()
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = "select valor from parametros where titulo like('Horario%'); ";
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                MySqlDataReader lector = select.ExecuteReader();
+
+                List<String> horarios = new List<string>();
+                while(lector.Read())
+                {
+                    horarios.Add(lector.GetString(0));
+                }
+
+                return horarios;
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return null;
+            }
+            finally
+            {
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consulta de horarios");
+            }
+        }
         #region Consultras de Reserva Avanzadas
 
         public int comprobarDiaEnReserva(int ci, DateTime dia)

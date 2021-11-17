@@ -35,7 +35,6 @@ namespace Capa_Presentacion.Formularios
             txtContraMod.UseSystemPasswordChar = true;
             txtConfContraMod.UseSystemPasswordChar = true;
         }
-
         //Cerarr form
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -208,21 +207,6 @@ namespace Capa_Presentacion.Formularios
         }
         #endregion
 
-        private void chkMostrarContra_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkMostrarContra.Checked)
-            {
-                txtContra.UseSystemPasswordChar = false;
-                chkMostrarContra.Image = Properties.Resources.ojo_cerrado;
-
-            }
-            else if (!chkMostrarContra.Checked)
-            {
-                txtContra.UseSystemPasswordChar = true;
-                chkMostrarContra.Image = Properties.Resources.ojo;
-            }
-        }
-
         //Buscar la deula
         private void btnBuscarCed_Click(object sender, EventArgs e)
         {
@@ -301,6 +285,7 @@ namespace Capa_Presentacion.Formularios
                         txtNomUsu.Text = empleado.Usuario;
                         txtNomUsuMod.Text = empleado.Usuario;
                         cmbCargoMod.SelectedIndex = empleado.Tipo;
+                        cmbCargo.SelectedIndex = empleado.Tipo;
 
                         //Deshabilito el poder ingresar la cedula
                         txtCedula.Enabled = false;
@@ -351,8 +336,6 @@ namespace Capa_Presentacion.Formularios
 
             }
 
-            chkMostrarContra.Checked = false;
-            chkMostrarContra.Visible = true;
         }
 
         //Valida que los campos no sean iguales
@@ -400,10 +383,16 @@ namespace Capa_Presentacion.Formularios
 
                                             if (iguales)
                                             {
-                                                if(txtNomUsuMod.Text == txtNomUsu.Text)
+                                                if (txtNomUsuMod.Text == txtNomUsu.Text)
                                                 {
-                                                    Mensaje.MostrarError("Los datos son iguales, cambie algun dato antes de realizar la modificacion", Mensaje.ErrorBD);
-                                                    return false;
+                                                    if (String.IsNullOrEmpty(txtContraMod.Text))
+                                                    {
+                                                        if (String.IsNullOrEmpty(txtContraMod.Text))
+                                                        {
+                                                            Mensaje.MostrarError("Los datos son iguales, cambie algun dato antes de realizar la modificacion", Mensaje.ErrorIngreso);
+                                                            return false;
+                                                        }
+                                                    }
                                                 }
                                             }
                                         }
@@ -427,7 +416,7 @@ namespace Capa_Presentacion.Formularios
                 //Limpio los TextBox
                 Control[] controles = { txtCedula, txtPrimerNombre, txtSegNomMod, txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, txtTelefono, txtPrimNomMod, txtSegNomMod,
                 txtApMod, txtAp2Mod, txtMailMod,txtDireMod, dtpNacimiento, dtpNacimientoMod, rdbHombre, rdbMujer, rdbNoBinario, chkModificarHombre, chkModificarMujer,
-                    chkModificarNoBinario, listTelefonos, listTelefonosMod, txtNomUsu,  txtNomUsuMod, txtContra, txtContraMod, txtConfContraMod};
+                    chkModificarNoBinario, listTelefonos, listTelefonosMod, txtNomUsu,  txtNomUsuMod, txtContraMod, txtConfContraMod};
 
                 //Le pongo la MaxDate nuevamente en Hoy
                 dtpNacimiento.MaxDate = DateTime.Parse(DateTime.Now.ToShortDateString());
@@ -464,10 +453,6 @@ namespace Capa_Presentacion.Formularios
                 txtContraMod.Enabled = false;
                 txtConfContraMod.Enabled = false;
 
-                //Contraenias
-                chkMostrarContra.Checked = true;
-                chkMostrarContra.Visible = false;
-
                 //Limpio todos los errores
                 errorProvider.Clear();
 
@@ -491,53 +476,66 @@ namespace Capa_Presentacion.Formularios
                         //estado(alta/baja)
                         int retorno = metodos.existeEmpleado(empleado.Ci);
 
-                        //Cliente existe
+                        //Empleado existe
                         if (retorno == 1)
                         {
-                            retorno = metodos.modificarPersona(empleado);
-                            if (retorno > 0)
+                            //Modificar Empleado
+                            if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar los datos personales del usuario?", "Modificar empleado"))
                             {
-                                retorno = metodos.modificarTelefonosPersona(empleado.Ci, empleado.Telefonos);
-
-                                if (retorno == 1)
+                                retorno = metodos.modificarPersona(empleado);
+                                if (retorno > 0)
                                 {
-                                    Mensaje.MostrarInfo("Se modificaron los datos personales del empleado con exito", "Modificar empleado");
+                                    retorno = metodos.modificarTelefonosPersona(empleado.Ci, empleado.Telefonos);
 
-                                    if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar de usuario tambien?", "Modificar empleado"))
+                                    if (retorno == 1)
                                     {
-                                        retorno = metodos.modificarEmpleado(empleado);
-                                        if (retorno > 0)
-                                        {
-                                            Mensaje.MostrarInfo("Se modificaron los datos de usuario del empleado con exito", "Modificar empleado");
-                                        }
-                                        else
-                                        {
-                                            Mensaje.MostrarError("Ocurrio un error al modificar al cliente", Mensaje.ErrorBD);
-                                        }
-
+                                        Mensaje.MostrarInfo("Se modificaron los datos personales del empleado con exito", "Modificar empleado");
+                                    }
+                                    else
+                                    {
+                                        Mensaje.MostrarError("Ocurrio un error al modificar los telefonos cliente, pero la persona se ha modificado correctamente", Mensaje.ErrorBD);
                                     }
                                 }
                                 else
                                 {
-                                    Mensaje.MostrarError("Ocurrio un error al modificar los telefonos cliente, pero la persona se ha modificado correctamente", Mensaje.ErrorBD);
+                                    Mensaje.MostrarError("Ocurrio un error al modificar al cliente", Mensaje.ErrorBD);
                                 }
+                            }
+
+                            //Modificar Usuario
+                            if (empleado.Ci == frmPrincipal.empleado.Ci)
+                            {
+                                Mensaje.MostrarInfo("Por medidas de seguridad, usted no puede modificar su propio usuario", "Modificar empleado");
                             }
                             else
                             {
-                                Mensaje.MostrarError("Ocurrio un error al modificar al cliente", Mensaje.ErrorBD);
-                            }
+                                if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar de usuario del empleado?", "Modificar empleado"))
+                                {
+                                    retorno = metodos.modificarEmpleado(empleado);
+                                    if (retorno > 0)
+                                    {
+                                        Mensaje.MostrarInfo("Se modificaron los datos de usuario del empleado con exito", "Modificar empleado");
+                                        btnCancelar.PerformClick();
 
+                                    }
+                                    else
+                                    {
+                                        Mensaje.MostrarError("Ocurrio un error al modificar al cliente", Mensaje.ErrorBD);
+                                    }
+                                }
+                            }
+                            
                         }
-                        //Cliente no existe
                         else if (retorno == 0)
                         {
-                            Mensaje.MostrarError("El cliente que ingreso no esta registrado", Mensaje.ErrorBD);
+                            Mensaje.MostrarError("El empleado que ingreso no esta registrado", Mensaje.ErrorBD);
                         }
                         else
                         {
-                            Mensaje.MostrarError("Ocurrio un error al buscar al cliente", Mensaje.ErrorBD);
+                            Mensaje.MostrarError("Ocurrio un error al buscar al empleado", Mensaje.ErrorBD);
                         }
                     }
+
                 }
             }
         }
