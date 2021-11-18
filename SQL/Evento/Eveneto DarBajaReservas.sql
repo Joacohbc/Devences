@@ -10,15 +10,16 @@ DO
 
 BEGIN
 	/*
-	Si la reserva tiene su fin es mayor a la fecha actual(osea que ya termino), y esta Confirmada, que se Finalize
+		Si el perido de una reserva confirmada vencio, es decir, la fecha de fin es anterior a la actual
+        esta sera finalizada
 	*/
-	update reserva set estado='Finalizada' where fin > current_date() and estado='Confirmada';
+	update reserva set estado='Finalizada' where fin < current_date() and estado='Confirmada';
 
 
 	/*
-	Si la reserva tiene su inicio mayor por un dia a la fecha actual, y esta No Confirmada, que se Elimine
+		Si la reserva esta No Confirmada y su fecha de registro pasa las 24hs sin confirmacio la reserva es eliminada
 	*/
-	update reserva set estado='Eliminada' where  datediff(fechaRegistro, current_timestamp()) > 1 and estado='No Confirmada';
+	update reserva set estado='Eliminada' where  timestampdiff(HOUR, fechaRegistro, current_timestamp()) >= 24 and estado='No Confirmada';
 END //
 
 delimiter ;
