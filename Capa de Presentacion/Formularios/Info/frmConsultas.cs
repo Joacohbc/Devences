@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capa_Logica;
 
 namespace Capa_Presentacion.Formularios
 {
@@ -17,9 +18,18 @@ namespace Capa_Presentacion.Formularios
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private Validaciones validar = new Validaciones();
+
+        private void btnSalir_Click(object sender, EventArgs e)
         {
-            Close();
+            if (validar.hayAlgo(this))
+            {
+                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacios ¿Quieres cerrar igual?", "Cerrar")) Close();
+            }
+            else
+            {
+                Close();
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Capa_Presentacion.Formularios.Servicios
 {
-    partial class frmRegServicios
+    partial class frmResServicios
     {
         /// <summary>
         /// Required designer variable.
@@ -77,9 +77,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 20);
+            this.label1.Size = new System.Drawing.Size(158, 20);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Registrar Servicios";
+            this.label1.Text = "Reservar Servicios";
             // 
             // panel1
             // 
@@ -292,7 +292,7 @@
             this.label2.TabIndex = 138;
             this.label2.Text = "Datos";
             // 
-            // frmRegServicios
+            // frmResServicios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -315,7 +315,7 @@
             this.Controls.Add(this.txtCedulaTitular);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmRegServicios";
+            this.Name = "frmResServicios";
             this.Text = "frmRegServicios";
             this.Load += new System.EventHandler(this.frmRegServicios_Load);
             this.panel1.ResumeLayout(false);
