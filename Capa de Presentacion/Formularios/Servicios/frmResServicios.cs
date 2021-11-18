@@ -13,13 +13,13 @@ using System.Windows.Forms;
 
 namespace Capa_Presentacion.Formularios.Servicios
 {
-    public partial class frmRegServicios : Form
+    public partial class frmResServicios : Form
     {
         private Validaciones validar = new Validaciones();
 
         private List<Capa_Entidades.Servicios> servicios;
 
-        public frmRegServicios()
+        public frmResServicios()
         {
             InitializeComponent();
             errorProvider.Icon = Properties.Resources.IconoError;

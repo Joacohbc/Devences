@@ -157,7 +157,6 @@ C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Pre
 C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifReservas.resources
 C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegReservas.resources
 C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.Servicios.frmModifServicios.resources
-C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.Servicios.frmRegServicios.resources
 C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.frmLogin.resources
 C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.frmPrincipal.resources
 C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Properties.Resources.resources
@@ -232,3 +231,4 @@ C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CopyComplete
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.exe
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.pdb
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.Servicios.frmResServicios.resources

@@ -78,10 +78,9 @@
             this.pnForms.BackColor = System.Drawing.Color.White;
             this.pnForms.Controls.Add(this.picLogo);
             this.pnForms.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnForms.Location = new System.Drawing.Point(273, 49);
-            this.pnForms.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnForms.Location = new System.Drawing.Point(205, 40);
             this.pnForms.Name = "pnForms";
-            this.pnForms.Size = new System.Drawing.Size(1334, 745);
+            this.pnForms.Size = new System.Drawing.Size(1000, 605);
             this.pnForms.TabIndex = 2;
             // 
             // picLogo
@@ -89,10 +88,9 @@
             this.picLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.picLogo.BackColor = System.Drawing.Color.SteelBlue;
             this.picLogo.Image = global::Capa_Presentacion.Properties.Resources.logoAzul;
-            this.picLogo.Location = new System.Drawing.Point(342, 246);
-            this.picLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picLogo.Location = new System.Drawing.Point(256, 200);
             this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(504, 182);
+            this.picLogo.Size = new System.Drawing.Size(378, 148);
             this.picLogo.TabIndex = 0;
             this.picLogo.TabStop = false;
             // 
@@ -110,10 +108,9 @@
             this.pnMenu.Controls.Add(this.pnSubMenuInfo);
             this.pnMenu.Controls.Add(this.btnMenuInfo);
             this.pnMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnMenu.Location = new System.Drawing.Point(0, 49);
-            this.pnMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnMenu.Location = new System.Drawing.Point(0, 40);
             this.pnMenu.Name = "pnMenu";
-            this.pnMenu.Size = new System.Drawing.Size(232, 745);
+            this.pnMenu.Size = new System.Drawing.Size(174, 605);
             this.pnMenu.TabIndex = 1;
             // 
             // pnSubMenuGerente
@@ -122,10 +119,9 @@
             this.pnSubMenuGerente.Controls.Add(this.btnModifEmp);
             this.pnSubMenuGerente.Controls.Add(this.btnModifPyH);
             this.pnSubMenuGerente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnSubMenuGerente.Location = new System.Drawing.Point(0, 589);
-            this.pnSubMenuGerente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnSubMenuGerente.Location = new System.Drawing.Point(0, 480);
             this.pnSubMenuGerente.Name = "pnSubMenuGerente";
-            this.pnSubMenuGerente.Size = new System.Drawing.Size(232, 129);
+            this.pnSubMenuGerente.Size = new System.Drawing.Size(174, 105);
             this.pnSubMenuGerente.TabIndex = 17;
             this.pnSubMenuGerente.Visible = false;
             // 
@@ -139,9 +135,8 @@
             this.btnRegEmp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegEmp.Location = new System.Drawing.Point(0, 0);
-            this.btnRegEmp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRegEmp.Name = "btnRegEmp";
-            this.btnRegEmp.Size = new System.Drawing.Size(232, 43);
+            this.btnRegEmp.Size = new System.Drawing.Size(174, 35);
             this.btnRegEmp.TabIndex = 10;
             this.btnRegEmp.Text = "Registrar Empleados";
             this.btnRegEmp.UseVisualStyleBackColor = false;
@@ -156,10 +151,9 @@
             this.btnModifEmp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
             this.btnModifEmp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModifEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifEmp.Location = new System.Drawing.Point(0, 43);
-            this.btnModifEmp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModifEmp.Location = new System.Drawing.Point(0, 35);
             this.btnModifEmp.Name = "btnModifEmp";
-            this.btnModifEmp.Size = new System.Drawing.Size(232, 43);
+            this.btnModifEmp.Size = new System.Drawing.Size(174, 35);
             this.btnModifEmp.TabIndex = 11;
             this.btnModifEmp.Text = "Modificar Empleados";
             this.btnModifEmp.UseVisualStyleBackColor = false;
@@ -174,10 +168,9 @@
             this.btnModifPyH.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
             this.btnModifPyH.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModifPyH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifPyH.Location = new System.Drawing.Point(0, 86);
-            this.btnModifPyH.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModifPyH.Location = new System.Drawing.Point(0, 70);
             this.btnModifPyH.Name = "btnModifPyH";
-            this.btnModifPyH.Size = new System.Drawing.Size(232, 43);
+            this.btnModifPyH.Size = new System.Drawing.Size(174, 35);
             this.btnModifPyH.TabIndex = 12;
             this.btnModifPyH.Text = "Modificar Precios";
             this.btnModifPyH.UseVisualStyleBackColor = false;
@@ -194,11 +187,10 @@
             this.btnMenuGerente.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnMenuGerente.Image = global::Capa_Presentacion.Properties.Resources.gerente;
             this.btnMenuGerente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuGerente.Location = new System.Drawing.Point(0, 540);
-            this.btnMenuGerente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenuGerente.Location = new System.Drawing.Point(0, 440);
             this.btnMenuGerente.Name = "btnMenuGerente";
-            this.btnMenuGerente.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnMenuGerente.Size = new System.Drawing.Size(232, 49);
+            this.btnMenuGerente.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnMenuGerente.Size = new System.Drawing.Size(174, 40);
             this.btnMenuGerente.TabIndex = 17;
             this.btnMenuGerente.Text = "   Gerencia";
             this.btnMenuGerente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -210,10 +202,9 @@
             this.pnSubMenuServicios.Controls.Add(this.btnModifServ);
             this.pnSubMenuServicios.Controls.Add(this.btnRegServ);
             this.pnSubMenuServicios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnSubMenuServicios.Location = new System.Drawing.Point(0, 454);
-            this.pnSubMenuServicios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnSubMenuServicios.Location = new System.Drawing.Point(0, 370);
             this.pnSubMenuServicios.Name = "pnSubMenuServicios";
-            this.pnSubMenuServicios.Size = new System.Drawing.Size(232, 86);
+            this.pnSubMenuServicios.Size = new System.Drawing.Size(174, 70);
             this.pnSubMenuServicios.TabIndex = 17;
             this.pnSubMenuServicios.Visible = false;
             // 
@@ -226,10 +217,9 @@
             this.btnModifServ.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
             this.btnModifServ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModifServ.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifServ.Location = new System.Drawing.Point(0, 43);
-            this.btnModifServ.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModifServ.Location = new System.Drawing.Point(0, 35);
             this.btnModifServ.Name = "btnModifServ";
-            this.btnModifServ.Size = new System.Drawing.Size(232, 43);
+            this.btnModifServ.Size = new System.Drawing.Size(174, 35);
             this.btnModifServ.TabIndex = 18;
             this.btnModifServ.Text = "Modificar Servicios";
             this.btnModifServ.UseVisualStyleBackColor = false;
@@ -245,11 +235,10 @@
             this.btnRegServ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegServ.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegServ.Location = new System.Drawing.Point(0, 0);
-            this.btnRegServ.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRegServ.Name = "btnRegServ";
-            this.btnRegServ.Size = new System.Drawing.Size(232, 43);
+            this.btnRegServ.Size = new System.Drawing.Size(174, 35);
             this.btnRegServ.TabIndex = 17;
-            this.btnRegServ.Text = "Registrar Servicios";
+            this.btnRegServ.Text = "Reservar Servicios";
             this.btnRegServ.UseVisualStyleBackColor = false;
             this.btnRegServ.Click += new System.EventHandler(this.btnRegServ_Click);
             // 
@@ -264,11 +253,10 @@
             this.btnMenuServicios.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnMenuServicios.Image = global::Capa_Presentacion.Properties.Resources.servicios;
             this.btnMenuServicios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuServicios.Location = new System.Drawing.Point(0, 405);
-            this.btnMenuServicios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenuServicios.Location = new System.Drawing.Point(0, 330);
             this.btnMenuServicios.Name = "btnMenuServicios";
-            this.btnMenuServicios.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnMenuServicios.Size = new System.Drawing.Size(232, 49);
+            this.btnMenuServicios.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnMenuServicios.Size = new System.Drawing.Size(174, 40);
             this.btnMenuServicios.TabIndex = 17;
             this.btnMenuServicios.Text = "   Servicios";
             this.btnMenuServicios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -280,10 +268,9 @@
             this.pnSubMenuReservas.Controls.Add(this.btnModifRes);
             this.pnSubMenuReservas.Controls.Add(this.btnIngRes);
             this.pnSubMenuReservas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnSubMenuReservas.Location = new System.Drawing.Point(0, 319);
-            this.pnSubMenuReservas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnSubMenuReservas.Location = new System.Drawing.Point(0, 260);
             this.pnSubMenuReservas.Name = "pnSubMenuReservas";
-            this.pnSubMenuReservas.Size = new System.Drawing.Size(232, 86);
+            this.pnSubMenuReservas.Size = new System.Drawing.Size(174, 70);
             this.pnSubMenuReservas.TabIndex = 17;
             this.pnSubMenuReservas.Visible = false;
             // 
@@ -296,10 +283,9 @@
             this.btnModifRes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
             this.btnModifRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModifRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifRes.Location = new System.Drawing.Point(0, 43);
-            this.btnModifRes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModifRes.Location = new System.Drawing.Point(0, 35);
             this.btnModifRes.Name = "btnModifRes";
-            this.btnModifRes.Size = new System.Drawing.Size(232, 43);
+            this.btnModifRes.Size = new System.Drawing.Size(174, 35);
             this.btnModifRes.TabIndex = 17;
             this.btnModifRes.Text = "Modificar Reservas";
             this.btnModifRes.UseVisualStyleBackColor = false;
@@ -315,9 +301,8 @@
             this.btnIngRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIngRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngRes.Location = new System.Drawing.Point(0, 0);
-            this.btnIngRes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnIngRes.Name = "btnIngRes";
-            this.btnIngRes.Size = new System.Drawing.Size(232, 43);
+            this.btnIngRes.Size = new System.Drawing.Size(174, 35);
             this.btnIngRes.TabIndex = 8;
             this.btnIngRes.Text = "Ingresar Reservas";
             this.btnIngRes.UseVisualStyleBackColor = false;
@@ -334,11 +319,10 @@
             this.btnMenuReservas.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnMenuReservas.Image = global::Capa_Presentacion.Properties.Resources.reservas;
             this.btnMenuReservas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuReservas.Location = new System.Drawing.Point(0, 270);
-            this.btnMenuReservas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenuReservas.Location = new System.Drawing.Point(0, 220);
             this.btnMenuReservas.Name = "btnMenuReservas";
-            this.btnMenuReservas.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnMenuReservas.Size = new System.Drawing.Size(232, 49);
+            this.btnMenuReservas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnMenuReservas.Size = new System.Drawing.Size(174, 40);
             this.btnMenuReservas.TabIndex = 17;
             this.btnMenuReservas.Text = "   Reservas";
             this.btnMenuReservas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -350,10 +334,9 @@
             this.pnSubMenuClientes.Controls.Add(this.btnRegCli);
             this.pnSubMenuClientes.Controls.Add(this.btnModifCli);
             this.pnSubMenuClientes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnSubMenuClientes.Location = new System.Drawing.Point(0, 184);
-            this.pnSubMenuClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnSubMenuClientes.Location = new System.Drawing.Point(0, 150);
             this.pnSubMenuClientes.Name = "pnSubMenuClientes";
-            this.pnSubMenuClientes.Size = new System.Drawing.Size(232, 86);
+            this.pnSubMenuClientes.Size = new System.Drawing.Size(174, 70);
             this.pnSubMenuClientes.TabIndex = 15;
             this.pnSubMenuClientes.Visible = false;
             // 
@@ -367,9 +350,8 @@
             this.btnRegCli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegCli.Location = new System.Drawing.Point(0, 0);
-            this.btnRegCli.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRegCli.Name = "btnRegCli";
-            this.btnRegCli.Size = new System.Drawing.Size(232, 43);
+            this.btnRegCli.Size = new System.Drawing.Size(174, 35);
             this.btnRegCli.TabIndex = 6;
             this.btnRegCli.Text = "Registrar Clientes";
             this.btnRegCli.UseVisualStyleBackColor = false;
@@ -384,10 +366,9 @@
             this.btnModifCli.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
             this.btnModifCli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModifCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifCli.Location = new System.Drawing.Point(0, 43);
-            this.btnModifCli.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModifCli.Location = new System.Drawing.Point(0, 35);
             this.btnModifCli.Name = "btnModifCli";
-            this.btnModifCli.Size = new System.Drawing.Size(232, 43);
+            this.btnModifCli.Size = new System.Drawing.Size(174, 35);
             this.btnModifCli.TabIndex = 7;
             this.btnModifCli.Text = "Modificar Clientes";
             this.btnModifCli.UseVisualStyleBackColor = false;
@@ -404,11 +385,10 @@
             this.btnMenuClientes.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnMenuClientes.Image = global::Capa_Presentacion.Properties.Resources.clientes;
             this.btnMenuClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuClientes.Location = new System.Drawing.Point(0, 135);
-            this.btnMenuClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenuClientes.Location = new System.Drawing.Point(0, 110);
             this.btnMenuClientes.Name = "btnMenuClientes";
-            this.btnMenuClientes.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnMenuClientes.Size = new System.Drawing.Size(232, 49);
+            this.btnMenuClientes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnMenuClientes.Size = new System.Drawing.Size(174, 40);
             this.btnMenuClientes.TabIndex = 14;
             this.btnMenuClientes.Text = "   Clientes";
             this.btnMenuClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -420,10 +400,9 @@
             this.pnSubMenuInfo.Controls.Add(this.btnInfoPyH);
             this.pnSubMenuInfo.Controls.Add(this.btnConsultas);
             this.pnSubMenuInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnSubMenuInfo.Location = new System.Drawing.Point(0, 49);
-            this.pnSubMenuInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnSubMenuInfo.Location = new System.Drawing.Point(0, 40);
             this.pnSubMenuInfo.Name = "pnSubMenuInfo";
-            this.pnSubMenuInfo.Size = new System.Drawing.Size(232, 86);
+            this.pnSubMenuInfo.Size = new System.Drawing.Size(174, 70);
             this.pnSubMenuInfo.TabIndex = 13;
             this.pnSubMenuInfo.Visible = false;
             // 
@@ -437,10 +416,9 @@
             this.btnInfoPyH.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInfoPyH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInfoPyH.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnInfoPyH.Location = new System.Drawing.Point(0, 43);
-            this.btnInfoPyH.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInfoPyH.Location = new System.Drawing.Point(0, 35);
             this.btnInfoPyH.Name = "btnInfoPyH";
-            this.btnInfoPyH.Size = new System.Drawing.Size(232, 43);
+            this.btnInfoPyH.Size = new System.Drawing.Size(174, 35);
             this.btnInfoPyH.TabIndex = 4;
             this.btnInfoPyH.Text = "Precios y Horarios";
             this.btnInfoPyH.UseVisualStyleBackColor = false;
@@ -456,9 +434,9 @@
             this.btnConsultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultas.Location = new System.Drawing.Point(0, 0);
-            this.btnConsultas.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.btnConsultas.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.btnConsultas.Name = "btnConsultas";
-            this.btnConsultas.Size = new System.Drawing.Size(232, 43);
+            this.btnConsultas.Size = new System.Drawing.Size(174, 35);
             this.btnConsultas.TabIndex = 5;
             this.btnConsultas.Text = "Consultas";
             this.btnConsultas.UseVisualStyleBackColor = false;
@@ -476,10 +454,9 @@
             this.btnMenuInfo.Image = global::Capa_Presentacion.Properties.Resources.informacion;
             this.btnMenuInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuInfo.Location = new System.Drawing.Point(0, 0);
-            this.btnMenuInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMenuInfo.Name = "btnMenuInfo";
-            this.btnMenuInfo.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnMenuInfo.Size = new System.Drawing.Size(232, 49);
+            this.btnMenuInfo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnMenuInfo.Size = new System.Drawing.Size(174, 40);
             this.btnMenuInfo.TabIndex = 6;
             this.btnMenuInfo.Text = "   información";
             this.btnMenuInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -495,9 +472,8 @@
             this.pnBarra.Controls.Add(this.picUsuario);
             this.pnBarra.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnBarra.Location = new System.Drawing.Point(0, 0);
-            this.pnBarra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnBarra.Name = "pnBarra";
-            this.pnBarra.Size = new System.Drawing.Size(1607, 49);
+            this.pnBarra.Size = new System.Drawing.Size(1205, 40);
             this.pnBarra.TabIndex = 0;
             // 
             // btnCerrarSesion
@@ -506,10 +482,9 @@
             this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrarSesion.Image = global::Capa_Presentacion.Properties.Resources.salida_de_emergencia;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(1556, 5);
-            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(1166, 4);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(43, 34);
+            this.btnCerrarSesion.Size = new System.Drawing.Size(32, 28);
             this.btnCerrarSesion.TabIndex = 2;
             this.btnCerrarSesion.UseVisualStyleBackColor = true;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
@@ -519,10 +494,9 @@
             this.lblUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(1416, 14);
-            this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUsuario.Location = new System.Drawing.Point(1061, 11);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(114, 18);
+            this.lblUsuario.Size = new System.Drawing.Size(97, 15);
             this.lblUsuario.TabIndex = 1;
             this.lblUsuario.Text = "Administrativo";
             // 
@@ -530,10 +504,9 @@
             // 
             this.picUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picUsuario.Image = global::Capa_Presentacion.Properties.Resources.usuario;
-            this.picUsuario.Location = new System.Drawing.Point(1377, 9);
-            this.picUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picUsuario.Location = new System.Drawing.Point(1032, 7);
             this.picUsuario.Name = "picUsuario";
-            this.picUsuario.Size = new System.Drawing.Size(32, 30);
+            this.picUsuario.Size = new System.Drawing.Size(24, 24);
             this.picUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picUsuario.TabIndex = 0;
             this.picUsuario.TabStop = false;
@@ -543,10 +516,9 @@
             this.pnMenuSize.BackColor = System.Drawing.Color.SteelBlue;
             this.pnMenuSize.Controls.Add(this.btnMinimizarMenu);
             this.pnMenuSize.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnMenuSize.Location = new System.Drawing.Point(232, 49);
-            this.pnMenuSize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnMenuSize.Location = new System.Drawing.Point(174, 40);
             this.pnMenuSize.Name = "pnMenuSize";
-            this.pnMenuSize.Size = new System.Drawing.Size(40, 745);
+            this.pnMenuSize.Size = new System.Drawing.Size(30, 605);
             this.pnMenuSize.TabIndex = 3;
             // 
             // btnMinimizarMenu
@@ -554,10 +526,9 @@
             this.btnMinimizarMenu.FlatAppearance.BorderSize = 0;
             this.btnMinimizarMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizarMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizarMenu.Image")));
-            this.btnMinimizarMenu.Location = new System.Drawing.Point(1, 6);
-            this.btnMinimizarMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMinimizarMenu.Location = new System.Drawing.Point(1, 5);
             this.btnMinimizarMenu.Name = "btnMinimizarMenu";
-            this.btnMinimizarMenu.Size = new System.Drawing.Size(40, 37);
+            this.btnMinimizarMenu.Size = new System.Drawing.Size(30, 30);
             this.btnMinimizarMenu.TabIndex = 0;
             this.btnMinimizarMenu.UseVisualStyleBackColor = true;
             this.btnMinimizarMenu.Click += new System.EventHandler(this.btnMinimizarMenu_Click);
@@ -567,26 +538,24 @@
             this.pnBordeMenu.BackColor = System.Drawing.Color.SteelBlue;
             this.pnBordeMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnBordeMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnBordeMenu.Location = new System.Drawing.Point(272, 49);
-            this.pnBordeMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnBordeMenu.Location = new System.Drawing.Point(204, 40);
             this.pnBordeMenu.Name = "pnBordeMenu";
-            this.pnBordeMenu.Size = new System.Drawing.Size(1, 745);
+            this.pnBordeMenu.Size = new System.Drawing.Size(1, 605);
             this.pnBordeMenu.TabIndex = 4;
             // 
             // frmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaShell;
-            this.ClientSize = new System.Drawing.Size(1607, 794);
+            this.ClientSize = new System.Drawing.Size(1205, 645);
             this.Controls.Add(this.pnForms);
             this.Controls.Add(this.pnBordeMenu);
             this.Controls.Add(this.pnMenuSize);
             this.Controls.Add(this.pnMenu);
             this.Controls.Add(this.pnBarra);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MinimumSize = new System.Drawing.Size(1327, 358);
+            this.MinimumSize = new System.Drawing.Size(999, 298);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Onsen Spa Termal";

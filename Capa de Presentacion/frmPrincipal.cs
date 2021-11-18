@@ -175,7 +175,7 @@ namespace Capa_Presentacion
 
         private void btnRegServ_Click(object sender, EventArgs e)
         {
-            AbrirFormularios<frmRegServicios>();
+            AbrirFormularios<frmResServicios>();
             btnRegServ.BackColor = Color.SkyBlue;
         }
 
