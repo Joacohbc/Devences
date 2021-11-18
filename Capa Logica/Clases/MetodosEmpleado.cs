@@ -114,6 +114,7 @@ namespace Capa_Logica.Clases
         private Altas altas;
         private Consultas consultas;
         private Modificaciones modificaciones;
+        private Bajas bajas;
 
         public MetodosEmpleado(int ci, int rol)
         {
@@ -122,6 +123,7 @@ namespace Capa_Logica.Clases
             altas = new Altas(rol, ci);
             consultas = new Consultas(rol, ci);
             modificaciones = new Modificaciones(rol, ci);
+            bajas = new Bajas(rol, ci);
         }
 
 
@@ -360,7 +362,6 @@ namespace Capa_Logica.Clases
                 Validaciones validaciones = new Validaciones();
                 if (validaciones.validarFechaPrimeraEsMenor(dtpFechaInicio.Value, dtpFechaFin.Value))
                 {
-
                     int existe = consultas.buscarCliente(Convert.ToInt32(txtCiTitular.Text));
 
                     if (existe == 1)
@@ -432,12 +433,11 @@ namespace Capa_Logica.Clases
         /// </summary>
         public int altaReserva(Reserva reserva, List<Integrantes> integrantes)
         {
+            List<String[]> tiposDeIngresosTraidosDB = consultas.traerTiposDeIngreso();
 
             //Si la reserva tiene integrantes
             if (integrantes.Count > 0)
             {
-                List<String[]> tiposDeIngresosTraidosDB = consultas.traerTiposDeIngreso();
-
                 //Recorro todos los integrantes
                 foreach (Integrantes i in integrantes)
                 {
@@ -457,17 +457,25 @@ namespace Capa_Logica.Clases
             //Calculo el Precio total en el Suma de los Ingreso X Cantidad de dias
 
             int diasReservados = (reserva.Fin - reserva.Inicio).Days;
-            /*
-             El metodos .Days devuevle la cantidad de dias entre 2 fechas, si hay 0 dias
-             sigmifica que reservo solo un dia. Osea dejamos el PrecioTotal tal como esta
 
-            Pero si deuvelve != a 0 hay que sumarle 2, el dia de inico y el dia de Fin
-             */
+            //Una funcion Lamba que devuelve el Dia como dd/MM/YYYY sin la hora
+            Func<DateTime, DateTime> soloDia = dia => DateTime.Parse(dia.ToShortDateString());
 
-            if (diasReservados != 0)
+            if (soloDia(reserva.Inicio) == soloDia(reserva.Fin))
             {
+             /*
+                Si el Primer dia y el Ultimo son el mismo no se hace ninguan multiplicacion, ya que seria
+                PrecioTotal x 1
+             */
+            }
+            else
+            {
+                //Si hay mas de un dia de diferencia, el " (reserva.Fin - reserva.Inicio).Days" solo devolvera
+                //la cantidad de dias entre Inicio y Fin pero no los contara, entoces se le suma 2
                 reserva.PrecioTotal = reserva.PrecioTotal * ((reserva.Fin - reserva.Inicio).Days + 2);
             }
+
+
 
             return altas.altaReserva(reserva, integrantes);
         }
@@ -483,13 +491,13 @@ namespace Capa_Logica.Clases
                 if (valido == 1)
                 {
                     //Si ya esta registrado
-                    Object[] yaExiste = {dia, 1};
+                    Object[] yaExiste = { dia, 1 };
                     return yaExiste;
                 }
                 else if (valido == -1)
                 {
                     //Si ocurrio un error
-                    Object[] error = { null, -1};
+                    Object[] error = { null, -1 };
                     return error;
                 }
             }
@@ -498,7 +506,7 @@ namespace Capa_Logica.Clases
              Si recorre todo todos los dias sin que existan sigmifica que todos
              los dias son validos
              */
-            Object[] retorno = { null, 0};
+            Object[] retorno = { null, 0 };
             return retorno;
         }
         #endregion
@@ -740,6 +748,91 @@ namespace Capa_Logica.Clases
 
         public int modificarHorarios(String entradaSpa, String entradaSpaAntes, String entradaVest, String entradaVestAntes, String salidaSpa, String salidaSpaAntes, String salidaVest,
             String salidaVestAntes) => modificaciones.modificarHorarios(entradaSpa, entradaSpaAntes, entradaVest, entradaVestAntes, salidaSpa, salidaSpaAntes, salidaVest, salidaSpaAntes);
+        #endregion
+
+        #region Metodos de Modificacion de Reserva
+        public List<Integrantes> traerIntegrantes(int id) => consultas.traerIntegrantes(id);
+
+        public int modificarReserva(Reserva reserva, List<Integrantes> integrantes, DateTime nuevoInicio, DateTime nuevoFin, String estado)
+        {
+
+            List<String[]> tiposDeIngresosTraidosDB = consultas.traerTiposDeIngreso();
+
+            //Si la reserva tiene integrantes
+            if (integrantes.Count > 0)
+            {
+                //Recorro todos los integrantes
+                foreach (Integrantes i in integrantes)
+                {
+                    //Busco su tipo de ingreso
+                    foreach (String[] tipoDeIngreso in tiposDeIngresosTraidosDB)
+                    {
+                        //Donde el tipo de ingreso sea igual al del integrante que le sume el precio del tipo de ingreso al total
+                        if (i.TipoDeIngreso == tipoDeIngreso[0])
+                        {
+                            reserva.PrecioTotal += Convert.ToInt32(tipoDeIngreso[1]);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            //Calculo el Precio total en el Suma de los Ingreso X Cantidad de dias
+            int diasReservados = (reserva.Fin - reserva.Inicio).Days;
+
+            //Una funcion Lamba que devuelve el Dia como dd/MM/YYYY sin la hora
+            Func<DateTime, DateTime> soloDia = dia => DateTime.Parse(dia.ToShortDateString());
+
+            if (soloDia(reserva.Inicio) == soloDia(reserva.Fin))
+            {
+                /*
+                   Si el Primer dia y el Ultimo son el mismo no se hace ninguan multiplicacion, ya que seria
+                   PrecioTotal x 1
+                */
+            }
+            else
+            {
+                //Si hay mas de un dia de diferencia, el " (reserva.Fin - reserva.Inicio).Days" solo devolvera
+                //la cantidad de dias entre Inicio y Fin pero no los contara, entoces se le suma 2
+                reserva.PrecioTotal = reserva.PrecioTotal * ((reserva.Fin - reserva.Inicio).Days + 2);
+            }
+
+            return modificaciones.modificarReserva(nuevoInicio, nuevoFin, reserva.PrecioTotal, estado, reserva);
+        }
+
+        public Object[] comprobarDiasTodosDiasReservasAModificar(int ci, int id, DateTime inicio, DateTime final)
+        {
+            //Recorro todos los dias de la reserva(contado Inicio y Fin) 
+            //y compruebo que ya no esten reservados en una reserva
+            for (DateTime dia = inicio; dia <= final; dia = dia.AddDays(1))
+            {
+                //Comprobar si ese dia ya esta registrado
+                int valido = consultas.comprobarDiaEnReservaAModificar(ci, id, dia);
+                if (valido == 1)
+                {
+                    //Si ya esta registrado
+                    Object[] yaExiste = { dia, 1 };
+                    return yaExiste;
+                }
+                else if (valido == -1)
+                {
+                    //Si ocurrio un error
+                    Object[] error = { null, -1 };
+                    return error;
+                }
+            }
+
+            /*
+             Si recorre todo todos los dias sin que existan sigmifica que todos
+             los dias son validos
+             */
+            Object[] retorno = { null, 0 };
+            return retorno;
+        }
+
+        public int comprobarCantidadServiciosEnReserva(int id) => consultas.comprobarCantidadServiciosEnReserva(id);
+
+        public int bajaReserva(int id) => bajas.cancelarReserva(id);
         #endregion
     }
 }

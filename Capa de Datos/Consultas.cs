@@ -608,6 +608,7 @@ namespace Capa_de_Datos
                 Reserva reserva = new Reserva();
                 if (lector.Read())
                 {
+                    reserva.Id = lector.GetInt32(0);
                     reserva.Ci = lector.GetInt32(1);
                     reserva.Inicio = lector.GetDateTime(2);
                     reserva.Fin = lector.GetDateTime(3);
@@ -690,6 +691,10 @@ namespace Capa_de_Datos
             }
         }
 
+        /// <summary>
+        /// Traer todos los horarios desde la base de datos, y Null si ocurrio un error
+        /// </summary>
+        /// <returns> Retonarna una Lista de horarios</returns>
         public List<String> traerHorarios()
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
@@ -725,14 +730,60 @@ namespace Capa_de_Datos
                 if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consulta de horarios");
             }
         }
+        
+        /// <summary>
+        /// Traer los integrantes de una reserva, si tiene.Si hay error envia Null
+        /// </summary>
+        /// <param name="id"> El ID de la Reserva de los integrantes</param>
+        /// <returns> Retorna un List de Integratnes, en caso de rror tira Null</returns>
+        public List<Integrantes> traerIntegrantes(int id)
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = String.Format("select * from integran where id = '{0}';", id);
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                MySqlDataReader lector = select.ExecuteReader();
+
+                List<Integrantes> integrantes = new List<Integrantes>();
+                while (lector.Read())
+                {
+                    Integrantes integrante = new Integrantes(lector.GetInt32(1), lector.GetString(2));
+                    integrantes.Add(integrante);
+                }
+                return integrantes;
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return null;
+            }
+            finally
+            {
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consultar datos de Integrantes: Cliente: " + ci);
+            }
+        }
+        
         #region Consultras de Reserva Avanzadas
 
+        /// <summary>
+        /// Comprueba si un dia indicado de ya esta reservado por determinado cliente
+        /// </summary>
+        /// <param name="ci"></param>
+        /// <param name="dia"></param>
+        /// <returns> 1 si el dia ya esta reservado, 0 si no lo esta y -1 si ocurrio un error</returns>
         public int comprobarDiaEnReserva(int ci, DateTime dia)
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
-            String sentencia = String.Format("call proyectoprueba.comprobarDiaEnReserva('{0}',{1});",
+            String sentencia = String.Format("call comprobarDiaEnReserva('{0}',{1});",
                 dia.ToString("yyyy-MM-dd"), ci);
-
 
             //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
             //si lo hara. SI es false si entre al catch, osea que hubo un error
@@ -745,12 +796,12 @@ namespace Capa_de_Datos
                 //Leo lo que devuelve
                 if (lector.Read())
                 {
-                    //Retorno la cantidad de reservas
+                    //Retorno ese dia esta reservado
                     return 1;
                 }
                 else
                 {
-                    //Retorno 0 si no hay ningun servicio
+                    //Retorno 0 si no esta reservado
                     return 0;
                 }
             }
@@ -768,6 +819,97 @@ namespace Capa_de_Datos
         }
 
         /// <summary>
+        /// Comprueba si un dia indicado de ya esta reservado en todas algunas de sus reservas(quitando la de el id
+        /// indiciado) por determinado cliente
+        /// </summary>
+        /// <param name="ci"> CI del cliente</param>
+        /// <param name="id"> Id de la reserva a ignorar</param>
+        /// <param name="dia"> Dia que quiero tomar en cuenta</param>
+        /// <returns> Retorna 1 si tiene la reserva, y 0 sino la tiene, y -1 si hay error</returns>
+        public int comprobarDiaEnReservaAModificar(int ci, int id, DateTime dia)
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = String.Format("select id from reserva where ('{0}' between inicio and fin) and ci={1} and id != '{2}' " +
+                "and estado not in ('Eliminada', 'Finalizada', 'Cancelada');",
+                dia.ToString("yyyy-MM-dd"), ci, id);
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                MySqlDataReader lector = select.ExecuteReader();
+                //Leo lo que devuelve
+                if (lector.Read())
+                {
+                    //Retorno la cantidad de reservas
+                    return 1;
+                }
+                else
+                {
+                    //Retorno 0 si no hay ninguna reserva
+                    return 0;
+                }
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return -1;
+            }
+            finally
+            {
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consulta si un dia pertenece a una reserva(quitando el id="+id+"): " + dia.ToString("yyyy-MM-dd") + " Reservas de:" + ci);
+            }
+        }
+
+        /// <summary>
+        /// Comprueba al cantidad de servicios que tiene una reserva
+        /// </summary>
+        /// <param name="id"> El id de la reserva</param>
+        /// <returns> Retorna la cantidad de servicios, 0 si no hay servicios y -1 si hay error </returns>
+        public int comprobarCantidadServiciosEnReserva(int id)
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = String.Format("select count(id) from contiene where id = '{0}' and estado = 'Confirmada';", id);
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                MySqlDataReader lector = select.ExecuteReader();
+                //Leo lo que devuelve
+                if (lector.Read())
+                {
+                    //Retorno la cantidad de servicios
+                    return lector.GetInt32(0);
+                }
+                else
+                {
+                    //Retorno 0 si no hay ningun servicio
+                    return 0;
+                }
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return -1;
+            }
+            finally
+            {
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Compruebo servicios de la reserva: " + id);
+            }
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="fechaInicio"></param>
@@ -777,7 +919,7 @@ namespace Capa_de_Datos
         public int cantidadDePersonasPorServicio(DateTime fechaInicio, DateTime fechaFin, String nombre)
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
-            String sentencia = String.Format("call proyectoprueba.MaxPersonasServicio('{0}', '{1}', '{2}');",
+            String sentencia = String.Format("call MaxPersonasServicio('{0}', '{1}', '{2}');",
                 fechaInicio.ToString("yyyy-MM-dd HH:mm:ss"), fechaFin.ToString("yyyy-MM-dd HH:mm:ss"), nombre);
 
 

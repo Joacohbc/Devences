@@ -245,5 +245,35 @@ namespace Capa_de_Datos
                 if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Modificacion de Horarios");
             }
         }
+
+        public int modificarReserva(DateTime nuevoInicio, DateTime nuevoFin, int nuevoPrecio, String estado, Reserva reserva)
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = String.Format("UPDATE reserva SET inicio='{0}', fin='{1}', precioTotal='{2}', estado='{3}' " +
+                                             "WHERE id = '{4}';",
+                                             nuevoInicio.ToString("yyyy-MM-dd"), nuevoFin.ToString("yyyy-MM-dd"), nuevoPrecio, estado, 
+                                             reserva.Id);
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                MySqlCommand update = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                return update.ExecuteNonQuery();
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return -1;
+            }
+            finally
+            {
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Modificar reserva: " + reserva.Id);
+            }
+        }
     }
 }

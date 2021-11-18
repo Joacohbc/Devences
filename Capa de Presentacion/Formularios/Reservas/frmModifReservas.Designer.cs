@@ -87,29 +87,29 @@
             // 
             this.dtpModificarFechaFin.Enabled = false;
             this.dtpModificarFechaFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpModificarFechaFin.Location = new System.Drawing.Point(214, 222);
+            this.dtpModificarFechaFin.Location = new System.Drawing.Point(211, 235);
             this.dtpModificarFechaFin.Name = "dtpModificarFechaFin";
-            this.dtpModificarFechaFin.Size = new System.Drawing.Size(208, 23);
+            this.dtpModificarFechaFin.Size = new System.Drawing.Size(240, 23);
             this.dtpModificarFechaFin.TabIndex = 111;
             // 
             // dtpModificarFechaInicio
             // 
-            this.dtpModificarFechaInicio.Enabled = false;
             this.dtpModificarFechaInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpModificarFechaInicio.Location = new System.Drawing.Point(214, 183);
+            this.dtpModificarFechaInicio.Location = new System.Drawing.Point(214, 202);
             this.dtpModificarFechaInicio.Name = "dtpModificarFechaInicio";
-            this.dtpModificarFechaInicio.Size = new System.Drawing.Size(208, 23);
+            this.dtpModificarFechaInicio.Size = new System.Drawing.Size(237, 23);
             this.dtpModificarFechaInicio.TabIndex = 110;
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Enabled = false;
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(290, 483);
+            this.btnCancelar.Location = new System.Drawing.Point(286, 483);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(132, 29);
+            this.btnCancelar.Size = new System.Drawing.Size(164, 29);
             this.btnCancelar.TabIndex = 108;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -117,13 +117,14 @@
             // 
             // btnModificar
             // 
+            this.btnModificar.Enabled = false;
             this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.Location = new System.Drawing.Point(126, 483);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(132, 29);
+            this.btnModificar.Size = new System.Drawing.Size(154, 29);
             this.btnModificar.TabIndex = 107;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
@@ -133,7 +134,7 @@
             // 
             this.lblFechFin.AutoSize = true;
             this.lblFechFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechFin.Location = new System.Drawing.Point(71, 227);
+            this.lblFechFin.Location = new System.Drawing.Point(76, 235);
             this.lblFechFin.Name = "lblFechFin";
             this.lblFechFin.Size = new System.Drawing.Size(129, 20);
             this.lblFechFin.TabIndex = 100;
@@ -143,7 +144,7 @@
             // 
             this.lblFechIn.AutoSize = true;
             this.lblFechIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechIn.Location = new System.Drawing.Point(60, 182);
+            this.lblFechIn.Location = new System.Drawing.Point(60, 201);
             this.lblFechIn.Name = "lblFechIn";
             this.lblFechIn.Size = new System.Drawing.Size(144, 20);
             this.lblFechIn.TabIndex = 99;
@@ -153,7 +154,7 @@
             // 
             this.lblCedTit.AutoSize = true;
             this.lblCedTit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCedTit.Location = new System.Drawing.Point(58, 116);
+            this.lblCedTit.Location = new System.Drawing.Point(57, 165);
             this.lblCedTit.Name = "lblCedTit";
             this.lblCedTit.Size = new System.Drawing.Size(106, 20);
             this.lblCedTit.TabIndex = 98;
@@ -163,7 +164,7 @@
             // 
             this.txtCedulaTitular.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCedulaTitular.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedulaTitular.Location = new System.Drawing.Point(180, 116);
+            this.txtCedulaTitular.Location = new System.Drawing.Point(179, 165);
             this.txtCedulaTitular.Name = "txtCedulaTitular";
             this.txtCedulaTitular.Size = new System.Drawing.Size(138, 19);
             this.txtCedulaTitular.TabIndex = 96;
@@ -176,9 +177,9 @@
             this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(333, 114);
+            this.btnBuscar.Location = new System.Drawing.Point(355, 162);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(89, 27);
+            this.btnBuscar.Size = new System.Drawing.Size(96, 27);
             this.btnBuscar.TabIndex = 115;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -186,18 +187,20 @@
             // 
             // dtpFechaFin
             // 
+            this.dtpFechaFin.Enabled = false;
             this.dtpFechaFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaFin.Location = new System.Drawing.Point(214, 334);
             this.dtpFechaFin.Name = "dtpFechaFin";
-            this.dtpFechaFin.Size = new System.Drawing.Size(207, 23);
+            this.dtpFechaFin.Size = new System.Drawing.Size(236, 23);
             this.dtpFechaFin.TabIndex = 119;
             // 
             // dtpFechaInicio
             // 
+            this.dtpFechaInicio.Enabled = false;
             this.dtpFechaInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaInicio.Location = new System.Drawing.Point(215, 295);
             this.dtpFechaInicio.Name = "dtpFechaInicio";
-            this.dtpFechaInicio.Size = new System.Drawing.Size(207, 23);
+            this.dtpFechaInicio.Size = new System.Drawing.Size(236, 23);
             this.dtpFechaInicio.TabIndex = 118;
             // 
             // label2
@@ -232,6 +235,7 @@
             // 
             // btnEliminarReserva
             // 
+            this.btnEliminarReserva.Enabled = false;
             this.btnEliminarReserva.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnEliminarReserva.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnEliminarReserva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -239,7 +243,7 @@
             this.btnEliminarReserva.Location = new System.Drawing.Point(126, 430);
             this.btnEliminarReserva.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminarReserva.Name = "btnEliminarReserva";
-            this.btnEliminarReserva.Size = new System.Drawing.Size(296, 28);
+            this.btnEliminarReserva.Size = new System.Drawing.Size(324, 28);
             this.btnEliminarReserva.TabIndex = 124;
             this.btnEliminarReserva.Text = "Eliminar reserva";
             this.btnEliminarReserva.UseVisualStyleBackColor = true;
@@ -252,6 +256,7 @@
             // chkConfirmada
             // 
             this.chkConfirmada.AutoSize = true;
+            this.chkConfirmada.Enabled = false;
             this.chkConfirmada.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkConfirmada.Location = new System.Drawing.Point(214, 375);
             this.chkConfirmada.Margin = new System.Windows.Forms.Padding(2);
@@ -260,6 +265,7 @@
             this.chkConfirmada.TabIndex = 125;
             this.chkConfirmada.Text = "Confirmada";
             this.chkConfirmada.UseVisualStyleBackColor = true;
+            this.chkConfirmada.Click += new System.EventHandler(this.chkConfirmada_Click);
             // 
             // dgvIntegrantes
             // 
@@ -308,7 +314,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 47);
+            this.panel1.Size = new System.Drawing.Size(1028, 47);
             this.panel1.TabIndex = 127;
             // 
             // frmModifReservas
@@ -316,7 +322,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(1000, 605);
+            this.ClientSize = new System.Drawing.Size(1028, 605);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvIntegrantes);
             this.Controls.Add(this.chkConfirmada);
