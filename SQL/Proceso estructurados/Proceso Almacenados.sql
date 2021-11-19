@@ -1,3 +1,5 @@
+drop procedure `comprobarDiaEnReserva`;
+
 DELIMITER $$
 CREATE PROCEDURE `comprobarDiaEnReserva`(in dia date, in cliente int)
 BEGIN

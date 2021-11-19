@@ -1,3 +1,5 @@
+drop procedure `MaxPersonasServicio`;
+
 DELIMITER $$
 CREATE PROCEDURE `MaxPersonasServicio`(in fechaInicio datetime, in fechaFin datetime, in nombreServicio varchar(50))
 BEGIN
