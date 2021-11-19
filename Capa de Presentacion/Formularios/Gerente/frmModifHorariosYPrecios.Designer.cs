@@ -81,14 +81,13 @@
             this.txtPrecServ = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.nudDurServMod = new System.Windows.Forms.NumericUpDown();
             this.nudPrecServMod = new System.Windows.Forms.NumericUpDown();
+            this.dtpDurServMod = new System.Windows.Forms.DateTimePicker();
             this.pnTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNormalMod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudIngAlojadosMod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudIngJubMod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDurServMod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecServMod)).BeginInit();
             this.SuspendLayout();
             // 
@@ -573,6 +572,7 @@
             this.cmbServicio.Name = "cmbServicio";
             this.cmbServicio.Size = new System.Drawing.Size(166, 24);
             this.cmbServicio.TabIndex = 149;
+            this.cmbServicio.SelectedIndexChanged += new System.EventHandler(this.cmbServicio_SelectedIndexChanged);
             // 
             // label17
             // 
@@ -636,21 +636,9 @@
             this.label23.TabIndex = 156;
             this.label23.Text = "Nuevo Precio";
             // 
-            // nudDurServMod
-            // 
-            this.nudDurServMod.Location = new System.Drawing.Point(690, 350);
-            this.nudDurServMod.Maximum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.nudDurServMod.Name = "nudDurServMod";
-            this.nudDurServMod.Size = new System.Drawing.Size(62, 20);
-            this.nudDurServMod.TabIndex = 158;
-            // 
             // nudPrecServMod
             // 
-            this.nudPrecServMod.Location = new System.Drawing.Point(675, 309);
+            this.nudPrecServMod.Location = new System.Drawing.Point(675, 311);
             this.nudPrecServMod.Maximum = new decimal(new int[] {
             0,
             0,
@@ -660,13 +648,22 @@
             this.nudPrecServMod.Size = new System.Drawing.Size(62, 20);
             this.nudPrecServMod.TabIndex = 159;
             // 
+            // dtpDurServMod
+            // 
+            this.dtpDurServMod.CustomFormat = "HH:mm";
+            this.dtpDurServMod.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDurServMod.Location = new System.Drawing.Point(683, 352);
+            this.dtpDurServMod.Name = "dtpDurServMod";
+            this.dtpDurServMod.ShowUpDown = true;
+            this.dtpDurServMod.Size = new System.Drawing.Size(52, 20);
+            this.dtpDurServMod.TabIndex = 138;
+            // 
             // frmModifHorariosYPrecios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1000, 605);
-            this.Controls.Add(this.nudDurServMod);
             this.Controls.Add(this.nudPrecServMod);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label23);
@@ -684,6 +681,7 @@
             this.Controls.Add(this.nudIngJubMod);
             this.Controls.Add(this.nudIngAlojadosMod);
             this.Controls.Add(this.nudNormalMod);
+            this.Controls.Add(this.dtpDurServMod);
             this.Controls.Add(this.dtpEntradaSpaMod);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnModificar);
@@ -728,7 +726,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudIngAlojadosMod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudIngJubMod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDurServMod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecServMod)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -779,7 +776,6 @@
         private System.Windows.Forms.NumericUpDown nudIngAlojadosMod;
         private System.Windows.Forms.NumericUpDown nudIngJubMod;
         private System.Windows.Forms.ErrorProvider errorProvider;
-        private System.Windows.Forms.NumericUpDown nudDurServMod;
         private System.Windows.Forms.NumericUpDown nudPrecServMod;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
@@ -791,5 +787,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox cmbServicio;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.DateTimePicker dtpDurServMod;
     }
 }

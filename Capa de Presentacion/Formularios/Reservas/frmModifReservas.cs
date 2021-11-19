@@ -15,8 +15,8 @@ namespace Capa_Presentacion.Formularios
 {
     public partial class frmModifReservas : Form
     {
-        Reserva reservaAModificar = new Reserva();
-        List<Integrantes> IntegrantesModificar = new List<Integrantes>();
+        private Reserva reservaAModificar = new Reserva();
+        private List<Integrantes> IntegrantesModificar = new List<Integrantes>();
 
         Validaciones validar = new Validaciones();
 
@@ -181,13 +181,9 @@ namespace Capa_Presentacion.Formularios
                                 }
 
                             }
-                            else if (retorno == 1)
-                            {
-                                Mensaje.MostrarError("La reserva ya comenzo, no se puede modificar", Mensaje.ErrorIngreso);
-                            }
                             else
                             {
-                                Mensaje.MostrarError("Ocurrio un error al combrobar el inicio de la reserva", Mensaje.ErrorBD);
+                                Mensaje.MostrarError("La reserva ya comenzo, no se puede modificar", Mensaje.ErrorIngreso);
                             }
                         }
                         else

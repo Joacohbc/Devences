@@ -209,6 +209,27 @@ namespace Capa_Logica.Clases
 
         public Empleado traerEmpleado(int ci) => consultas.traerEmpleado(ci);
 
+        public int estaDentroDeHorarios(DateTime inicio, DateTime fin)
+        {
+            List<String> horarios = consultas.traerHorarios();
+            if (horarios != null && horarios.Count > 0)
+            { 
+                if (inicio.TimeOfDay > DateTime.Parse(horarios[0]).TimeOfDay && fin.TimeOfDay < DateTime.Parse(horarios[2]).TimeOfDay)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            else
+            {
+                return -1;
+            }
+
+        }
+
         #region Metodos Altas Clientes
         /// <summary>
         /// Valida un cliente
@@ -463,10 +484,10 @@ namespace Capa_Logica.Clases
 
             if (soloDia(reserva.Inicio) == soloDia(reserva.Fin))
             {
-             /*
-                Si el Primer dia y el Ultimo son el mismo no se hace ninguan multiplicacion, ya que seria
-                PrecioTotal x 1
-             */
+                /*
+                   Si el Primer dia y el Ultimo son el mismo no se hace ninguan multiplicacion, ya que seria
+                   PrecioTotal x 1
+                */
             }
             else
             {
@@ -579,27 +600,14 @@ namespace Capa_Logica.Clases
 
         public int validarFechaServicio(Reserva reserva, DateTime inicioServicio)
         {
-            if (reserva == null)
+            Validaciones validar = new Validaciones();
+            if (validar.validarFechaIntermedia(inicioServicio, reserva.Inicio, reserva.Fin))
             {
-                //Ocurrio un error
-                return -1;
-            }
-            else if (reserva.Ci == -1)
-            {
-                //El cliente no tien una reserva ese dia
-                return 0;
+                return 1;
             }
             else
             {
-                Validaciones validar = new Validaciones();
-                if (validar.validarFechaIntermedia(inicioServicio, reserva.Inicio, reserva.Fin))
-                {
-                    return 1;
-                }
-                else
-                {
-                    return -2;
-                }
+                return -2;
             }
 
         }
@@ -748,6 +756,8 @@ namespace Capa_Logica.Clases
 
         public int modificarHorarios(String entradaSpa, String entradaSpaAntes, String entradaVest, String entradaVestAntes, String salidaSpa, String salidaSpaAntes, String salidaVest,
             String salidaVestAntes) => modificaciones.modificarHorarios(entradaSpa, entradaSpaAntes, entradaVest, entradaVestAntes, salidaSpa, salidaSpaAntes, salidaVest, salidaSpaAntes);
+
+        public int modificarPrecioServicio(Servicios servicios, int nuevoPrecio, String duracionNueva) => modificaciones.modificarPrecioServicio(servicios, nuevoPrecio, duracionNueva);
         #endregion
 
         #region Metodos de Modificacion de Reserva
@@ -833,6 +843,18 @@ namespace Capa_Logica.Clases
         public int comprobarCantidadServiciosEnReserva(int id) => consultas.comprobarCantidadServiciosEnReserva(id);
 
         public int bajaReserva(int id) => bajas.cancelarReserva(id);
+        #endregion
+
+        #region Metodos de Modificacion Servicios
+        public List<String[]> traerServiciosDeUnaReserva(int id) => consultas.traerServiciosDeUnaReserva(id);
+
+        public int modificarServicioReservado(String nombre, int id, DateTime nuevoInicio, TimeSpan duracion)
+        {
+            DateTime nuevoFin = (nuevoInicio + duracion);
+            return modificaciones.modificarServicioReservado(nombre, id, nuevoInicio, nuevoFin);
+        }
+
+        public int cancelarServicio(String nombre, int id) => bajas.cancelarServicio(nombre, id);
         #endregion
     }
 }

@@ -275,5 +275,62 @@ namespace Capa_de_Datos
                 if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Modificar reserva: " + reserva.Id);
             }
         }
+
+        public int modificarPrecioServicio(Servicios servicios, int nuevoPrecio, String duracionNueva)
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = String.Format("UPDATE servicio SET duracion='{1}', precio='{2}' WHERE nombre='{0}';", servicios.Nombre, duracionNueva, nuevoPrecio);
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                MySqlCommand update = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                return update.ExecuteNonQuery();
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return -1;
+            }
+            finally
+            {
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Modificar precio del servicio: " + servicios.Nombre);
+            }
+        }
+
+        public int modificarServicioReservado(String nombre, int id, DateTime nuevoInicio, DateTime nuevoFin)
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = String.Format("UPDATE contiene SET inicio='{2}', fin='{3}' WHERE id='{1}' and nombre='{0}';", nombre, id, 
+                nuevoInicio.ToString("yyyy-MM-dd HH:mm"), nuevoFin.ToString("yyyy-MM-dd HH:mm"));
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                MySqlCommand update = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                return update.ExecuteNonQuery();
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return -1;
+            }
+            finally
+            {
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Modificar servicio de la reserva con id: " + id);
+            }
+        }
+
+
     }
 }

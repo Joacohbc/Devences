@@ -81,6 +81,14 @@ namespace Capa_Logica
                         //Borra todas sus filas
                         ((ListBox)c).Items.Clear();
                     }
+                    //Si es un ListBox
+                    else if (c is ComboBox)
+                    {
+                        if (((ComboBox)c).Items.Count > 0)
+                        {
+                            ((ComboBox)c).SelectedIndex = 0;
+                        }
+                    }
 
                     //Le doy focus al primero
                     controles[0].Focus();

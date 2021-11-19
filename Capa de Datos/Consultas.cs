@@ -770,7 +770,42 @@ namespace Capa_de_Datos
                 if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consultar datos de Integrantes: Cliente: " + ci);
             }
         }
-        
+
+        public List<String[]> traerServiciosDeUnaReserva(int id)
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = String.Format("SELECT nombre, inicio, fin FROM contiene where id='{0}' and estado='Confirmada';", id);
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                MySqlDataReader lector = select.ExecuteReader();
+
+                List<String[]> servicios = new List<string[]>();
+                while (lector.Read())
+                {
+                    String[] servicio = { lector.GetString(0), lector.GetString(1), lector.GetString(2)};
+                    servicios.Add(servicio);
+                }
+                return servicios;
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return null;
+            }
+            finally
+            {
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consultar servicios de la Reserva: " + id);
+            }
+        }
+
         #region Consultras de Reserva Avanzadas
 
         /// <summary>
