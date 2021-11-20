@@ -109,7 +109,7 @@ namespace Capa_Presentacion
                 btnIngRes.BackColor = Color.PowderBlue;
             if (Application.OpenForms["frmModifReservas"] == null)
                 btnModifRes.BackColor = Color.PowderBlue;
-            if (Application.OpenForms["frmRegServicios"] == null)
+            if (Application.OpenForms["frmResServicios"] == null)
                 btnRegServ.BackColor = Color.PowderBlue;
             if (Application.OpenForms["frmModifServicios"] == null)
                 btnModifServ.BackColor = Color.PowderBlue;

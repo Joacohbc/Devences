@@ -172,7 +172,7 @@
             this.btnModifPyH.Name = "btnModifPyH";
             this.btnModifPyH.Size = new System.Drawing.Size(174, 35);
             this.btnModifPyH.TabIndex = 12;
-            this.btnModifPyH.Text = "Modificar Precios";
+            this.btnModifPyH.Text = "Modif. Precios y Horas";
             this.btnModifPyH.UseVisualStyleBackColor = false;
             this.btnModifPyH.Click += new System.EventHandler(this.btnModifPyH_Click);
             // 
@@ -434,7 +434,7 @@
             this.btnConsultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultas.Location = new System.Drawing.Point(0, 0);
-            this.btnConsultas.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.btnConsultas.Margin = new System.Windows.Forms.Padding(10);
             this.btnConsultas.Name = "btnConsultas";
             this.btnConsultas.Size = new System.Drawing.Size(174, 35);
             this.btnConsultas.TabIndex = 5;
