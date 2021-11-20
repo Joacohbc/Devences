@@ -1,0 +1,3 @@
+-no deja escribir espacios en direccion de empleado
+-las nuevas fechas de la reserva no pueden estar dentro del rango de la actual
+- la columna de duracion de servicios dice capacidad maxima
