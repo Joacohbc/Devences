@@ -1,12 +1,12 @@
 #Inserto 2 Personas
-insert into persona values(12345678,'Joaquin','','Genova','Guerendian','Masculino','2003-09-08','','Av Italia');
-insert into persona values(87654321,'Peter','Gonzales','Rodriguez','Martinez','Masculino','1990-01-01','peter@gmail.com','8 de Octubre');
+insert into persona values(53626663,'Joaquin','','Genova','Guerendian','Masculino','2003-09-08','','Av Italia');
+insert into persona values(53588134,'Peter','Gonzales','Rodriguez','Martinez','Masculino','1990-01-01','peter@gmail.com','8 de Octubre');
 
 #Usuario Gerente para pruebas
-insert into empleado values (12345678, 'JoaquinG', aes_encrypt('admin','admin'), 'Gerente', true);
+insert into empleado values (53626663, 'JoaquinG', aes_encrypt('admin','admin'), 'Gerente', true);
 
 #Usuario Administrativo para preubas
-insert into empleado values (87654321, 'PeterG', aes_encrypt('noadmin','noadmin'), 'Administrativo', true);
+insert into empleado values (53588134, 'PeterG', aes_encrypt('noadmin','noadmin'), 'Administrativo', true);
 
 #Insertar parametros:
 insert into parametros values('Ingreso Normal','150'), ('Ingreso de alojados','100'), ('Ingreso Jubilados/Pensionistas','80');
