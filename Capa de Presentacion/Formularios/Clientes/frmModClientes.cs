@@ -15,9 +15,9 @@ using Capa_Logica.Clases;
 
 namespace Capa_Presentacion.Formularios
 {
-    public partial class frmModClientes : Form
+    public partial class chk : Form
     {
-        public frmModClientes()
+        public chk()
         {
             InitializeComponent();
         }
@@ -128,6 +128,10 @@ namespace Capa_Presentacion.Formularios
         }
 
         //Direccion
+        private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !validar.validarSiCaracterEsDigitoLetra(e.KeyChar, false, ". /");
+        }
         private void txtDireccion_TextChanged(object sender, EventArgs e)
         {
             errorProvider.SetError(txtDireccion, "");
@@ -484,6 +488,10 @@ namespace Capa_Presentacion.Formularios
             }
         }
 
+        private void chkActivo_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

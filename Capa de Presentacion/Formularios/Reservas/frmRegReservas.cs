@@ -290,9 +290,15 @@ namespace Capa_Presentacion.Formularios
             {
                 Mensaje.MostrarError("Ocurrio un error al buscar el Titular", Mensaje.ErrorBD);
             }
+            //Si la Fecha de inicio es hoy y la reserva No Esta Confirmada
+            //En el Index 1 deberia haber un -4 
+            else if (Convert.ToInt32(reserva[1]) == -4)
+            {
+                Mensaje.MostrarError("La reserva debera estar confirmada si quiere iniciarla hoy", Mensaje.ErrorIngreso);
+            }
             //Si la Fecha de inicio es posterior a la de Fin muestro error
             //En el Index 1 deberia haber un -2 si hay un error en las fecha
-            else if (Convert.ToInt32(reserva[1]) == -4)
+            else if (Convert.ToInt32(reserva[1]) == -5)
             {
                 Mensaje.MostrarError("La fecha de inicio debe ser anterior a la de fin", Mensaje.ErrorIngreso);
             }

@@ -20,7 +20,7 @@ namespace Capa_de_Datos
                 //conexionBD = new MySqlConnection("server=167.57.106.13; port=3306; database=proyectoprueba; uid=login; pwd=login;");
 
                 //conexion local
-               conexionBD = new MySqlConnection("server=localhost; port=3306; database=proyectoprueba; uid=login; pwd=login;");
+                conexionBD = new MySqlConnection("server=localhost; port=3306; database=proyectoprueba; uid=login; pwd=login;");
 
                 //Conexion para la UTU
                 //conexionBD = new MySqlConnection("server=192.168.2.53; port=3306; database=Devences; uid=jgenova; pwd=53626663;");

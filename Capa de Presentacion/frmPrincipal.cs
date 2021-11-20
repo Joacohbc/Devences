@@ -157,7 +157,7 @@ namespace Capa_Presentacion
 
         private void btnModifCli_Click(object sender, EventArgs e)
         {
-            AbrirFormularios<frmModClientes>();
+            AbrirFormularios<chk>();
             btnModifCli.BackColor = Color.SkyBlue;
         }
 

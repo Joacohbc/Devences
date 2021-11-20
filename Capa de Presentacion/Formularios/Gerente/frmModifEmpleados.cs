@@ -130,6 +130,10 @@ namespace Capa_Presentacion.Formularios
         }
 
         //Direccion
+        private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !validar.validarSiCaracterEsDigitoLetra(e.KeyChar, false, ". /");
+        }
         private void txtDireMod_TextChanged(object sender, EventArgs e)
         {
             errorProvider.SetError(txtDireMod, "");
@@ -318,6 +322,14 @@ namespace Capa_Presentacion.Formularios
                         btnCancelar.Enabled = true;
 
                         MessageBox.Show("Empleado ya encontrado, puede empezar a modificarlo", "Modificar Empleado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        //Modificar Usuario
+                        if (empleado.Ci == frmPrincipal.empleado.Ci)
+                        {
+                            Mensaje.MostrarInfo("Por medidas de seguridad, usted no puede modificar su propio usuario ni su propio rol", "Modificar empleado");
+                            cmbCargo.Enabled = false;
+                            txtNomUsuMod.Enabled = false;
+                        }
                     }
                     else
                     {
@@ -463,80 +475,74 @@ namespace Capa_Presentacion.Formularios
         {
             if (validarDatosNoIguales())
             {
-                MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
+               
+            }
 
-                Empleado empleado = metodos.validarEmpleado(txtCedula, txtPrimNomMod, txtSegNomMod, txtApMod, txtAp2Mod, txtMailMod, txtDireMod, dtpNacimientoMod, rdbHombre,
-                    rdbMujer, listTelefonosMod, txtNomUsuMod, cmbCargoMod, txtContraMod, txtConfContraMod, errorProvider);
+            MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
 
-                if (empleado != null)
+            Empleado empleado = metodos.validarEmpleado(txtCedula, txtPrimNomMod, txtSegNomMod, txtApMod, txtAp2Mod, txtMailMod, txtDireMod, dtpNacimientoMod, rdbHombre,
+                rdbMujer, listTelefonosMod, txtNomUsuMod, cmbCargoMod, txtContraMod, txtConfContraMod, errorProvider);
+
+            if (empleado != null)
+            {
+                if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar al empleado: " + empleado.PrimerNombre + " " + empleado.PrimerApellido + "?", "Modificar empleado"))
                 {
-                    if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar al empleado: " + empleado.PrimerNombre + " " + empleado.PrimerApellido + "?", "Modificar empleado"))
+                    //Busco si existe y no si esta dado de Alta, porque puede que quiera modificar su
+                    //estado(alta/baja)
+                    int retorno = metodos.existeEmpleado(empleado.Ci);
+
+                    //Empleado existe
+                    if (retorno == 1)
                     {
-                        //Busco si existe y no si esta dado de Alta, porque puede que quiera modificar su
-                        //estado(alta/baja)
-                        int retorno = metodos.existeEmpleado(empleado.Ci);
-
-                        //Empleado existe
-                        if (retorno == 1)
+                        //Modificar Empleado
+                        if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar los datos personales del usuario?", "Modificar empleado"))
                         {
-                            //Modificar Empleado
-                            if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar los datos personales del usuario?", "Modificar empleado"))
+                            retorno = metodos.modificarPersona(empleado);
+                            if (retorno > 0)
                             {
-                                retorno = metodos.modificarPersona(empleado);
-                                if (retorno > 0)
-                                {
-                                    retorno = metodos.modificarTelefonosPersona(empleado.Ci, empleado.Telefonos);
+                                retorno = metodos.modificarTelefonosPersona(empleado.Ci, empleado.Telefonos);
 
-                                    if (retorno == 1)
-                                    {
-                                        Mensaje.MostrarInfo("Se modificaron los datos personales del empleado con exito", "Modificar empleado");
-                                    }
-                                    else
-                                    {
-                                        Mensaje.MostrarError("Ocurrio un error al modificar los telefonos cliente, pero la persona se ha modificado correctamente", Mensaje.ErrorBD);
-                                    }
+                                if (retorno == 1)
+                                {
+                                    Mensaje.MostrarInfo("Se modificaron los datos personales del empleado con exito", "Modificar empleado");
                                 }
                                 else
                                 {
-                                    Mensaje.MostrarError("Ocurrio un error al modificar al cliente", Mensaje.ErrorBD);
+                                    Mensaje.MostrarError("Ocurrio un error al modificar los telefonos cliente, pero la persona se ha modificado correctamente", Mensaje.ErrorBD);
                                 }
-                            }
-
-                            //Modificar Usuario
-                            if (empleado.Ci == frmPrincipal.empleado.Ci)
-                            {
-                                Mensaje.MostrarInfo("Por medidas de seguridad, usted no puede modificar su propio usuario", "Modificar empleado");
                             }
                             else
                             {
-                                if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar de usuario del empleado?", "Modificar empleado"))
-                                {
-                                    retorno = metodos.modificarEmpleado(empleado);
-                                    if (retorno > 0)
-                                    {
-                                        Mensaje.MostrarInfo("Se modificaron los datos de usuario del empleado con exito", "Modificar empleado");
-                                        btnCancelar.PerformClick();
-
-                                    }
-                                    else
-                                    {
-                                        Mensaje.MostrarError("Ocurrio un error al modificar al cliente", Mensaje.ErrorBD);
-                                    }
-                                }
+                                Mensaje.MostrarError("Ocurrio un error al modificar al cliente", Mensaje.ErrorBD);
                             }
-                            
                         }
-                        else if (retorno == 0)
-                        {
-                            Mensaje.MostrarError("El empleado que ingreso no esta registrado", Mensaje.ErrorBD);
-                        }
-                        else
-                        {
-                            Mensaje.MostrarError("Ocurrio un error al buscar al empleado", Mensaje.ErrorBD);
-                        }
-                    }
 
+                        if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar de usuario del empleado?", "Modificar empleado"))
+                        {
+                            retorno = metodos.modificarEmpleado(empleado);
+                            if (retorno > 0)
+                            {
+                                Mensaje.MostrarInfo("Se modificaron los datos de usuario del empleado con exito", "Modificar empleado");
+                                btnCancelar.PerformClick();
+
+                            }
+                            else
+                            {
+                                Mensaje.MostrarError("Ocurrio un error al modificar al cliente", Mensaje.ErrorBD);
+                            }
+                        }
+
+                    }
+                    else if (retorno == 0)
+                    {
+                        Mensaje.MostrarError("El empleado que ingreso no esta registrado", Mensaje.ErrorBD);
+                    }
+                    else
+                    {
+                        Mensaje.MostrarError("Ocurrio un error al buscar al empleado", Mensaje.ErrorBD);
+                    }
                 }
+
             }
         }
     }

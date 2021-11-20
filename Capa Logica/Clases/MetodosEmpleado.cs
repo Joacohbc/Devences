@@ -126,7 +126,6 @@ namespace Capa_Logica.Clases
             bajas = new Bajas(rol, ci);
         }
 
-
         /// <summary>
         /// Pide la cedula y busca a la Cliente(Si esta dado de Alta), Retorna 1 si ya existe, 0 si no existe y -1 error
         /// </summary>
@@ -213,7 +212,7 @@ namespace Capa_Logica.Clases
         {
             List<String> horarios = consultas.traerHorarios();
             if (horarios != null && horarios.Count > 0)
-            { 
+            {
                 if (inicio.TimeOfDay > DateTime.Parse(horarios[0]).TimeOfDay && fin.TimeOfDay < DateTime.Parse(horarios[2]).TimeOfDay)
                 {
                     return 1;
@@ -383,62 +382,74 @@ namespace Capa_Logica.Clases
                 Validaciones validaciones = new Validaciones();
                 if (validaciones.validarFechaPrimeraEsMenor(dtpFechaInicio.Value, dtpFechaFin.Value))
                 {
-                    int existe = consultas.buscarCliente(Convert.ToInt32(txtCiTitular.Text));
-
-                    if (existe == 1)
+                    //Si esta "No Confirmada" y tiene inicio hoy, no te dejara reservarla
+                    //ya que si empieza hoy deberia estar pga
+                    if (chkConfirmada.Checked && dtpFechaInicio.Value.Date >= DateTime.Today)
                     {
-                        bool titularRepetetido = false;
-                        //Recorro los integrantes
-                        foreach (Integrantes i in integrantes)
-                        {
-                            //Si alguna cedula del Integrante es igual a la del Titular
-                            if (i.Ci == Convert.ToInt32(txtCiTitular.Text))
-                            {
-                                //Sigmifica que el Titular esta como Integrante
-                                titularRepetetido = true;
-                                break;
-                            }
-                        }
+                        int existe = consultas.buscarCliente(Convert.ToInt32(txtCiTitular.Text));
 
-                        //Si el titular no esta como integrante
-                        if (!titularRepetetido)
+                        if (existe == 1)
                         {
-                            Object[] retornar = {CreacionObjeto.CrearReserva(consultas.traerTiposDeIngreso(), Convert.ToInt32(txtCiTitular.Text), dtpFechaInicio,
-                            dtpFechaFin, cmbTipoDeIngreso, cmbFormaDePago, chkConfirmada), 1};
+                            bool titularRepetetido = false;
+                            //Recorro los integrantes
+                            foreach (Integrantes i in integrantes)
+                            {
+                                //Si alguna cedula del Integrante es igual a la del Titular
+                                if (i.Ci == Convert.ToInt32(txtCiTitular.Text))
+                                {
+                                    //Sigmifica que el Titular esta como Integrante
+                                    titularRepetetido = true;
+                                    break;
+                                }
+                            }
+
+                            //Si el titular no esta como integrante
+                            if (!titularRepetetido)
+                            {
+                                Object[] retornar = {CreacionObjeto.CrearReserva(consultas.traerTiposDeIngreso(), Convert.ToInt32(txtCiTitular.Text), dtpFechaInicio,
+                                    dtpFechaFin, cmbTipoDeIngreso, cmbFormaDePago, chkConfirmada), 1};
+                                return retornar;
+                            }
+                            else
+                            {
+                                //Si la Ci del Titular esta como cliente retorna -1
+                                Object[] retornar = { null, -1 };
+                                return retornar;
+                            }
+
+                        }
+                        else if (existe == 0)
+                        {
+                            //Si el Titular no existe como cliente retorna -2
+                            Object[] retornar = { null, -2 };
                             return retornar;
                         }
                         else
                         {
-                            //Si la Ci del Titular esta como cliente retorna -1
-                            Object[] retornar = { null, -1 };
+                            //Si ocurrio un error al buscar el Titular retorna -3
+                            Object[] retornar = { null, -3 };
                             return retornar;
                         }
-
-                    }
-                    else if (existe == 0)
-                    {
-                        //Si el Titular no existe como cliente retorna -2
-                        Object[] retornar = { null, -2 };
-                        return retornar;
                     }
                     else
                     {
-                        //Si ocurrio un error al buscar el Titular retorna -3
-                        Object[] retornar = { null, -3 };
+                        //Un cliente no puede reserva para hoy sin pagar, osea, que
+                        //este No Confirmada
+                        Object[] retornar = { null, -4 };
                         return retornar;
                     }
                 }
                 else
                 {
-                    //Si las fechas son invalidas retorna -2
-                    Object[] retornar = { null, -4 };
+                    //Si las fechas son invalidas retorna
+                    Object[] retornar = { null, -5 };
                     return retornar;
                 }
             }
             else
             {
                 //Si la cedula del titular es Invalida, El metodo ValidarCedula ya muestrar el ErrorProvider
-                Object[] retornar = { null, -5 };
+                Object[] retornar = { null, -6 };
                 return retornar;
             }
         }
@@ -740,8 +751,13 @@ namespace Capa_Logica.Clases
         public int modificarPersona(Persona persona) => modificaciones.ModificarPersona(persona);
 
         public int modificarTelefonosPersona(int ci, List<String> telefonosNuevos) => modificaciones.ModificarTelefonos(ci, telefonosNuevos);
+
+
         #endregion
 
+        #region Metodos de modificacion de Cliente
+        
+        #endregion
         #region Metodos De Moficacion de Empleado
         public int modificarEmpleado(Empleado empleado) => modificaciones.modificarEmpleado(empleado);
 

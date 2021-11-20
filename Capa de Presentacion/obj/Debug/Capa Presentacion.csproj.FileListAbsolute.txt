@@ -213,7 +213,6 @@ C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Logica.pdb
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa de Datos.pdb
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\MySql.Data.xml
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csprojAssemblyReference.cache
-C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModClientes.resources
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmRegClientes.resources
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifEmpleados.resources
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModifHorariosYPrecios.resources
@@ -232,3 +231,8 @@ C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CopyComplete
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.exe
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.pdb
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.chk.resources
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.exe.manifest
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.application
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.exe.manifest
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.application
