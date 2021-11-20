@@ -756,12 +756,15 @@ namespace Capa_Logica.Clases
         #endregion
 
         #region Metodos de modificacion de Cliente
-        
+        public int clienteEnReserva(int ci) => consultas.clienteEnReserva(ci);
+
+        public int modificarEstadoCliente(int ci, bool estado) => modificaciones.ModificarEstadoCliente(ci, estado);
         #endregion
+
         #region Metodos De Moficacion de Empleado
         public int modificarEmpleado(Empleado empleado) => modificaciones.modificarEmpleado(empleado);
 
-
+        public int modificarEstadoEmpleado(int ci, bool estado) => modificaciones.modificarEstadoEmpleado(ci, estado);
         #endregion
 
         #region Metodos De Moficacion de Precios y Horarios

@@ -214,7 +214,6 @@ namespace Capa_Presentacion.Formularios
         //Buscar la deula
         private void btnBuscarCed_Click(object sender, EventArgs e)
         {
-
             if (ValidarPersona.ValidarCedula(txtCedula, errorProvider))
             {
                 MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
@@ -283,8 +282,8 @@ namespace Capa_Presentacion.Formularios
                             }
                         }
 
-                        //chkEstado.Checked = (alta == 1 ? true : false);
-                        //chkEstado.Text = (alta == 1 ? "Alta" : "Baja");
+                        chkActivo.Checked = empleado.Estado;
+                        chkActivo.CheckedChanged += new System.EventHandler(this.chkActivo_CheckedChanged);
 
                         txtNomUsu.Text = empleado.Usuario;
                         txtNomUsuMod.Text = empleado.Usuario;
@@ -326,9 +325,10 @@ namespace Capa_Presentacion.Formularios
                         //Modificar Usuario
                         if (empleado.Ci == frmPrincipal.empleado.Ci)
                         {
-                            Mensaje.MostrarInfo("Por medidas de seguridad, usted no puede modificar su propio usuario ni su propio rol", "Modificar empleado");
+                            Mensaje.MostrarInfo("Por medidas de seguridad, usted no puede modificar su propio usuario", "Modificar empleado");
                             cmbCargo.Enabled = false;
                             txtNomUsuMod.Enabled = false;
+                            chkActivo.Enabled = false;
                         }
                     }
                     else
@@ -543,6 +543,20 @@ namespace Capa_Presentacion.Formularios
                     }
                 }
 
+            }
+        }
+
+        private void chkActivo_CheckedChanged(object sender, EventArgs e)
+        {
+            MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
+            int retorno = metodos.modificarEstadoEmpleado(Convert.ToInt32(txtCedula.Text), chkActivo.Checked);
+            if (retorno > 0)
+            {
+                Mensaje.MostrarInfo("Se cambio el estado del emplado con exito", "Modifacion de Emplado");
+            }
+            else
+            {
+                Mensaje.MostrarError("Ocurrio un error al modificar el estado del empleado", Mensaje.ErrorBD);
             }
         }
     }

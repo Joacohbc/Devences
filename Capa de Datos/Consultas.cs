@@ -806,6 +806,47 @@ namespace Capa_de_Datos
             }
         }
 
+        public int clienteEnReserva(int ci)
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = String.Format("select count(i.ci) " +
+                "from reserva r join integran i " +
+                "on i.ci=r.ci or r.id=i.id " +
+                "where r.ci='{0}' and r.estado not in('Eliminada','Cancelada','Finalizada');", ci);
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                MySqlDataReader lector = select.ExecuteReader();
+                //Leo lo que devuelve
+                if (lector.Read())
+                {
+                    //Retorno 1 si existe
+                    return lector.GetInt32(0);
+                }
+                else
+                {
+                    //Retorno 0 si no existe
+                    return 0;
+                }
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return -1;
+            }
+            finally
+            {
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Busqueda de Cliente en alguna reserva: " + ci);
+            }
+        }
+       
         #region Consultras de Reserva Avanzadas
 
         /// <summary>

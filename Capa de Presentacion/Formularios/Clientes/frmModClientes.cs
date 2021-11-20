@@ -223,94 +223,107 @@ namespace Capa_Presentacion.Formularios
                 //Cliente existe
                 if (retorno == 1)
                 {
-                    //Cargo los datos del Cliente
-                    Persona persona = metodos.traerPersona(Convert.ToInt32(txtCedula.Text));
-
-                    if (persona != null)
+                    //Busco si el cliente esta dado de alta el chkActivo estara checkeado
+                    retorno = metodos.buscarCliente(Convert.ToInt32(txtCedula.Text));
+                    if (retorno != -1)
                     {
-                        //Cargo los datos en los TextBox de Modificar y en los de Info
-                        txtModificarPrimerNombre.Text = persona.PrimerNombre;
-                        txtPrimerNombre.Text = persona.PrimerNombre;
+                        //Cargo los datos del Cliente
+                        Persona persona = metodos.traerPersona(Convert.ToInt32(txtCedula.Text));
 
-                        txtModificarSegundoNombre.Text = !String.IsNullOrWhiteSpace(persona.SegundoNombre) ? persona.SegundoNombre : "";
-                        txtSegundoNombre.Text = !String.IsNullOrWhiteSpace(persona.SegundoNombre) ? persona.SegundoNombre : "";
-
-                        txtModificarPrimerApellido.Text = persona.PrimerApellido;
-                        txtPrimerApellido.Text = persona.PrimerApellido;
-
-                        txtModificarSegundoApellido.Text = persona.SegundoApellido;
-                        txtSegundoApellido.Text = persona.SegundoApellido;
-
-                        txtModificarMail.Text = !String.IsNullOrWhiteSpace(persona.Mail) ? persona.Mail : "";
-                        txtMail.Text = !String.IsNullOrWhiteSpace(persona.Mail) ? persona.Mail : "";
-
-                        txtModificarDireccion.Text = persona.Direccion;
-                        txtDireccion.Text = persona.Direccion;
-
-                        dtpModificarNacimiento.Value = persona.FechaNacimiento;
-                        dtpNacimiento.Value = persona.FechaNacimiento;
-
-                        if (persona.Genero == "Masculino")
+                        if (persona != null)
                         {
-                            chkModificarHombre.Checked = true;
-                            rdbHombre.Checked = true;
-                        }
-                        else if (persona.Genero == "Femenino")
-                        {
-                            chkModificarMujer.Checked = true;
-                            rdbMujer.Checked = true;
+                            chkActivo.Checked = (retorno == 1 ? true : false);
+                            chkActivo.CheckedChanged += new System.EventHandler(this.chkActivo_CheckedChanged);
+
+                            //Cargo los datos en los TextBox de Modificar y en los de Info
+                            txtModificarPrimerNombre.Text = persona.PrimerNombre;
+                            txtPrimerNombre.Text = persona.PrimerNombre;
+
+                            txtModificarSegundoNombre.Text = !String.IsNullOrWhiteSpace(persona.SegundoNombre) ? persona.SegundoNombre : "";
+                            txtSegundoNombre.Text = !String.IsNullOrWhiteSpace(persona.SegundoNombre) ? persona.SegundoNombre : "";
+
+                            txtModificarPrimerApellido.Text = persona.PrimerApellido;
+                            txtPrimerApellido.Text = persona.PrimerApellido;
+
+                            txtModificarSegundoApellido.Text = persona.SegundoApellido;
+                            txtSegundoApellido.Text = persona.SegundoApellido;
+
+                            txtModificarMail.Text = !String.IsNullOrWhiteSpace(persona.Mail) ? persona.Mail : "";
+                            txtMail.Text = !String.IsNullOrWhiteSpace(persona.Mail) ? persona.Mail : "";
+
+                            txtModificarDireccion.Text = persona.Direccion;
+                            txtDireccion.Text = persona.Direccion;
+
+                            dtpModificarNacimiento.Value = persona.FechaNacimiento;
+                            dtpNacimiento.Value = persona.FechaNacimiento;
+
+                            if (persona.Genero == "Masculino")
+                            {
+                                chkModificarHombre.Checked = true;
+                                rdbHombre.Checked = true;
+                            }
+                            else if (persona.Genero == "Femenino")
+                            {
+                                chkModificarMujer.Checked = true;
+                                rdbMujer.Checked = true;
+                            }
+                            else
+                            {
+                                chkModificarNoBinario.Checked = true;
+                                rdbNoBinario.Checked = true;
+                            }
+
+                            if (persona.Telefonos.Count > 0)
+                            {
+                                //Los limpio para que no se repitan los telefonos
+                                listTelefonos.Items.Clear();
+                                listModificarTelefonos.Items.Clear();
+
+                                foreach (String s in persona.Telefonos)
+                                {
+                                    listModificarTelefonos.Items.Add(s);
+                                    listTelefonos.Items.Add(s);
+                                }
+                            }
+
+
+
+                            //Deshabilito el poder ingresar la cedula
+                            txtCedula.Enabled = false;
+                            btnBuscar.Enabled = false;
+
+                            //Habilito los campos que se pueden editar
+                            txtPrimerNombre.Enabled = true;
+                            txtSegundoNombre.Enabled = true;
+                            txtMail.Enabled = true;
+                            txtDireccion.Enabled = true;
+
+                            rdbHombre.Enabled = true;
+                            rdbMujer.Enabled = true;
+                            rdbNoBinario.Enabled = true;
+
+                            txtTelefono.Enabled = true;
+                            listTelefonos.Enabled = true;
+                            btnAgregarTelefono.Enabled = true;
+                            btnBorrarTelefono.Enabled = true;
+
+                            //Habilito los botones para Modificar y Cancelar
+                            btnModificar.Enabled = true;
+                            btnCancelar.Enabled = true;
+
+                            MessageBox.Show("Cliente ya encontrado, puede empezar a modificarlo", "Modificar clientes", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
-                            chkModificarNoBinario.Checked = true;
-                            rdbNoBinario.Checked = true;
+                            Mensaje.MostrarError("Ocurrio un error al consultar la informacion del cliente", Mensaje.ErrorBD);
                         }
 
-                        if (persona.Telefonos.Count > 0)
-                        {
-                            //Los limpio para que no se repitan los telefonos
-                            listTelefonos.Items.Clear();
-                            listModificarTelefonos.Items.Clear();
-
-                            foreach (String s in persona.Telefonos)
-                            {
-                                listModificarTelefonos.Items.Add(s);
-                                listTelefonos.Items.Add(s);
-                            }
-                        }
-
-                        //chkEstado.Checked = (alta == 1 ? true : false);
-                        //chkEstado.Text = (alta == 1 ? "Alta" : "Baja");
-
-                        //Deshabilito el poder ingresar la cedula
-                        txtCedula.Enabled = false;
-                        btnBuscar.Enabled = false;
-
-                        //Habilito los campos que se pueden editar
-                        txtPrimerNombre.Enabled = true;
-                        txtSegundoNombre.Enabled = true;
-                        txtMail.Enabled = true;
-                        txtDireccion.Enabled = true;
-
-                        rdbHombre.Enabled = true;
-                        rdbMujer.Enabled = true;
-                        rdbNoBinario.Enabled = true;
-
-                        txtTelefono.Enabled = true;
-                        listTelefonos.Enabled = true;
-                        btnAgregarTelefono.Enabled = true;
-                        btnBorrarTelefono.Enabled = true;
-
-                        //Habilito los botones para Modificar y Cancelar
-                        btnModificar.Enabled = true;
-                        btnCancelar.Enabled = true;
-
-                        MessageBox.Show("Cliente ya encontrado, puede empezar a modificarlo", "Modificar clientes", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        Mensaje.MostrarError("Ocurrio un error al consultar la informacion del cliente", Mensaje.ErrorBD);
+                        Mensaje.MostrarError("Ocurrio un error al determinar el estado del cliente", Mensaje.ErrorBD);
                     }
+
                 }
                 //Cliente no existe
                 else if (retorno == 0)
@@ -490,7 +503,28 @@ namespace Capa_Presentacion.Formularios
 
         private void chkActivo_CheckedChanged(object sender, EventArgs e)
         {
-
+            MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
+            int retorno = metodos.clienteEnReserva(Convert.ToInt32(txtCedula.Text));
+            if (retorno == 0)
+            {
+                retorno = metodos.modificarEstadoCliente(Convert.ToInt32(txtCedula.Text), chkActivo.Checked);
+                if(retorno > 0)
+                {
+                    Mensaje.MostrarInfo("Se cambio el estado del cliente con exito", "Modifacion de cliente");
+                }
+                else
+                {
+                    Mensaje.MostrarError("Ocurrio un error al modificar el estado del cliente", Mensaje.ErrorBD);
+                }
+            }
+            else if (retorno > 0)
+            {
+                Mensaje.MostrarError("El cliente tiene esta en alguna reserva en curso, no se puede dar de baja", Mensaje.ErrorIngreso);
+            }
+            else
+            {
+                Mensaje.MostrarError("Ocurrio un error al buscar cliente en reservas", Mensaje.ErrorBD);
+            }
         }
     }
 

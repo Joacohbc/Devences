@@ -663,7 +663,6 @@
             this.chkActivo.TabIndex = 85;
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
-            this.chkActivo.CheckedChanged += new System.EventHandler(this.chkActivo_CheckedChanged);
             // 
             // label19
             // 

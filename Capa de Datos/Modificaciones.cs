@@ -123,7 +123,7 @@ namespace Capa_de_Datos
         public int ModificarEstadoCliente(int ci, bool estado)
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
-            String sentencia = String.Format("update cliente set estado='{1}' where ci='{0}';",
+            String sentencia = String.Format("update cliente set estado={1} where ci='{0}';",
                 ci, estado);
 
             //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
@@ -174,6 +174,36 @@ namespace Capa_de_Datos
                 conexion.CerrarConexion();
                 if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Modificar Empleado: " + empleado.Ci);
             }
+        }
+
+        public int modificarEstadoEmpleado(int ci, bool estado)
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = String.Format("UPDATE empleado SET estado={1} WHERE ci='{0}';",
+                ci, estado);
+
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                MySqlCommand update = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                return update.ExecuteNonQuery();
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return -1;
+            }
+            finally
+            {
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Modificacion estado del empleado: " + ci + " Estado=" + estado);
+            }
+
         }
 
         public int modificarPreciosIngreso(int precioNormal, int precioNormalAntes, int precioAlojado, int precioAlojadoAntes, int precioJub, int precioJubAntes)

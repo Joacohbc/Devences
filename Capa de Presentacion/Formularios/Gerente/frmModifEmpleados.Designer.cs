@@ -815,7 +815,7 @@
             // 
             this.chkActivo.AutoSize = true;
             this.chkActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.chkActivo.Location = new System.Drawing.Point(615, 355);
+            this.chkActivo.Location = new System.Drawing.Point(615, 356);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(65, 21);
             this.chkActivo.TabIndex = 152;
