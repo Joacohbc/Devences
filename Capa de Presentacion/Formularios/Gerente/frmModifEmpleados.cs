@@ -132,7 +132,7 @@ namespace Capa_Presentacion.Formularios
         //Direccion
         private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !validar.validarSiCaracterEsDigitoLetra(e.KeyChar, false, ". /");
+            e.Handled = !validar.validarSiCaracterEsDigitoLetra(e.KeyChar, true, ". /");
         }
         private void txtDireMod_TextChanged(object sender, EventArgs e)
         {
