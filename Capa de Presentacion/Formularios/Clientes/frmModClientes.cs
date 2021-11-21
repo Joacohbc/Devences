@@ -442,7 +442,7 @@ namespace Capa_Presentacion.Formularios
         //Borrar los campos
         private void btnDescartar_Click(object sender, EventArgs e)
         {
-            if (Mensaje.MostraPreguntaSiNo("¿Quieres vaciar los campos de modificación?", "Borrar los campos"))
+            if (Mensaje.MostraPreguntaSiNo("¿Quieres vaciar los campos de modificación?", "Vaciar los campos"))
             {
                 //Limpio los TextBox
                 Control[] controles = { txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, txtTelefono, txtModificarPrimerNombre, txtModificarSegundoNombre,
