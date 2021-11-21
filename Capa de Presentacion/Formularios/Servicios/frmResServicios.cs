@@ -177,7 +177,15 @@ namespace Capa_Presentacion.Formularios.Servicios
                                                     retorno = metodos.altaServicio(reserva.Ci, servicioSeleccionado, reserva.Inicio, dtpInicioServicio.Value, cmbFormaDePago.SelectedItem.ToString());
                                                     if (retorno > 0)
                                                     {
-                                                        Mensaje.MostrarInfo("Alta de Servicio exitosa", "Alta exitosa");
+                                                        retorno = metodos.modificarPrecioEnReserva(servicioSeleccionado.Precio, reserva.Id);
+                                                        if(retorno > 0)
+                                                        {
+                                                            Mensaje.MostrarInfo("Alta de Servicio exitosa", "Alta exitosa");
+                                                        }
+                                                        else
+                                                        {
+                                                            Mensaje.MostrarError("Ocurrio un error al subar el precio del servicio a la reserva, el servicio se registro con exito", Mensaje.ErrorBD);
+                                                        }
                                                     }
                                                     else
                                                     {

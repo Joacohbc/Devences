@@ -384,7 +384,7 @@ namespace Capa_Logica.Clases
                 {
                     //Si esta "No Confirmada" y tiene inicio hoy, no te dejara reservarla
                     //ya que si empieza hoy deberia estar pga
-                    if (chkConfirmada.Checked && dtpFechaInicio.Value.Date >= DateTime.Today)
+                    if ((chkConfirmada.Checked && dtpFechaInicio.Value.Date >= DateTime.Today) || (!chkConfirmada.Checked && dtpFechaInicio.Value.Date > DateTime.Today))
                     {
                         int existe = consultas.buscarCliente(Convert.ToInt32(txtCiTitular.Text));
 
@@ -777,6 +777,8 @@ namespace Capa_Logica.Clases
             String salidaVestAntes) => modificaciones.modificarHorarios(entradaSpa, entradaSpaAntes, entradaVest, entradaVestAntes, salidaSpa, salidaSpaAntes, salidaVest, salidaSpaAntes);
 
         public int modificarPrecioServicio(Servicios servicios, int nuevoPrecio, String duracionNueva) => modificaciones.modificarPrecioServicio(servicios, nuevoPrecio, duracionNueva);
+
+        public int modificarPrecioEnReserva(int precio, int id) => modificaciones.modificarPrecioEnReserva(precio, id);
         #endregion
 
         #region Metodos de Modificacion de Reserva

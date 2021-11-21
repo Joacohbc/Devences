@@ -316,6 +316,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPreciosYHorarios";
             this.Text = "frmPreciosYHorarios";
+            this.Load += new System.EventHandler(this.frmPreciosYHorarios_Load);
             this.pnTitulo.ResumeLayout(false);
             this.pnTitulo.PerformLayout();
             this.ResumeLayout(false);

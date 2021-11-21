@@ -232,8 +232,6 @@ namespace Capa_Presentacion.Formularios
 
                         if (persona != null)
                         {
-                            chkActivo.Checked = (retorno == 1 ? true : false);
-                            chkActivo.CheckedChanged += new System.EventHandler(this.chkActivo_CheckedChanged);
 
                             //Cargo los datos en los TextBox de Modificar y en los de Info
                             txtModificarPrimerNombre.Text = persona.PrimerNombre;
@@ -286,7 +284,7 @@ namespace Capa_Presentacion.Formularios
                                 }
                             }
 
-
+                            chkActivo.Checked = (retorno == 1 ? true : false);
 
                             //Deshabilito el poder ingresar la cedula
                             txtCedula.Enabled = false;
@@ -501,16 +499,23 @@ namespace Capa_Presentacion.Formularios
             }
         }
 
-        private void chkActivo_CheckedChanged(object sender, EventArgs e)
+        private void chkActivo_Click(object sender, EventArgs e)
         {
+            //Saco el objeto del evento, es decir, el qeu seria el deschekeado
+            CheckBox r = (CheckBox)sender;
+
             MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
             int retorno = metodos.clienteEnReserva(Convert.ToInt32(txtCedula.Text));
             if (retorno == 0)
             {
                 retorno = metodos.modificarEstadoCliente(Convert.ToInt32(txtCedula.Text), chkActivo.Checked);
-                if(retorno > 0)
+                if (retorno > 0)
                 {
                     Mensaje.MostrarInfo("Se cambio el estado del cliente con exito", "Modifacion de cliente");
+
+                    //Solo cambio el chek del chekBox si se pudo dar de baja/alta correctamente
+                    //Sino no lo doy de baja
+                    r.Checked = !r.Checked;
                 }
                 else
                 {

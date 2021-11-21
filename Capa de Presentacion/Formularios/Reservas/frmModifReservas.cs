@@ -219,7 +219,7 @@ namespace Capa_Presentacion.Formularios
             {
                 //Si esta "No Confirmada" y tiene inicio hoy, no te dejara reservarla
                 //ya que si empieza hoy deberia estar pga
-                if (chkConfirmada.Checked && dtpFechaInicio.Value.Date >= DateTime.Today)
+                if ((chkConfirmada.Checked && dtpFechaInicio.Value.Date >= DateTime.Today) || (!chkConfirmada.Checked && dtpFechaInicio.Value.Date > DateTime.Today))
                 {
                     MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
                     Object[] validarFecha = metodos.comprobarDiasTodosDiasReservasAModificar(reservaAModificar.Ci, reservaAModificar.Id, dtpFechaInicio.Value, dtpFechaFin.Value);

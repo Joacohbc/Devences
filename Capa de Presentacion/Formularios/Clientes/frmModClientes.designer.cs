@@ -655,7 +655,9 @@
             // 
             // chkActivo
             // 
+            this.chkActivo.AutoCheck = false;
             this.chkActivo.AutoSize = true;
+            this.chkActivo.Enabled = false;
             this.chkActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkActivo.Location = new System.Drawing.Point(617, 488);
             this.chkActivo.Name = "chkActivo";
@@ -663,6 +665,7 @@
             this.chkActivo.TabIndex = 85;
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
+            this.chkActivo.Click += new System.EventHandler(this.chkActivo_Click);
             // 
             // label19
             // 

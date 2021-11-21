@@ -283,7 +283,6 @@ namespace Capa_Presentacion.Formularios
                         }
 
                         chkActivo.Checked = empleado.Estado;
-                        chkActivo.CheckedChanged += new System.EventHandler(this.chkActivo_CheckedChanged);
 
                         txtNomUsu.Text = empleado.Usuario;
                         txtNomUsuMod.Text = empleado.Usuario;
@@ -475,89 +474,94 @@ namespace Capa_Presentacion.Formularios
         {
             if (validarDatosNoIguales())
             {
-               
-            }
+                MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
 
-            MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
+                Empleado empleado = metodos.validarEmpleado(txtCedula, txtPrimNomMod, txtSegNomMod, txtApMod, txtAp2Mod, txtMailMod, txtDireMod, dtpNacimientoMod, rdbHombre,
+                    rdbMujer, listTelefonosMod, txtNomUsuMod, cmbCargoMod, txtContraMod, txtConfContraMod, errorProvider);
 
-            Empleado empleado = metodos.validarEmpleado(txtCedula, txtPrimNomMod, txtSegNomMod, txtApMod, txtAp2Mod, txtMailMod, txtDireMod, dtpNacimientoMod, rdbHombre,
-                rdbMujer, listTelefonosMod, txtNomUsuMod, cmbCargoMod, txtContraMod, txtConfContraMod, errorProvider);
-
-            if (empleado != null)
-            {
-                if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar al empleado: " + empleado.PrimerNombre + " " + empleado.PrimerApellido + "?", "Modificar empleado"))
+                if (empleado != null)
                 {
-                    //Busco si existe y no si esta dado de Alta, porque puede que quiera modificar su
-                    //estado(alta/baja)
-                    int retorno = metodos.existeEmpleado(empleado.Ci);
-
-                    //Empleado existe
-                    if (retorno == 1)
+                    if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar al empleado: " + empleado.PrimerNombre + " " + empleado.PrimerApellido + "?", "Modificar empleado"))
                     {
-                        //Modificar Empleado
-                        if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar los datos personales del usuario?", "Modificar empleado"))
-                        {
-                            retorno = metodos.modificarPersona(empleado);
-                            if (retorno > 0)
-                            {
-                                retorno = metodos.modificarTelefonosPersona(empleado.Ci, empleado.Telefonos);
+                        //Busco si existe y no si esta dado de Alta, porque puede que quiera modificar su
+                        //estado(alta/baja)
+                        int retorno = metodos.existeEmpleado(empleado.Ci);
 
-                                if (retorno == 1)
+                        //Empleado existe
+                        if (retorno == 1)
+                        {
+                            //Modificar Empleado
+                            if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar los datos personales del usuario?", "Modificar empleado"))
+                            {
+                                retorno = metodos.modificarPersona(empleado);
+                                if (retorno > 0)
                                 {
-                                    Mensaje.MostrarInfo("Se modificaron los datos personales del empleado con exito", "Modificar empleado");
+                                    retorno = metodos.modificarTelefonosPersona(empleado.Ci, empleado.Telefonos);
+
+                                    if (retorno == 1)
+                                    {
+                                        Mensaje.MostrarInfo("Se modificaron los datos personales del empleado con exito", "Modificar empleado");
+                                    }
+                                    else
+                                    {
+                                        Mensaje.MostrarError("Ocurrio un error al modificar los telefonos cliente, pero la persona se ha modificado correctamente", Mensaje.ErrorBD);
+                                    }
                                 }
                                 else
                                 {
-                                    Mensaje.MostrarError("Ocurrio un error al modificar los telefonos cliente, pero la persona se ha modificado correctamente", Mensaje.ErrorBD);
+                                    Mensaje.MostrarError("Ocurrio un error al modificar al cliente", Mensaje.ErrorBD);
                                 }
                             }
-                            else
-                            {
-                                Mensaje.MostrarError("Ocurrio un error al modificar al cliente", Mensaje.ErrorBD);
-                            }
-                        }
 
-                        if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar de usuario del empleado?", "Modificar empleado"))
+                            if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar de usuario del empleado?", "Modificar empleado"))
+                            {
+                                retorno = metodos.modificarEmpleado(empleado);
+                                if (retorno > 0)
+                                {
+                                    Mensaje.MostrarInfo("Se modificaron los datos de usuario del empleado con exito", "Modificar empleado");
+                                    btnCancelar.PerformClick();
+
+                                }
+                                else
+                                {
+                                    Mensaje.MostrarError("Ocurrio un error al modificar al cliente", Mensaje.ErrorBD);
+                                }
+                            }
+
+                        }
+                        else if (retorno == 0)
                         {
-                            retorno = metodos.modificarEmpleado(empleado);
-                            if (retorno > 0)
-                            {
-                                Mensaje.MostrarInfo("Se modificaron los datos de usuario del empleado con exito", "Modificar empleado");
-                                btnCancelar.PerformClick();
-
-                            }
-                            else
-                            {
-                                Mensaje.MostrarError("Ocurrio un error al modificar al cliente", Mensaje.ErrorBD);
-                            }
+                            Mensaje.MostrarError("El empleado que ingreso no esta registrado", Mensaje.ErrorBD);
                         }
+                        else
+                        {
+                            Mensaje.MostrarError("Ocurrio un error al buscar al empleado", Mensaje.ErrorBD);
+                        }
+                    }
 
-                    }
-                    else if (retorno == 0)
-                    {
-                        Mensaje.MostrarError("El empleado que ingreso no esta registrado", Mensaje.ErrorBD);
-                    }
-                    else
-                    {
-                        Mensaje.MostrarError("Ocurrio un error al buscar al empleado", Mensaje.ErrorBD);
-                    }
                 }
-
             }
         }
 
-        private void chkActivo_CheckedChanged(object sender, EventArgs e)
+        private void chkActivo_Click(object sender, EventArgs e)
         {
+            //Saco el objeto del evento, es decir, el qeu seria el deschekeado
+            CheckBox r = (CheckBox)sender;
+
             MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
             int retorno = metodos.modificarEstadoEmpleado(Convert.ToInt32(txtCedula.Text), chkActivo.Checked);
             if (retorno > 0)
             {
                 Mensaje.MostrarInfo("Se cambio el estado del emplado con exito", "Modifacion de Emplado");
+                //Solo cambio el chek del chekBox si se pudo dar de baja/alta correctamente
+                //Sino no lo doy de baja
+                r.Checked = !r.Checked;
             }
             else
             {
                 Mensaje.MostrarError("Ocurrio un error al modificar el estado del empleado", Mensaje.ErrorBD);
             }
         }
+
     }
 }

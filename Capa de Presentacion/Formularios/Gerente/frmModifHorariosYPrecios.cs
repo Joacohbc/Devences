@@ -312,7 +312,7 @@ namespace Capa_Presentacion.Formularios
                                 if (retorno > 0)
                                 {
                                     Mensaje.MostrarInfo("Modificacion de servicio exitosa", "Modificar Servicio");
-                                    cargarHorarios();
+                                    cargarServicios();
                                 }
                                 else
                                 {
