@@ -40,7 +40,7 @@ namespace Capa_Presentacion.Formularios
         {
             if (validar.hayAlgo(this))
             {
-                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacios ¿Quieres cerrar igual?", "Cerrar")) Close();
+                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacíos, ¿Quieres cerrar igual?", "Cerrar")) Close();
             }
             else
             {
@@ -151,7 +151,7 @@ namespace Capa_Presentacion.Formularios
                 }
                 else
                 {
-                    Mensaje.MostrarError("El telefono que quiere agregar ya existe", "Agregar telefono");
+                    Mensaje.MostrarError("El teléfono que quiere agregar ya se encuentra registrado", "Agregar Teléfono");
                 }
             }
         }
@@ -164,7 +164,7 @@ namespace Capa_Presentacion.Formularios
                 //Que algun telefono este seleccionado
                 if (listTelefonosMod.SelectedItem != null)
                 {
-                    if (Mensaje.MostraPreguntaSiNo("¿Quiere eliminar el telefono seleccionado?", "Eliminar telefono"))
+                    if (Mensaje.MostraPreguntaSiNo("¿Quiere eliminar el teléfono seleccionado?", "Eliminar Teléfono"))
                     {
                         //Borro el telefono seleccionado
                         listTelefonosMod.Items.Remove(listTelefonosMod.SelectedItem);
@@ -172,12 +172,12 @@ namespace Capa_Presentacion.Formularios
                 }
                 else
                 {
-                    Mensaje.MostrarError("Seleccione un telefono", "Eliminar telefono");
+                    Mensaje.MostrarError("Seleccione un teléfono", "Eliminar Teléfono");
                 }
             }
             else
             {
-                Mensaje.MostrarError("Seleccione un telefono", "Eliminar telefono");
+                Mensaje.MostrarError("Seleccione un teléfono", "Eliminar Teléfono");
             }
         }
 
@@ -197,12 +197,12 @@ namespace Capa_Presentacion.Formularios
                 }
                 else
                 {
-                    Mensaje.MostrarError("Seleccione un telefono", "Editar telefono");
+                    Mensaje.MostrarError("Seleccione un teléfono", "Editar Teléfono");
                 }
             }
             else
             {
-                Mensaje.MostrarError("Primero ingrese un telefono", "Editar telefono");
+                Mensaje.MostrarError("Primero ingrese un teléfono", "Editar Teléfono");
             }
         }
         #endregion
@@ -317,21 +317,21 @@ namespace Capa_Presentacion.Formularios
                         btnModificar.Enabled = true;
                         btnCancelar.Enabled = true;
 
-                        MessageBox.Show("Empleado ya encontrado, puede empezar a modificarlo", "Modificar Empleado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Empleado encontrado, puede empezar a modificarlo", "Modificar Empleado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        Mensaje.MostrarError("Ocurrio un error al consultar la informacion del emplado", Mensaje.ErrorBD);
+                        Mensaje.MostrarError("Ocurrió un error al consultar la información del empleado", Mensaje.ErrorBD);
                     }
                 }
                 //Empleado no existe
                 else if (retorno == 0)
                 {
-                    Mensaje.MostrarInfo("No existe un Empleado con esa cedula", Mensaje.ErrorIngreso);
+                    Mensaje.MostrarInfo("No existe un Empleado con esa Cédula", Mensaje.ErrorIngreso);
                 }
                 else
                 {
-                    Mensaje.MostrarError("Ocurrio un error al buscar al Empleado", Mensaje.ErrorBD);
+                    Mensaje.MostrarError("Ocurrió un error al buscar al Empleado", Mensaje.ErrorBD);
                 }
 
             }
@@ -389,7 +389,7 @@ namespace Capa_Presentacion.Formularios
                                                     {
                                                         if (String.IsNullOrEmpty(txtContraMod.Text))
                                                         {
-                                                            Mensaje.MostrarError("Los datos son iguales, cambie algun dato antes de realizar la modificacion", Mensaje.ErrorIngreso);
+                                                            Mensaje.MostrarError("Los datos son iguales, cambie algún dato antes de realizar la modificación", Mensaje.ErrorIngreso);
                                                             return false;
                                                         }
                                                     }
@@ -411,7 +411,7 @@ namespace Capa_Presentacion.Formularios
         private void btnCancelar_Click(object sender, EventArgs e)
         {
 
-            if (Mensaje.MostraPreguntaSiNo("¿Quieres vaciar los campo de modificacion?", "Borrar los campos"))
+            if (Mensaje.MostraPreguntaSiNo("¿Quieres vaciar los campos de modificación?", "Vaciar los campos"))
             {
                 //Limpio los TextBox
                 Control[] controles = { txtCedula, txtPrimerNombre, txtSegNomMod, txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, txtTelefono, txtPrimNomMod, txtSegNomMod,
@@ -470,7 +470,7 @@ namespace Capa_Presentacion.Formularios
 
                 if (empleado != null)
                 {
-                    if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar al empleado: " + empleado.PrimerNombre + " " + empleado.PrimerApellido + "?", "Modificar empleado"))
+                    if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar al empleado: " + empleado.PrimerNombre + " " + empleado.PrimerApellido + "?", "Modificar Empleado"))
                     {
                         //Busco si existe y no si esta dado de Alta, porque puede que quiera modificar su
                         //estado(alta/baja)
@@ -480,7 +480,7 @@ namespace Capa_Presentacion.Formularios
                         if (retorno == 1)
                         {
                             //Modificar Empleado
-                            if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar los datos personales del usuario?", "Modificar empleado"))
+                            if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar los datos personales del Empleado?", "Modificar Empleado"))
                             {
                                 retorno = metodos.modificarPersona(empleado);
                                 if (retorno > 0)
@@ -489,38 +489,38 @@ namespace Capa_Presentacion.Formularios
 
                                     if (retorno == 1)
                                     {
-                                        Mensaje.MostrarInfo("Se modificaron los datos personales del empleado con exito", "Modificar empleado");
+                                        Mensaje.MostrarInfo("Se modificaron los datos personales del empleado con éxito", "Modificar Empleado");
                                     }
                                     else
                                     {
-                                        Mensaje.MostrarError("Ocurrio un error al modificar los telefonos cliente, pero la persona se ha modificado correctamente", Mensaje.ErrorBD);
+                                        Mensaje.MostrarError("Ocurrió un error al modificar los teléfonos del cliente, pero la persona se ha modificado correctamente", Mensaje.ErrorBD);
                                     }
                                 }
                                 else
                                 {
-                                    Mensaje.MostrarError("Ocurrio un error al modificar al cliente", Mensaje.ErrorBD);
+                                    Mensaje.MostrarError("Ocurrió un error al modificar al cliente", Mensaje.ErrorBD);
                                 }
                             }
 
                             //Modificar Usuario
                             if (empleado.Ci == frmPrincipal.empleado.Ci)
                             {
-                                Mensaje.MostrarInfo("Por medidas de seguridad, usted no puede modificar su propio usuario", "Modificar empleado");
+                                Mensaje.MostrarInfo("Por medidas de seguridad, usted no puede modificar su propio usuario", "Modificar Empleado");
                             }
                             else
                             {
-                                if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar de usuario del empleado?", "Modificar empleado"))
+                                if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar el usuario del empleado?", "Modificar Empleado"))
                                 {
                                     retorno = metodos.modificarEmpleado(empleado);
                                     if (retorno > 0)
                                     {
-                                        Mensaje.MostrarInfo("Se modificaron los datos de usuario del empleado con exito", "Modificar empleado");
+                                        Mensaje.MostrarInfo("Se modificaron los datos de usuario del empleado con éxito", "Modificar Empleado");
                                         btnCancelar.PerformClick();
 
                                     }
                                     else
                                     {
-                                        Mensaje.MostrarError("Ocurrio un error al modificar al cliente", Mensaje.ErrorBD);
+                                        Mensaje.MostrarError("Ocurrió un error al modificar al cliente", Mensaje.ErrorBD);
                                     }
                                 }
                             }
@@ -528,11 +528,11 @@ namespace Capa_Presentacion.Formularios
                         }
                         else if (retorno == 0)
                         {
-                            Mensaje.MostrarError("El empleado que ingreso no esta registrado", Mensaje.ErrorBD);
+                            Mensaje.MostrarError("El empleado que ingresó no está registrado", Mensaje.ErrorBD);
                         }
                         else
                         {
-                            Mensaje.MostrarError("Ocurrio un error al buscar al empleado", Mensaje.ErrorBD);
+                            Mensaje.MostrarError("Ocurrió un error al buscar al empleado", Mensaje.ErrorBD);
                         }
                     }
 

@@ -15,7 +15,7 @@ namespace Capa_Logica
         /// </summary>
         public static string ErrorBD => errorBd;
 
-        private const string errorIngreso = "Error de ingreso";
+        private const string errorIngreso = "Error de Ingreso";
         /// <summary>
         /// Tiene el valor: "Error de ingreso"
         /// </summary>

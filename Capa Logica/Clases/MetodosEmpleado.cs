@@ -74,9 +74,9 @@ namespace Capa_Logica.Clases
             else if (validacion == -1)
             {
                 if (deQue == 0)
-                    Mensaje.MostrarError("El campo del usuario no puede estar vacio", Mensaje.ErrorIngreso);
+                    Mensaje.MostrarError("El campo de usuario no puede estar vacío", Mensaje.ErrorIngreso);
                 else
-                    Mensaje.MostrarError("El campo del a contraseña no puede estar vacio", Mensaje.ErrorIngreso);
+                    Mensaje.MostrarError("El campo de contraseña no puede estar vacío", Mensaje.ErrorIngreso);
 
                 txtBox.Focus();
                 return false;
@@ -84,9 +84,9 @@ namespace Capa_Logica.Clases
             else if (validacion == -2)
             {
                 if (deQue == 0)
-                    Mensaje.MostrarError("El campo del usuario debe tener menos de 20 caracteres", Mensaje.ErrorIngreso);
+                    Mensaje.MostrarError("El campo de usuario debe tener menos de 20 caracteres", Mensaje.ErrorIngreso);
                 else
-                    Mensaje.MostrarError("El campo del a contraseña debe tener menos de 20 caracteres", Mensaje.ErrorIngreso);
+                    Mensaje.MostrarError("El campo de contraseña debe tener menos de 20 caracteres", Mensaje.ErrorIngreso);
 
                 txtBox.Focus();
                 return false;
@@ -94,9 +94,9 @@ namespace Capa_Logica.Clases
             else
             {
                 if (deQue == 0)
-                    Mensaje.MostrarError("El campo del usuario solo puede contener digitos y letras(Sin espacios)", Mensaje.ErrorIngreso);
+                    Mensaje.MostrarError("El campo de usuario solo puede contener dígitos y/o letras (Sin espacios)", Mensaje.ErrorIngreso);
                 else
-                    Mensaje.MostrarError("El campo del a contraseña solo puede contener digitos y letras(Sin espacios)", Mensaje.ErrorIngreso);
+                    Mensaje.MostrarError("El campo de la contraseña solo puede contener dígitos y/o letras (Sin espacios)", Mensaje.ErrorIngreso);
 
                 txtBox.Focus();
                 return false;
@@ -660,7 +660,7 @@ namespace Capa_Logica.Clases
                                                         }
                                                         else
                                                         {
-                                                            Mensaje.MostrarError("Las confirmacion de la contraseña con concide", Mensaje.ErrorIngreso);
+                                                            Mensaje.MostrarError("Las contraseñas no coinciden", Mensaje.ErrorIngreso);
                                                             return null;
                                                         }
                                                     }

@@ -312,7 +312,7 @@
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(228, 20);
             this.lblTitulo.TabIndex = 1;
-            this.lblTitulo.Text = "Modificacion de Empleados";
+            this.lblTitulo.Text = "Modificación de Empleados";
             // 
             // btnSalir
             // 
@@ -579,9 +579,9 @@
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.Location = new System.Drawing.Point(514, 135);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(59, 18);
+            this.label21.Size = new System.Drawing.Size(67, 18);
             this.label21.TabIndex = 130;
-            this.label21.Text = "Apellido";
+            this.label21.Text = "Apellidos";
             // 
             // label22
             // 

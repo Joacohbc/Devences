@@ -88,7 +88,7 @@ namespace Capa_Logica.Clases
                     }
                     else
                     {
-                        error.SetError(txtCi, "El campo de la cedula debe contener una cedula valida");
+                        error.SetError(txtCi, "El campo de la cédula debe contener una cédula válida");
                         txtCi.Focus();
                         return false;
                     }
@@ -96,7 +96,7 @@ namespace Capa_Logica.Clases
                 }
                 else
                 {
-                    error.SetError(txtCi, "El campo de la cedula debe tener 8 caracteres");
+                    error.SetError(txtCi, "El campo de la cédula debe tener 8 caracteres");
                     txtCi.Focus();
                     return false;
                 }
@@ -104,13 +104,13 @@ namespace Capa_Logica.Clases
             //Si esta vacia
             else if (validacion == -1)
             {
-                error.SetError(txtCi, "El campo de la cedula no puede estar vacio");
+                error.SetError(txtCi, "El campo de la cédula no puede estar vacío");
                 txtCi.Focus();
                 return false;
             }
             else
             {
-                error.SetError(txtCi, "El campo de la cedula solo pueden tener numeros(sin espacios)");
+                error.SetError(txtCi, "El campo de la cédula solo puede tener números (sin espacios)");
                 txtCi.Focus();
                 return false;
             }
@@ -132,19 +132,19 @@ namespace Capa_Logica.Clases
             }
             else if (validacion == -1)
             {
-                error.SetError(txtNombre, "El campo del primer nombre no puede estar vacio");
+                error.SetError(txtNombre, "El campo del primer nombre no puede estar vacío");
                 txtNombre.Focus();
                 return false;
             }
             else if (validacion == -2)
             {
-                error.SetError(txtNombre, "El campo del primer nombre no puede tener mas de 20 caracteres");
+                error.SetError(txtNombre, "El campo del primer nombre no puede tener más de 20 caracteres");
                 txtNombre.Focus();
                 return false;
             }
             else
             {
-                error.SetError(txtNombre, "El campo del primer nombre solo pueden tener letras");
+                error.SetError(txtNombre, "El campo del primer nombre solo puede contener letras");
                 txtNombre.Focus();
                 return false;
             }
@@ -171,13 +171,13 @@ namespace Capa_Logica.Clases
             }
             else if (validacion == -2)
             {
-                error.SetError(txtNombre, "El campo del segundo nombre no puede tener mas de 20 caracteres");
+                error.SetError(txtNombre, "El campo del segundo nombre no puede tener más de 20 caracteres");
                 txtNombre.Focus();
                 return false;
             }
             else
             {
-                error.SetError(txtNombre, "El campo del segundo nombre solo pueden tener letras");
+                error.SetError(txtNombre, "El campo del segundo nombre solo puede contener letras");
                 txtNombre.Focus();
                 return false;
             }
@@ -205,19 +205,19 @@ namespace Capa_Logica.Clases
             }
             else if (validacion == -1)
             {
-                error.SetError(txtApellido, "El campo del primer apellido no puede estar vacio");
+                error.SetError(txtApellido, "El campo del primer apellido no puede estar vacío");
                 txtApellido.Focus();
                 return false;
             }
             else if (validacion == -2)
             {
-                error.SetError(txtApellido, "El campo del " + apellidoElegido + " no puede tener mas de 20 caracteres");
+                error.SetError(txtApellido, "El campo del " + apellidoElegido + " no puede tener más de 20 caracteres");
                 txtApellido.Focus();
                 return false;
             }
             else
             {
-                error.SetError(txtApellido, "El campo del " + apellidoElegido + " solo pueden tener letras");
+                error.SetError(txtApellido, "El campo del " + apellidoElegido + " solo puede contener letras");
                 txtApellido.Focus();
                 return false;
             }
@@ -239,19 +239,19 @@ namespace Capa_Logica.Clases
             }
             else if (validacion == -1)
             {
-                error.SetError(txtDireccion, "El campo de la direccion no puede estar vacio");
+                error.SetError(txtDireccion, "El campo de la dirección no puede estar vacío");
                 txtDireccion.Focus();
                 return false;
             }
             else if (validacion == -2)
             {
-                error.SetError(txtDireccion, "El campo de la direccion no puede tener mas de 250 caracteres");
+                error.SetError(txtDireccion, "El campo de la dirección no puede tener mas de 250 caracteres");
                 txtDireccion.Focus();
                 return false;
             }
             else
             {
-                error.SetError(txtDireccion, "El campo de la direccion solo pueden tener letras, numeros, puntos y barra");
+                error.SetError(txtDireccion, "El campo de la dirección solo puede contener letras, números, puntos y barra");
                 txtDireccion.Focus();
                 return false;
             }
@@ -273,7 +273,7 @@ namespace Capa_Logica.Clases
                     }
                     else
                     {
-                        error.SetError(txtEmail, "El formato del mail ingresado es invalido");
+                        error.SetError(txtEmail, "El formato del mail ingresado no es válido");
                         txtEmail.Focus();
                         return false;
                     }
@@ -308,7 +308,7 @@ namespace Capa_Logica.Clases
             }
             else
             {
-                error.SetError(dtpFechaNacimiento, "La fecha de nacimiento debe ser menor al dia actual");
+                error.SetError(dtpFechaNacimiento, "La fecha de nacimiento debe ser menor al día actual");
                 dtpFechaNacimiento.Focus();
                 return false;
             }
@@ -330,19 +330,19 @@ namespace Capa_Logica.Clases
             }
             else if (validacion == -1)
             {
-                error.SetError(txtTelefono, "El campo del telefono no puede estar vacio");
+                error.SetError(txtTelefono, "El campo del teléfono no puede estar vacío");
                 txtTelefono.Focus();
                 return false;
             }
             else if (validacion == -2)
             {
-                error.SetError(txtTelefono, "El campo del telefono no puede tener mas de 21 caracteres");
+                error.SetError(txtTelefono, "El campo del teléfono no puede tener más de 21 caracteres");
                 txtTelefono.Focus();
                 return false;
             }
             else
             {
-                error.SetError(txtTelefono, "El campo del telefono solo pueden tener numeros, signos de mas y signos de menos");
+                error.SetError(txtTelefono, "El campo del teléfono solo puede contener números, signos de más y guiones");
                 txtTelefono.Focus();
                 return false;
             }

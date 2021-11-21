@@ -75,7 +75,7 @@
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(211, 20);
             this.lblTitulo.TabIndex = 1;
-            this.lblTitulo.Text = "Modificacion de Servicios";
+            this.lblTitulo.Text = "Modificación de Servicios";
             // 
             // btnSalir
             // 

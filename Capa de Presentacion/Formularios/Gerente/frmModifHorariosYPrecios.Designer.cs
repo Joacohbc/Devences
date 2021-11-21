@@ -110,7 +110,7 @@
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(284, 20);
             this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "Modificacion de Precios y Horarios";
+            this.lblTitulo.Text = "Modificación de Precios y Horarios";
             // 
             // btnSalir
             // 
@@ -540,7 +540,7 @@
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(137, 22);
             this.label20.TabIndex = 152;
-            this.label20.Text = "Duracion Actual";
+            this.label20.Text = "Duración Actual";
             // 
             // label19
             // 
@@ -580,9 +580,9 @@
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(32, 219);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(388, 26);
+            this.label17.Size = new System.Drawing.Size(393, 26);
             this.label17.TabIndex = 148;
-            this.label17.Text = "Precio y Duracion de Servicio Actuales";
+            this.label17.Text = "Precio y Duración del Servicio Actuales";
             // 
             // label21
             // 
@@ -592,7 +592,7 @@
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(296, 26);
             this.label21.TabIndex = 153;
-            this.label21.Text = "Precio y Duracion a Modificar";
+            this.label21.Text = "Precio y Duración a Modificar";
             // 
             // txtDurServ
             // 
@@ -624,7 +624,7 @@
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(139, 22);
             this.label22.TabIndex = 157;
-            this.label22.Text = "Nueva Duracion";
+            this.label22.Text = "Nueva Duración";
             // 
             // label23
             // 
@@ -652,7 +652,7 @@
             // 
             this.dtpDurServMod.CustomFormat = "HH:mm";
             this.dtpDurServMod.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDurServMod.Location = new System.Drawing.Point(683, 352);
+            this.dtpDurServMod.Location = new System.Drawing.Point(684, 352);
             this.dtpDurServMod.Name = "dtpDurServMod";
             this.dtpDurServMod.ShowUpDown = true;
             this.dtpDurServMod.Size = new System.Drawing.Size(52, 20);

@@ -91,7 +91,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(204, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Modificacion de Clientes";
+            this.label1.Text = "Modificación de Clientes";
             // 
             // btnSalir
             // 
@@ -191,9 +191,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(516, 189);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 20);
+            this.label4.Size = new System.Drawing.Size(73, 20);
             this.label4.TabIndex = 13;
-            this.label4.Text = "Apellido";
+            this.label4.Text = "Apellidos";
             // 
             // label5
             // 
@@ -434,9 +434,9 @@
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(40, 225);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(65, 20);
+            this.label15.Size = new System.Drawing.Size(73, 20);
             this.label15.TabIndex = 63;
-            this.label15.Text = "Apellido";
+            this.label15.Text = "Apellidos";
             // 
             // label16
             // 
