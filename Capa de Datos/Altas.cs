@@ -183,7 +183,7 @@ namespace Capa_de_Datos
         public int altaReserva(Reserva reserva, List<Integrantes> integrantes)
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
-            String sentencia = String.Format("Insert into reserva values(0, {0}, '{1}','{2}','{3}',{4},'{5}','{6}',current_timestamp());", reserva.Ci, reserva.Inicio.ToString("yyyy-MM-dd"),
+            String sentencia = String.Format("Insert into reserva values(0, {0}, '{1}','{2}','{3}',{4},'{5}',current_timestamp(),'{6}');", reserva.Ci, reserva.Inicio.ToString("yyyy-MM-dd"),
                 reserva.Fin.ToString("yyyy-MM-dd"), reserva.TipoDeIngreso, reserva.PrecioTotal, reserva.Estado, reserva.FormaDePago);
 
             //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
