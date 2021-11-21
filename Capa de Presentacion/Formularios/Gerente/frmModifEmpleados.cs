@@ -308,6 +308,8 @@ namespace Capa_Presentacion.Formularios
                         btnAgregarTel.Enabled = true;
                         btnBorrarTel.Enabled = true;
 
+                        chkActivo.Enabled = true;
+
                         //Habilito los campos del Usuario y Contrasenia
                         cmbCargoMod.Enabled = true;
                         txtNomUsuMod.Enabled = true;
@@ -454,6 +456,8 @@ namespace Capa_Presentacion.Formularios
                 btnAgregarTel.Enabled = false;
                 btnBorrarTel.Enabled = false;
 
+                chkActivo.Enabled = false;
+
                 //Deshabilito los botones para Modificar y Cancelar
                 btnModificar.Enabled = false;
                 btnCancelar.Enabled = false;
@@ -549,7 +553,10 @@ namespace Capa_Presentacion.Formularios
             CheckBox r = (CheckBox)sender;
 
             MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
-            int retorno = metodos.modificarEstadoEmpleado(Convert.ToInt32(txtCedula.Text), chkActivo.Checked);
+
+            //Si chkActivo.Checked esta true, sigmifica que esta dado de alta, osea que quiero darle de baja
+            //por eso paso el !chkActivo.Checked
+            int retorno = metodos.modificarEstadoEmpleado(Convert.ToInt32(txtCedula.Text), !chkActivo.Checked);
             if (retorno > 0)
             {
                 Mensaje.MostrarInfo("Se cambio el estado del emplado con exito", "Modifacion de Emplado");

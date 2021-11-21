@@ -231,8 +231,8 @@ C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CopyComplete
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.exe
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.pdb
-C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.chk.resources
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.exe.manifest
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.application
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.exe.manifest
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.application
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModClientes.resources

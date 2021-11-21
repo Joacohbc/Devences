@@ -36,19 +36,12 @@
             this.lblBusqueda = new System.Windows.Forms.Label();
             this.cmbClave = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvConsulta = new System.Windows.Forms.DataGridView();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.btnBusqueda = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.Ci = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SegundoApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -94,8 +87,9 @@
             this.cmbTipoConsulta.FormattingEnabled = true;
             this.cmbTipoConsulta.Location = new System.Drawing.Point(184, 72);
             this.cmbTipoConsulta.Name = "cmbTipoConsulta";
-            this.cmbTipoConsulta.Size = new System.Drawing.Size(177, 24);
+            this.cmbTipoConsulta.Size = new System.Drawing.Size(222, 24);
             this.cmbTipoConsulta.TabIndex = 129;
+            this.cmbTipoConsulta.SelectedIndexChanged += new System.EventHandler(this.cmbTipoConsulta_SelectedIndexChanged);
             // 
             // lblTipoConsulta
             // 
@@ -111,7 +105,7 @@
             // 
             this.lblBusqueda.AutoSize = true;
             this.lblBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBusqueda.Location = new System.Drawing.Point(406, 74);
+            this.lblBusqueda.Location = new System.Drawing.Point(421, 74);
             this.lblBusqueda.Name = "lblBusqueda";
             this.lblBusqueda.Size = new System.Drawing.Size(102, 22);
             this.lblBusqueda.TabIndex = 132;
@@ -124,7 +118,7 @@
             this.cmbClave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbClave.FormattingEnabled = true;
-            this.cmbClave.Location = new System.Drawing.Point(514, 72);
+            this.cmbClave.Location = new System.Drawing.Point(529, 72);
             this.cmbClave.Name = "cmbClave";
             this.cmbClave.Size = new System.Drawing.Size(110, 24);
             this.cmbClave.TabIndex = 133;
@@ -133,37 +127,28 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(654, 74);
+            this.label2.Location = new System.Drawing.Point(654, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 22);
             this.label2.TabIndex = 134;
             this.label2.Text = "Ingrese:";
             // 
-            // dataGridView1
+            // dgvConsulta
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Ci,
-            this.Nombre,
-            this.Apellido,
-            this.SegundoApellido,
-            this.Genero,
-            this.FechaNacimiento,
-            this.Mail});
-            this.dataGridView1.Location = new System.Drawing.Point(14, 127);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(972, 385);
-            this.dataGridView1.TabIndex = 130;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgvConsulta.AllowUserToAddRows = false;
+            this.dgvConsulta.AllowUserToDeleteRows = false;
+            this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvConsulta.Location = new System.Drawing.Point(14, 127);
+            this.dgvConsulta.Name = "dgvConsulta";
+            this.dgvConsulta.ReadOnly = true;
+            this.dgvConsulta.Size = new System.Drawing.Size(972, 385);
+            this.dgvConsulta.TabIndex = 130;
             // 
             // txtBusqueda
             // 
             this.txtBusqueda.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusqueda.Location = new System.Drawing.Point(734, 77);
+            this.txtBusqueda.Location = new System.Drawing.Point(734, 74);
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(138, 19);
             this.txtBusqueda.TabIndex = 135;
@@ -195,49 +180,6 @@
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
-            // Ci
-            // 
-            this.Ci.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ci.HeaderText = "Ci";
-            this.Ci.Name = "Ci";
-            this.Ci.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Apellido
-            // 
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
-            // 
-            // SegundoApellido
-            // 
-            this.SegundoApellido.HeaderText = "SegundoApellido";
-            this.SegundoApellido.Name = "SegundoApellido";
-            this.SegundoApellido.ReadOnly = true;
-            // 
-            // Genero
-            // 
-            this.Genero.HeaderText = "Genero";
-            this.Genero.Name = "Genero";
-            this.Genero.ReadOnly = true;
-            // 
-            // FechaNacimiento
-            // 
-            this.FechaNacimiento.HeaderText = "FechaNacimiento";
-            this.FechaNacimiento.Name = "FechaNacimiento";
-            this.FechaNacimiento.ReadOnly = true;
-            // 
-            // Mail
-            // 
-            this.Mail.HeaderText = "Mail";
-            this.Mail.Name = "Mail";
-            this.Mail.ReadOnly = true;
-            // 
             // frmInfoReservas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -251,7 +193,7 @@
             this.Controls.Add(this.cmbClave);
             this.Controls.Add(this.lblBusqueda);
             this.Controls.Add(this.lblTipoConsulta);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvConsulta);
             this.Controls.Add(this.cmbTipoConsulta);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -259,7 +201,7 @@
             this.Load += new System.EventHandler(this.frmInfoReservas_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,16 +217,9 @@
         private System.Windows.Forms.Label lblBusqueda;
         private System.Windows.Forms.ComboBox cmbClave;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvConsulta;
         private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.Button btnBusqueda;
         private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ci;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SegundoApellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Genero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaNacimiento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Mail;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -876,6 +877,66 @@ namespace Capa_Logica.Clases
         }
 
         public int cancelarServicio(String nombre, int id) => bajas.cancelarServicio(nombre, id);
+        #endregion
+
+        #region Metodos de Consultas
+        private bool csCargarDGV(DataTable dt, DataGridView dgvConsulta)
+        {
+            if (dt != null)
+            {
+                //dgvConsulta.Rows.Clear();
+                dgvConsulta.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvConsulta.DataSource = dt;
+
+                if(dgvConsulta.Rows.Count <= 0)
+                {
+                    Mensaje.MostrarInfo("Su consulta no tuvo ningun retorno", "Aviso");
+                }
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool csVerTodosLosClientesActivos(DataGridView dgvConsulta) 
+        {
+            DataTable dt = consultas.verTodosLosClientesActivos();
+            return csCargarDGV(dt, dgvConsulta);
+        }
+
+        public bool csVerTodosLosClientesInactivos(DataGridView dgvConsulta)
+        {
+            DataTable dt = consultas.verTodosLosClientesInactivos();
+            return csCargarDGV(dt, dgvConsulta);
+        }
+
+        public bool csVerTodasLasReservas(DataGridView dgvConsulta)
+        {
+            DataTable dt = consultas.verTodasLasReservas();
+            return csCargarDGV(dt, dgvConsulta);
+        }
+
+        public bool csVerTodasLasReservasConfirmada(DataGridView dgvConsulta)
+        {
+            DataTable dt = consultas.verTodasLasReservasConfirmada();
+            return csCargarDGV(dt, dgvConsulta);
+        }
+
+        public bool csVerTodasLasReservasCancelada(DataGridView dgvConsulta)
+        {
+            DataTable dt = consultas.verTodasLasReservasCancelada();
+            return csCargarDGV(dt, dgvConsulta);
+        }
+
+        public bool csVerTodasLasReservasFinalizada(DataGridView dgvConsulta)
+        {
+            DataTable dt = consultas.verTodasLasReservasFinalizada();
+            return csCargarDGV(dt, dgvConsulta);
+        }
+
         #endregion
     }
 }

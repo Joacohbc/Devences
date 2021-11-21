@@ -15,9 +15,9 @@ using Capa_Logica.Clases;
 
 namespace Capa_Presentacion.Formularios
 {
-    public partial class chk : Form
+    public partial class frmModClientes : Form
     {
-        public chk()
+        public frmModClientes()
         {
             InitializeComponent();
         }
@@ -305,6 +305,8 @@ namespace Capa_Presentacion.Formularios
                             btnAgregarTelefono.Enabled = true;
                             btnBorrarTelefono.Enabled = true;
 
+                            chkActivo.Enabled = true;
+
                             //Habilito los botones para Modificar y Cancelar
                             btnModificar.Enabled = true;
                             btnCancelar.Enabled = true;
@@ -489,6 +491,7 @@ namespace Capa_Presentacion.Formularios
                 btnAgregarTelefono.Enabled = false;
                 btnBorrarTelefono.Enabled = false;
 
+                chkActivo.Enabled = false;
                 //Deshabilito los botones para Modificar y Cancelar
                 btnModificar.Enabled = false;
                 btnCancelar.Enabled = false;
@@ -508,11 +511,13 @@ namespace Capa_Presentacion.Formularios
             int retorno = metodos.clienteEnReserva(Convert.ToInt32(txtCedula.Text));
             if (retorno == 0)
             {
-                retorno = metodos.modificarEstadoCliente(Convert.ToInt32(txtCedula.Text), chkActivo.Checked);
+                
+                //Si chkActivo.Checked esta true, sigmifica que esta dado de alta, osea que quiero darle de baja
+                //por eso paso el !chkActivo.Checked
+                retorno = metodos.modificarEstadoCliente(Convert.ToInt32(txtCedula.Text), !chkActivo.Checked);
                 if (retorno > 0)
                 {
                     Mensaje.MostrarInfo("Se cambio el estado del cliente con exito", "Modifacion de cliente");
-
                     //Solo cambio el chek del chekBox si se pudo dar de baja/alta correctamente
                     //Sino no lo doy de baja
                     r.Checked = !r.Checked;

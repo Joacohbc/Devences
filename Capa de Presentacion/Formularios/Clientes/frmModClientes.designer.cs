@@ -1,6 +1,6 @@
 ﻿namespace Capa_Presentacion.Formularios
 {
-    partial class chk
+    partial class frmModClientes
     {
         /// <summary>
         /// Required designer variable.
@@ -677,7 +677,7 @@
             this.label19.TabIndex = 86;
             this.label19.Text = "Estado";
             // 
-            // chk
+            // frmModClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -733,7 +733,7 @@
             this.Controls.Add(this.txtSegundoNombre);
             this.Controls.Add(this.txtPrimerNombre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "chk";
+            this.Name = "frmModClientes";
             this.Text = "frmRegClientes";
             this.Load += new System.EventHandler(this.frmRegClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();

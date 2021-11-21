@@ -34,27 +34,74 @@ namespace Capa_Presentacion.Formularios
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
-            Persona p = metodos.traerPersona(12345671);
-            dataGridView1.Rows.Add("52626663" , p.PrimerNombre, p.PrimerApellido, p.SegundoApellido, p.Genero, p.FechaNacimiento, p.Mail);
+
+            Func<String, bool> siConsulta = tipoConsulta => cmbTipoConsulta.SelectedItem.ToString() == tipoConsulta;
+            Action error = () => Mensaje.MostrarError("Ocurrio un error al cargar los datos", Mensaje.ErrorBD);
+
+            if (siConsulta(TodosLosClientesActivos)) {
+                if (!metodos.csVerTodosLosClientesActivos(dgvConsulta)) error();
+            }
+            else if (siConsulta(TodosLosClientesInactivos)) {
+                if (!metodos.csVerTodosLosClientesInactivos(dgvConsulta)) error();
+            }
+            else if (siConsulta(TodasLasReservas))
+            {
+                if (!metodos.csVerTodasLasReservas(dgvConsulta)) error();
+            }
+            else if (siConsulta(TodasLasReservasConfirmadas))
+            {
+                if (!metodos.csVerTodasLasReservasConfirmada(dgvConsulta)) error();
+            }
+            else if (siConsulta(TodasLasReservasCanceladas))
+            {
+                if (!metodos.csVerTodasLasReservasCancelada(dgvConsulta)) error();
+            }
+            else if (siConsulta(TodasLasReservasFinalizadas))
+            {
+                if (!metodos.csVerTodasLasReservasFinalizada(dgvConsulta)) error();
+            }
         }
+
+        //Consultas de Clientes
+        private const String TodosLosClientesActivos = "Consultar todos los Clientes datos activos";
+        private const String TodosLosClientesInactivos = "Consultar todos los Clientes inactivos";
+
+        //Consultas de Empleado
+        private const String TodosLosEmpleados = "Consultar todos los Empleados";
+
+        //Consultas de Reserva
+        private const String TodasLasReservas = "Consultar todas los Reservas";
+        private const String TodasLasReservasConfirmadas = "Consultar todas los Reservas confirmadas";
+        private const String TodasLasReservasCanceladas = "Consultar todas los Reservas canceladas";
+        private const String TodasLasReservasFinalizadas = "Consultar todas los Reservas finalizadas";
 
         private void frmInfoReservas_Load(object sender, EventArgs e)
         {
-            cmbClave.Items.Add("CI");
-            cmbClave.SelectedIndex = 0;
+            Action<String> cargar = consulta => cmbTipoConsulta.Items.Add(consulta);
 
-            cmbTipoConsulta.Items.Add("Empleados");
+
+            //Cliente
+            cargar(TodosLosClientesActivos);
+            cargar(TodosLosClientesInactivos);
+
+            //Reserva
+            cargar(TodasLasReservas);
+            cargar(TodasLasReservasConfirmadas);
+            cargar(TodasLasReservasCanceladas);
+            cargar(TodasLasReservasFinalizadas);
+
+            //Empleados
+            cargar(TodosLosEmpleados);
+
             cmbTipoConsulta.SelectedIndex = 0;
+        }
 
-            txtBusqueda.Text = "52626663";
+        private void cmbTipoConsulta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnActualizar.PerformClick();
         }
     }
 }

@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -289,7 +290,7 @@ namespace Capa_de_Datos
                 {
                     empleado.Ci = lector.GetInt32(0);
                     empleado.Usuario = lector.GetString(1);
-                    empleado.Tipo = lector.GetString(3) == "Gerente" ? 1: 0;
+                    empleado.Tipo = lector.GetString(3) == "Gerente" ? 1 : 0;
                     empleado.Estado = lector.GetBoolean(4);
                     return empleado;
                 }
@@ -710,7 +711,7 @@ namespace Capa_de_Datos
                 MySqlDataReader lector = select.ExecuteReader();
 
                 List<String> horarios = new List<string>();
-                while(lector.Read())
+                while (lector.Read())
                 {
                     horarios.Add(lector.GetString(0));
                 }
@@ -730,7 +731,7 @@ namespace Capa_de_Datos
                 if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consulta de horarios");
             }
         }
-        
+
         /// <summary>
         /// Traer los integrantes de una reserva, si tiene.Si hay error envia Null
         /// </summary>
@@ -788,7 +789,7 @@ namespace Capa_de_Datos
                 List<String[]> servicios = new List<string[]>();
                 while (lector.Read())
                 {
-                    String[] servicio = { lector.GetString(0), lector.GetString(1), lector.GetString(2)};
+                    String[] servicio = { lector.GetString(0), lector.GetString(1), lector.GetString(2) };
                     servicios.Add(servicio);
                 }
                 return servicios;
@@ -846,7 +847,7 @@ namespace Capa_de_Datos
                 if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Busqueda de Cliente en alguna reserva: " + ci);
             }
         }
-       
+
         #region Consultras de Reserva Avanzadas
 
         /// <summary>
@@ -938,7 +939,7 @@ namespace Capa_de_Datos
             {
                 //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
                 conexion.CerrarConexion();
-                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consulta si un dia pertenece a una reserva(quitando el id="+id+"): " + dia.ToString("yyyy-MM-dd") + " Reservas de:" + ci);
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consulta si un dia pertenece a una reserva(quitando el id=" + id + "): " + dia.ToString("yyyy-MM-dd") + " Reservas de:" + ci);
             }
         }
 
@@ -1032,5 +1033,116 @@ namespace Capa_de_Datos
             }
         }
         #endregion
+
+
+        #region Consultas para el apartado de Consultas
+
+        private DataTable realizarConsulta(String sentencia, String mensajeRegistro)
+        {
+            //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
+            //si lo hara. SI es false si entre al catch, osea que hubo un error
+            bool ingresoRegistro = true;
+
+            try
+            {
+                MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                DataTable dt = new DataTable();
+                dt.Load(select.ExecuteReader());
+                return dt;
+            }
+            catch
+            {
+                ingresoRegistro = false;
+                return null;
+            }
+            finally
+            {
+                //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
+                conexion.CerrarConexion();
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, mensajeRegistro);
+            }
+        }
+
+        public DataTable verTodosLosClientesActivos()
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = @"select p.ci 'Cedula', primerNombre 'Nombre', primerApellido 'Primer Apellido', segundoApellido 'Segudo Apellido', 
+                genero 'Genero', fechaNacimiento 'Nacimiento', mail 'Mail', direccion 'Direccion' 
+                from persona p join cliente c 
+                on p.ci = c.ci 
+                where c.estado = true;";
+
+            return realizarConsulta(sentencia, "Consultar todos los clientes activos");
+        }
+
+        public DataTable verTodosLosClientesInactivos()
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = @"select p.ci 'Cedula', primerNombre 'Nombre', primerApellido 'Primer Apellido', segundoApellido 'Segudo Apellido',
+                genero 'Genero', fechaNacimiento 'Nacimiento', mail 'Mail', direccion 'Direccion' 
+                from persona p join cliente c 
+                on p.ci = c.ci 
+                where c.estado = false;";
+
+            return realizarConsulta(sentencia, "Consultar todos los clientes inactivos");
+        }
+
+        public DataTable verTodasLasReservas()
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = @"
+                select id 'Id Reserva', r.ci 'Titular', p.primerNombre 'Nombre', p.primerApellido 'Apellido',inicio 'Inicio', 
+                fin 'Fin', tipoDeIngreso 'Ingreso del Titular', precioTotal 'Precio Total', formaDePago 'Forma de pago', 
+                DATE_FORMAT(fechaRegistro, '%d-%m-%Y %H:%i:%s') 'Fecha de Registro'
+                from reserva r join persona p
+                on r.ci=p.ci;";
+
+            return realizarConsulta(sentencia, "Consultar todas las reserva");
+        }
+
+        public DataTable verTodasLasReservasConfirmada()
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = @"
+                select id 'Id Reserva', r.ci 'Titular', p.primerNombre 'Nombre', p.primerApellido 'Apellido',inicio 'Inicio', 
+                fin 'Fin', tipoDeIngreso 'Ingreso del Titular', precioTotal 'Precio Total', formaDePago 'Forma de pago', 
+                DATE_FORMAT(fechaRegistro, '%d-%m-%Y %H:%i:%s') 'Fecha de Registro'
+                from reserva r join persona p
+                on r.ci=p.ci
+                where r.estado='Confirmada';";
+
+            return realizarConsulta(sentencia, "Consultar todas las reservas confirmada");
+        }
+
+        public DataTable verTodasLasReservasCancelada()
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = @"
+                select id 'Id Reserva', r.ci 'Titular', p.primerNombre 'Nombre', p.primerApellido 'Apellido',inicio 'Inicio', 
+                fin 'Fin', tipoDeIngreso 'Ingreso del Titular', precioTotal 'Precio Total', formaDePago 'Forma de pago', 
+                DATE_FORMAT(fechaRegistro, '%d-%m-%Y %H:%i:%s') 'Fecha de Registro'
+                from reserva r join persona p
+                on r.ci=p.ci
+                where estado='Cancelada';";
+
+            return realizarConsulta(sentencia, "Consultar todas las reserva");
+        }
+
+        public DataTable verTodasLasReservasFinalizada()
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = @"
+                select id 'Id Reserva', r.ci 'Titular', p.primerNombre 'Nombre', p.primerApellido 'Apellido',inicio 'Inicio', 
+                fin 'Fin', tipoDeIngreso 'Ingreso del Titular', precioTotal 'Precio Total', formaDePago 'Forma de pago', 
+                DATE_FORMAT(fechaRegistro, '%d-%m-%Y %H:%i:%s') 'Fecha de Registro'
+                from reserva r join persona p
+                on r.ci=p.ci
+                where estado='Finalizada';";
+
+            return realizarConsulta(sentencia, "Consultar todas las reserva");
+
+        }
+        #endregion
+
     }//
 }//
