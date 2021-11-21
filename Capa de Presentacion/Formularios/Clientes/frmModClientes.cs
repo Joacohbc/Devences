@@ -37,7 +37,7 @@ namespace Capa_Presentacion.Formularios
         {
             if (validar.hayAlgo(this))
             {
-                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacios ¿Quieres cerrar igual?", "Cerrar")) Close();
+                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacíos, ¿Quieres cerrar igual?", "Cerrar")) Close();
             }
             else
             {
@@ -153,7 +153,7 @@ namespace Capa_Presentacion.Formularios
                 }
                 else
                 {
-                    Mensaje.MostrarError("El telefono que quiere agregar ya existe", "Agregar telefono");
+                    Mensaje.MostrarError("El teléfono que quiere agregar ya existe", "Agregar teléfono");
                 }
             }
         }
@@ -166,7 +166,7 @@ namespace Capa_Presentacion.Formularios
                 //Que algun telefono este seleccionado
                 if (listTelefonos.SelectedItem != null)
                 {
-                    if (Mensaje.MostraPreguntaSiNo("¿Quiere eliminar el telefono seleccionado?", "Eliminar telefono"))
+                    if (Mensaje.MostraPreguntaSiNo("¿Quiere eliminar el teléfono seleccionado?", "Eliminar teléfono"))
                     {
                         //Borro el telefono seleccionado
                         listTelefonos.Items.Remove(listTelefonos.SelectedItem);
@@ -174,12 +174,12 @@ namespace Capa_Presentacion.Formularios
                 }
                 else
                 {
-                    Mensaje.MostrarError("Seleccione un telefono", "Eliminar telefono");
+                    Mensaje.MostrarError("Seleccione un teléfono", "Eliminar teléfono");
                 }
             }
             else
             {
-                Mensaje.MostrarError("Seleccione un telefono", "Eliminar telefono");
+                Mensaje.MostrarError("Seleccione un teléfono", "Eliminar teléfono");
             }
         }
 
@@ -199,12 +199,12 @@ namespace Capa_Presentacion.Formularios
                 }
                 else
                 {
-                    Mensaje.MostrarError("Seleccione un telefono", "Editar telefono");
+                    Mensaje.MostrarError("Seleccione un teléfono", "Editar teléfono");
                 }
             }
             else
             {
-                Mensaje.MostrarError("Primero ingrese un telefono", "Editar telefono");
+                Mensaje.MostrarError("Primero ingrese un teléfono", "Editar teléfono");
             }
         }
         #endregion
@@ -315,24 +315,24 @@ namespace Capa_Presentacion.Formularios
                         }
                         else
                         {
-                            Mensaje.MostrarError("Ocurrio un error al consultar la informacion del cliente", Mensaje.ErrorBD);
+                            Mensaje.MostrarError("Ocurrió un error al consultar la información del cliente", Mensaje.ErrorBD);
                         }
 
                     }
                     else
                     {
-                        Mensaje.MostrarError("Ocurrio un error al determinar el estado del cliente", Mensaje.ErrorBD);
+                        Mensaje.MostrarError("Ocurrió un error al determinar el estado del cliente", Mensaje.ErrorBD);
                     }
 
                 }
                 //Cliente no existe
                 else if (retorno == 0)
                 {
-                    Mensaje.MostrarInfo("No existe un Cliente con esa cedula", Mensaje.ErrorIngreso);
+                    Mensaje.MostrarInfo("No existe un Cliente con esa cédula", Mensaje.ErrorIngreso);
                 }
                 else
                 {
-                    Mensaje.MostrarError("Ocurrio un error al buscar al cliente", Mensaje.ErrorBD);
+                    Mensaje.MostrarError("Ocurrió un error al buscar al cliente", Mensaje.ErrorBD);
                 }
 
             }
@@ -383,7 +383,7 @@ namespace Capa_Presentacion.Formularios
 
                                             if (iguales)
                                             {
-                                                Mensaje.MostrarError("Los datos son iguales, cambie algun dato antes de realizar la modificacion", Mensaje.ErrorIngreso);
+                                                Mensaje.MostrarError("Los datos son iguales, cambie algún dato antes de realizar la modificación", Mensaje.ErrorIngreso);
                                                 return false;
                                             }
                                         }
@@ -428,28 +428,28 @@ namespace Capa_Presentacion.Formularios
 
                                 if (retorno == 1)
                                 {
-                                    Mensaje.MostrarInfo("Se modifico el cliente con exito", "Modificar cliente");
+                                    Mensaje.MostrarInfo("Se modifico el cliente con éxito", "Modificar cliente");
                                     btnCancelar.PerformClick();
                                 }
                                 else
                                 {
-                                    Mensaje.MostrarError("Ocurrio un error al modificar los telefonos cliente, pero la persona se ha modificado correctamente", Mensaje.ErrorBD);
+                                    Mensaje.MostrarError("Ocurrió un error al modificar los teléfonos cliente, pero la persona se ha modificado correctamente", Mensaje.ErrorBD);
                                 }
                             }
                             else
                             {
-                                Mensaje.MostrarError("Ocurrio un error al modificar al cliente", Mensaje.ErrorBD);
+                                Mensaje.MostrarError("Ocurrió un error al modificar al cliente", Mensaje.ErrorBD);
                             }
 
                         }
                         //Cliente no existe
                         else if (retorno == 0)
                         {
-                            Mensaje.MostrarError("El cliente que ingreso no esta registrado", Mensaje.ErrorBD);
+                            Mensaje.MostrarError("El cliente que ingreso no está registrado", Mensaje.ErrorBD);
                         }
                         else
                         {
-                            Mensaje.MostrarError("Ocurrio un error al buscar al cliente", Mensaje.ErrorBD);
+                            Mensaje.MostrarError("Ocurrió un error al buscar al cliente", Mensaje.ErrorBD);
                         }
                     }
                 }
@@ -459,7 +459,7 @@ namespace Capa_Presentacion.Formularios
         //Borrar los campos
         private void btnDescartar_Click(object sender, EventArgs e)
         {
-            if (Mensaje.MostraPreguntaSiNo("¿Quieres vaciar los campo de modificacion?", "Borrar los campos"))
+            if (Mensaje.MostraPreguntaSiNo("¿Quieres vaciar los campos de modificación?", "Vaciar los campos"))
             {
                 //Limpio los TextBox
                 Control[] controles = { txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, txtTelefono, txtModificarPrimerNombre, txtModificarSegundoNombre,
@@ -517,23 +517,23 @@ namespace Capa_Presentacion.Formularios
                 retorno = metodos.modificarEstadoCliente(Convert.ToInt32(txtCedula.Text), !chkActivo.Checked);
                 if (retorno > 0)
                 {
-                    Mensaje.MostrarInfo("Se cambio el estado del cliente con exito", "Modifacion de cliente");
+                    Mensaje.MostrarInfo("Se cambió el estado del cliente con éxito", "Modificación de cliente");
                     //Solo cambio el chek del chekBox si se pudo dar de baja/alta correctamente
                     //Sino no lo doy de baja
                     r.Checked = !r.Checked;
                 }
                 else
                 {
-                    Mensaje.MostrarError("Ocurrio un error al modificar el estado del cliente", Mensaje.ErrorBD);
+                    Mensaje.MostrarError("Ocurrió un error al modificar el estado del cliente", Mensaje.ErrorBD);
                 }
             }
             else if (retorno > 0)
             {
-                Mensaje.MostrarError("El cliente tiene esta en alguna reserva en curso, no se puede dar de baja", Mensaje.ErrorIngreso);
+                Mensaje.MostrarError("El cliente tiene o está en alguna reserva en curso, no se puede dar de baja", Mensaje.ErrorIngreso);
             }
             else
             {
-                Mensaje.MostrarError("Ocurrio un error al buscar cliente en reservas", Mensaje.ErrorBD);
+                Mensaje.MostrarError("Ocurrió un error al buscar cliente en reservas", Mensaje.ErrorBD);
             }
         }
     }

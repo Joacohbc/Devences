@@ -26,7 +26,7 @@ namespace Capa_Presentacion.Formularios
         {
             if (validar.hayAlgo(this))
             {
-                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacios ¿Quieres cerrar igual?", "Cerrar")) Close();
+                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacíos, ¿Quieres cerrar igual?", "Cerrar")) Close();
             }
             else
             {
@@ -39,7 +39,7 @@ namespace Capa_Presentacion.Formularios
             MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
 
             Func<String, bool> siConsulta = tipoConsulta => cmbTipoConsulta.SelectedItem.ToString() == tipoConsulta;
-            Action error = () => Mensaje.MostrarError("Ocurrio un error al cargar los datos", Mensaje.ErrorBD);
+            Action error = () => Mensaje.MostrarError("Ocurrió un error al cargar los datos", Mensaje.ErrorBD);
 
             if (siConsulta(TodosLosClientesActivos)) {
                 if (!metodos.csVerTodosLosClientesActivos(dgvConsulta)) error();
@@ -66,17 +66,17 @@ namespace Capa_Presentacion.Formularios
         }
 
         //Consultas de Clientes
-        private const String TodosLosClientesActivos = "Consultar todos los Clientes datos activos";
+        private const String TodosLosClientesActivos = "Consultar todos los Clientes activos";
         private const String TodosLosClientesInactivos = "Consultar todos los Clientes inactivos";
 
         //Consultas de Empleado
         private const String TodosLosEmpleados = "Consultar todos los Empleados";
 
         //Consultas de Reserva
-        private const String TodasLasReservas = "Consultar todas los Reservas";
-        private const String TodasLasReservasConfirmadas = "Consultar todas los Reservas confirmadas";
-        private const String TodasLasReservasCanceladas = "Consultar todas los Reservas canceladas";
-        private const String TodasLasReservasFinalizadas = "Consultar todas los Reservas finalizadas";
+        private const String TodasLasReservas = "Consultar todas las Reservas";
+        private const String TodasLasReservasConfirmadas = "Consultar todas las Reservas confirmadas";
+        private const String TodasLasReservasCanceladas = "Consultar todas las Reservas canceladas";
+        private const String TodasLasReservasFinalizadas = "Consultar todas las Reservas finalizadas";
 
         private void frmInfoReservas_Load(object sender, EventArgs e)
         {

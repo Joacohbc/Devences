@@ -49,11 +49,12 @@
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.chkConfirmada = new System.Windows.Forms.CheckBox();
             this.dgvIntegrantes = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoDeIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIntegrantes)).BeginInit();
             this.panel1.SuspendLayout();
@@ -67,14 +68,14 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(214, 20);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Modificacion de Reservas";
+            this.label1.Text = "Modificación de Reservas";
             // 
             // btnSalir
             // 
             this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.Location = new System.Drawing.Point(917, 7);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 32);
@@ -134,21 +135,21 @@
             // 
             this.lblFechFin.AutoSize = true;
             this.lblFechFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechFin.Location = new System.Drawing.Point(76, 235);
+            this.lblFechFin.Location = new System.Drawing.Point(54, 235);
             this.lblFechFin.Name = "lblFechFin";
-            this.lblFechFin.Size = new System.Drawing.Size(129, 20);
+            this.lblFechFin.Size = new System.Drawing.Size(151, 20);
             this.lblFechFin.TabIndex = 100;
-            this.lblFechFin.Text = "Fecha Fin Actual";
+            this.lblFechFin.Text = "Fecha de Fin Actual";
             // 
             // lblFechIn
             // 
             this.lblFechIn.AutoSize = true;
             this.lblFechIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechIn.Location = new System.Drawing.Point(60, 201);
+            this.lblFechIn.Location = new System.Drawing.Point(42, 202);
             this.lblFechIn.Name = "lblFechIn";
-            this.lblFechIn.Size = new System.Drawing.Size(144, 20);
+            this.lblFechIn.Size = new System.Drawing.Size(166, 20);
             this.lblFechIn.TabIndex = 99;
-            this.lblFechIn.Text = "Fecha Inicio Actual";
+            this.lblFechIn.Text = "Fecha de Inicio Actual";
             // 
             // lblCedTit
             // 
@@ -209,15 +210,15 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(58, 334);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 20);
+            this.label2.Size = new System.Drawing.Size(151, 20);
             this.label2.TabIndex = 117;
-            this.label2.Text = "Nueva Fecha Fin";
+            this.label2.Text = "Nueva Fecha de Fin";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(31, 295);
+            this.label3.Location = new System.Drawing.Point(39, 295);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(166, 20);
             this.label3.TabIndex = 116;
@@ -281,6 +282,27 @@
             this.dgvIntegrantes.Size = new System.Drawing.Size(487, 322);
             this.dgvIntegrantes.TabIndex = 126;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnSalir);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1000, 47);
+            this.panel1.TabIndex = 127;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(149, 375);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 20);
+            this.label5.TabIndex = 128;
+            this.label5.Text = "Estado";
+            // 
             // Nombre
             // 
             this.Nombre.HeaderText = "Nombre";
@@ -295,7 +317,7 @@
             // 
             // Genero
             // 
-            this.Genero.HeaderText = "Genero";
+            this.Genero.HeaderText = "Género";
             this.Genero.Name = "Genero";
             this.Genero.ReadOnly = true;
             // 
@@ -306,23 +328,13 @@
             this.tipoDeIngreso.ReadOnly = true;
             this.tipoDeIngreso.Width = 140;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btnSalir);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1028, 47);
-            this.panel1.TabIndex = 127;
-            // 
             // frmModifReservas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(1028, 605);
+            this.ClientSize = new System.Drawing.Size(1000, 605);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvIntegrantes);
             this.Controls.Add(this.chkConfirmada);
@@ -375,10 +387,11 @@
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.CheckBox chkConfirmada;
         private System.Windows.Forms.DataGridView dgvIntegrantes;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Genero;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipoDeIngreso;
-        private System.Windows.Forms.Panel panel1;
     }
 }

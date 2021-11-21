@@ -41,7 +41,7 @@ namespace Capa_Presentacion.Formularios.Servicios
             Validaciones validaciones = new Validaciones();
             if (validaciones.hayAlgo(this))
             {
-                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacios ¿Quieres cerrar igual?", "Cerrar"))
+                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacíos, ¿Quieres cerrar igual?", "Cerrar"))
                 {
                     Close();
                 }
@@ -86,13 +86,13 @@ namespace Capa_Presentacion.Formularios.Servicios
                 }
                 else
                 {
-                    Mensaje.MostrarInfo("Esta reserva no tiene ningun servicio registrado", "Aviso");
+                    Mensaje.MostrarInfo("Esta reserva no tiene ningún servicio registrado", "Aviso");
                     limpiar();
                 }
             }
             else
             {
-                Mensaje.MostrarError("Ocurrio un error al traer los servicios de la reserva", Mensaje.ErrorBD);
+                Mensaje.MostrarError("Ocurrió un error al mostrar los servicios de la reserva", Mensaje.ErrorBD);
             }
         }
 
@@ -160,26 +160,26 @@ namespace Capa_Presentacion.Formularios.Servicios
                                 }
                                 else
                                 {
-                                    Mensaje.MostrarError("Esta reserva no tiene ningun servicio registrado", Mensaje.ErrorIngreso);
+                                    Mensaje.MostrarError("Esta reserva no tiene ningún servicio registrado", Mensaje.ErrorIngreso);
                                 }
                             }
                             else
                             {
-                                Mensaje.MostrarError("Ocurrio un error al traer los servicios de la reserva", Mensaje.ErrorBD);
+                                Mensaje.MostrarError("Ocurrió un error al mostrar los servicios de la reserva", Mensaje.ErrorBD);
                             }
                         }
                         else
                         {
-                            Mensaje.MostrarError("Ocurrio un error al traer los datos de la reserva", Mensaje.ErrorBD);
+                            Mensaje.MostrarError("Ocurrió un error al mostrar los datos de la reserva", Mensaje.ErrorBD);
                         }
                     }
                     else if (retorno == 0)
                     {
-                        Mensaje.MostrarError("El Cliente ingresado no tiene una reserva del servico confirmada con inicio para " + dtpFechaInico.Value.ToString("dd/MM/yyyy"), Mensaje.ErrorIngreso);
+                        Mensaje.MostrarError("El Cliente ingresado no tiene una reserva del servicio confirmada con inicio para " + dtpFechaInico.Value.ToString("dd/MM/yyyy"), Mensaje.ErrorIngreso);
                     }
                     else
                     {
-                        Mensaje.MostrarError("Ocurrio un error al buscar la Reserva", Mensaje.ErrorBD);
+                        Mensaje.MostrarError("Ocurrió un error al buscar la Reserva", Mensaje.ErrorBD);
                     }
                 }
                 else if (retorno == 0)
@@ -188,7 +188,7 @@ namespace Capa_Presentacion.Formularios.Servicios
                 }
                 else
                 {
-                    Mensaje.MostrarError("Ocurrio un error al buscar el Cliente", Mensaje.ErrorBD);
+                    Mensaje.MostrarError("Ocurrió un error al buscar el Cliente", Mensaje.ErrorBD);
                 }
             }
         }
@@ -236,63 +236,63 @@ namespace Capa_Presentacion.Formularios.Servicios
                                 retorno = metodos.validarMaxCantidadServicio(servicioSeleccionado, dtpInicioServicio.Value);
                                 if (retorno == 1)
                                 {
-                                    if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar el servicio?", "Modificacion de Servicio"))
+                                    if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar el servicio?", "Modificación de Servicio"))
                                     {
                                         //Intendo Modificar el Servicio
                                         retorno = metodos.modificarServicioReservado(cmbServicio.SelectedItem.ToString(), reserva.Id, dtpInicioServicio.Value, servicioSeleccionado.Duracion);
                                         if (retorno > 0)
                                         {
-                                            Mensaje.MostrarInfo("Modificacion de Servicio exitosa", "Modificacion exitosa");
+                                            Mensaje.MostrarInfo("Modificación de Servicio exitosa", "Modificación exitosa");
                                             recargarDGV();
                                         }
                                         else
                                         {
-                                            Mensaje.MostrarError("Ocurrio un error al modificar el Servicio", Mensaje.ErrorBD);
+                                            Mensaje.MostrarError("Ocurrió un error al modificar el Servicio", Mensaje.ErrorBD);
                                         }
                                     }
                                 }
                                 else if (retorno == 0)
                                 {
                                     DateTime fin = dtpInicioServicio.Value + servicioSeleccionado.Duracion;
-                                    Mensaje.MostrarError("Este servicio en el horario " + dtpInicioServicio.Value.ToLongTimeString() + " a " + fin.ToLongTimeString() +
-                                        " ya esta lleno, eliga otro horario", Mensaje.ErrorIngreso);
+                                    Mensaje.MostrarError("Este servicio en el horario de " + dtpInicioServicio.Value.ToLongTimeString() + " a " + fin.ToLongTimeString() +
+                                        " ya esta lleno, elija otro horario", Mensaje.ErrorIngreso);
                                 }
                                 else
                                 {
-                                    Mensaje.MostrarError("Ocurrio un error al comprobar la cantidad maxima del servicio", Mensaje.ErrorBD);
+                                    Mensaje.MostrarError("Ocurrió un error al comprobar la cantidad máxima del servicio", Mensaje.ErrorBD);
                                 }
                             }
                             else if (retorno == -2)
                             {
-                                Mensaje.MostrarError("La fecha de registro del servicio no se encuentra dentro de esa reserva", Mensaje.ErrorIngreso);
+                                Mensaje.MostrarError("La fecha en la que se quiere reservar el servicio no se encuentra dentro del período de la reserva", Mensaje.ErrorIngreso);
                             }
                             else
                             {
-                                Mensaje.MostrarError("Ocurrio un error al comprobar las fechas del servicio", Mensaje.ErrorBD);
+                                Mensaje.MostrarError("Ocurrió un error al comprobar las fechas del servicio", Mensaje.ErrorBD);
                             }
                         }
                         else if (retorno == 0)
                         {
-                            Mensaje.MostrarError("La fecha de registro del servicio no se encuentra dentro del rango de los horarios del SPA", Mensaje.ErrorIngreso);
+                            Mensaje.MostrarError("La fecha en la que se quiere reservar el servicio no se encuentra dentro del rango de los horarios del SPA", Mensaje.ErrorIngreso);
                         }
                         else
                         {
-                            Mensaje.MostrarError("Ocurrio un error al cargar los horarios del SPA", Mensaje.ErrorBD);
+                            Mensaje.MostrarError("Ocurrió un error al cargar los horarios del SPA", Mensaje.ErrorBD);
                         }
                     }
                     else
                     {
-                        Mensaje.MostrarError("Ocurrio un error al buscar el servicio", Mensaje.ErrorIngreso);
+                        Mensaje.MostrarError("Ocurrió un error al buscar el servicio", Mensaje.ErrorIngreso);
                     }
                 }
                 else
                 {
-                    Mensaje.MostrarError("Ocurrio un error al cargar los servicios", Mensaje.ErrorBD);
+                    Mensaje.MostrarError("Ocurrió un error al cargar los servicios", Mensaje.ErrorBD);
                 }
             }
             else
             {
-                Mensaje.MostrarError("El servicio seleccionado ya comenzo, no se puede realizar la operacion", Mensaje.ErrorIngreso);
+                Mensaje.MostrarError("El servicio seleccionado ya comenzó, no se puede realizar la operación", Mensaje.ErrorIngreso);
             }
         }
 
@@ -328,23 +328,23 @@ namespace Capa_Presentacion.Formularios.Servicios
                             int retorno = metodos.modificarPrecioEnReserva((-servicioSeleccionado.Precio), reserva.Id);
                             if (retorno > 0)
                             {
-                                Mensaje.MostrarInfo("El servicio se cancelo con exito", "Baja de servicio");
+                                Mensaje.MostrarInfo("El servicio se canceló con éxito", "Baja de servicio");
                             }
                             else
                             {
-                                Mensaje.MostrarError("Ocurrio un error al subar el precio del servicio a la reserva, el servicio se registro con exito", Mensaje.ErrorBD);
+                                Mensaje.MostrarError("Ocurrió un error al agregar el precio del servicio a la reserva, pero el servicio se reservó con éxito", Mensaje.ErrorBD);
                             }
                             recargarDGV();
                         }
                         else
                         {
-                            Mensaje.MostrarError("Ocurrio un error al dar de baja la reserva", Mensaje.ErrorBD);
+                            Mensaje.MostrarError("Ocurrió un error al dar de baja la reserva", Mensaje.ErrorBD);
                         }
                     }
                 }
                 else
                 {
-                    Mensaje.MostrarError("El servicio seleccionado ya comenzo, no se puede realizar la operacion", Mensaje.ErrorIngreso);
+                    Mensaje.MostrarError("El servicio seleccionado ya comenzó, no se puede realizar la operación", Mensaje.ErrorIngreso);
                 }
             }
         }
@@ -382,7 +382,7 @@ namespace Capa_Presentacion.Formularios.Servicios
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (Mensaje.MostraPreguntaSiNo("¿Quiere borrar todos los campos?", "Borrar los campos"))
+            if (Mensaje.MostraPreguntaSiNo("¿Quiere vaciar los campos?", "Vaciar los campos"))
             {
                 limpiar();
             }

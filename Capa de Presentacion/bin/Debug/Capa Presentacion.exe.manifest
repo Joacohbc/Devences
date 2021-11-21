@@ -14,16 +14,16 @@
       </applicationRequestMinimum>
       <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
         <!--
-          Opciones del manifiesto de UAC
-          Si desea cambiar el nivel de Control de cuentas de usuario de Windows, reemplace el 
-          nodo requestedExecutionLevel por uno de los siguientes.
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
 
         <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
         <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
         <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
 
-         Si desea usar Virtualización de archivos y Registro para compatibilidad con 
-         versiones anteriores, elimine el nodo requestedExecutionLevel.
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
     -->
         <requestedExecutionLevel level="asInvoker" uiAccess="false" />
       </requestedPrivileges>
@@ -61,7 +61,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>RfIGwANUlJEMZGZvjbs+mdE0fWEvxlNirWwWRerJhZM=</dsig:DigestValue>
+        <dsig:DigestValue>90XBkCCcwvdjjRnUoE9WQGdxqFh/GAQUQoUPSLDHImg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -85,19 +85,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>DIW58U300+FU2R7BZEeExYA2ylyQlWhfENYqukdoAq8=</dsig:DigestValue>
+        <dsig:DigestValue>yz7dCPPCOsZ2MO9VIwjg2ZfNVSoeUJQmk2Wx2PgHjOQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Capa Presentacion.exe" size="248288">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Capa Presentacion.exe" size="251872">
       <assemblyIdentity name="Capa Presentacion" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>RxxOSwUvRZhgpRrW9jIPsdfb2Ap4Ywaew55mU0vaDGg=</dsig:DigestValue>
+        <dsig:DigestValue>L9NjXlp5C0a3YAxqqLAEp55ZFtU5rSeA9GHeMOT1E8E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

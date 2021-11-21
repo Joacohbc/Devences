@@ -61,7 +61,7 @@ namespace Capa_de_Datos
             {
                 //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
                 conexion.CerrarConexion();
-                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Busqueda de Persona: " + ci);
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Búsqueda de Persona: " + ci);
             }
         }
 
@@ -102,7 +102,7 @@ namespace Capa_de_Datos
             {
                 //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
                 conexion.CerrarConexion();
-                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Busqueda de Cliente: " + ci);
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Búsqueda de Cliente: " + ci);
             }
         }
 
@@ -143,7 +143,7 @@ namespace Capa_de_Datos
             {
                 //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
                 conexion.CerrarConexion();
-                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Busqueda de Cliente(existe): " + ci);
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Búsqueda de Cliente (existe): " + ci);
             }
         }
 
@@ -184,7 +184,7 @@ namespace Capa_de_Datos
             {
                 //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
                 conexion.CerrarConexion();
-                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consultar telefonos: " + ci);
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Consultar teléfonos: " + ci);
             }
         }
 
@@ -487,7 +487,7 @@ namespace Capa_de_Datos
             {
                 //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
                 conexion.CerrarConexion();
-                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Busqueda de Empleado: " + ci);
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Búsqueda de Empleado: " + ci);
             }
         }
 
@@ -530,7 +530,7 @@ namespace Capa_de_Datos
             {
                 //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
                 conexion.CerrarConexion();
-                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Busqueda de Empleado(existe): " + ci);
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Búsqueda de Empleado (existe): " + ci);
             }
         }
 
@@ -844,7 +844,7 @@ namespace Capa_de_Datos
             {
                 //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
                 conexion.CerrarConexion();
-                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Busqueda de Cliente en alguna reserva: " + ci);
+                if (ingresoRegistro) altas.nuevoRegistro(sentencia, "Búsqueda de Cliente en alguna reserva: " + ci);
             }
         }
 

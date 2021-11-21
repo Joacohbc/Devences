@@ -110,7 +110,7 @@
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(284, 20);
             this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "Modificacion de Precios y Horarios";
+            this.lblTitulo.Text = "Modificación de Precios y Horarios";
             // 
             // btnSalir
             // 
@@ -118,7 +118,7 @@
             this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(914, 7);
+            this.btnSalir.Location = new System.Drawing.Point(917, 7);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 32);
             this.btnSalir.TabIndex = 3;
@@ -236,9 +236,9 @@
             this.txtIngNormal.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtIngNormal.Enabled = false;
             this.txtIngNormal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIngNormal.Location = new System.Drawing.Point(228, 109);
+            this.txtIngNormal.Location = new System.Drawing.Point(233, 106);
             this.txtIngNormal.Name = "txtIngNormal";
-            this.txtIngNormal.Size = new System.Drawing.Size(53, 19);
+            this.txtIngNormal.Size = new System.Drawing.Size(63, 19);
             this.txtIngNormal.TabIndex = 107;
             this.txtIngNormal.TabStop = false;
             // 
@@ -249,7 +249,7 @@
             this.txtIngAlojados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIngAlojados.Location = new System.Drawing.Point(265, 143);
             this.txtIngAlojados.Name = "txtIngAlojados";
-            this.txtIngAlojados.Size = new System.Drawing.Size(53, 19);
+            this.txtIngAlojados.Size = new System.Drawing.Size(63, 19);
             this.txtIngAlojados.TabIndex = 106;
             this.txtIngAlojados.TabStop = false;
             // 
@@ -260,7 +260,7 @@
             this.txtIngJub.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIngJub.Location = new System.Drawing.Point(393, 176);
             this.txtIngJub.Name = "txtIngJub";
-            this.txtIngJub.Size = new System.Drawing.Size(53, 19);
+            this.txtIngJub.Size = new System.Drawing.Size(63, 19);
             this.txtIngJub.TabIndex = 105;
             this.txtIngJub.TabStop = false;
             // 
@@ -540,7 +540,7 @@
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(137, 22);
             this.label20.TabIndex = 152;
-            this.label20.Text = "Duracion Actual";
+            this.label20.Text = "Duración Actual";
             // 
             // label19
             // 
@@ -582,7 +582,7 @@
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(388, 26);
             this.label17.TabIndex = 148;
-            this.label17.Text = "Precio y Duracion de Servicio Actuales";
+            this.label17.Text = "Precio y Duración de Servicio Actuales";
             // 
             // label21
             // 
@@ -592,7 +592,7 @@
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(296, 26);
             this.label21.TabIndex = 153;
-            this.label21.Text = "Precio y Duracion a Modificar";
+            this.label21.Text = "Precio y Duración a Modificar";
             // 
             // txtDurServ
             // 
@@ -601,7 +601,7 @@
             this.txtDurServ.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDurServ.Location = new System.Drawing.Point(270, 353);
             this.txtDurServ.Name = "txtDurServ";
-            this.txtDurServ.Size = new System.Drawing.Size(53, 19);
+            this.txtDurServ.Size = new System.Drawing.Size(65, 19);
             this.txtDurServ.TabIndex = 155;
             this.txtDurServ.TabStop = false;
             // 
@@ -612,7 +612,7 @@
             this.txtPrecServ.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecServ.Location = new System.Drawing.Point(270, 312);
             this.txtPrecServ.Name = "txtPrecServ";
-            this.txtPrecServ.Size = new System.Drawing.Size(53, 19);
+            this.txtPrecServ.Size = new System.Drawing.Size(65, 19);
             this.txtPrecServ.TabIndex = 154;
             this.txtPrecServ.TabStop = false;
             // 
@@ -620,11 +620,11 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(545, 350);
+            this.label22.Location = new System.Drawing.Point(543, 350);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(139, 22);
             this.label22.TabIndex = 157;
-            this.label22.Text = "Nueva Duracion";
+            this.label22.Text = "Nueva Duración";
             // 
             // label23
             // 
@@ -652,10 +652,10 @@
             // 
             this.dtpDurServMod.CustomFormat = "HH:mm";
             this.dtpDurServMod.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDurServMod.Location = new System.Drawing.Point(683, 352);
+            this.dtpDurServMod.Location = new System.Drawing.Point(684, 352);
             this.dtpDurServMod.Name = "dtpDurServMod";
             this.dtpDurServMod.ShowUpDown = true;
-            this.dtpDurServMod.Size = new System.Drawing.Size(52, 20);
+            this.dtpDurServMod.Size = new System.Drawing.Size(53, 20);
             this.dtpDurServMod.TabIndex = 138;
             // 
             // frmModifHorariosYPrecios

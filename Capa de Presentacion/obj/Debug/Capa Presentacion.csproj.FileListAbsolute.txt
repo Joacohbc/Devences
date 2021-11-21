@@ -236,3 +236,7 @@ C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.exe.manifest
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.application
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModClientes.resources
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.exe.manifest
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.application
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.exe.manifest
+C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.application

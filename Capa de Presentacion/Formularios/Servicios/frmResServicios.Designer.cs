@@ -276,7 +276,7 @@
             // 
             // duracion
             // 
-            this.duracion.HeaderText = "Duracion";
+            this.duracion.HeaderText = "Duración";
             this.duracion.Name = "duracion";
             this.duracion.ReadOnly = true;
             // 

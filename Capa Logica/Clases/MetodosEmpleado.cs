@@ -75,9 +75,9 @@ namespace Capa_Logica.Clases
             else if (validacion == -1)
             {
                 if (deQue == 0)
-                    Mensaje.MostrarError("El campo del usuario no puede estar vacio", Mensaje.ErrorIngreso);
+                    Mensaje.MostrarError("El campo del usuario no puede estar vacío", Mensaje.ErrorIngreso);
                 else
-                    Mensaje.MostrarError("El campo del a contraseña no puede estar vacio", Mensaje.ErrorIngreso);
+                    Mensaje.MostrarError("El campo de la contraseña no puede estar vacío", Mensaje.ErrorIngreso);
 
                 txtBox.Focus();
                 return false;
@@ -95,9 +95,9 @@ namespace Capa_Logica.Clases
             else
             {
                 if (deQue == 0)
-                    Mensaje.MostrarError("El campo del usuario solo puede contener digitos y letras(Sin espacios)", Mensaje.ErrorIngreso);
+                    Mensaje.MostrarError("El campo del usuario solo puede contener dígitos y letras (Sin espacios)", Mensaje.ErrorIngreso);
                 else
-                    Mensaje.MostrarError("El campo del a contraseña solo puede contener digitos y letras(Sin espacios)", Mensaje.ErrorIngreso);
+                    Mensaje.MostrarError("El campo de la contraseña solo puede contener dígitos y letras (Sin espacios)", Mensaje.ErrorIngreso);
 
                 txtBox.Focus();
                 return false;
@@ -672,7 +672,7 @@ namespace Capa_Logica.Clases
                                                         }
                                                         else
                                                         {
-                                                            Mensaje.MostrarError("Las confirmacion de la contraseña con concide", Mensaje.ErrorIngreso);
+                                                            Mensaje.MostrarError("La confirmacion de la contraseña no coincide", Mensaje.ErrorIngreso);
                                                             return null;
                                                         }
                                                     }
@@ -890,7 +890,7 @@ namespace Capa_Logica.Clases
 
                 if(dgvConsulta.Rows.Count <= 0)
                 {
-                    Mensaje.MostrarInfo("Su consulta no tuvo ningun retorno", "Aviso");
+                    Mensaje.MostrarInfo("Su consulta no obtuvo ningún retorno", "Aviso");
                 }
 
                 return true;

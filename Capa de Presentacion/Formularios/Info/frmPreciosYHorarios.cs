@@ -17,7 +17,6 @@ namespace Capa_Presentacion.Formularios
         public frmPreciosYHorarios()
         {
             InitializeComponent();
-            btnRefresh.PerformClick();
         }
         private void cargarPrecios()
         {
@@ -45,7 +44,7 @@ namespace Capa_Presentacion.Formularios
             }
             else
             {
-                Mensaje.MostrarError("Ocurrio un error al cargar los precios, cierre este apartado e intente nuevamente", Mensaje.ErrorBD);
+                Mensaje.MostrarError("Ocurrió un error al cargar los precios, cierre este apartado e intente nuevamente", Mensaje.ErrorBD);
 
                 //Dehabilito todo menos el boton de salir
                 foreach (Control c in this.Controls)
@@ -73,7 +72,7 @@ namespace Capa_Presentacion.Formularios
             }
             else
             {
-                Mensaje.MostrarError("Ocurrio un error al cargar los horarios, cierre este apartado e intente nuevamente", Mensaje.ErrorBD);
+                Mensaje.MostrarError("Ocurrió un error al cargar los horarios, cierre este apartado e intente nuevamente", Mensaje.ErrorBD);
 
                 //Dehabilito todo menos el boton de salir
                 foreach (Control c in this.Controls)
@@ -86,6 +85,45 @@ namespace Capa_Presentacion.Formularios
             }
         }
 
+        private void cargarServicios() {
+            
+            //Instancio la Clase
+            MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
+
+            //Guardo los servicios que traje en un List<>
+            List<Capa_Entidades.Servicios> servicios = metodos.traerServicios();
+      
+            //Si no es null(Osea que los trajo exitosamente)
+            if (servicios != null)
+            {
+                dgvServicios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvServicios.Rows.Clear();
+                //Los Cargo en el DGV
+                foreach (Capa_Entidades.Servicios s in servicios)
+                {
+                    //Agrego los servicios al CMB y al DGV
+                    String cantidad = s.Cantidad == 0 ? "---" : s.Cantidad.ToString();
+                    dgvServicios.Rows.Add(s.Nombre, s.CapacidadMaxima, s.Duracion, cantidad, s.Precio);
+                    
+                }
+
+            }
+            else
+            {
+                Mensaje.MostrarError("Ocurrió un error al cargar los servicios, cierre este apartado e intente nuevamente", Mensaje.ErrorBD);
+
+                //Dehabilito todo menos el boton de salir
+                foreach (Control c in this.Controls)
+                {
+                    c.Enabled = false;
+                }
+
+                pnTitulo.Enabled = true;
+                btnSalir.Enabled = true;
+            }
+
+        }
+
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Close();
@@ -95,12 +133,12 @@ namespace Capa_Presentacion.Formularios
         {
             cargarPrecios();
             cargarHorarios();
+            cargarServicios();
         }
 
         private void frmPreciosYHorarios_Load(object sender, EventArgs e)
         {
-            cargarPrecios();
-            cargarHorarios();
+            btnRefresh.PerformClick();
         }
     }
 }

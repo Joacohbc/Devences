@@ -42,7 +42,7 @@ namespace Capa_Presentacion.Formularios
             Validaciones validaciones = new Validaciones();
             if (validaciones.hayAlgo(this))
             {
-                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacios ¿Quieres cerrar igual?", "Cerrar"))
+                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacíos, ¿Quieres cerrar igual?", "Cerrar"))
                 {
                     Close();
                 }
@@ -69,19 +69,19 @@ namespace Capa_Presentacion.Formularios
         //Eliminar Reserva
         private void btnEliminarReserva_Click(object sender, EventArgs e)
         {
-            if (Mensaje.MostraPreguntaSiNo("¿Quiere cancelar la reservar? Este proceso es irreversible", "Modificar reserva"))
+            if (Mensaje.MostraPreguntaSiNo("¿Quiere cancelar la reserva? Este proceso es irreversible", "Modificar reserva"))
             {
                 MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
 
                 //Si la baj se dio con exito
                 if (metodos.bajaReserva(reservaAModificar.Id) > 0)
                 {
-                    Mensaje.MostrarInfo("Baja de reserva exitosa", "Baja de reserba");
+                    Mensaje.MostrarInfo("Baja de reserva exitosa", "Baja de reserva");
                     limpiar();
                 }
                 else
                 {
-                    Mensaje.MostrarError("Ocurrio un error al dar de baja la reserva", Mensaje.ErrorBD);
+                    Mensaje.MostrarError("Ocurrió un error al dar de baja la reserva", Mensaje.ErrorBD);
                 }
             }
         }
@@ -137,7 +137,7 @@ namespace Capa_Presentacion.Formularios
                                             }
                                             else
                                             {
-                                                Mensaje.MostrarError("Ocurrio un error buscar los datos del Cliente", Mensaje.ErrorBD);
+                                                Mensaje.MostrarError("Ocurrió un error al buscar los datos del Cliente", Mensaje.ErrorBD);
                                             }
                                         }
 
@@ -162,33 +162,33 @@ namespace Capa_Presentacion.Formularios
                                         btnModificar.Enabled = true;
                                         btnCancelar.Enabled = true;
 
-                                        Mensaje.MostrarInfo("La reserva se cargo correcamente, ya puede empezar a modificar", "Aviso de exito");
+                                        Mensaje.MostrarInfo("La reserva se cargó correcamente, ya puede empezar a modificar", "Aviso");
                                         reservaAModificar = reserva;
                                         IntegrantesModificar = integrantes;
                                     }
                                     else
                                     {
-                                        Mensaje.MostrarError("Ocurrio un error al cargar los Integrantes", Mensaje.ErrorBD);
+                                        Mensaje.MostrarError("Ocurrió un error al cargar los Integrantes", Mensaje.ErrorBD);
                                     }
                                 }
                                 else if (retorno > 0)
                                 {
-                                    Mensaje.MostrarError("La reserva ya tiene servicios registrada, si quiere modificarla debera cancelarlos", Mensaje.ErrorIngreso);
+                                    Mensaje.MostrarError("La reserva ya tiene servicios registrados, si quiere modificarla deberá cancelarlos", Mensaje.ErrorIngreso);
                                 }
                                 else
                                 {
-                                    Mensaje.MostrarError("Ocurrio un error comprobar los servicios", Mensaje.ErrorBD);
+                                    Mensaje.MostrarError("Ocurrió un error al comprobar los servicios", Mensaje.ErrorBD);
                                 }
 
                             }
                             else
                             {
-                                Mensaje.MostrarError("La reserva ya comenzo, no se puede modificar", Mensaje.ErrorIngreso);
+                                Mensaje.MostrarError("La reserva ya comenzó, no se puede modificar", Mensaje.ErrorIngreso);
                             }
                         }
                         else
                         {
-                            Mensaje.MostrarError("Ocurrio un error al verificar el reserva", Mensaje.ErrorBD);
+                            Mensaje.MostrarError("Ocurrió un error al verificar la reserva", Mensaje.ErrorBD);
                         }
                     }
                     else if (retorno == 0)
@@ -197,16 +197,16 @@ namespace Capa_Presentacion.Formularios
                     }
                     else
                     {
-                        Mensaje.MostrarError("Ocurrio un error al verificar el reserva", Mensaje.ErrorBD);
+                        Mensaje.MostrarError("Ocurrió un error al verificar la reserva", Mensaje.ErrorBD);
                     }
                 }
                 else if (retorno == 0)
                 {
-                    Mensaje.MostrarError("El Titular no esta registrado como cliente", Mensaje.ErrorIngreso);
+                    Mensaje.MostrarError("El Titular no está registrado como cliente", Mensaje.ErrorIngreso);
                 }
                 else
                 {
-                    Mensaje.MostrarError("Ocurrio un error al buscar el Titular", Mensaje.ErrorBD);
+                    Mensaje.MostrarError("Ocurrió un error al buscar el Titular", Mensaje.ErrorBD);
                 }
             }
         }
@@ -240,12 +240,12 @@ namespace Capa_Presentacion.Formularios
                             //Si la reserva se modifica con exito
                             if (retornar > 0)
                             {
-                                Mensaje.MostrarInfo("Modificacion exitosa de la reserva", "Modifcacion de Reserva");
+                                Mensaje.MostrarInfo("La Reserva se modificó con éxito", "Modificación de Reserva");
                                 btnCancelar.PerformClick();
                             }
                             else
                             {
-                                Mensaje.MostrarError("Ocurrio un error al modificar la reserva", Mensaje.ErrorBD);
+                                Mensaje.MostrarError("Ocurrió un error al modificar la reserva", Mensaje.ErrorBD);
                             }
                         }
                     }
@@ -256,12 +256,12 @@ namespace Capa_Presentacion.Formularios
                     }
                     else
                     {
-                        Mensaje.MostrarError("Ocurrio un error al validar los dias de la reserva", Mensaje.ErrorBD);
+                        Mensaje.MostrarError("Ocurrió un error al validar los días de la reserva", Mensaje.ErrorBD);
                     }
                 }
                 else
                 {
-                    Mensaje.MostrarError("La reserva debera estar confirmada si quiere iniciarla hoy", Mensaje.ErrorIngreso);
+                    Mensaje.MostrarError("La reserva deberá ser confirmada si quiere iniciarla hoy", Mensaje.ErrorIngreso);
                 }
             }
             else
@@ -273,7 +273,7 @@ namespace Capa_Presentacion.Formularios
         //Descarcartar Reserva
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (Mensaje.MostraPreguntaSiNo("¿Quiere vaciar todos los campos?", "Borrar campos"))
+            if (Mensaje.MostraPreguntaSiNo("¿Quiere vaciar todos los campos?", "Vaciar campos"))
             {
                 limpiar();
             }
