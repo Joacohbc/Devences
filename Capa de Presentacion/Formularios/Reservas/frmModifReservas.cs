@@ -217,42 +217,51 @@ namespace Capa_Presentacion.Formularios
             //Si la 1ra fecha selecionada es mayor a la anterior
             if (validar.validarFechaPrimeraEsMenor(dtpFechaInicio.Value, dtpFechaFin.Value))
             {
-                MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
-                Object[] validarFecha = metodos.comprobarDiasTodosDiasReservasAModificar(reservaAModificar.Ci, reservaAModificar.Id, dtpFechaInicio.Value, dtpFechaFin.Value);
-
-                //Si todos los dia son validos
-                if ((int)validarFecha[1] == 0)
+                //Si esta "No Confirmada" y tiene inicio hoy, no te dejara reservarla
+                //ya que si empieza hoy deberia estar pga
+                if ((chkConfirmada.Checked && dtpFechaInicio.Value.Date >= DateTime.Today) || (!chkConfirmada.Checked && dtpFechaInicio.Value.Date > DateTime.Today))
                 {
-                    if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar la reserva del " + dtpFechaInicio.Value.ToShortDateString() + " al " + dtpFechaFin.Value.ToShortDateString() + "?", "Modificar Reserva"))
+                    MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
+                    Object[] validarFecha = metodos.comprobarDiasTodosDiasReservasAModificar(reservaAModificar.Ci, reservaAModificar.Id, dtpFechaInicio.Value, dtpFechaFin.Value);
+
+                    //Si todos los dia son validos
+                    if ((int)validarFecha[1] == 0)
                     {
-                        //Para recalcular el precio pone el precio actual en 0
-                        reservaAModificar.PrecioTotal = 0;
-                        
-                        //Determina el nuevo estado de la reserva
-                        String estado = chkConfirmada.Checked ? "Confirmada" : "No Confirmada";
-
-                        int retornar = metodos.modificarReserva(reservaAModificar, IntegrantesModificar, dtpFechaInicio.Value, dtpFechaFin.Value, estado);
-
-                        //Si la reserva se modifica con exito
-                        if (retornar > 0)
+                        if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar la reserva del " + dtpFechaInicio.Value.ToShortDateString() + " al " + dtpFechaFin.Value.ToShortDateString() + "?", "Modificar Reserva"))
                         {
-                            Mensaje.MostrarInfo("Modificacion exitosa de la reserva", "Modifcacion de Reserva");
-                            btnCancelar.PerformClick();
-                        }
-                        else
-                        {
-                            Mensaje.MostrarError("Ocurrio un error al modificar la reserva", Mensaje.ErrorBD);
+                            //Para recalcular el precio pone el precio actual en 0
+                            reservaAModificar.PrecioTotal = 0;
+
+                            //Determina el nuevo estado de la reserva
+                            String estado = chkConfirmada.Checked ? "Confirmada" : "No Confirmada";
+
+                            int retornar = metodos.modificarReserva(reservaAModificar, IntegrantesModificar, dtpFechaInicio.Value, dtpFechaFin.Value, estado);
+
+                            //Si la reserva se modifica con exito
+                            if (retornar > 0)
+                            {
+                                Mensaje.MostrarInfo("Modificacion exitosa de la reserva", "Modifcacion de Reserva");
+                                btnCancelar.PerformClick();
+                            }
+                            else
+                            {
+                                Mensaje.MostrarError("Ocurrio un error al modificar la reserva", Mensaje.ErrorBD);
+                            }
                         }
                     }
-                }
-                //Si ese dia ya estaba reservado
-                else if ((int)validarFecha[1] == 1)
-                {
-                    Mensaje.MostrarError("El Cliente ya tiene reservado el dia " + ((DateTime)validarFecha[0]).ToShortDateString() + " en alguna de sus reservas", Mensaje.ErrorIngreso);
+                    //Si ese dia ya estaba reservado
+                    else if ((int)validarFecha[1] == 1)
+                    {
+                        Mensaje.MostrarError("El Cliente ya tiene reservado el dia " + ((DateTime)validarFecha[0]).ToShortDateString() + " en alguna de sus reservas", Mensaje.ErrorIngreso);
+                    }
+                    else
+                    {
+                        Mensaje.MostrarError("Ocurrio un error al validar los dias de la reserva", Mensaje.ErrorBD);
+                    }
                 }
                 else
                 {
-                    Mensaje.MostrarError("Ocurrio un error al validar los dias de la reserva", Mensaje.ErrorBD);
+                    Mensaje.MostrarError("La reserva debera estar confirmada si quiere iniciarla hoy", Mensaje.ErrorIngreso);
                 }
             }
             else

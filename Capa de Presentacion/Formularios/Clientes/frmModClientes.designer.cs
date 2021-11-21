@@ -1,6 +1,6 @@
 ﻿namespace Capa_Presentacion.Formularios
 {
-    partial class frmModClientes
+    partial class chk
     {
         /// <summary>
         /// Required designer variable.
@@ -79,6 +79,8 @@
             this.pnTitulo = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.chkActivo = new System.Windows.Forms.CheckBox();
+            this.label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.pnTitulo.SuspendLayout();
             this.SuspendLayout();
@@ -91,7 +93,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(204, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Modificación de Clientes";
+            this.label1.Text = "Modificacion de Clientes";
             // 
             // btnSalir
             // 
@@ -99,7 +101,7 @@
             this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(917, 7);
+            this.btnSalir.Location = new System.Drawing.Point(914, 7);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 32);
             this.btnSalir.TabIndex = 3;
@@ -174,6 +176,7 @@
             this.txtDireccion.Size = new System.Drawing.Size(299, 19);
             this.txtDireccion.TabIndex = 6;
             this.txtDireccion.TextChanged += new System.EventHandler(this.txtDireccion_TextChanged);
+            this.txtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDireccion_KeyPress);
             // 
             // label3
             // 
@@ -191,9 +194,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(516, 189);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 20);
+            this.label4.Size = new System.Drawing.Size(65, 20);
             this.label4.TabIndex = 13;
-            this.label4.Text = "Apellidos";
+            this.label4.Text = "Apellido";
             // 
             // label5
             // 
@@ -434,9 +437,9 @@
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(40, 225);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(73, 20);
+            this.label15.Size = new System.Drawing.Size(65, 20);
             this.label15.TabIndex = 63;
-            this.label15.Text = "Apellidos";
+            this.label15.Text = "Apellido";
             // 
             // label16
             // 
@@ -650,12 +653,38 @@
             this.label18.TabIndex = 84;
             this.label18.Text = "Datos a Modificar";
             // 
-            // frmModClientes
+            // chkActivo
+            // 
+            this.chkActivo.AutoCheck = false;
+            this.chkActivo.AutoSize = true;
+            this.chkActivo.Enabled = false;
+            this.chkActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkActivo.Location = new System.Drawing.Point(617, 488);
+            this.chkActivo.Name = "chkActivo";
+            this.chkActivo.Size = new System.Drawing.Size(67, 22);
+            this.chkActivo.TabIndex = 85;
+            this.chkActivo.Text = "Activo";
+            this.chkActivo.UseVisualStyleBackColor = true;
+            this.chkActivo.Click += new System.EventHandler(this.chkActivo_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(515, 488);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(60, 20);
+            this.label19.TabIndex = 86;
+            this.label19.Text = "Estado";
+            // 
+            // chk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1000, 605);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.chkActivo);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pnTitulo);
@@ -704,7 +733,7 @@
             this.Controls.Add(this.txtSegundoNombre);
             this.Controls.Add(this.txtPrimerNombre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmModClientes";
+            this.Name = "chk";
             this.Text = "frmRegClientes";
             this.Load += new System.EventHandler(this.frmRegClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
@@ -767,5 +796,7 @@
         private System.Windows.Forms.Panel pnTitulo;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.CheckBox chkActivo;
     }
 }

@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capa_Entidades;
 using Capa_Logica;
+using Capa_Logica.Clases;
 
 namespace Capa_Presentacion.Formularios
 {
@@ -30,6 +32,29 @@ namespace Capa_Presentacion.Formularios
             {
                 Close();
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
+            Persona p = metodos.traerPersona(12345671);
+            dataGridView1.Rows.Add("52626663" , p.PrimerNombre, p.PrimerApellido, p.SegundoApellido, p.Genero, p.FechaNacimiento, p.Mail);
+        }
+
+        private void frmInfoReservas_Load(object sender, EventArgs e)
+        {
+            cmbClave.Items.Add("CI");
+            cmbClave.SelectedIndex = 0;
+
+            cmbTipoConsulta.Items.Add("Empleados");
+            cmbTipoConsulta.SelectedIndex = 0;
+
+            txtBusqueda.Text = "52626663";
         }
     }
 }

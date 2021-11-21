@@ -304,15 +304,42 @@ namespace Capa_Presentacion.Formularios.Servicios
                 {
                     MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
 
-                    //Si la baj se dio con exito
-                    if (metodos.cancelarServicio(cmbServicio.SelectedItem.ToString(), reserva.Id) > 0)
+                    List<Capa_Entidades.Servicios> servicios = metodos.traerServicios();
+
+                    //Si son != de null sigmifica que cargaron bien
+                    if (servicios != null)
                     {
-                        Mensaje.MostrarInfo("El servicio se cancelo con exito", "Baja de servicio");
-                        recargarDGV();
-                    }
-                    else
-                    {
-                        Mensaje.MostrarError("Ocurrio un error al dar de baja la reserva", Mensaje.ErrorBD);
+                        //Creo un Servicio para cargar el servicio que se quiere modificar
+                        Capa_Entidades.Servicios servicioSeleccionado = null;
+
+                        //Le cargo el que se intento
+                        servicios.ForEach(delegate (Capa_Entidades.Servicios servicio)
+                        {
+                            //En Servicio seleccionado guardo toda la info
+                            if (cmbServicio.SelectedItem.ToString() == servicio.Nombre)
+                            {
+                                servicioSeleccionado = servicio;
+                            }
+                        });
+
+                        //Si la baja se dio con exito
+                        if (metodos.cancelarServicio(cmbServicio.SelectedItem.ToString(), reserva.Id) > 0)
+                        {
+                            int retorno = metodos.modificarPrecioEnReserva((-servicioSeleccionado.Precio), reserva.Id);
+                            if (retorno > 0)
+                            {
+                                Mensaje.MostrarInfo("El servicio se cancelo con exito", "Baja de servicio");
+                            }
+                            else
+                            {
+                                Mensaje.MostrarError("Ocurrio un error al subar el precio del servicio a la reserva, el servicio se registro con exito", Mensaje.ErrorBD);
+                            }
+                            recargarDGV();
+                        }
+                        else
+                        {
+                            Mensaje.MostrarError("Ocurrio un error al dar de baja la reserva", Mensaje.ErrorBD);
+                        }
                     }
                 }
                 else

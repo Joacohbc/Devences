@@ -93,6 +93,8 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.cmbCargo = new System.Windows.Forms.ComboBox();
+            this.chkActivo = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -312,7 +314,7 @@
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(228, 20);
             this.lblTitulo.TabIndex = 1;
-            this.lblTitulo.Text = "Modificación de Empleados";
+            this.lblTitulo.Text = "Modificacion de Empleados";
             // 
             // btnSalir
             // 
@@ -579,9 +581,9 @@
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.Location = new System.Drawing.Point(514, 135);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(67, 18);
+            this.label21.Size = new System.Drawing.Size(59, 18);
             this.label21.TabIndex = 130;
-            this.label21.Text = "Apellidos";
+            this.label21.Text = "Apellido";
             // 
             // label22
             // 
@@ -603,6 +605,7 @@
             this.txtDireMod.Size = new System.Drawing.Size(299, 17);
             this.txtDireMod.TabIndex = 124;
             this.txtDireMod.TextChanged += new System.EventHandler(this.txtDireMod_TextChanged);
+            this.txtDireMod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDireccion_KeyPress);
             // 
             // txtAp2Mod
             // 
@@ -668,7 +671,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(470, 375);
+            this.label23.Location = new System.Drawing.Point(499, 404);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(292, 26);
             this.label23.TabIndex = 140;
@@ -684,7 +687,7 @@
             this.cmbCargoMod.Items.AddRange(new object[] {
             "Administrativo",
             "Gerente"});
-            this.cmbCargoMod.Location = new System.Drawing.Point(690, 414);
+            this.cmbCargoMod.Location = new System.Drawing.Point(679, 433);
             this.cmbCargoMod.Name = "cmbCargoMod";
             this.cmbCargoMod.Size = new System.Drawing.Size(166, 23);
             this.cmbCargoMod.TabIndex = 148;
@@ -694,7 +697,7 @@
             this.txtConfContraMod.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtConfContraMod.Enabled = false;
             this.txtConfContraMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConfContraMod.Location = new System.Drawing.Point(690, 492);
+            this.txtConfContraMod.Location = new System.Drawing.Point(679, 511);
             this.txtConfContraMod.Name = "txtConfContraMod";
             this.txtConfContraMod.Size = new System.Drawing.Size(167, 17);
             this.txtConfContraMod.TabIndex = 147;
@@ -704,7 +707,7 @@
             this.txtContraMod.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtContraMod.Enabled = false;
             this.txtContraMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContraMod.Location = new System.Drawing.Point(691, 467);
+            this.txtContraMod.Location = new System.Drawing.Point(680, 486);
             this.txtContraMod.Name = "txtContraMod";
             this.txtContraMod.Size = new System.Drawing.Size(166, 17);
             this.txtContraMod.TabIndex = 146;
@@ -714,7 +717,7 @@
             this.txtNomUsuMod.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNomUsuMod.Enabled = false;
             this.txtNomUsuMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomUsuMod.Location = new System.Drawing.Point(691, 444);
+            this.txtNomUsuMod.Location = new System.Drawing.Point(680, 463);
             this.txtNomUsuMod.Name = "txtNomUsuMod";
             this.txtNomUsuMod.Size = new System.Drawing.Size(166, 17);
             this.txtNomUsuMod.TabIndex = 145;
@@ -723,7 +726,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(513, 489);
+            this.label24.Location = new System.Drawing.Point(502, 508);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(155, 18);
             this.label24.TabIndex = 144;
@@ -733,7 +736,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(513, 416);
+            this.label25.Location = new System.Drawing.Point(502, 435);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(49, 18);
             this.label25.TabIndex = 143;
@@ -743,7 +746,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(513, 465);
+            this.label26.Location = new System.Drawing.Point(502, 484);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(85, 18);
             this.label26.TabIndex = 142;
@@ -753,7 +756,7 @@
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(513, 441);
+            this.label27.Location = new System.Drawing.Point(502, 460);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(138, 18);
             this.label27.TabIndex = 141;
@@ -766,9 +769,9 @@
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(722, 532);
+            this.btnCancelar.Location = new System.Drawing.Point(679, 540);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(111, 36);
+            this.btnCancelar.Size = new System.Drawing.Size(125, 36);
             this.btnCancelar.TabIndex = 149;
             this.btnCancelar.Text = "Descartar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -781,7 +784,7 @@
             this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(542, 532);
+            this.btnModificar.Location = new System.Drawing.Point(504, 540);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(115, 36);
             this.btnModificar.TabIndex = 150;
@@ -808,12 +811,37 @@
             this.cmbCargo.Size = new System.Drawing.Size(166, 23);
             this.cmbCargo.TabIndex = 151;
             // 
+            // chkActivo
+            // 
+            this.chkActivo.AutoCheck = false;
+            this.chkActivo.AutoSize = true;
+            this.chkActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.chkActivo.Location = new System.Drawing.Point(615, 356);
+            this.chkActivo.Name = "chkActivo";
+            this.chkActivo.Size = new System.Drawing.Size(65, 21);
+            this.chkActivo.TabIndex = 152;
+            this.chkActivo.Text = "Activo";
+            this.chkActivo.UseVisualStyleBackColor = true;
+            this.chkActivo.Click += new System.EventHandler(this.chkActivo_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(514, 355);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 18);
+            this.label1.TabIndex = 153;
+            this.label1.Text = "Estado";
+            // 
             // frmModifEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1000, 605);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.chkActivo);
             this.Controls.Add(this.cmbCargo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnModificar);
@@ -952,5 +980,7 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.ComboBox cmbCargo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox chkActivo;
     }
 }

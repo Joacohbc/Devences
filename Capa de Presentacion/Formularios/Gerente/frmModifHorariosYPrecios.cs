@@ -259,12 +259,12 @@ namespace Capa_Presentacion.Formularios
 
                                     if (retorno > 0)
                                     {
-                                        Mensaje.MostrarInfo("Modificación de precios de ingreso exitosa", "Modificación de precios");
+                                        Mensaje.MostrarInfo("Modificacion de precios de ingreso exitosa", "Modificacion de precios");
                                         cargarPrecios();
                                     }
                                     else
                                     {
-                                        Mensaje.MostrarError("Ocurrió un error al modificar los precios", Mensaje.ErrorBD);
+                                        Mensaje.MostrarError("Ocurrio un error al modificar los precios", Mensaje.ErrorBD);
                                     }
                                 }
                                 catch
@@ -290,12 +290,12 @@ namespace Capa_Presentacion.Formularios
 
                                 if (retorno > 0)
                                 {
-                                    Mensaje.MostrarInfo("Modificación de horarios de ingreso exitosa", "Modificación de horarios");
+                                    Mensaje.MostrarInfo("Modificacion de horarios de ingreso exitosa", "Modificacion de horarios");
                                     cargarHorarios();
                                 }
                                 else
                                 {
-                                    Mensaje.MostrarError("Ocurrió un error al modificar los horarios", Mensaje.ErrorBD);
+                                    Mensaje.MostrarError("Ocurrio un error al modificar los horarios", Mensaje.ErrorBD);
                                 }
                             }
                         }
@@ -305,18 +305,18 @@ namespace Capa_Presentacion.Formularios
                         //pero si son diferentes entra
                         if (!igualServicios())
                         {
-                            if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar el precio/duración del servicio " + cmbServicio.SelectedItem.ToString() + "?" + cmbServicio.SelectedText, "Modificar Servicio"))
+                            if (Mensaje.MostraPreguntaSiNo("¿Quiere modificar el precio/duracion del servicio " + cmbServicio.SelectedItem.ToString() + "?" + cmbServicio.SelectedText, "Modificar Servicio"))
                             {
                                 MetodosEmpleado metodos = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
                                 int retorno = metodos.modificarPrecioServicio(servicios[cmbServicio.SelectedIndex], Convert.ToInt32(nudPrecServMod.Value), dtpDurServMod.Text);
                                 if (retorno > 0)
                                 {
-                                    Mensaje.MostrarInfo("Modificación de servicio exitosa", "Modificar Servicio");
-                                    cargarHorarios();
+                                    Mensaje.MostrarInfo("Modificacion de servicio exitosa", "Modificar Servicio");
+                                    cargarServicios();
                                 }
                                 else
                                 {
-                                    Mensaje.MostrarError("Ocurrio un error al modificar el precio/duración del servicio", Mensaje.ErrorBD);
+                                    Mensaje.MostrarError("Ocurrio un error al modificar el precio/duracion del servicio", Mensaje.ErrorBD);
                                 }
                             }
                         }
