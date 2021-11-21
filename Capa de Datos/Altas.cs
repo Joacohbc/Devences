@@ -183,7 +183,7 @@ namespace Capa_de_Datos
         public int altaReserva(Reserva reserva, List<Integrantes> integrantes)
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
-            String sentencia = String.Format("Insert into reserva values(0, {0}, '{1}','{2}','{3}',{4},'{5}',current_timestamp(),'{6}');", reserva.Ci, reserva.Inicio.ToString("yyyy-MM-dd"),
+            String sentenciaDefinitiva = String.Format("Insert into reserva values(0, {0}, '{1}','{2}','{3}',{4},'{5}',current_timestamp(),'{6}');", reserva.Ci, reserva.Inicio.ToString("yyyy-MM-dd"),
                 reserva.Fin.ToString("yyyy-MM-dd"), reserva.TipoDeIngreso, reserva.PrecioTotal, reserva.Estado, reserva.FormaDePago);
 
             //Esta variable si esta en false no dara ingresara el nuevo resgistro y si es true 
@@ -193,14 +193,14 @@ namespace Capa_de_Datos
             try
             {
                 //Doy de Alta la reserva
-                MySqlCommand insertReserva = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                MySqlCommand insertReserva = new MySqlCommand(sentenciaDefinitiva, conexion.AbrirConexion());
                 insertReserva.ExecuteNonQuery();
 
                 //Si hay Integrantes
                 if (integrantes.Count > 0)
                 {
                     //Consulto el ID de la reserva
-                    sentencia = String.Format("select id from reserva where ci={0} and inicio='{1}'", reserva.Ci ,reserva.Inicio.ToString("yyyy-MM-dd"));
+                    String sentencia = String.Format("select id from reserva where ci={0} and inicio='{1}'", reserva.Ci ,reserva.Inicio.ToString("yyyy-MM-dd"));
                     MySqlCommand select = new MySqlCommand(sentencia, conexion.AbrirConexion());
                     MySqlDataReader lector = select.ExecuteReader();
 
@@ -236,11 +236,11 @@ namespace Capa_de_Datos
                 ingresoRegistro = false;
                 try
                 {
-                    sentencia = String.Format("update reserva set estado='Cancelada' where ci={0} and inicio='{1}' and estado='{2}';", reserva.Ci, reserva.Inicio.ToString("yyyy-MM-dd"), reserva.Estado);
-                    MySqlCommand updateCancelar = new MySqlCommand(sentencia, conexion.AbrirConexion());
+                    String sentenciaBajar = String.Format("update reserva set estado='Cancelada' where ci={0} and inicio='{1}' and estado='{2}';", reserva.Ci, reserva.Inicio.ToString("yyyy-MM-dd"), reserva.Estado);
+                    MySqlCommand updateCancelar = new MySqlCommand(sentenciaBajar, conexion.AbrirConexion());
                     updateCancelar.ExecuteNonQuery();
 
-                    nuevoRegistro(sentencia, "Error al dar de Alta Reserva(Cancelandola): " + reserva.Ci + " en " + reserva.Inicio.ToString("yyyy-MM-dd"));
+                    nuevoRegistro(sentenciaBajar, "Error al dar de Alta Reserva(Cancelandola): " + reserva.Ci + " en " + reserva.Inicio.ToString("yyyy-MM-dd"));
                 }
                 catch { }
 
@@ -251,7 +251,7 @@ namespace Capa_de_Datos
                 //Cierro la conexion antes de dar(o no) el nuevo registro, para evitar problemas
                 conexion.CerrarConexion();
 
-                if (ingresoRegistro) nuevoRegistro(sentencia, "Alta de Reserva para el cliente: " + reserva.Ci);
+                if (ingresoRegistro) nuevoRegistro(sentenciaDefinitiva, "Alta de Reserva para el cliente: " + reserva.Ci);
 
             }
         }
