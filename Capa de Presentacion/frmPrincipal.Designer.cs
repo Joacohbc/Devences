@@ -458,7 +458,7 @@
             this.btnMenuInfo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMenuInfo.Size = new System.Drawing.Size(174, 40);
             this.btnMenuInfo.TabIndex = 6;
-            this.btnMenuInfo.Text = "   información";
+            this.btnMenuInfo.Text = "Información";
             this.btnMenuInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMenuInfo.UseVisualStyleBackColor = false;
             this.btnMenuInfo.Click += new System.EventHandler(this.btnMenuInfo_Click);

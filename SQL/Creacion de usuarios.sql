@@ -134,3 +134,6 @@ grant select on proyectoprueba.parametros to administrativo;
 #Permisos en proceso esctructurados
 grant execute on procedure comprobarDiaEnReserva to gerente, administrativo;
 grant execute on procedure MaxPersonasServicio to gerente, administrativo;
+
+#Permisos en proceso estructurados
+grant select on proyectoprueba.maxpersonasreserva to gerente, administrativo;

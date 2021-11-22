@@ -199,9 +199,6 @@ D:\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CopyComplete
 D:\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.exe
 D:\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.pdb
 C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.Servicios.frmResServicios.resources
-C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.exe.config
-C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.exe
-C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.pdb
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Entidades.dll
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Logica.dll
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa de Datos.dll
@@ -229,14 +226,17 @@ C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.GenerateResource.cache
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CoreCompileInputs.cache
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.csproj.CopyComplete
-C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.exe
-C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.pdb
-C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.exe.manifest
-C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.application
-C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.exe.manifest
-C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.application
 C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Capa_Presentacion.Formularios.frmModClientes.resources
 C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.exe.manifest
 C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\bin\Debug\Capa Presentacion.application
 C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.exe.manifest
 C:\Users\emili\Documents\GitHub\Devences\Capa de Presentacion\obj\Debug\Capa Presentacion.application
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Onsen Spa.exe.config
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Onsen Spa.exe.manifest
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Onsen Spa.application
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Onsen Spa.exe
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\bin\Debug\Onsen Spa.pdb
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Onsen Spa.exe.manifest
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Onsen Spa.application
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Onsen Spa.exe
+C:\Users\Joaco\Desktop\Devences\Capa de Presentacion\obj\Debug\Onsen Spa.pdb

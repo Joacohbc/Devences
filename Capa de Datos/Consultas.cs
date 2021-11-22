@@ -1077,7 +1077,6 @@ namespace Capa_de_Datos
 
         public DataTable verTodosLosClientesInactivos()
         {
-            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
             String sentencia = @"select p.ci 'Cedula', primerNombre 'Nombre', primerApellido 'Primer Apellido', segundoApellido 'Segudo Apellido',
                 genero 'Genero', fechaNacimiento 'Nacimiento', mail 'Mail', direccion 'Direccion' 
                 from persona p join cliente c 
@@ -1089,7 +1088,6 @@ namespace Capa_de_Datos
 
         public DataTable verTodasLasReservas()
         {
-            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
             String sentencia = @"
                 select id 'Id Reserva', r.ci 'Titular', p.primerNombre 'Nombre', p.primerApellido 'Apellido',inicio 'Inicio', 
                 fin 'Fin', tipoDeIngreso 'Ingreso del Titular', precioTotal 'Precio Total', formaDePago 'Forma de pago', 
@@ -1102,7 +1100,6 @@ namespace Capa_de_Datos
 
         public DataTable verTodasLasReservasConfirmada()
         {
-            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
             String sentencia = @"
                 select id 'Id Reserva', r.ci 'Titular', p.primerNombre 'Nombre', p.primerApellido 'Apellido',inicio 'Inicio', 
                 fin 'Fin', tipoDeIngreso 'Ingreso del Titular', precioTotal 'Precio Total', formaDePago 'Forma de pago', 
@@ -1116,7 +1113,6 @@ namespace Capa_de_Datos
 
         public DataTable verTodasLasReservasCancelada()
         {
-            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
             String sentencia = @"
                 select id 'Id Reserva', r.ci 'Titular', p.primerNombre 'Nombre', p.primerApellido 'Apellido',inicio 'Inicio', 
                 fin 'Fin', tipoDeIngreso 'Ingreso del Titular', precioTotal 'Precio Total', formaDePago 'Forma de pago', 
@@ -1130,7 +1126,6 @@ namespace Capa_de_Datos
 
         public DataTable verTodasLasReservasFinalizada()
         {
-            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
             String sentencia = @"
                 select id 'Id Reserva', r.ci 'Titular', p.primerNombre 'Nombre', p.primerApellido 'Apellido',inicio 'Inicio', 
                 fin 'Fin', tipoDeIngreso 'Ingreso del Titular', precioTotal 'Precio Total', formaDePago 'Forma de pago', 
@@ -1140,7 +1135,130 @@ namespace Capa_de_Datos
                 where estado='Finalizada';";
 
             return realizarConsulta(sentencia, "Consultar todas las reserva");
+        }
 
+        public DataTable verTodasLosEmpleados()
+        {
+            String sentencia = @"
+                SELECT p.ci 'Cedula', p.primerNombre 'Nombre', p.primerApellido 'Apellido', e.usuario 'Usuario', e.tipo 'Tipo', e.estado 'Estado'
+                from empleado e join persona p
+                on e.ci=p.ci;";
+
+            return realizarConsulta(sentencia, "Consultar todas los empleados");
+        }
+
+        public DataTable verServicioDeReserva(int id)
+        {
+            String sentencia = String.Format(@"
+                select r.id 'ID', c.nombre 'Servicio', c.inicio 'Inicio', c.fin 'Fin', c.formaDePago 'Forma de Pago'
+                from contiene c join reserva r
+                on r.id=c.id
+                where r.id={0};
+                ", id);
+
+            return realizarConsulta(sentencia, "Consultar servicios reservados por una reserva");
+        }
+
+        public DataTable verCliente(String ci, String nombre)
+        {
+            String sentencia = String.Format(@"
+                    select c.ci as Cédula, p.primerNombre as Nombre, p.primerApellido as Apellido, p.fechaNacimiento 'Fecha de Nacimiento', p.genero as Género, p.direccion as Direccion, c.estado as Estado, c.fechaRegistro as 'Fecha Registro'
+                    from cliente c join persona p on c.ci = p.ci
+                    where c.ci = '{0}' or p.primerNombre like '{1}';
+                ", ci, nombre);
+
+            return realizarConsulta(sentencia, "Consultar cliente por Cedula/Nombre");
+        }
+
+        public DataTable verReservaEntreFechas(DateTime inicio, DateTime fin)
+        {
+            String sentencia = String.Format(@"
+                  SELECT id 'Id',ci 'Cédula',inicio 'Fecha de Inicio',
+                  fin 'Fecha Final',tipodeingreso 'Tipo de Ingreso',
+                  preciototal 'Precio Total',estado 'Estado',
+                  fecharegistro 'Fecha de Registro',formadepago 'Forma de Pago'
+                  FROM reserva WHERE fechaRegistro BETWEEN '{0}' AND '{1}';
+                ", inicio.ToString("yyyy-MM-dd"), fin.ToString("yyyy-MM-dd"));
+
+            return realizarConsulta(sentencia, "Consultar reserva por fecha");
+        }
+
+        public DataTable verReservasEnElUltimoMes()
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = @"
+SELECT DATE(cuando) as Fecha,('Titulares') as Tipo, COUNT(cuando) as Cantidad FROM registrodecambio
+WHERE descripcion LIKE '%Alta de Reserva%' 
+AND DATE(cuando) BETWEEN
+date_add(date_add(last_day(now()),interval 1 DAY),interval -2 MONTH) AND
+LAST_DAY(date_add(last_day(now()),interval -1 MONTH))
+GROUP BY Fecha 
+UNION(
+    SELECT DATE(cuando) as Fecha,('Integrantes') as Tipo, COUNT(cuando) as Cantidad 
+    FROM registrodecambio WHERE descripcion LIKE '%Alta de integrante%' AND 
+    DATE(cuando) BETWEEN
+    date_add(date_add(last_day(now()),interval 1 DAY),interval -2 MONTH) AND
+    LAST_DAY(date_add(last_day(now()),interval -1 MONTH)) 
+    GROUP BY Fecha ORDER BY Cantidad
+) ORDER BY Cantidad;";
+
+            return realizarConsulta(sentencia, "Consultar reservas en el ultimo mes");
+
+        }
+
+        public DataTable verPorcentajeServicios()
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = @"
+  SELECT c.nombre as Nombre, COUNT(m.id) as Cantidad, CONCAT(
+    ROUND(
+        (COUNT(m.id) / (SELECT COUNT(m.id) 
+        FROM contiene c JOIN maxpersonasreserva m
+        ON m.id=c.id WHERE DATE(c.inicio) = Current_Date AND TIME(c.inicio) between '00:00:00' AND '23:59:59') *100 ),2
+    ), '%'
+) AS Porcentaje
+FROM contiene c JOIN maxpersonasreserva m
+ON m.id=c.id WHERE DATE(c.inicio) = Current_Date AND TIME(c.inicio) between '00:00:00' AND '23:59:59' GROUP BY c.nombre 
+ORDER BY COUNT(m.id) desc;";
+
+            return realizarConsulta(sentencia, "Consultar porcentaje de ocupacion de servicios");
+
+        }
+
+        public DataTable verFacturasUltMesServ()
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = @"
+                SELECT s.nombre as Nombre,COUNT(c.nombre) * s.precio as `Total Facturado` FROM contiene c 
+JOIN servicio s ON c.nombre=s.nombre WHERE c.inicio and c.fin BETWEEN
+date_add(date_add(last_day(now()),interval 1 DAY),interval -2 MONTH) AND
+LAST_DAY(date_add(last_day(now()),interval -1 MONTH)) GROUP BY c.nombre;";
+
+            return realizarConsulta(sentencia, "Consultar total facturado de las Reservas del ultimo mes");
+
+        }
+
+        public DataTable verCantidadVecesServicio()
+        {
+            //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
+            String sentencia = @"
+              SELECT distinct s.nombre as Nombre,COUNT(c.id) as Cantidad FROM servicio s 
+JOIN contiene c ON s.nombre=c.nombre where c.inicio 
+BETWEEN date_add(date_add(last_day(now()),interval 1 DAY),interval -2 MONTH) and
+LAST_DAY(date_add(last_day(now()),interval -1 MONTH)) GROUP BY s.nombre
+UNION (
+    SELECT distinct s.nombre as Nombre,COUNT(c.id) = 0 as Cantidad FROM servicio s 
+    JOIN contiene c ON s.nombre!=c.nombre where s.nombre NOT IN(
+        SELECT s.nombre FROM servicio s 
+        JOIN contiene c ON s.nombre=c.nombre where c.inicio 
+        BETWEEN date_add(date_add(last_day(now()),interval 1 DAY),interval -2 MONTH) and
+        LAST_DAY(date_add(last_day(now()),interval -1 MONTH)) GROUP BY s.nombre
+        ) and c.inicio 
+    BETWEEN date_add(date_add(last_day(now()),interval 1 DAY),interval -2 MONTH) and
+    LAST_DAY(date_add(last_day(now()),interval -1 MONTH)) GROUP BY s.nombre
+    ) ORDER BY Cantidad desc;";
+
+            return realizarConsulta(sentencia, "Consultar cantidad de servicios en el ultimo mes");
         }
         #endregion
 

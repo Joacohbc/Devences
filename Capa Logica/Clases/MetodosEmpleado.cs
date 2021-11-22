@@ -937,6 +937,55 @@ namespace Capa_Logica.Clases
             return csCargarDGV(dt, dgvConsulta);
         }
 
+        public bool csVerTodasLosEmpleado(DataGridView dgvConsulta)
+        {
+            DataTable dt = consultas.verTodasLosEmpleados();
+            return csCargarDGV(dt, dgvConsulta);
+        }
+
+        public bool csVerTodosServiciosDeReserva(int id, DataGridView dgvConsulta)
+        {
+            DataTable dt = consultas.verServicioDeReserva(id);
+            return csCargarDGV(dt, dgvConsulta);
+        }
+
+        public bool csVerCliente(String ci, String nombre, DataGridView dgvConsulta)
+        {
+            DataTable dt = consultas.verCliente(ci, nombre);
+            return csCargarDGV(dt, dgvConsulta);
+        }
+
+        public bool csVerReservaEntreFechas(DateTime inicio, DateTime fin, DataGridView dgvConsulta)
+        {
+            DataTable dt = consultas.verReservaEntreFechas(inicio, fin);
+            return csCargarDGV(dt, dgvConsulta);
+        }
+
+        //Las de BD
+        public bool csVerReservasEnElUltimoMes(DataGridView dgvConsulta)
+        {
+            DataTable dt = consultas.verReservasEnElUltimoMes();
+            return csCargarDGV(dt, dgvConsulta);
+        }
+
+        public bool csPorcentajeServicio(DataGridView dgvConsulta)
+        {
+            DataTable dt = consultas.verPorcentajeServicios();
+            return csCargarDGV(dt, dgvConsulta);
+        }
+
+        public bool csFacturasUltMesServ(DataGridView dgvConsulta)
+        {
+            DataTable dt = consultas.verFacturasUltMesServ();
+            return csCargarDGV(dt, dgvConsulta);
+        }
+
+        public bool csVerCantidadVecesServicio(DataGridView dgvConsulta)
+        {
+            DataTable dt = consultas.verCantidadVecesServicio();
+            return csCargarDGV(dt, dgvConsulta);
+        }
+
         #endregion
     }
 }
