@@ -108,3 +108,4 @@ titulo varchar(50) not null,
 valor varchar(50) not null,
 primary key(titulo,valor));
 
+

@@ -76,12 +76,7 @@ namespace Capa_Logica.Clases
             {
                 if (txtCi.Text.Length == 8)
                 {
-                    /*
-                     * SACAR ESE TRUE
-                     * EN ESTE CASO
-                     * ES SOLO PARA PRUEBAS
-                     */
-                    if (validarCedulaOficial(txtCi.Text) || true)
+                    if (validarCedulaOficial(txtCi.Text))
                     {
                         error.SetError(txtCi, "");
                         return true;
