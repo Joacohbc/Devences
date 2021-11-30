@@ -18,3 +18,9 @@ C:\Users\Joaco\Desktop\Devences\Capa Entidades\obj\Debug\Capa Entidades.dll
 C:\Users\Joaco\Desktop\Devences\Capa Entidades\obj\Debug\Capa Entidades.pdb
 C:\Users\Joaco\Desktop\Devences\Capa Entidades\bin\Debug\Capa Entidades.dll.CodeAnalysisLog.xml
 C:\Users\Joaco\Desktop\Devences\Capa Entidades\bin\Debug\Capa Entidades.dll.lastcodeanalysissucceeded
+D:\Programacion III - A. González\Programa\Código\Capa Entidades\bin\Debug\Capa Entidades.dll
+D:\Programacion III - A. González\Programa\Código\Capa Entidades\bin\Debug\Capa Entidades.pdb
+D:\Programacion III - A. González\Programa\Código\Capa Entidades\obj\Debug\Capa Entidades.csprojAssemblyReference.cache
+D:\Programacion III - A. González\Programa\Código\Capa Entidades\obj\Debug\Capa Entidades.csproj.CoreCompileInputs.cache
+D:\Programacion III - A. González\Programa\Código\Capa Entidades\obj\Debug\Capa Entidades.dll
+D:\Programacion III - A. González\Programa\Código\Capa Entidades\obj\Debug\Capa Entidades.pdb

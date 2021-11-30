@@ -264,7 +264,7 @@ namespace Capa_Presentacion.Formularios
             if (Mensaje.MostraPreguntaSiNo("¿Quiere vaciar los campos?", "Vaciar los campos"))
             {
                 //Limpio los componenetes
-                Control[] controles = { txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, txtTelefono, dtpNacimiento, rdbHombre, rdbMujer, rdbNoBinario, listTelefonos };
+                Control[] controles = { txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, txtTelefono, dtpNacimiento, rdbHombre, rdbMujer, rdbNoBinario, listTelefonos, txtNomUsu, txtConfContra, txtContra};
 
                 //Le pongo la MaxDate nuevamente en Hoy
                 dtpNacimiento.MaxDate = DateTime.Parse(DateTime.Now.ToShortDateString());

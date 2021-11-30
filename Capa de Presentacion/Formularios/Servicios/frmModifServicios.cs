@@ -139,6 +139,9 @@ namespace Capa_Presentacion.Formularios.Servicios
                             {
                                 if (servicios.Count > 0)
                                 {
+                                    dgvServicios.Rows.Clear();
+                                    cmbServicio.Items.Clear();
+
                                     foreach (String[] servicio in servicios)
                                     {
                                         dgvServicios.Rows.Add(servicio[0], servicio[1], servicio[2]);
@@ -146,9 +149,9 @@ namespace Capa_Presentacion.Formularios.Servicios
                                     }
 
                                     //Deshabilito los componentes de busqueda
-                                    txtCedulaTitular.Enabled = true;
-                                    btnBuscar.Enabled = true;
-                                    dtpFechaInico.Enabled = true;
+                                    txtCedulaTitular.Enabled = false;
+                                    btnBuscar.Enabled = false;
+                                    dtpFechaInico.Enabled = false;
 
                                     //Habilito los componentes de modificacion
                                     cmbServicio.Enabled = true;
@@ -363,9 +366,9 @@ namespace Capa_Presentacion.Formularios.Servicios
             dtpInicioServicio.Value = DateTime.Now;
 
             //Habilito los componentes de busqueda
-            txtCedulaTitular.Enabled = false;
-            btnBuscar.Enabled = false;
-            dtpFechaInico.Enabled = false;
+            txtCedulaTitular.Enabled = true;
+            btnBuscar.Enabled = true;
+            dtpFechaInico.Enabled = true;
 
             //Deshabilito los componentes de modificacion
             cmbServicio.Enabled = false;

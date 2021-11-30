@@ -58,17 +58,19 @@
             this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 47);
+            this.panel1.Size = new System.Drawing.Size(1333, 58);
             this.panel1.TabIndex = 128;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 13);
+            this.label1.Location = new System.Drawing.Point(16, 16);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 20);
+            this.label1.Size = new System.Drawing.Size(109, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Consultas";
             // 
@@ -78,9 +80,10 @@
             this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(917, 7);
+            this.btnSalir.Location = new System.Drawing.Point(1223, 9);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 32);
+            this.btnSalir.Size = new System.Drawing.Size(100, 39);
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -92,9 +95,10 @@
             this.cmbTipoConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbTipoConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoConsulta.FormattingEnabled = true;
-            this.cmbTipoConsulta.Location = new System.Drawing.Point(165, 71);
+            this.cmbTipoConsulta.Location = new System.Drawing.Point(220, 87);
+            this.cmbTipoConsulta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbTipoConsulta.Name = "cmbTipoConsulta";
-            this.cmbTipoConsulta.Size = new System.Drawing.Size(241, 24);
+            this.cmbTipoConsulta.Size = new System.Drawing.Size(320, 28);
             this.cmbTipoConsulta.TabIndex = 129;
             this.cmbTipoConsulta.SelectedIndexChanged += new System.EventHandler(this.cmbTipoConsulta_SelectedIndexChanged);
             // 
@@ -102,9 +106,10 @@
             // 
             this.lblTipoConsulta.AutoSize = true;
             this.lblTipoConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoConsulta.Location = new System.Drawing.Point(12, 72);
+            this.lblTipoConsulta.Location = new System.Drawing.Point(16, 89);
+            this.lblTipoConsulta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTipoConsulta.Name = "lblTipoConsulta";
-            this.lblTipoConsulta.Size = new System.Drawing.Size(147, 22);
+            this.lblTipoConsulta.Size = new System.Drawing.Size(175, 26);
             this.lblTipoConsulta.TabIndex = 131;
             this.lblTipoConsulta.Text = "Tipo de Consulta";
             // 
@@ -112,9 +117,10 @@
             // 
             this.lblBusqueda.AutoSize = true;
             this.lblBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBusqueda.Location = new System.Drawing.Point(421, 72);
+            this.lblBusqueda.Location = new System.Drawing.Point(561, 89);
+            this.lblBusqueda.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBusqueda.Name = "lblBusqueda";
-            this.lblBusqueda.Size = new System.Drawing.Size(102, 22);
+            this.lblBusqueda.Size = new System.Drawing.Size(123, 26);
             this.lblBusqueda.TabIndex = 132;
             this.lblBusqueda.Text = "Buscar por:";
             // 
@@ -125,18 +131,20 @@
             this.cmbClave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbClave.FormattingEnabled = true;
-            this.cmbClave.Location = new System.Drawing.Point(529, 72);
+            this.cmbClave.Location = new System.Drawing.Point(705, 89);
+            this.cmbClave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbClave.Name = "cmbClave";
-            this.cmbClave.Size = new System.Drawing.Size(110, 24);
+            this.cmbClave.Size = new System.Drawing.Size(145, 28);
             this.cmbClave.TabIndex = 133;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(654, 72);
+            this.label2.Location = new System.Drawing.Point(872, 89);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 22);
+            this.label2.Size = new System.Drawing.Size(90, 26);
             this.label2.TabIndex = 134;
             this.label2.Text = "Ingrese:";
             // 
@@ -145,10 +153,11 @@
             this.dgvConsulta.AllowUserToAddRows = false;
             this.dgvConsulta.AllowUserToDeleteRows = false;
             this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvConsulta.Location = new System.Drawing.Point(14, 149);
+            this.dgvConsulta.Location = new System.Drawing.Point(19, 183);
+            this.dgvConsulta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvConsulta.Name = "dgvConsulta";
             this.dgvConsulta.ReadOnly = true;
-            this.dgvConsulta.Size = new System.Drawing.Size(972, 398);
+            this.dgvConsulta.Size = new System.Drawing.Size(1296, 490);
             this.dgvConsulta.TabIndex = 130;
             // 
             // txtBusqueda
@@ -156,10 +165,12 @@
             this.txtBusqueda.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBusqueda.Enabled = false;
             this.txtBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusqueda.Location = new System.Drawing.Point(734, 76);
+            this.txtBusqueda.Location = new System.Drawing.Point(979, 94);
+            this.txtBusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(132, 19);
+            this.txtBusqueda.Size = new System.Drawing.Size(176, 23);
             this.txtBusqueda.TabIndex = 135;
+            this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
             // 
             // btnBusqueda
             // 
@@ -168,9 +179,10 @@
             this.btnBusqueda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBusqueda.Location = new System.Drawing.Point(904, 72);
+            this.btnBusqueda.Location = new System.Drawing.Point(1205, 89);
+            this.btnBusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBusqueda.Name = "btnBusqueda";
-            this.btnBusqueda.Size = new System.Drawing.Size(82, 30);
+            this.btnBusqueda.Size = new System.Drawing.Size(109, 37);
             this.btnBusqueda.TabIndex = 136;
             this.btnBusqueda.Text = "Buscar";
             this.btnBusqueda.UseVisualStyleBackColor = true;
@@ -182,9 +194,10 @@
             this.btnActualizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.Location = new System.Drawing.Point(14, 553);
+            this.btnActualizar.Location = new System.Drawing.Point(19, 681);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(972, 40);
+            this.btnActualizar.Size = new System.Drawing.Size(1296, 49);
             this.btnActualizar.TabIndex = 137;
             this.btnActualizar.Text = "Actualizar Todo";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -194,9 +207,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(27, 115);
+            this.label3.Location = new System.Drawing.Point(36, 142);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(131, 22);
+            this.label3.Size = new System.Drawing.Size(159, 26);
             this.label3.TabIndex = 138;
             this.label3.Text = "Fecha de Inicio";
             // 
@@ -204,9 +218,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(421, 115);
+            this.label4.Location = new System.Drawing.Point(561, 142);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(115, 22);
+            this.label4.Size = new System.Drawing.Size(138, 26);
             this.label4.TabIndex = 139;
             this.label4.Text = "Fecha de Fin";
             // 
@@ -214,17 +229,19 @@
             // 
             this.dtpInicio.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpInicio.Enabled = false;
-            this.dtpInicio.Location = new System.Drawing.Point(164, 117);
+            this.dtpInicio.Location = new System.Drawing.Point(219, 144);
+            this.dtpInicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpInicio.Name = "dtpInicio";
-            this.dtpInicio.Size = new System.Drawing.Size(200, 20);
+            this.dtpInicio.Size = new System.Drawing.Size(265, 22);
             this.dtpInicio.TabIndex = 140;
             // 
             // dtpFin
             // 
             this.dtpFin.Enabled = false;
-            this.dtpFin.Location = new System.Drawing.Point(542, 117);
+            this.dtpFin.Location = new System.Drawing.Point(723, 144);
+            this.dtpFin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpFin.Name = "dtpFin";
-            this.dtpFin.Size = new System.Drawing.Size(200, 20);
+            this.dtpFin.Size = new System.Drawing.Size(265, 22);
             this.dtpFin.TabIndex = 141;
             // 
             // errorProvider
@@ -233,10 +250,10 @@
             // 
             // frmInfoReservas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(1000, 605);
+            this.ClientSize = new System.Drawing.Size(1333, 745);
             this.Controls.Add(this.dtpFin);
             this.Controls.Add(this.dtpInicio);
             this.Controls.Add(this.label4);
@@ -252,6 +269,7 @@
             this.Controls.Add(this.cmbTipoConsulta);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmInfoReservas";
             this.Load += new System.EventHandler(this.frmInfoReservas_Load);
             this.panel1.ResumeLayout(false);

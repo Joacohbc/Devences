@@ -1066,8 +1066,8 @@ namespace Capa_de_Datos
         public DataTable verTodosLosClientesActivos()
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
-            String sentencia = @"select p.ci 'Cedula', primerNombre 'Nombre', primerApellido 'Primer Apellido', segundoApellido 'Segudo Apellido', 
-                genero 'Genero', fechaNacimiento 'Nacimiento', mail 'Mail', direccion 'Direccion' 
+            String sentencia = @"select p.ci 'Cédula', primerNombre 'Nombre', primerApellido 'Primer Apellido', segundoApellido 'Segudo Apellido', 
+                genero 'Género', fechaNacimiento 'Nacimiento', mail 'Mail', direccion 'Dirección' 
                 from persona p join cliente c 
                 on p.ci = c.ci 
                 where c.estado = true;";
@@ -1077,8 +1077,8 @@ namespace Capa_de_Datos
 
         public DataTable verTodosLosClientesInactivos()
         {
-            String sentencia = @"select p.ci 'Cedula', primerNombre 'Nombre', primerApellido 'Primer Apellido', segundoApellido 'Segudo Apellido',
-                genero 'Genero', fechaNacimiento 'Nacimiento', mail 'Mail', direccion 'Direccion' 
+            String sentencia = @"select p.ci 'Cédula', primerNombre 'Nombre', primerApellido 'Primer Apellido', segundoApellido 'Segudo Apellido',
+                genero 'Género', fechaNacimiento 'Nacimiento', mail 'Mail', direccion 'Dirección' 
                 from persona p join cliente c 
                 on p.ci = c.ci 
                 where c.estado = false;";
@@ -1140,7 +1140,7 @@ namespace Capa_de_Datos
         public DataTable verTodasLosEmpleados()
         {
             String sentencia = @"
-                SELECT p.ci 'Cedula', p.primerNombre 'Nombre', p.primerApellido 'Apellido', e.usuario 'Usuario', e.tipo 'Tipo', e.estado 'Estado'
+                SELECT p.ci 'Cédula', p.primerNombre 'Nombre', p.primerApellido 'Apellido', e.usuario 'Usuario', e.tipo 'Tipo', e.estado 'Estado'
                 from empleado e join persona p
                 on e.ci=p.ci;";
 
@@ -1150,7 +1150,7 @@ namespace Capa_de_Datos
         public DataTable verServicioDeReserva(int id)
         {
             String sentencia = String.Format(@"
-                select r.id 'ID', c.nombre 'Servicio', c.inicio 'Inicio', c.fin 'Fin', c.formaDePago 'Forma de Pago'
+                select r.id 'ID', c.nombre 'Servicio', c.inicio 'Inicio', c.fin 'Fin', c.formaDePago 'Forma de Pago', c.estado 'Estado'
                 from contiene c join reserva r
                 on r.id=c.id
                 where r.id={0};
@@ -1162,12 +1162,12 @@ namespace Capa_de_Datos
         public DataTable verCliente(String ci, String nombre)
         {
             String sentencia = String.Format(@"
-                    select c.ci as Cédula, p.primerNombre as Nombre, p.primerApellido as Apellido, p.fechaNacimiento 'Fecha de Nacimiento', p.genero as Género, p.direccion as Direccion, c.estado as Estado, c.fechaRegistro as 'Fecha Registro'
+                    select c.ci as Cédula, p.primerNombre as Nombre, p.primerApellido as Apellido, p.fechaNacimiento 'Fecha de Nacimiento', p.genero as Género, p.direccion as Dirección, c.estado as Estado, c.fechaRegistro as 'Fecha Registro'
                     from cliente c join persona p on c.ci = p.ci
                     where c.ci = '{0}' or p.primerNombre like '{1}';
                 ", ci, nombre);
 
-            return realizarConsulta(sentencia, "Consultar cliente por Cedula/Nombre");
+            return realizarConsulta(sentencia, "Consultar cliente por Cédula/Nombre");
         }
 
         public DataTable verReservaEntreFechas(DateTime inicio, DateTime fin)
@@ -1187,7 +1187,7 @@ namespace Capa_de_Datos
         {
             //Sentecia decalra fuera del try-catch para poder enviarla al NuevoRegistro
             String sentencia = @"
-SELECT DATE(cuando) as Fecha,('Titulares') as Tipo, COUNT(cuando) as Cantidad FROM registrodecambio
+SELECT DATE(cuando) as Fecha,('Titulares') as Tipo, COUNT(cuando) as Cantidad FROM registroDeCambio
 WHERE descripcion LIKE '%Alta de Reserva%' 
 AND DATE(cuando) BETWEEN
 date_add(date_add(last_day(now()),interval 1 DAY),interval -2 MONTH) AND
@@ -1195,7 +1195,7 @@ LAST_DAY(date_add(last_day(now()),interval -1 MONTH))
 GROUP BY Fecha 
 UNION(
     SELECT DATE(cuando) as Fecha,('Integrantes') as Tipo, COUNT(cuando) as Cantidad 
-    FROM registrodecambio WHERE descripcion LIKE '%Alta de integrante%' AND 
+    FROM registroDeCambio WHERE descripcion LIKE '%Alta de integrante%' AND 
     DATE(cuando) BETWEEN
     date_add(date_add(last_day(now()),interval 1 DAY),interval -2 MONTH) AND
     LAST_DAY(date_add(last_day(now()),interval -1 MONTH)) 

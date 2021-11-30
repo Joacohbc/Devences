@@ -46,6 +46,8 @@ namespace Capa_Presentacion.Formularios
 
             dtpInicio.Enabled = false;
             dtpFin.Enabled = false;
+
+            errorProvider.Clear();
         }
 
         private void activar()
@@ -100,7 +102,7 @@ namespace Capa_Presentacion.Formularios
                 }
                 catch
                 {
-                    Mensaje.MostrarError("Ingrese un ID valido", Mensaje.ErrorIngreso);
+                    Mensaje.MostrarError("Ingrese un ID valida", Mensaje.ErrorIngreso);
                 }
             }
             else if (siConsulta(VerCliente))
@@ -113,7 +115,7 @@ namespace Capa_Presentacion.Formularios
                     }
                     else
                     {
-                        Mensaje.MostrarError("Ingrese una cedula valido", Mensaje.ErrorIngreso);
+                        Mensaje.MostrarError("Ingrese una cédula válida", Mensaje.ErrorIngreso);
                     }
                 }
                 else
@@ -147,7 +149,7 @@ namespace Capa_Presentacion.Formularios
         //Consultas de Clientes
         private const String TodosLosClientesActivos = "Todos los Clientes activos";
         private const String TodosLosClientesInactivos = "Todos los Clientes inactivos";
-        private const String VerCliente = "Cliente por Cedula/Nombre";
+        private const String VerCliente = "Cliente por Cédula/Nombre";
 
         //Consultas de Empleado
         private const String TodosLosEmpleados = "Todos los Empleados";
@@ -165,8 +167,8 @@ namespace Capa_Presentacion.Formularios
         //Sentencias de BD
         private const String PorcentajeServicios = "Porcentaje de ocupacion de servicios";
         private const String ReservasUltimoMes = "Reservas en el ultimo mes";
-        private const String TotalFacuturadoUltimoMes = "Total facturado por servicio en ultimo mes";
-        private const String CantidadVecesServicio = "Cantidad de servicios en el ultimo mes";
+        private const String TotalFacuturadoUltimoMes = "Total facturado por servicio en último mes";
+        private const String CantidadVecesServicio = "Cantidad de servicios en el último mes";
 
         private void frmInfoReservas_Load(object sender, EventArgs e)
         {
@@ -190,14 +192,13 @@ namespace Capa_Presentacion.Formularios
             cargar(TodosLosEmpleados);
 
             //Servicios
-            cargar(CantidadVecesServicio);
             cargar(ServicioDeReserva);
 
             //Sentencias
             cargar(ReservasUltimoMes);
             cargar(PorcentajeServicios);
             cargar(TotalFacuturadoUltimoMes);
-
+            cargar(CantidadVecesServicio);
 
             cmbTipoConsulta.SelectedIndex = 0;
 
@@ -221,7 +222,7 @@ namespace Capa_Presentacion.Formularios
             }
             else if (siConsulta(VerCliente))
             {
-                cmbClave.Items.Add("Cedula");
+                cmbClave.Items.Add("Cédula");
                 cmbClave.Items.Add("Nombre");
                 cmbClave.SelectedIndex = 0;
 
@@ -244,6 +245,11 @@ namespace Capa_Presentacion.Formularios
         private void btnBusqueda_Click(object sender, EventArgs e)
         {
             btnActualizar.PerformClick();
+        }
+
+        private void txtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            errorProvider.Clear();
         }
     }
 }

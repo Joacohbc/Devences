@@ -100,3 +100,20 @@ C:\Users\Joaco\Desktop\Devences\Capa Logica\obj\Debug\Capa Logica.csproj.CopyCom
 C:\Users\Joaco\Desktop\Devences\Capa Logica\obj\Debug\Capa Logica.dll
 C:\Users\Joaco\Desktop\Devences\Capa Logica\obj\Debug\Capa Logica.pdb
 C:\Users\emili\Documents\GitHub\Devences\Capa Logica\bin\Debug\Capa de Datos.dll.config
+C:\Users\emili\Documents\GitHub\Devences\Capa Logica\bin\Debug\MySql.Data.dll
+D:\Programacion III - A. González\Programa\Código\Capa Logica\bin\Debug\Capa Logica.dll
+D:\Programacion III - A. González\Programa\Código\Capa Logica\bin\Debug\Capa Logica.pdb
+D:\Programacion III - A. González\Programa\Código\Capa Logica\bin\Debug\Capa de Datos.dll
+D:\Programacion III - A. González\Programa\Código\Capa Logica\bin\Debug\Capa Entidades.dll
+D:\Programacion III - A. González\Programa\Código\Capa Logica\bin\Debug\MySql.Data.dll
+D:\Programacion III - A. González\Programa\Código\Capa Logica\bin\Debug\Google.Protobuf.dll
+D:\Programacion III - A. González\Programa\Código\Capa Logica\bin\Debug\BouncyCastle.Crypto.dll
+D:\Programacion III - A. González\Programa\Código\Capa Logica\bin\Debug\Capa de Datos.pdb
+D:\Programacion III - A. González\Programa\Código\Capa Logica\bin\Debug\Capa de Datos.dll.config
+D:\Programacion III - A. González\Programa\Código\Capa Logica\bin\Debug\Capa Entidades.pdb
+D:\Programacion III - A. González\Programa\Código\Capa Logica\bin\Debug\MySql.Data.xml
+D:\Programacion III - A. González\Programa\Código\Capa Logica\obj\Debug\Capa Logica.csprojAssemblyReference.cache
+D:\Programacion III - A. González\Programa\Código\Capa Logica\obj\Debug\Capa Logica.csproj.CoreCompileInputs.cache
+D:\Programacion III - A. González\Programa\Código\Capa Logica\obj\Debug\Capa Logica.csproj.CopyComplete
+D:\Programacion III - A. González\Programa\Código\Capa Logica\obj\Debug\Capa Logica.dll
+D:\Programacion III - A. González\Programa\Código\Capa Logica\obj\Debug\Capa Logica.pdb
