@@ -71,3 +71,19 @@ C:\Users\Joaco\Desktop\Devences\Capa de Datos\obj\Debug\Capa de Datos.csproj.Cor
 C:\Users\Joaco\Desktop\Devences\Capa de Datos\obj\Debug\Capa de Datos.csproj.CopyComplete
 C:\Users\Joaco\Desktop\Devences\Capa de Datos\obj\Debug\Capa de Datos.dll
 C:\Users\Joaco\Desktop\Devences\Capa de Datos\obj\Debug\Capa de Datos.pdb
+C:\Users\emili\Documents\GitHub\Devences\Capa de Datos\bin\Debug\Capa de Datos.dll.config
+C:\Users\emili\Documents\GitHub\Devences\Capa de Datos\bin\Debug\MySql.Data.dll
+D:\Programacion III - A. González\Programa\Código\Capa de Datos\bin\Debug\Capa de Datos.dll.config
+D:\Programacion III - A. González\Programa\Código\Capa de Datos\bin\Debug\Capa de Datos.dll
+D:\Programacion III - A. González\Programa\Código\Capa de Datos\bin\Debug\Capa de Datos.pdb
+D:\Programacion III - A. González\Programa\Código\Capa de Datos\bin\Debug\Capa Entidades.dll
+D:\Programacion III - A. González\Programa\Código\Capa de Datos\bin\Debug\MySql.Data.dll
+D:\Programacion III - A. González\Programa\Código\Capa de Datos\bin\Debug\Google.Protobuf.dll
+D:\Programacion III - A. González\Programa\Código\Capa de Datos\bin\Debug\BouncyCastle.Crypto.dll
+D:\Programacion III - A. González\Programa\Código\Capa de Datos\bin\Debug\Capa Entidades.pdb
+D:\Programacion III - A. González\Programa\Código\Capa de Datos\bin\Debug\MySql.Data.xml
+D:\Programacion III - A. González\Programa\Código\Capa de Datos\obj\Debug\Capa de Datos.csprojAssemblyReference.cache
+D:\Programacion III - A. González\Programa\Código\Capa de Datos\obj\Debug\Capa de Datos.csproj.CoreCompileInputs.cache
+D:\Programacion III - A. González\Programa\Código\Capa de Datos\obj\Debug\Capa de Datos.csproj.CopyComplete
+D:\Programacion III - A. González\Programa\Código\Capa de Datos\obj\Debug\Capa de Datos.dll
+D:\Programacion III - A. González\Programa\Código\Capa de Datos\obj\Debug\Capa de Datos.pdb

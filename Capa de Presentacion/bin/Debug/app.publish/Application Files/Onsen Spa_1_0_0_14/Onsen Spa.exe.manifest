@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Onsen Spa.exe" version="1.0.0.14" publicKeyToken="ccc9ef50e44be4a7" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="LogoForm.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Onsen Spa" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Onsen Spa.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          Opciones del manifiesto de UAC
+          Si desea cambiar el nivel de Control de cuentas de usuario de Windows, reemplace el 
+          nodo requestedExecutionLevel por uno de los siguientes.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         Si desea usar Virtualización de archivos y Registro para compatibilidad con 
+         versiones anteriores, elimine el nodo requestedExecutionLevel.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BouncyCastle.Crypto.dll" size="2453504">
+      <assemblyIdentity name="BouncyCastle.Crypto" version="1.8.3.0" publicKeyToken="0E99375E54769942" language="neutral" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>SikSNsUBe/37MPrUw9tNBhTDYsS1NAnGELEtSD17JuY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Capa de Datos.dll" size="48128">
+      <assemblyIdentity name="Capa de Datos" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>wj5KA+qHgE+6CZgw66sysP/ZFHSNBiWGWlAs/D8Laow=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Capa Entidades.dll" size="8192">
+      <assemblyIdentity name="Capa Entidades" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>ZadI53EPn7cMvFAc4U6vGxizjWu2rS51dva/vKZCx+k=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Capa Logica.dll" size="29184">
+      <assemblyIdentity name="Capa Logica" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>cE5wJzazE/Z6b4MGaFMMzqmkRPF33lqqa4Lf+NiUvdA=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Google.Protobuf.dll" size="298496">
+      <assemblyIdentity name="Google.Protobuf" version="3.6.1.0" publicKeyToken="A7D26565BAC4D604" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>tmCHIa/sZfxfbRML4V98ONw3aJn73tQolsd5EaiejRM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySql.Data.dll" size="758784">
+      <assemblyIdentity name="MySql.Data" version="8.0.16.0" publicKeyToken="C5687FC88969C44D" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>enIKvGfVmmAebqrmEOH6AOmtHcgqCjCVa8Wzgp3ocew=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Onsen Spa.exe" size="265696">
+      <assemblyIdentity name="Onsen Spa" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>RbhbaBJKf6JGvWMnJWE2kG2+vDn+/e8dQGYNQBGv2Zc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="LogoForm.ico" size="9662">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>9gndmkYHnRulTzCdNK2IF7yDNl99fzDZtQDukXnxq30=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Onsen Spa.exe.config" size="1599">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>KjgFhXJRW6xg5oneQYy7Pa4BQ71i1pXdZm8XMXrpCTA=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=LAPTOP-7L6U4Q9M\Joaco" issuerKeyHash="157380458f88c90a984bf890228b8bbad04957eb" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>Dmjqq7QapsF6O3ApPmN1U5rQXfU0lKOBVvmexiQX1Vc=</DigestValue></Reference></SignedInfo><SignatureValue>YUfnJ3Ego91l/aEB24Tmw0L0OEBk/N4OwLGw3V9tzW4mKVvZE9ihtPiKZY1q1N1zueIclD3e+Ni35fA6W7G9Yg5jDLhiU2MKHpG030znQIGyoUPdMJjxRP1VcpQQoNNsV9Hmsf+wUuYU4qgX1ONGUzEz1nJYjtuEs7PHDIufpI4=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>2xOgcZlPmZWz07lG4wao7JuSrWbzGQrr9sEj6WzxCQhSpWGgNjdQemlZm6SAkqa/b5i6xwe09F7j7Zo+8+MoJPplPYCYDyfByTQBUStF/0LA0wadUJa20e1iX68KfjNYyWqONNY2LAJF6siDLXINSZqOGAWyqsWJC6GBm10tifU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="57d51724c69ef95681a39434f55dd09a5375633e29703b7ac1a61ab4abea680e" Description="" Url=""><as:assemblyIdentity name="Onsen Spa.exe" version="1.0.0.14" publicKeyToken="ccc9ef50e44be4a7" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=LAPTOP-7L6U4Q9M\Joaco</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>fmla9+/HyiUmqrClFQKZjPYb6p78GGNNrpMyGtWjpn8=</DigestValue></Reference></SignedInfo><SignatureValue>uaOInlpLCUHPWhsTu/Rus8DxTGfNTivOoBPejLnhIPkTDheiV6cnfUWZWVu30g7zOCXChGyN+o/f2jHVufoeDLbsJf+5hbtl4IgtUrxp3Ub0XnhrJtHU8Td7sF/fr7nf1yFMgFoPjhYesnXAzdHXehAw/Z5kH21NGH3VES5ohak=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>2xOgcZlPmZWz07lG4wao7JuSrWbzGQrr9sEj6WzxCQhSpWGgNjdQemlZm6SAkqa/b5i6xwe09F7j7Zo+8+MoJPplPYCYDyfByTQBUStF/0LA0wadUJa20e1iX68KfjNYyWqONNY2LAJF6siDLXINSZqOGAWyqsWJC6GBm10tifU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB7TCCAVagAwIBAgIQagt+JFkk/JxGMYnqzHiLmzANBgkqhkiG9w0BAQsFADA1MTMwMQYDVQQDHioATABBAFAAVABPAFAALQA3AEwANgBVADQAUQA5AE0AXABKAG8AYQBjAG8wHhcNMjExMTIwMDI1NTIzWhcNMjIxMTIwMDg1NTIzWjA1MTMwMQYDVQQDHioATABBAFAAVABPAFAALQA3AEwANgBVADQAUQA5AE0AXABKAG8AYQBjAG8wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBANsToHGZT5mVs9O5RuMGqOybkq1m8xkK6/bBI+ls8QkIUqVhoDY3UHppWZukgJKmv2+YuscHtPRe4+2aPvPjKCT6ZT2AmA8nwck0AVErRf9CwNMGnVCWttHtYl+vCn4zWMlqjjTWNiwCRerIgy1yDUmajhgFsqrFiQuhgZtdLYn1AgMBAAEwDQYJKoZIhvcNAQELBQADgYEAJateV8wO3GnaHRXuo7tQEEMQl5H8cQIyyObv1DFeTAXth+rFULCFVPOSTJnUfzVFcZYcBmWOVUNRk37USKsSNvWs4k32AJ91Z5C0C8T5cX+cJZdSY48IIqlULCkBdzGyJtXV3P1eZ8KascRPL/6mhfP2ByJI9WDhLA7ri2QCnrk=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

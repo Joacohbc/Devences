@@ -117,4 +117,42 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnRefresh.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAOHSURBVFhH7VZL
+        TBNRFH0iIh8VdaPG+NtoUBI3SEw0UkPS4Ie2GImJG3VHYmLcqIkmpsaonYGKIi2dAaJxpXXph7ao+FlI
+        gLAwin8x1H+nxcQE1KjPe6d3cByn1AHEjSc5i3nv3nPf5977hv3HSOFU5AqX0lRMn+MLRzxQ5ozLHOmI
+        y+c39TctoKnxgUORtmkLIA7AiXgcseapZDL2cHN3hrpzRfa54vJjwwI0Rp0JaSvjfAK5jQ2ciUC5MyE/
+        MQmYgo03KxNSPrmPHDbuznTEJck8yPC0vw9sJpkRAo4RhC4YhdPRoch8+YNTPCNS/ZqFjswhNesAsUNG
+        cY1l7wKm46tf+Hn+bS9nISHJiFBEctZQoTQWgOBXswDTbtXweZ21v4zb3wT43I7an4HDnpcsLG4hOetw
+        xRuD+gDIoif1fEI4GWDmbW8Mj3pjTOJL7p7kEyNaYGEAgh9m4eo8krIOrGUotU/64KWvGrQg39QAbe7s
+        2Xe87snXqnW7FoLscs1QQ9rwwT8DfGVgu1ORDmAZ09TwwBarD46c36Udr2cnmTHWKhTAWJyFxA52RSyh
+        0SHAKZ7Ra7gUeTtNDQ9XQtqrd0RmXRVxAZfI5I8Afr16jeKnvmcs6M6i6dSALufVO65/LyV333LMRiZp
+        UcmDWeD7Wa+z9F4d6lSRSWrAfe3SO6564UPHQdYlTSKTtHApgVK9BnJh9wnU8ZJJath6T2ev6WvoxSzH
+        5MOyA8fnNP07TPo+BAwbF5DbBgnbIuwhkzQICTsyIuq9Ez3NNDOEin65BHp+J4jHsW/QMCbfbmPwkqhf
+        03GSWRq4oWRC4n5waIeGEmBttdNphuHbb+wTjoRcVRk9noNPMnx/188hZ7cfxwUMQvlOIRnrsL89mwcJ
+        ehgEB4wB1r0LPITTeGMcR658puYQ8hxJWQeIbwGxl0bxdMQcmtSqXuUXdvnoYpKzhnJFXmEmno62Pj/P
+        ua51SvEgyVnHppg0B37BTI/XjLBgvux+HbRuSmJs0aP9Q4IntrKwp04VNwuKJbs22sALoNmo5Za8c9y5
+        HxIvk2RGgVZPPgjenHKjhq987vttAYu6T+qCqnzEWsT15D1GwGMMebaCeHQWlBUmmLYA/D+A8cew43oW
+        Ee1qGf81XHTnQrB9GRHhI+68sOdU8r7DwjayGCfg2x8SzgOTx447/ycICcXQ4x309R8WwdgPHPi08mU1
+        nHYAAAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="nombre.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="clCapMax.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="duracion.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="cantidad.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="precio.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

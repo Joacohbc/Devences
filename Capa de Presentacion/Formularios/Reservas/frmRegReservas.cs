@@ -15,15 +15,32 @@ namespace Capa_Presentacion.Formularios
 {
     public partial class frmRegReservas : Form
     {
+        private List<Integrantes> integrantes = new List<Integrantes>();
 
-        List<Integrantes> integrantes = new List<Integrantes>();
+        private Validaciones validar = new Validaciones();
 
-        Validaciones validar = new Validaciones();
-
-        #region Cosas del Form
         public frmRegReservas()
         {
             InitializeComponent();
+            errorProvider.Icon = Properties.Resources.IconoError;
+        }
+
+        #region Eventos del Form
+        //Cerarr form
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Validaciones validaciones = new Validaciones();
+            if (validaciones.hayAlgo(this))
+            {
+                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacíos, ¿Quieres cerrar igual?", "Cerrar"))
+                {
+                    Close();
+                }
+            }
+            else
+            {
+                Close();
+            }
         }
 
         //Cargo los datos en los CMB y asigno Min y Max a los DTP
@@ -52,11 +69,11 @@ namespace Capa_Presentacion.Formularios
                 cmbMetodosPago.SelectedIndex = 0;
 
                 //Logo del ErrorProvider
-                errorProvider.Icon = Properties.Resources.ErrorProvider;
+                errorProvider.Icon = Properties.Resources.IconoError;
             }
             else
             {
-                Mensaje.MostrarError("Ocurrio un error la cargar los tipos de ingreso, cierre esta pestania e intentelo nuevamente", Mensaje.ErrorBD);
+                Mensaje.MostrarError("Ocurrió un error la cargar los tipos de ingreso, cierre esta pestaña e inténtelo nuevamente", Mensaje.ErrorBD);
 
                 //Si ocurre un error se desahbiilita todo menos el boton de Cierre del Form
                 foreach (Control c in this.Controls)
@@ -129,12 +146,12 @@ namespace Capa_Presentacion.Formularios
                             listIntegrantes.Items.Add(txtCedulaIntegrante.Text);
 
                             dgvIntegrantes.Rows.Add(persona.PrimerNombre, persona.PrimerApellido, persona.Genero, cmbTipoIngresoIntegrante.SelectedItem.ToString());
-                            Mensaje.MostrarInfo("Se cargo el integrante con exito", "Carga de Integrante exitosa");
+                            Mensaje.MostrarInfo("Se cargó el integrante con éxito", "Carga de Integrante exitosa");
                             txtCedulaIntegrante.Clear();
                         }
                         else
                         {
-                            Mensaje.MostrarError("Ocurrio un error buscar el Cliente", Mensaje.ErrorBD);
+                            Mensaje.MostrarError("Ocurrió un error buscar los datos del Cliente", Mensaje.ErrorBD);
                         }
                     }
                     else if (retorno == 0)
@@ -144,12 +161,12 @@ namespace Capa_Presentacion.Formularios
                     //Si dio Error
                     else
                     {
-                        Mensaje.MostrarError("Ocurrio un error buscar el Cliente", Mensaje.ErrorBD);
+                        Mensaje.MostrarError("Ocurrió un error buscar el Cliente", Mensaje.ErrorBD);
                     }
                 }
                 else
                 {
-                    Mensaje.MostrarError("El Integrante que quiere agregar ya esta agregado", Mensaje.ErrorIngreso);
+                    Mensaje.MostrarError("El Integrante que quiere agregar ya se encuentra agregado", Mensaje.ErrorIngreso);
                 }
             }
         }
@@ -164,7 +181,7 @@ namespace Capa_Presentacion.Formularios
                 if (listIntegrantes.SelectedItem != null)
                 {
                     //Pregunta si quiere eliminarlo
-                    if (Mensaje.MostraPreguntaSiNo("¿Quiere eliminar el integrante seleccionado?", "Error al borrar Integrante"))
+                    if (Mensaje.MostraPreguntaSiNo("¿Quiere eliminar el integrante seleccionado?", "Borrar Integrante"))
                     {
                         try
                         {
@@ -178,7 +195,7 @@ namespace Capa_Presentacion.Formularios
                         }
                         catch
                         {
-                            Mensaje.MostrarError("Ocurrio un error al borrar a un integrante", "Error al borrar Integrante");
+                            Mensaje.MostrarError("Ocurrió un error al borrar a un integrante", "Error al borrar Integrante");
 
                             //Para evitar errores mas adelante vacio las listas y el DGV
                             listIntegrantes.Items.Clear();
@@ -207,37 +224,52 @@ namespace Capa_Presentacion.Formularios
             //Cargo el Array Object con el Metodo, en el Index 0 esta el Objeto Reserva y en el Index 1 esta el numero de Error
             Object[] reserva = metodos.validarReserva(txtCedulaTitular, errorProvider, dtpFechaInico, dtpFechaFin, cmbTipoDeIngreso, cmbMetodosPago, chkConfirmada, integrantes);
 
+            Reserva reservaFinal = (Reserva)reserva[0];
             //Compruebo si la Reserva es Valida
 
             //En el Index 1 deberia haber un 1 si la valdacion fue correcta
             if (Convert.ToInt32(reserva[1]) == 1)
             {
                 //Si ese cliente no tiene una reserva con ese inicio
-                int retorno = metodos.validarFechaReserva((Reserva)reserva[0]);
+                int retorno = metodos.buscarIdReserva((Reserva)reserva[0]);
+
                 if (retorno == 0)
                 {
-                    if (Mensaje.MostraPreguntaSiNo("¿Quiere dar del alta una Reserva para el cliente " + txtCedulaTitular.Text + " " +
-                          "\n del " + dtpFechaInico.Value.ToShortDateString() + " al " + dtpFechaFin.Value.ToShortDateString() + "?", "Alta Reserva"))
+                    Object[] validarFecha = metodos.comprobarDiasTodosDiasReservas(reservaFinal.Ci, reservaFinal.Inicio, reservaFinal.Fin);
+
+                    if ((int)validarFecha[1] == 0)
                     {
-                        //Si la Reserva se dio de Alta con Exito, osea retorna 1
-                        if (metodos.altaReserva((Reserva)reserva[0], integrantes) > 0)
+                        if (Mensaje.MostraPreguntaSiNo("¿Quiere dar de alta una Reserva para el cliente " + txtCedulaTitular.Text + " " +
+                                "\n del " + dtpFechaInico.Value.ToShortDateString() + " al " + dtpFechaFin.Value.ToShortDateString() + "?", "Alta Reserva"))
                         {
-                            Mensaje.MostrarInfo("Alta de Reserva exitosa", "Alta exitosa");
-                        }
-                        //Sino ocurrio un error
-                        else
-                        {
-                            Mensaje.MostrarError("Ocurrio un error al dar de alta la Reserva", Mensaje.ErrorBD);
+                            //Si la Reserva se dio de Alta con Exito, osea retorna 1
+                            if (metodos.altaReserva((Reserva)reserva[0], integrantes) > 0)
+                            {
+                                Mensaje.MostrarInfo("Alta de Reserva exitosa", "Alta exitosa");
+                            }
+                            //Sino ocurrio un error
+                            else
+                            {
+                                Mensaje.MostrarError("Ocurrió un error al dar de alta la Reserva", Mensaje.ErrorBD);
+                            }
                         }
                     }
+                    else if ((int)validarFecha[1] == 1)
+                    {
+                        Mensaje.MostrarError("El Cliente ya tiene reservado el dia " + ((DateTime)validarFecha[0]).ToShortDateString() + " en alguna de sus reservas", Mensaje.ErrorIngreso);
+                    }
+                    else
+                    {
+                        Mensaje.MostrarError("Ocurrió un error al validar los días de la reserva", Mensaje.ErrorBD);
+                    }
                 }
-                else if (retorno == 1)
+                else if (retorno > 0)
                 {
-                    Mensaje.MostrarError("El Cliente ya tiene una reserva realizada con ese inicio", Mensaje.ErrorIngreso);
+                    Mensaje.MostrarError("El Cliente ya tiene una reserva registrada con ese inicio", Mensaje.ErrorIngreso);
                 }
                 else if (retorno == -1)
                 {
-                    Mensaje.MostrarError("Ocurrio un error al validar la fecha de la Reserva", Mensaje.ErrorBD);
+                    Mensaje.MostrarError("Ocurrió un error al validar la fecha de la Reserva", Mensaje.ErrorBD);
                 }
             }
             //Si el Titular es un Integrante muestro el Error
@@ -250,17 +282,23 @@ namespace Capa_Presentacion.Formularios
             //En el Index 1 deberia haber un -2 si el Titular no existe
             else if (Convert.ToInt32(reserva[1]) == -2)
             {
-                Mensaje.MostrarError("El Titular no esta registrado como cliente", Mensaje.ErrorIngreso);
+                Mensaje.MostrarError("El Titular no está registrado como cliente", Mensaje.ErrorIngreso);
             }
             //Si al buscar al TItular ocurrio un error
             //En el Index 1 deberia haber un -3 si hay error en buscar al Titular
             else if (Convert.ToInt32(reserva[1]) == -3)
             {
-                Mensaje.MostrarError("Ocurrio un error al buscar el Titular", Mensaje.ErrorBD);
+                Mensaje.MostrarError("Ocurrió un error al buscar el Titular", Mensaje.ErrorBD);
+            }
+            //Si la Fecha de inicio es hoy y la reserva No Esta Confirmada
+            //En el Index 1 deberia haber un -4 
+            else if (Convert.ToInt32(reserva[1]) == -4)
+            {
+                Mensaje.MostrarError("La reserva deberá ser confirmada si quiere iniciarla hoy", Mensaje.ErrorIngreso);
             }
             //Si la Fecha de inicio es posterior a la de Fin muestro error
             //En el Index 1 deberia haber un -2 si hay un error en las fecha
-            else if (Convert.ToInt32(reserva[1]) == -4)
+            else if (Convert.ToInt32(reserva[1]) == -5)
             {
                 Mensaje.MostrarError("La fecha de inicio debe ser anterior a la de fin", Mensaje.ErrorIngreso);
             }
@@ -269,11 +307,17 @@ namespace Capa_Presentacion.Formularios
         //Descartar reserva
         private void btnDescartar_Click(object sender, EventArgs e)
         {
-            if (Mensaje.MostraPreguntaSiNo("¿Quiere borrar todos los campos?", "Borrar los campos"))
+            if (Mensaje.MostraPreguntaSiNo("¿Quiere vaciar los campos?", "Vaciar los campos"))
             {
                 //Limpio los componenetes
                 Control[] controles = { txtCedulaTitular, txtCedulaIntegrante, dtpFechaInico, dtpFechaFin, chkConfirmada, listIntegrantes, dgvIntegrantes };
+
                 validar.limpiarControles(controles);
+
+                //Le pongo la MinDate nuevamente en Hoy
+                dtpFechaInico.MinDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                dtpFechaFin.MinDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+
 
                 //Para que vuela a tener el predeterminado en el primero
                 cmbTipoDeIngreso.SelectedIndex = 0;
@@ -288,21 +332,5 @@ namespace Capa_Presentacion.Formularios
             }
         }
 
-        //Cerarr form
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Validaciones validaciones = new Validaciones();
-            if (validaciones.hayAlgo(this))
-            {
-                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacios ¿Quieres cerrar igual?", "Cerrar"))
-                {
-                    Close();
-                }
-            }
-            else
-            {
-                Close();
-            }
-        }
     }
 }

@@ -17,15 +17,15 @@ set password for gerente=PASSWORD('gerente');
 #Le asigno los privilegios
 
 #Sobre la Tabla Persona:
+grant select,insert,update on proyectoprueba.persona to gerente;
 /*
 Insert: Dar Altas a Personas(Empleado y Clientes)
 Update: Modificar y Dar Bajas a Personas(Empleado y Clientes)
 Select: Consultar Personas(Empleado y Clientes)
 */
-grant select,insert,update on proyectoprueba.persona to gerente;
 
 #Sobre la Tabla Telefono
-grant select,insert,update on proyectoprueba.telefono to gerente;
+grant select,insert,update,delete on proyectoprueba.telefono to gerente;
 /*
 Insert: Dar Altas a Telefonos de Personas
 Update: Modificar y Dar de Baja de Telefonos de Personas
@@ -49,7 +49,7 @@ Select: Consultar Empleados
 */
 
 #Sobre la Tabla RegistroDeCambio
-grant select,insert on proyectoprueba.registrodecambio to gerente;
+grant select,insert on proyectoprueba.registroDeCambio to gerente;
 /*
 Insert: Dar Altas de Registros
 Select: Consultar los Registros
@@ -105,8 +105,14 @@ set password for administrativo=PASSWORD('administrativo');
 #Sobre la Tabla Persona
 grant insert, update, select on proyectoprueba.persona to administrativo;
 
+#Sobre la Tabla Telefono
+grant insert, update, select, delete  on proyectoprueba.telefono to administrativo;
+
 #Sobre la Tabla Cliente
 grant insert, update, select on proyectoprueba.cliente to administrativo;
+
+#Sobre la Tabla Reserva
+grant select,insert,update on proyectoprueba.reserva to administrativo;
 
 #Sobre la Tabla Integran
 grant insert, update, select on proyectoprueba.integran to administrativo;
@@ -118,9 +124,16 @@ grant insert, update, select on proyectoprueba.contiene to administrativo;
 grant select on proyectoprueba.servicio to administrativo;
 
 #Sobre la Tabla RegistroDeCambio
-grant insert on proyectoprueba.registrodecambio to administrativo;
+grant insert on proyectoprueba.registroDeCambio to administrativo;
 
-#Sobre la Tabla Telefono
-grant insert, update, select on proyectoprueba.telefono to administrativo;
 #Sobre la Tabla Parametros
 grant select on proyectoprueba.parametros to administrativo;
+
+#--------------------------------------------------------------------------------------------------------------------
+
+#Permisos en proceso esctructurados
+grant execute on procedure comprobarDiaEnReserva to gerente, administrativo;
+grant execute on procedure MaxPersonasServicio to gerente, administrativo;
+
+#Permisos en proceso estructurados
+grant select on proyectoprueba.maxpersonasreserva to gerente, administrativo;

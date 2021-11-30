@@ -19,20 +19,39 @@ namespace Capa_Presentacion.Formularios
         public frmRegClientes()
         {
             InitializeComponent();
-
+            errorProvider.Icon = Properties.Resources.IconoError;
         }
 
-        //Pongo el MaxDate del DatePicker, eviatar que la Fec.Nac sea la misma
+        #region Eventos del Form
         private void frmRegClientes_Load(object sender, EventArgs e)
         {
+            //Pongo el MaxDate del DatePicker, eviatar que la Fec.Nac sea la misma
             dtpNacimiento.MaxDate = DateTime.Now;
             
             //Checkeo el rdbHombre para simpre haya uno chekeado
             rdbHombre.Checked = true;
             
             //Logo del ErrorProvider
-            errorProvider.Icon = Properties.Resources.ErrorProvider;
+            errorProvider.Icon = Properties.Resources.IconoError;
         }
+
+        //Cerarr form
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Validaciones validaciones = new Validaciones();
+            if (validaciones.hayAlgo(this))
+            {
+                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacíos, ¿Quieres cerrar igual?", "Cerrar"))
+                {
+                    Close();
+                }
+            }
+            else
+            {
+                Close();
+            }
+        }
+        #endregion
 
         #region Validaciones de Ingreso(TextBoxes)
 
@@ -119,7 +138,7 @@ namespace Capa_Presentacion.Formularios
         //Direccion
         private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !validar.validarSiCaracterEsDigitoLetra(e.KeyChar, false, ". /");
+            e.Handled = !validar.validarSiCaracterEsDigitoLetra(e.KeyChar, true, ". /");
         }
         private void txtDireccion_TextChanged(object sender, EventArgs e)
         {
@@ -144,7 +163,7 @@ namespace Capa_Presentacion.Formularios
                 }
                 else
                 {
-                    Mensaje.MostrarError("El telefono que quiere agregar ya existe", "Agregar telefono");
+                    Mensaje.MostrarError("El teléfono que quiere agregar ya existe", "Agregar teléfono");
                 }
             }
         }
@@ -157,7 +176,7 @@ namespace Capa_Presentacion.Formularios
                 //Que algun telefono este seleccionado
                 if (listTelefonos.SelectedItem != null)
                 {
-                    if (Mensaje.MostraPreguntaSiNo("¿Quiere eliminar el telefono seleccionado?", "Eliminar telefono"))
+                    if (Mensaje.MostraPreguntaSiNo("¿Quiere eliminar el teléfono seleccionado?", "Eliminar teléfono"))
                     {
                         //Borro el telefono seleccionado
                         listTelefonos.Items.Remove(listTelefonos.SelectedItem);
@@ -165,12 +184,12 @@ namespace Capa_Presentacion.Formularios
                 }
                 else
                 {
-                    Mensaje.MostrarError("Seleccione un telefono", "Eliminar telefono");
+                    Mensaje.MostrarError("Seleccione un teléfono", "Eliminar teléfono");
                 }
             }
             else
             {
-                Mensaje.MostrarError("Primero ingrese un telefono", "Eliminar telefono");
+                Mensaje.MostrarError("Primero ingrese un teléfono", "Eliminar teléfono");
             }
         }
 
@@ -190,46 +209,31 @@ namespace Capa_Presentacion.Formularios
                 }
                 else
                 {
-                    Mensaje.MostrarError("Seleccione un telefono", "Editar telefono");
+                    Mensaje.MostrarError("Seleccione un teléfono", "Editar teléfono");
                 }
             }
             else
             {
-                Mensaje.MostrarError("Primero ingrese un telefono", "Editar telefono");
+                Mensaje.MostrarError("Primero ingrese un teléfono", "Editar teléfono");
             }
         }
 
         #endregion
-
-        //Cerarr form
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Validaciones validaciones = new Validaciones();
-            if (validaciones.hayAlgo(this))
-            {
-                if (Mensaje.MostraPreguntaSiNo("Los campos no estan vacios ¿Quieres cerrar igual?", "Cerrar"))
-                {
-                    Close();
-                }
-            }
-            else
-            {
-                Close();
-            }
-        }
 
         //Validar y registrar
         private void btnRegistra_Click(object sender, EventArgs e)
         {
             //Instnacio el objeto de MetodoEmpleado
             MetodosEmpleado alta = new MetodosEmpleado(frmPrincipal.empleado.Ci, frmPrincipal.empleado.Tipo);
+
             //Creo el Objeto cliente
-            Cliente cliente = alta.validarCliente(txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, dtpNacimiento, rdbHombre, rdbMujer, listTelefonos, errorProvider);
+            Cliente cliente = alta.validarCliente(txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail, 
+                txtDireccion, dtpNacimiento, rdbHombre, rdbMujer, listTelefonos, errorProvider);
 
             //Si no es Null, osea que todo sus atributos fueron validados con exito
             if (cliente != null)
             {
-                if (Mensaje.MostraPreguntaSiNo("¿Quiere dar de alta a cliente "+ cliente.PrimerNombre +" " + cliente.PrimerApellido +"?", "Alta de cliente"))
+                if (Mensaje.MostraPreguntaSiNo("¿Quiere dar de alta al cliente "+ cliente.PrimerNombre +" " + cliente.PrimerApellido +"?", "Alta de cliente"))
                 {
                     //Creo un objeto Persona a partir de un objeto de su clase Hija Cliente
                     Persona persona = cliente;
@@ -248,7 +252,7 @@ namespace Capa_Presentacion.Formularios
                             //Si fue un alta exitosa
                             if (retorno > 0)
                             {
-                                Mensaje.MostrarInfo("Se dio de alta el cliente: " + txtPrimerNombre.Text + " " + txtPrimerApellido.Text + " con exito", "Alta de cliente exitosa");
+                                Mensaje.MostrarInfo("Se dio de alta el cliente: " + txtPrimerNombre.Text + " " + txtPrimerApellido.Text + " con éxito", "Alta de cliente exitosa");
                                 dgvRegistrarClientes.Rows.Add(persona.Ci, persona.PrimerNombre, persona.PrimerApellido, persona.Genero);
                                 btnCancelar.PerformClick();
                             }
@@ -260,12 +264,12 @@ namespace Capa_Presentacion.Formularios
                             //Si dio Error
                             else
                             {
-                                Mensaje.MostrarError("Ocurrio un error a dar de alta al Cliente", Mensaje.ErrorBD);
+                                Mensaje.MostrarError("Ocurrió un error al dar de alta al Cliente", Mensaje.ErrorBD);
                             }
                         }
                         else
                         {
-                            Mensaje.MostrarError("Ocurrio un error a dar de alta los Telefonos de la Persona", Mensaje.ErrorBD);
+                            Mensaje.MostrarError("Ocurrió un error al dar de alta los Teléfonos de la Persona", Mensaje.ErrorBD);
                         }
                     }
                     //Si es igual a 0, osea que la persona existe
@@ -276,7 +280,7 @@ namespace Capa_Presentacion.Formularios
                     //Y -1 si es error
                     else
                     {
-                        Mensaje.MostrarError("Ocurrio un error al dar de Alta a la Persona", Mensaje.ErrorBD);
+                        Mensaje.MostrarError("Ocurrió un error al dar de Alta a la Persona", Mensaje.ErrorBD);
                     }
                 }
             }
@@ -285,10 +289,15 @@ namespace Capa_Presentacion.Formularios
         //Borrar los campos
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (Mensaje.MostraPreguntaSiNo("¿Quiere borrar todos los campos?", "Borrar los campos"))
+            if (Mensaje.MostraPreguntaSiNo("¿Quiere vaciar todos los campos?", "Vaciar los campos"))
             {
                 //Limpio los componenetes
-                Control[] controles = { txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail, txtDireccion, txtTelefono, dtpNacimiento, rdbHombre, rdbMujer, rdbNoBinario, listTelefonos };
+                Control[] controles = { txtCedula, txtPrimerNombre, txtSegundoNombre, txtPrimerApellido, txtSegundoApellido, txtMail,
+                    txtDireccion, txtTelefono, dtpNacimiento, rdbHombre, rdbMujer, rdbNoBinario, listTelefonos };
+
+                //Le pongo la MaxDate nuevamente en Hoy
+                dtpNacimiento.MaxDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                
                 validar.limpiarControles(controles);
 
                 //Checkeo el rdbHombre para simpre haya uno chekeado
@@ -298,13 +307,21 @@ namespace Capa_Presentacion.Formularios
                 errorProvider.Clear();
             }
         }
-
+        
+        //Limpia el DataGrid
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            if (Mensaje.MostraPreguntaSiNo("¿Quiere borrar todos las filas de la tabla", "Borrar tabla"))
+            if(dgvRegistrarClientes.Rows.Count > 0)
             {
-                //Limpio los componenetes
-                dgvRegistrarClientes.Rows.Clear();
+                if (Mensaje.MostraPreguntaSiNo("¿Quiere borrar todos las filas de la tabla", "Borrar tabla"))
+                {
+                    //Limpio los componenetes
+                    dgvRegistrarClientes.Rows.Clear();
+                }
+            }
+            else
+            {
+                Mensaje.MostrarError("La tabla no contiene registros", Mensaje.ErrorIngreso);
             }
         }
     }

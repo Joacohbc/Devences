@@ -16,21 +16,33 @@ namespace Capa_de_Datos
         {
             if (rol == 2)
             {
-                conexionBD = new MySqlConnection("server=localhost; port=3306; database=proyectoprueba; uid=login; pwd=login;");
+                //conexion joaco
+                //conexionBD = new MySqlConnection("server=167.57.106.13; port=3306; database=proyectoprueba; uid=login; pwd=login;");
+
+                //conexion local
+                conexionBD = new MySqlConnection("server=" + Properties.Settings.Default.Server + "; port=" + Properties.Settings.Default.Puerto + "; database=" + Properties.Settings.Default.Database + "; uid=" + Properties.Settings.Default.User1 + "; pwd=" + Properties.Settings.Default.Pass1 + ";");
 
                 //Conexion para la UTU
                 //conexionBD = new MySqlConnection("server=192.168.2.53; port=3306; database=Devences; uid=jgenova; pwd=53626663;");
             }
             else if (rol == 1)
             {
-                conexionBD = new MySqlConnection("server=localhost; port=3306; database=proyectoprueba; uid=gerente; pwd=gerente;");
+                //Conexion joaco
+                //conexionBD = new MySqlConnection("server=167.57.106.13; port=3306; database=proyectoprueba; uid=gerente; pwd=gerente;");
+
+                //conexion local
+                conexionBD = new MySqlConnection("server=" + Properties.Settings.Default.Server + "; port=" + Properties.Settings.Default.Puerto + "; database=" + Properties.Settings.Default.Database + "; uid=" + Properties.Settings.Default.User2 + "; pwd=" + Properties.Settings.Default.Pass2 + ";");
 
                 //Conexion para la UTU
                 //conexionBD = new MySqlConnection("server=192.168.2.53; port=3306; database=Devences; uid=jgenova; pwd=53626663;");
             }
             else
             {
-                conexionBD = new MySqlConnection("server=localhost; port=3306; database=proyectoprueba; uid=administrativo; pwd=administrativo;");
+                //conexion joaco
+                //conexionBD = new MySqlConnection("server=167.57.106.13; port=3306; database=proyectoprueba; uid=administrativo; pwd=administrativo;");
+
+                //conexion local
+                conexionBD = new MySqlConnection("server=" + Properties.Settings.Default.Server + "; port=" + Properties.Settings.Default.Puerto + "; database=" + Properties.Settings.Default.Database + "; uid=" + Properties.Settings.Default.User3 + "; pwd=" + Properties.Settings.Default.Pass3 + ";");
                 
                 //Conexion para la UTU
                 //conexionBD = new MySqlConnection("server=192.168.2.53; port=3306; database=Devences; uid=jgenova; pwd=53626663;");

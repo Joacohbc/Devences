@@ -44,16 +44,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Altas.cs" />
+    <Compile Include="Bajas.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="Consultas.cs" />
     <Compile Include="Login\Login.cs" />
+    <Compile Include="Modificaciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Capa Entidades\Capa Entidades.csproj">
       <Project>{857a660e-1e76-4cd0-afc0-628afa727bbb}</Project>
       <Name>Capa Entidades</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -54,10 +54,6 @@
             this.btnRegistra = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dgvRegistrarClientes = new System.Windows.Forms.DataGridView();
-            this.columnCi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnNombre1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columApellido1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columGenero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBorrarTelefono = new System.Windows.Forms.Button();
             this.dtpNacimiento = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
@@ -66,6 +62,10 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.columnCi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnNombre1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columApellido1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columGenero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistrarClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.pnTitulo.SuspendLayout();
@@ -88,7 +88,7 @@
             this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(914, 7);
+            this.btnSalir.Location = new System.Drawing.Point(917, 7);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 32);
             this.btnSalir.TabIndex = 0;
@@ -363,34 +363,6 @@
             this.dgvRegistrarClientes.Size = new System.Drawing.Size(409, 327);
             this.dgvRegistrarClientes.TabIndex = 26;
             // 
-            // columnCi
-            // 
-            this.columnCi.Frozen = true;
-            this.columnCi.HeaderText = "Cedula";
-            this.columnCi.Name = "columnCi";
-            this.columnCi.ReadOnly = true;
-            // 
-            // columnNombre1
-            // 
-            this.columnNombre1.Frozen = true;
-            this.columnNombre1.HeaderText = "1er Nombre";
-            this.columnNombre1.Name = "columnNombre1";
-            this.columnNombre1.ReadOnly = true;
-            // 
-            // columApellido1
-            // 
-            this.columApellido1.Frozen = true;
-            this.columApellido1.HeaderText = "1er Apellido";
-            this.columApellido1.Name = "columApellido1";
-            this.columApellido1.ReadOnly = true;
-            // 
-            // columGenero
-            // 
-            this.columGenero.Frozen = true;
-            this.columGenero.HeaderText = "Genero";
-            this.columGenero.Name = "columGenero";
-            this.columGenero.ReadOnly = true;
-            // 
             // btnBorrarTelefono
             // 
             this.btnBorrarTelefono.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -472,6 +444,34 @@
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // columnCi
+            // 
+            this.columnCi.Frozen = true;
+            this.columnCi.HeaderText = "Cédula";
+            this.columnCi.Name = "columnCi";
+            this.columnCi.ReadOnly = true;
+            // 
+            // columnNombre1
+            // 
+            this.columnNombre1.Frozen = true;
+            this.columnNombre1.HeaderText = "1er Nombre";
+            this.columnNombre1.Name = "columnNombre1";
+            this.columnNombre1.ReadOnly = true;
+            // 
+            // columApellido1
+            // 
+            this.columApellido1.Frozen = true;
+            this.columApellido1.HeaderText = "1er Apellido";
+            this.columApellido1.Name = "columApellido1";
+            this.columApellido1.ReadOnly = true;
+            // 
+            // columGenero
+            // 
+            this.columGenero.Frozen = true;
+            this.columGenero.HeaderText = "Género";
+            this.columGenero.Name = "columGenero";
+            this.columGenero.ReadOnly = true;
             // 
             // frmRegClientes
             // 
@@ -556,10 +556,10 @@
         private System.Windows.Forms.Panel pnTitulo;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnCi;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnNombre1;
         private System.Windows.Forms.DataGridViewTextBoxColumn columApellido1;
         private System.Windows.Forms.DataGridViewTextBoxColumn columGenero;
-        private System.Windows.Forms.Button btnLimpiar;
     }
 }

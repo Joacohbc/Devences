@@ -53,6 +53,7 @@ tipoDeIngreso enum('Ingreso Normal', 'Ingreso de alojados', 'Ingreso Jubilados/P
 precioTotal int(11) not null,
 #Predeterminadamente estara No Confirmada
 estado enum('Confirmada','No Confirmada', 'Eliminada' ,'Cancelada', 'Finalizada') default 'No Confirmada',
+fechaRegistro timestamp default current_timestamp(),
 formaDePago enum('Credito', 'Debito', 'Contado') not null,
 primary key(id, ci, inicio, estado),
 foreign key(ci) references cliente(ci)
@@ -95,7 +96,7 @@ id int(11) not null,
 nombre varchar(50) not null,
 inicio datetime not null,#Datetime porque se necesita saber el dia y fecha que se registro
 fin datetime not null,#Datetime porque se necesita saber el dia y fecha que se registro
-estado enum('Confirmada','No Confirmada','Finalizada') default 'Confirmada',
+estado enum('Confirmada','Cancelada','Finalizada') default 'Confirmada',
 formaDePago enum('Credito', 'Debito', 'Contado') not null,
 primary key(id,nombre,inicio),
 foreign key(id) references reserva(id),
@@ -106,4 +107,5 @@ create table if not exists parametros (
 titulo varchar(50) not null,
 valor varchar(50) not null,
 primary key(titulo,valor));
+
 

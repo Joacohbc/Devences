@@ -54,8 +54,6 @@ namespace Capa_Logica
                     //Si es un DatePicker
                     else if (c is DateTimePicker)
                     {
-                        //Pone su fecha maxima en en el dia de hoy
-                        ((DateTimePicker)c).MaxDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                         //Y lo setea en el dia de hoy
                         ((DateTimePicker)c).Value = DateTime.Parse(DateTime.Now.ToShortDateString());
                     }
@@ -82,6 +80,14 @@ namespace Capa_Logica
                     {
                         //Borra todas sus filas
                         ((ListBox)c).Items.Clear();
+                    }
+                    //Si es un ListBox
+                    else if (c is ComboBox)
+                    {
+                        if (((ComboBox)c).Items.Count > 0)
+                        {
+                            ((ComboBox)c).SelectedIndex = 0;
+                        }
                     }
 
                     //Le doy focus al primero
@@ -531,7 +537,7 @@ namespace Capa_Logica
             fechaFin = DateTime.Parse(fechaFin.ToShortDateString());
 
             //Si la fecha de inicio es <= a la de fin retorna true
-            if (DateTime.Compare(fechaInicio, fechaFin) != 1)
+            if (DateTime.Compare(fechaInicio, fechaFin) <= 0)
             {
                 return true;
             }
@@ -579,7 +585,7 @@ namespace Capa_Logica
             horaFin = DateTime.Parse(horaFin.ToShortTimeString());
 
             //Si la hora de inicio es <= a la de fin retorna true
-            if (DateTime.Compare(horaInicio, horaFin) != -1)
+            if (DateTime.Compare(horaInicio, horaFin) < 0)
             {
                 return true;
             }

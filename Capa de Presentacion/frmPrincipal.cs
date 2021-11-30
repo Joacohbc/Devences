@@ -45,7 +45,7 @@ namespace Capa_Presentacion
             ///Si es null, sigmifca que ocurrio un error
             if (empleado == null)
             {
-                Mensaje.MostrarError("Ocurrio un error al cargar al usuario de la sesion", Mensaje.ErrorBD);
+                Mensaje.MostrarError("Ocurrió un error al cargar al usuario de la sesión", Mensaje.ErrorBD);
                 Close();
             }
 
@@ -74,7 +74,7 @@ namespace Capa_Presentacion
 
             Form formulario = pnForms.Controls.OfType<Forms>().FirstOrDefault(); //Buscamos en la coleccion al formulario
 
-            if (formulario == null)                                              //si no existe lo crea
+            if (formulario == null)//si no existe lo crea
             {
                 formulario = new Forms();
                 formulario.FormBorderStyle = FormBorderStyle.None;
@@ -86,8 +86,8 @@ namespace Capa_Presentacion
                 formulario.BringToFront();
                 formulario.FormClosed += new FormClosedEventHandler(ColorCerrarForms);
             }
-            else
-            {                                                               //si ya existe lo trae al frente
+            else //si ya existe lo trae al frente
+            {
                 formulario.BringToFront();
             }
 
@@ -109,7 +109,7 @@ namespace Capa_Presentacion
                 btnIngRes.BackColor = Color.PowderBlue;
             if (Application.OpenForms["frmModifReservas"] == null)
                 btnModifRes.BackColor = Color.PowderBlue;
-            if (Application.OpenForms["frmRegServicios"] == null)
+            if (Application.OpenForms["frmResServicios"] == null)
                 btnRegServ.BackColor = Color.PowderBlue;
             if (Application.OpenForms["frmModifServicios"] == null)
                 btnModifServ.BackColor = Color.PowderBlue;
@@ -175,7 +175,7 @@ namespace Capa_Presentacion
 
         private void btnRegServ_Click(object sender, EventArgs e)
         {
-            AbrirFormularios<frmRegServicios>();
+            AbrirFormularios<frmResServicios>();
             btnRegServ.BackColor = Color.SkyBlue;
         }
 
@@ -265,7 +265,7 @@ namespace Capa_Presentacion
             {
                 if (cerrar)
                 {
-                    if (Mensaje.MostraPreguntaSiNo("¿Quieres cerrar esion? El trabajo no guardado se perdera", "Cerrar Sesion"))
+                    if (Mensaje.MostraPreguntaSiNo("¿Quieres cerrar sesión? El trabajo no guardado se perderá", "Cerrar Sesión"))
                     {
                         this.Dispose(true);
 
@@ -279,7 +279,7 @@ namespace Capa_Presentacion
                 else
                 {
                     cerrar = false;
-                    if (Mensaje.MostraPreguntaSiNo("¿Quieres cerrar el programa? El trabajo no guardado se perdera", "Cerrar Programa"))
+                    if (Mensaje.MostraPreguntaSiNo("¿Quieres cerrar el programa? El trabajo no guardado se perderá", "Cerrar Programa"))
                     {
                         Application.Exit();
                     }

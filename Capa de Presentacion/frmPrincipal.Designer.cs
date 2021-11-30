@@ -146,7 +146,6 @@
             // 
             this.btnModifEmp.BackColor = System.Drawing.Color.PowderBlue;
             this.btnModifEmp.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnModifEmp.Enabled = false;
             this.btnModifEmp.FlatAppearance.BorderSize = 0;
             this.btnModifEmp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnModifEmp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
@@ -164,7 +163,6 @@
             // 
             this.btnModifPyH.BackColor = System.Drawing.Color.PowderBlue;
             this.btnModifPyH.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnModifPyH.Enabled = false;
             this.btnModifPyH.FlatAppearance.BorderSize = 0;
             this.btnModifPyH.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnModifPyH.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
@@ -174,7 +172,7 @@
             this.btnModifPyH.Name = "btnModifPyH";
             this.btnModifPyH.Size = new System.Drawing.Size(174, 35);
             this.btnModifPyH.TabIndex = 12;
-            this.btnModifPyH.Text = "Modificar Precios";
+            this.btnModifPyH.Text = "Modif. Precios y Horas";
             this.btnModifPyH.UseVisualStyleBackColor = false;
             this.btnModifPyH.Click += new System.EventHandler(this.btnModifPyH_Click);
             // 
@@ -214,7 +212,6 @@
             // 
             this.btnModifServ.BackColor = System.Drawing.Color.PowderBlue;
             this.btnModifServ.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnModifServ.Enabled = false;
             this.btnModifServ.FlatAppearance.BorderSize = 0;
             this.btnModifServ.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnModifServ.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
@@ -241,7 +238,7 @@
             this.btnRegServ.Name = "btnRegServ";
             this.btnRegServ.Size = new System.Drawing.Size(174, 35);
             this.btnRegServ.TabIndex = 17;
-            this.btnRegServ.Text = "Registrar Servicios";
+            this.btnRegServ.Text = "Reservar Servicios";
             this.btnRegServ.UseVisualStyleBackColor = false;
             this.btnRegServ.Click += new System.EventHandler(this.btnRegServ_Click);
             // 
@@ -281,7 +278,6 @@
             // 
             this.btnModifRes.BackColor = System.Drawing.Color.PowderBlue;
             this.btnModifRes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnModifRes.Enabled = false;
             this.btnModifRes.FlatAppearance.BorderSize = 0;
             this.btnModifRes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnModifRes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
@@ -365,7 +361,6 @@
             // 
             this.btnModifCli.BackColor = System.Drawing.Color.PowderBlue;
             this.btnModifCli.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnModifCli.Enabled = false;
             this.btnModifCli.FlatAppearance.BorderSize = 0;
             this.btnModifCli.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnModifCli.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
@@ -415,7 +410,6 @@
             // 
             this.btnInfoPyH.BackColor = System.Drawing.Color.PowderBlue;
             this.btnInfoPyH.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnInfoPyH.Enabled = false;
             this.btnInfoPyH.FlatAppearance.BorderSize = 0;
             this.btnInfoPyH.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnInfoPyH.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
@@ -434,7 +428,6 @@
             // 
             this.btnConsultas.BackColor = System.Drawing.Color.PowderBlue;
             this.btnConsultas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConsultas.Enabled = false;
             this.btnConsultas.FlatAppearance.BorderSize = 0;
             this.btnConsultas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnConsultas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
@@ -465,7 +458,7 @@
             this.btnMenuInfo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMenuInfo.Size = new System.Drawing.Size(174, 40);
             this.btnMenuInfo.TabIndex = 6;
-            this.btnMenuInfo.Text = "   información";
+            this.btnMenuInfo.Text = "Información";
             this.btnMenuInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMenuInfo.UseVisualStyleBackColor = false;
             this.btnMenuInfo.Click += new System.EventHandler(this.btnMenuInfo_Click);
@@ -562,7 +555,7 @@
             this.Controls.Add(this.pnMenu);
             this.Controls.Add(this.pnBarra);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MinimumSize = new System.Drawing.Size(1000, 300);
+            this.MinimumSize = new System.Drawing.Size(999, 298);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Onsen Spa Termal";

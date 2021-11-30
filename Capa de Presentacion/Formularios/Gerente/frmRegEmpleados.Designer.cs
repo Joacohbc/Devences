@@ -142,7 +142,7 @@
             this.btnBorrarTelefono.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnBorrarTelefono.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBorrarTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBorrarTelefono.Location = new System.Drawing.Point(388, 421);
+            this.btnBorrarTelefono.Location = new System.Drawing.Point(388, 409);
             this.btnBorrarTelefono.Name = "btnBorrarTelefono";
             this.btnBorrarTelefono.Size = new System.Drawing.Size(90, 34);
             this.btnBorrarTelefono.TabIndex = 56;
@@ -185,7 +185,7 @@
             this.btnAgregarTelefono.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnAgregarTelefono.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarTelefono.Location = new System.Drawing.Point(386, 363);
+            this.btnAgregarTelefono.Location = new System.Drawing.Point(388, 369);
             this.btnAgregarTelefono.Name = "btnAgregarTelefono";
             this.btnAgregarTelefono.Size = new System.Drawing.Size(90, 34);
             this.btnAgregarTelefono.TabIndex = 73;
@@ -209,7 +209,7 @@
             // 
             this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(176, 369);
+            this.txtTelefono.Location = new System.Drawing.Point(176, 376);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(175, 19);
             this.txtTelefono.TabIndex = 70;

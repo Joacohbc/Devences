@@ -36,10 +36,6 @@
             this.dtpFechaInico = new System.Windows.Forms.DateTimePicker();
             this.btnBorrarIntegrante = new System.Windows.Forms.Button();
             this.dgvIntegrantes = new System.Windows.Forms.DataGridView();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoDeIngresoColumna = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDescartar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnAgregarIntegrante = new System.Windows.Forms.Button();
@@ -61,6 +57,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbMetodosPago = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoDeIngresoColumna = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIntegrantes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.panel1.SuspendLayout();
@@ -147,38 +148,13 @@
             this.dgvIntegrantes.Size = new System.Drawing.Size(486, 155);
             this.dgvIntegrantes.TabIndex = 88;
             // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Apellido
-            // 
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
-            // 
-            // Genero
-            // 
-            this.Genero.HeaderText = "Genero";
-            this.Genero.Name = "Genero";
-            this.Genero.ReadOnly = true;
-            // 
-            // tipoDeIngresoColumna
-            // 
-            this.tipoDeIngresoColumna.HeaderText = "Tipo de Ingreso";
-            this.tipoDeIngresoColumna.Name = "tipoDeIngresoColumna";
-            this.tipoDeIngresoColumna.ReadOnly = true;
-            this.tipoDeIngresoColumna.Width = 140;
-            // 
             // btnDescartar
             // 
             this.btnDescartar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnDescartar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnDescartar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDescartar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDescartar.Location = new System.Drawing.Point(337, 427);
+            this.btnDescartar.Location = new System.Drawing.Point(291, 445);
             this.btnDescartar.Name = "btnDescartar";
             this.btnDescartar.Size = new System.Drawing.Size(92, 36);
             this.btnDescartar.TabIndex = 87;
@@ -192,7 +168,7 @@
             this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(180, 427);
+            this.btnRegistrar.Location = new System.Drawing.Point(130, 445);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(92, 36);
             this.btnRegistrar.TabIndex = 86;
@@ -244,7 +220,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(145, 20);
             this.label8.TabIndex = 82;
-            this.label8.Text = "Cedula Integrantes";
+            this.label8.Text = "Cédula Integrantes";
             // 
             // lblTipoDeIng
             // 
@@ -401,12 +377,48 @@
             this.cmbMetodosPago.Size = new System.Drawing.Size(250, 24);
             this.cmbMetodosPago.TabIndex = 103;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(58, 343);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(60, 20);
+            this.label6.TabIndex = 104;
+            this.label6.Text = "Estado";
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Apellido
+            // 
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            this.Apellido.ReadOnly = true;
+            // 
+            // Genero
+            // 
+            this.Genero.HeaderText = "Género";
+            this.Genero.Name = "Genero";
+            this.Genero.ReadOnly = true;
+            // 
+            // tipoDeIngresoColumna
+            // 
+            this.tipoDeIngresoColumna.HeaderText = "Tipo de Ingreso";
+            this.tipoDeIngresoColumna.Name = "tipoDeIngresoColumna";
+            this.tipoDeIngresoColumna.ReadOnly = true;
+            this.tipoDeIngresoColumna.Width = 140;
+            // 
             // frmRegReservas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1000, 605);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.cmbMetodosPago);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -479,5 +491,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Genero;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipoDeIngresoColumna;
+        private System.Windows.Forms.Label label6;
     }
 }

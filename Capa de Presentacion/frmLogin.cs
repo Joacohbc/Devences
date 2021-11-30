@@ -117,7 +117,7 @@ namespace Capa_Presentacion
                 }
                 else
                 {
-                    Mensaje.MostrarError("Ocurrio un error al iniciar sesion", Mensaje.ErrorBD);
+                    Mensaje.MostrarError("Ocurrió un error al iniciar sesión", Mensaje.ErrorBD);
                 }
             }
             else
